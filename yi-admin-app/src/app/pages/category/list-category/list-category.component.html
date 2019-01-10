@@ -1,0 +1,113 @@
+<div widget class="card border-0 box-shadow">
+    <!--<app-tree #tree (result)="setParentCategory($event)"></app-tree>-->
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+    </div>
+    <div class="card-body widget-body">
+       <!-- <form [formGroup]="searchForm">
+            <div class=" form-inline form-group">
+
+                <div class="col-lg-4 form-group">
+                    <label class="col-lg-4 form-control-label text-lg-right">分类名称</label>
+                    <input class="col-lg-6 form-control filter" formControlName="categoryName"
+                           (blur)="pageQuery.addOnlyFilter('categoryName',$event.target.value,'eq')"
+                           placeholder="请输入分类名称" type="text">
+                </div>
+
+            </div>
+        </form>
+-->
+        <div class=" form-inline form-group">
+            <div class="col-lg-12">
+                <div class=" pull-right">
+                    <button class="btn btn-primary  mr-1" [routerLink]="'../add'">
+                        <i class="fa fa-plus"></i>&nbsp;新增
+                    </button>
+                    <!--<button class="btn btn-success  mr-1" (click)="searchData()">-->
+                        <!--<i class="fa fa-search"></i>&nbsp;查询-->
+                    <!--</button>-->
+                    <!--<button class="btn btn-info  mr-1" (click)="clearSearch()">-->
+                        <!--<i class="fa fa-refresh"></i>&nbsp;重置-->
+                    <!--</button>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="float: left!important">
+        <form class="form-horizontal " [formGroup]="searchForm">
+        <div style="width: 40%;float: left!important;">
+            <app-tree (result)="setParentCategory($event)" ></app-tree>
+        </div>
+
+
+
+        <div style="width: 55%;float: right!important" *ngIf="category">
+
+            <div class="form-group row text-sm-right" *ngIf="category.parent">
+                <label class="col-sm-3 form-control-label mt-1"><strong>选择上级</strong></label>
+                <div style="width: 40%;text-align: left">
+                    <app-tree #tree [isSecond]="false" (result)="superior($event)"></app-tree>
+                </div>
+
+            </div>
+            <div class="form-group row text-sm-right" *ngIf="category.parent">
+                <label class="col-sm-3 form-control-label mt-1"><strong>上级分类</strong></label>
+                <input disabled class="form-control col-sm-7" type="text" formControlName="name"  value="{{category?.parent?.categoryName}}">
+            </div>
+            <div class="form-group row text-sm-right">
+                <label class="col-sm-3 form-control-label mt-1"><strong>分类编码</strong></label>
+                <input class="form-control col-sm-7" type="text" formControlName="categoryNo" value="{{category.categoryNo}}">
+                <app-form-error [control]="searchForm.get('categoryNo')"
+                                [formErrors]="formErrors.categoryNo"></app-form-error>
+            </div>
+            <div class="form-group row text-sm-right">
+                <label class="col-sm-3 form-control-label mt-1"><strong>分类名称</strong></label>
+                <input class="col-sm-7" type="text" formControlName="categoryName">
+                <app-form-error [control]="searchForm.get('categoryName')"
+                                [formErrors]="formErrors.categoryName"></app-form-error>
+            </div>
+            <div class="form-group row text-sm-right">
+                <label class="col-sm-3 form-control-label mt-1"><strong>图片路径</strong></label>
+                <!--<input class="col-sm-7" type="text" formControlName="imgPath" value="{{category.imgPath}}">-->
+
+                <div class="form-control col-sm-7" ><!--[ngClass]="{'has-error':commonForm.get('imgPath')|formMark}"-->
+
+                    <span *ngIf="this.searchForm.value.imgPath!=null">
+                        <app-file-uploader #fileUploader [allowedFileType]="['image']"
+                                           (onFileUploaded)="getPic($event)" [url]="this.searchForm.value.imgPath">
+                        </app-file-uploader>
+                    </span>
+                    <span *ngIf="this.searchForm.value.imgPath==null">
+                        <app-file-uploader #fileUploader [allowedFileType]="['image']"
+                                           (onFileUploaded)="getPic($event)">
+                        </app-file-uploader>
+                    </span>
+                    <button (click)="fileUploader.fileSelect()" class=" btn btn-info" type="button">上传图片
+                    </button>
+
+                </div>
+
+            </div>
+            <div class="form-group row text-sm-right">
+                <label class="col-sm-3 form-control-label mt-1"><strong>备注</strong></label>
+                <input class="form-control col-sm-7" type="text" formControlName="remark" value="{{category.remark}}">
+                <app-form-error [control]="searchForm.get('remark')"
+                                [formErrors]="formErrors.remark"></app-form-error>
+            </div>
+            <div>
+                <button style="margin-left: 60%" class="btn btn-info" (click)="updateCategory()">确认修改</button>
+                <button style="margin-left: 10%" class="btn btn-info" (click)="remove()" >删除</button>
+            </div>
+        </div>
+        </form>
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+
+</div>
+
+

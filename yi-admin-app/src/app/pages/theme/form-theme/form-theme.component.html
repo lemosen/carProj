@@ -1,0 +1,130 @@
+<div widget class="card border-0 box-shadow">
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+    </div>
+
+
+    <form class="form-horizontal " [formGroup]="commonForm">
+
+
+        <div class="large">
+            <div class="head">
+                <span class="size"> 基本信息</span>
+            </div>
+
+            <div class="content">
+                <!-- <button class="btn btn-inverse ml-1" type="button" (click)="goBack()">返回</button>-->
+                <div class="form-group row text-sm-right">
+                </div>
+                <div class="form-group row text-sm-right">
+                    <label class="col-sm-2 form-control-label mt-1">主题名称： <span class="text-danger">*</span></label>
+                    <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('title')|formMark}">
+                        <input class="form-control validation-field" type="text" formControlName="title"
+                               placeholder="请输入名称">
+                        <app-form-error [control]="commonForm.get('title')"
+                                        [formErrors]="formErrors.title"></app-form-error>
+                    </div>
+                </div>
+
+                <div class="form-group row text-sm-right">
+                    <label class="col-sm-2 form-control-label mt-1">副标题： </label>
+                        <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('subtitle')|formMark}">
+                             <input class="form-control validation-field" type="text" formControlName="subtitle" placeholder="请输入描述">
+                             <app-form-error [control]="commonForm.get('subtitle')" [formErrors]="formErrors.subtitle"></app-form-error>
+                     </div>
+                </div>
+
+                <div class="form-group row text-sm-right">
+                     <!--   <div class="head">
+                            <span class="size"> 专题正文</span>
+                        </div>-->
+                    <label class="col-sm-2 form-control-label mt-1">展示图片: </label>
+                        <div class="col-sm-8" style="text-align: left"
+                             [ngClass]="{'has-error':commonForm.get('description')|formMark}">
+                            <!--<input class="form-control validation-field" type="text" formControlName="description"-->
+                            <!--placeholder="请输入商品介绍">-->
+                            <app-editor  #editor [ckeditorContent]="recallConten"  (result)="thematicText($event)"></app-editor>
+                        </div>
+                </div>
+
+                <div class="form-group row text-sm-right">
+
+                    <label class="col-sm-2 form-control-label mt-1">显示设置：</label>
+                    <div class="col-sm-4 btn-group btn-group-toggle" ngbRadioGroup name="radioBasic"
+                         formControlName="state">
+                        <label ngbButtonLabel class="btn-primary">
+                            <input ngbButton type="radio" [value]="1"> 是
+                        </label>
+                        <label ngbButtonLabel class="btn-primary">
+                            <input ngbButton type="radio" [value]="0"> 否
+                        </label>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="large">
+            <div class="head">
+                <span class="size">添加商品</span>
+
+
+                  <!--  <span class="size" style="text-decoration:underline" [routerLink]="'../choice'">选择商品</span>-->
+
+            </div>
+            <div class="content">
+                <div class="form-group row text-sm-right">
+
+                    <label class="col-sm-2 form-control-label mt-1">添加商品:</label>
+                  <div class="col-sm-4"
+                      [ngClass]="{'has-error':commonForm.get('id')|formMark}" >
+                        <app-modal-selecet
+                            [showCol]="[{name:'id',value:'ID',isShow:false},{name:'commodityNo',value:'编码',isShow:false},{name:'commodityName',value:'商品名',isShow:true}]"
+                            [select]="commonForm.value.commodities"
+                            [resultName]="selectCommodityName"
+                            [baseService]="commodityService"
+                            [isMulti]="true"
+                            (result)="setParentCategory($event)">
+                        </app-modal-selecet>
+                    <!--
+                    (result)="setParentCategory($event)"-->
+
+                    <!--<input class="form-control validation-field" type="text"-->
+                    <!--formControlName="categoryName" placeholder="请输入上级分类">-->
+                    </div>
+                  <!--  <div class="form-group row text-sm-right">
+                        <label class="col-sm-2 form-control-label mt-1">选择商品</label>
+                        <div class="col-sm-4"
+                             [ngClass]="{'has-error':commonForm.get('commodities.commodityName')|formMark}">
+                            <app-modal-selecet
+                                    [showCol]="[{name:'id',value:'ID',isShow:false},{name:'commodityNo',value:'编码',isShow:false},{name:'commodityName',value:'商品名',isShow:true}]"
+                                    [select]="commonForm.value.commodities"
+                                    [resultName]="selectCommodityName"
+                                    [baseService]="commodityService"
+                                    [isMulti]="true"
+                                    (result)="setParentCategory($event)">
+                            </app-modal-selecet>
+                        </div>
+                    </div>-->
+                </div>
+
+
+                <!--  <div class="form-group row text-sm-right">
+                    <label class="col-sm-2 form-control-label mt-1">活动商品</label>
+                    <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('full')|formMark}">
+                       <input class="form-control validation-field" type="text" formControlName="full" placeholder="请输入满减">
+                    </div>
+                 </div>-->
+
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-9 offset-sm-2">
+                <button class="btn btn-info" type="button" (click)="onSubmit()">保存</button>
+                <button class="btn btn-gray ml-1" type="button" (click)="goBack()">返回</button>
+            </div>
+        </div>
+    </form>
+
+</div>

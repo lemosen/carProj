@@ -1,0 +1,3 @@
+<div [formGroup]="group">
+    <app-dynamic-form-widget *ngFor="let item of options" [control]="group.get(item.name)" [options]="item"></app-dynamic-form-widget>
+</div>

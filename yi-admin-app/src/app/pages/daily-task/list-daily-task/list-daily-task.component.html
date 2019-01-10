@@ -1,0 +1,44 @@
+<div widget class="card border-0 box-shadow">
+    <div class="card-body pt-0 widget-body border-show">
+        <div class="back-color-v2 border-show" style="padding: 10px" col-sm-12><strong>日常任务</strong></div>
+        <br>
+        <div class="card-body pt-0 widget-body">
+            <table class="table table-hover">
+                <tbody>
+                <tr *ngFor="let dailyTask of anys;let i=index" (click)="getSelect(dailyTask.id,i)">
+                    <td style="display: none"><input type="radio" name="select">
+                    </td>
+                    <td class="back-color-v2 text-align-right">{{dailyTask.taskName}}</td>
+                    <td>
+                        <label class="col-sm-4 text-align-right">成长值：</label>
+                        <input [disabled]="dailyTask.state!=1" class="form-control col-sm-7" style="float: right" type="number"
+                               value="{{dailyTask.growthValue}}"  (blur)="updateGrowthValue(dailyTask.id,$event.target.value,dailyTask.growthValue)" >
+                    </td>
+                    <td class="text-align-right">
+                        <div>
+                            <button class="btn btn-info" type="button" *ngIf="dailyTask.state==0"  (click)="updateState(dailyTask.id)" >禁用</button>
+                        </div>
+                        <div>
+                            <button class="btn btn-info" type="button" *ngIf="dailyTask.state==1" (click)="updateState(dailyTask.id)"  >启用</button>
+                        </div>
+                    </td>
+                    <td class="text-align-center">
+                        <span *ngIf="dailyTask.state==0">已启用</span>
+                        <span *ngIf="dailyTask.state==1">已禁用</span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <br>
+            <div class="form-group row">
+              <!--  <div class="col-sm-9 offset-sm-10">
+                    <button class="btn btn-info" type="button" (click)="onSubmit()">提交</button>
+                </div>-->
+            </div>
+        </div>
+        <br>
+        <br>
+    </div>
+</div>
+
+

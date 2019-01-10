@@ -1,0 +1,66 @@
+<div widget class="card border-0 box-shadow">
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+    </div>
+    <div class="card-body widget-body">
+        <div class="row form-inline">
+
+            <div class="col-lg-8 form-group">
+                <label class="col-lg-2 form-control-label text-lg-right">查询日期：</label>
+
+                <app-date-time-picker (result)="startTime($event)"></app-date-time-picker>
+                -
+                <app-date-time-picker (result)="endTime($event)"></app-date-time-picker>
+
+            </div>
+            <div class=" form-inline form-group">
+                <div class="col-lg-12">
+                    <div class=" pull-right">
+                        <button class="btn btn-success  mr-1" (click)="goplatformSaleStatController()"><i
+                                class="fa fa-search"></i>&nbsp;搜索
+                        </button>
+                        <button class="btn btn-info  mr-1" (click)="clear()"><i class="fa fa-refresh"></i>&nbsp;清空
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="card-body pt-0 widget-body">
+
+            <div class="large account-info">
+                <table width="100%" class="statistics" >
+                    <tr class="colorr">
+                        <th colspan="5" style="text-align: left;padding-left: 10px">
+                            <h4>订单统计</h4>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="data">{{statistics?.platformOrderNum}}</span><br/>
+                            <span class="according ">平台订单数</span>
+                        </td>
+                        <td>
+                            <span class="data">￥{{statistics?.saleAmount}}</span><br/>
+                            <span class="according ">平台销售额</span>
+                        </td>
+                        <!--    <td>
+                                <span class="data">500%</span><br />
+                                 <span class="according ">平台业绩占比</span>
+                             </td>&ndash;&gt;-->
+                        <td>
+                            <span class="data">￥{{statistics?.cost}}</span><br/>
+                            <span class="according">成本</span>
+                        </td>
+                        <td>
+                            <span class="data">￥{{statistics?.profit}}</span><br/>
+                            <span class="according ">利润</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <!--  <app-no-data-tip [isShow]="provinceCitys|isEmpty"></app-no-data-tip>-->
+        </div>
+    </div>
+</div>

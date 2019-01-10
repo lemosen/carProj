@@ -1,0 +1,95 @@
+
+<div widget class="card border-0 box-shadow">
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+    </div>
+
+    <div class="card-body widget-body">
+        <form class="form-horizontal "  [formGroup]="commonForm">
+
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">GUID </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('guid')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="guid" placeholder="请输入GUID">
+
+                                </div>
+                    </div>
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">退款单（refund_order表ID） <span class="text-danger">*</span></label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('refundOrderId')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="refundOrderId" placeholder="请输入退款单（refund_order表ID）">
+                                        <app-form-error [control]="commonForm.get('refundOrderId')" [formErrors]="formErrors.refundOrderId"></app-form-error>
+
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">退货单（return_order表ID） <span class="text-danger">*</span></label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('returnOrderId')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="returnOrderId" placeholder="请输入退货单（return_order表ID）">
+                                        <app-form-error [control]="commonForm.get('returnOrderId')" [formErrors]="formErrors.returnOrderId"></app-form-error>
+
+                                </div>
+                    </div>
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">处理人（user表ID） <span class="text-danger">*</span></label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('userId')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="userId" placeholder="请输入处理人（user表ID）">
+                                        <app-form-error [control]="commonForm.get('userId')" [formErrors]="formErrors.userId"></app-form-error>
+
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">处理人 </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('username')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="username" placeholder="请输入处理人">
+
+                                </div>
+                    </div>
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">处理类型（1确认2拒绝） </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('processType')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="processType" placeholder="请输入处理类型（1确认2拒绝）">
+
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">处理时间 </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('processTime')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="processTime" placeholder="请输入处理时间">
+
+                                </div>
+                    </div>
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">处理备注 </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('remark')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="remark" placeholder="请输入处理备注">
+
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">删除（0否1是） <span class="text-danger">*</span></label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('deleted')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="deleted" placeholder="请输入删除（0否1是）">
+                                        <app-form-error [control]="commonForm.get('deleted')" [formErrors]="formErrors.deleted"></app-form-error>
+
+                                </div>
+                    </div>
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">删除时间 </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('delTime')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="delTime" placeholder="请输入删除时间">
+
+                                </div>
+                    </div>
+
+            <div class="form-group row">
+                <div class="col-sm-9 offset-sm-2">
+                    <button class="btn btn-info" type="button" (click)="onSubmit()" >保存</button>
+                    <button class="btn btn-gray ml-1" type="button" (click)="goBack()">返回</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

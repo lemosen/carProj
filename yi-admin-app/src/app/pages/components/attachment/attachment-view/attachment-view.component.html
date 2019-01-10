@@ -1,0 +1,7 @@
+<ng-template [ngIf]="attachments|isNotEmpty">
+    <ul class="list-unstyled right_upload_ul">
+        <app-attachment-item [allowRemove]="allowRemove" [attachments]="attachments"></app-attachment-item>
+    </ul>
+</ng-template>
+
+<app-no-data-tip [isShow]="attachments|isEmpty" [text]="'没有附件'"></app-no-data-tip>

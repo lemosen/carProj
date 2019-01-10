@@ -1,0 +1,107 @@
+
+
+<div widget class="card border-0 box-shadow">
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+    </div>
+    <div class="card-body widget-body">
+        <form class="form-horizontal "  >
+
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">GUID</label>
+                                <div class="col-sm-4">
+                                    <label>{{couponUse.guid}}</label>
+                                </div>
+                    </div>
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">优惠券（coupon表ID）</label>
+                                <div class="col-sm-4">
+                                    <label>{{couponUse.couponId}}</label>
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">优惠码</label>
+                                <div class="col-sm-4">
+                                    <label>{{couponUse.couponNo}}</label>
+                                </div>
+                    </div>
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">优惠券领取（coupon_receive表ID）</label>
+                                <div class="col-sm-4">
+                                    <label>{{couponUse.couponReceiveId}}</label>
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">面值</label>
+                                <div class="col-sm-4">
+                                    <label>{{couponUse.parValue}}</label>
+                                </div>
+                    </div>
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">使用</label>
+                                <div class="col-sm-4">
+                                    <label>{{couponUse.use}}</label>
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">剩余</label>
+                                <div class="col-sm-4">
+                                    <label>{{couponUse.surplus}}</label>
+                                </div>
+                    </div>
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">会员（member表ID）</label>
+                                <div class="col-sm-4">
+                                    <label>{{couponUse.memberId}}</label>
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">会员账号</label>
+                                <div class="col-sm-4">
+                                    <label>{{couponUse.memberPhone}}</label>
+                                </div>
+                    </div>
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">使用时间</label>
+                                <div class="col-sm-4">
+                                    <label>{{couponUse.useTime}}</label>
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">订单（order表ID）</label>
+                                <div class="col-sm-4">
+                                    <label>{{couponUse.orderId}}</label>
+                                </div>
+                    </div>
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">订单编号</label>
+                                <div class="col-sm-4">
+                                    <label>{{couponUse.orderNo}}</label>
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">删除（0否1是）</label>
+                                <div class="col-sm-4">
+                                    <label>{{couponUse.deleted}}</label>
+                                </div>
+                    </div>
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">删除时间</label>
+                                <div class="col-sm-4">
+                                    <label>{{couponUse.delTime}}</label>
+                                </div>
+                    </div>
+
+            <div class="form-group row">
+                <div class="col-sm-9 offset-sm-2">
+                    <button class="btn btn-info" [routerLink]="'../../edit/'+couponUse.couponUseId" type="button">编辑</button>
+                    <button class="btn btn-inverse ml-1" type="button" (click)="goBack()">返回</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

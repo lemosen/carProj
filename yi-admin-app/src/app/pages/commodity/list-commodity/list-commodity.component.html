@@ -1,0 +1,91 @@
+<ul class="choose_shelf">
+    <li class="card"  (click)="onItemClick(i)" *ngFor="let menu of menus;let i=index"
+        [ngStyle]="{'background-color':selectMenu ===i ? 'white' : '#e9ecef' }">{{menu.name}}
+    </li>
+</ul>
+<div widget class="card border-0 box-shadow">
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+    </div>
+    <div class="card-body widget-body">
+        <form [formGroup]="searchForm">
+            <div class=" form-inline form-group">
+
+                <div class="col-lg-4 form-group">
+                    <label class="col-lg-4 form-control-label text-lg-right">商品名称</label>
+
+                    <input class="col-lg-6 form-control filter" formControlName="commodityName"
+                           (blur)="pageQuery.addOnlyFilter('commodityName',$event.target.value,'eq')"
+                           placeholder="请输入商品名称" type="text">
+                </div>
+
+                <div class="col-lg-4 form-group">
+                    <label class="col-lg-4 form-control-label text-lg-right">供应商</label>
+
+                    <input class="col-lg-6 form-control filter" formControlName="supplierName"
+                           (blur)="pageQuery.addOnlyFilter('supplierName',$event.target.value,'eq')"
+                           placeholder="请输入供应商" type="text">
+
+                </div>
+
+            </div>
+        </form>
+
+        <div class=" form-inline form-group">
+            <div class="col-lg-12">
+                <div class=" pull-right">
+                    <button class="btn btn-primary  mr-1" [routerLink]="'../add'"><i class="fa fa-plus"></i>&nbsp;新增
+                    </button>
+                    <button class="btn btn-success  mr-1" (click)="searchData()"><i class="fa fa-search"></i>&nbsp;查询
+                    </button>
+                    <button class="btn btn-info  mr-1" (click)="clearSearch()"><i class="fa fa-refresh"></i>&nbsp;重置
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body pt-0 widget-body">
+        <table class="table table-hover ">
+            <thead>
+            <tr>
+                <th>商品名称</th>
+                <th>商品图片</th>
+                <th>供应商</th>
+                <th>创建时间</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <ng-template [ngIf]="anys|isNotEmpty">
+                <tr *ngFor="let commodity of anys;let i=index" (click)="getSelect(commodity.id,i)">
+                    <td style="display: none"><input type="radio" name="select">
+                    </td>
+                    <td>{{commodity?.commodityName}}</td>
+                    <td><img src="{{commodity?.imgPath}}" width="160px" height="80px"></td>
+                    <td>{{commodity?.supplier.supplierName}}</td>
+                    <td>{{commodity.createTime}}</td>
+                    <td>
+                        <span [routerLink]="'../edit/'+commodity.id">编辑</span>&nbsp;&nbsp;
+                        <span [routerLink]="'../view/'+commodity.id">详情</span>
+                        <br>
+                        <span *ngIf="commodity.shelf==1" (click)="lowerFrame(commodity.id)">下架</span>
+                        <span (click)="remove()" *ngIf="commodity.shelf==2">删除</span>&nbsp;&nbsp;
+                        <span *ngIf="commodity.shelf==2" (click)="onTheShelf(commodity.id)" >上架</span>
+                    </td>
+                </tr>
+
+                <ngb-pagination class="d-flex justify-content-center"
+                                [collectionSize]="pageQuery.responses.totalElements" [(page)]="pageQuery.page"
+                                [maxSize]="pageQuery.pageSize"
+                                [rotate]="true" [boundaryLinks]="true"
+                                (pageChange)="pageChange($event)"></ngb-pagination>
+            </ng-template>
+
+            </tbody>
+        </table>
+
+        <app-no-data-tip [isShow]="anys|isEmpty"></app-no-data-tip>
+    </div>
+</div>
+
+

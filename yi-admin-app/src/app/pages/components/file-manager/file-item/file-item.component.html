@@ -1,0 +1,21 @@
+<div class="row custom-line-height text-left">
+    <div class="col-lg-7 pr0">
+        <div class="col-lg-1">
+            <img [src]="attachment.thumbnailUrl || '/assets/images/icon-folder.png'" class="custom-line-height" style="margin-bottom: -2.5rem;"/>
+        </div>
+        <div class="col-lg-11">
+            <div>{{attachment.fileName}}</div>
+            <div style="margin-top: -1rem;">
+                <span class="pr-sm">{{objectNames(attachment)}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2 pl0">{{attachment.createTime|date}}</div>
+    <div class="col-lg-1 pl0">{{attachment.fileSize/1024/1024|number:'1.2-2'}}&nbsp;MB</div>
+    <div class="col-lg-1 pl0">{{attachment.userName}}</div>
+    <div class="col-lg-1 pl0">
+        <a href="#" (click)="downloadFile(attachment)">
+            <em class="fa fa-download fa-fw"></em>
+        </a>
+    </div>
+</div>

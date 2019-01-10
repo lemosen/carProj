@@ -1,0 +1,94 @@
+
+
+<div widget class="card border-0 box-shadow">
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+    </div>
+    <div class="card-body widget-body">
+        <form class="form-horizontal "  >
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">模板编号</label>
+                                <div class="col-sm-4">
+                                    <label>{{freightTemplate.templateNo}}</label>
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">模板名称</label>
+                                <div class="col-sm-4">
+                                    <label>{{freightTemplate.templateName}}</label>
+                                </div>
+                    </div>
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">计费方式</label>
+                                <div class="col-sm-4">
+                                    <label *ngIf="freightTemplate.chargeMode==1">按重量计费</label>
+                                    <label *ngIf="freightTemplate.chargeMode==2">按件数计费</label>
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">状态</label>
+                                <div class="col-sm-4">
+                                    <label *ngIf="freightTemplate.state==0">已启用</label>
+                                    <label *ngIf="freightTemplate.state==1">已禁用</label>
+                                </div>
+                    </div>
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">首重</label>
+                                <div class="col-sm-4">
+                                    <label>{{freightTemplate.presetWeight}}</label>
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">首费</label>
+                                <div class="col-sm-4">
+                                    <label>{{freightTemplate.presetFee}}</label>
+                                </div>
+                    </div>
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">续重</label>
+                                <div class="col-sm-4">
+                                    <label>{{freightTemplate.extraWeight}}</label>
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">续费</label>
+                                <div class="col-sm-4">
+                                    <label>{{freightTemplate.extraFee}}</label>
+                                </div>
+                    </div>
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">省</label>
+                                <div class="col-sm-4">
+                                    <label>{{this.transform(freightTemplate.province)}}</label>
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">市</label>
+                                <div class="col-sm-4">
+                                    <label>{{this.transform(freightTemplate.city)}}</label>
+                                </div>
+                    </div>
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">区</label>
+                                <div class="col-sm-4">
+                                    <label>{{this.transform(freightTemplate?.district)}}</label>
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">小区</label>
+                                <div class="col-sm-4">
+                                    <label>{{freightTemplate.address}}</label>
+                                </div>
+                    </div>
+
+
+
+            <div class="form-group row">
+                <div class="col-sm-9 offset-sm-2">
+                    <button class="btn btn-info" [routerLink]="'../../edit/'+freightTemplate.id" type="button">编辑
+                    </button>
+                    <button class="btn btn-inverse ml-1" type="button" (click)="goBack()">返回</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

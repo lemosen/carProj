@@ -1,0 +1,50 @@
+<div class=" form-inline form-group">
+    <div class="col-lg-12">
+        <div class=" pull-right">
+    <button class="btn btn-primary  mr-1" [routerLink]="'../add'"><i class="fa fa-plus"></i>&nbsp;新增
+    </button>
+        </div>
+    </div>
+</div>
+
+<div widget class="card border-0 box-shadow">
+    <div class="card-body pt-0 widget-body">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>原因类型</th>
+                <th>排序</th>
+                <th>是否启用</th>
+                <th>添加时间</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <ng-template [ngIf]="anys|isNotEmpty">
+                <tr *ngFor="let returnReason of anys;let i=index" (click)="getSelect(returnReason.id,i)">
+                    <td style="display: none"><input type="radio" name="select">
+                    </td>
+                    <td>{{returnReason.reasonType}}</td>
+                    <td>{{returnReason.sort}}</td>
+                    <td>
+                        <span *ngIf="returnReason.state==0">已启用</span>
+                        <span *ngIf="returnReason.state==1">已禁用</span>
+                    </td>
+                    <td>{{returnReason.createTime}}</td>
+                    <td>
+                        <span [routerLink]="'../view/'+returnReason.id">详情</span>&nbsp;&nbsp;
+                        <span [routerLink]="'../edit/'+returnReason.id">编辑</span>
+                        <br>
+                        <span (click)="remove()">删除</span>
+                    </td>
+                </tr>
+                <ngb-pagination class="d-flex justify-content-center"
+                                [collectionSize]="pageQuery.responses.totalElements" [(page)]="pageQuery.page"
+                                [maxSize]="pageQuery.pageSize"
+                                [rotate]="true" [boundaryLinks]="true"
+                                (pageChange)="pageChange($event)"></ngb-pagination>
+            </ng-template>
+            </tbody>
+        </table>
+    </div>
+</div>

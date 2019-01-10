@@ -1,0 +1,85 @@
+<!--
+
+<div widget class="card border-0 box-shadow">
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+        <div class="widget-controls">
+            <a data-widgster="close" href="#" class="transition" (click)="goBack()"><i class="fa fa-reply fa-lg"></i>&nbsp;返回</a>
+        </div>
+    </div>
+
+    <div class="card-body widget-body">
+        <form class="form-horizontal "  [formGroup]="commonForm">
+
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">GUID </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('guid')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="guid" placeholder="请输入GUID">
+
+                                </div>
+                    </div>
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">父级资源 </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('parentId')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="parentId" placeholder="请输入父级资源">
+
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">资源编码 </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('code')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="code" placeholder="请输入资源编码">
+
+                                </div>
+                    </div>
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">资源名称 <span class="text-danger">*</span></label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('name')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="name" placeholder="请输入资源名称">
+                                        <app-form-error [control]="commonForm.get('name')" [formErrors]="formErrors.name"></app-form-error>
+
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">资源路径 <span class="text-danger">*</span></label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('url')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="url" placeholder="请输入资源路径">
+                                        <app-form-error [control]="commonForm.get('url')" [formErrors]="formErrors.url"></app-form-error>
+
+                                </div>
+                    </div>
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">创建时间 </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('createTime')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="createTime" placeholder="请输入创建时间">
+
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">删除（0否1是） <span class="text-danger">*</span></label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('deleted')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="deleted" placeholder="请输入删除（0否1是）">
+                                        <app-form-error [control]="commonForm.get('deleted')" [formErrors]="formErrors.deleted"></app-form-error>
+
+                                </div>
+                    </div>
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">删除时间 </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('delTime')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="delTime" placeholder="请输入删除时间">
+
+                                </div>
+                    </div>
+
+            <div class="form-group row">
+                <div class="col-sm-9 offset-sm-2">
+                    <button class="btn btn-info" type="button" (click)="onSubmit()" >保存</button>
+                    <button class="btn btn-gray ml-1" type="button" (click)="goBack()">返回</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>-->
+<app-jurisdiction  (result)="setParentResc($event)"></app-jurisdiction>

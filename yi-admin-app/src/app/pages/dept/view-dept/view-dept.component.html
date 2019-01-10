@@ -1,0 +1,40 @@
+<div widget class="card border-0 box-shadow">
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+    </div>
+    <div class="card-body widget-body">
+        <form class="form-horizontal ">
+
+            <div class="form-group row text-sm-right">
+
+                <label class="col-sm-2 form-control-label mt-1">上级部门</label>
+                <div class="col-sm-4">
+                    <label>{{dept?.parent?.deptName}}</label>
+                </div>
+                <label class="col-sm-2 form-control-label mt-1">部门编码</label>
+                <div class="col-sm-4">
+                    <label>{{dept.deptNo}}</label>
+                </div>
+            </div>
+
+            <div class="form-group row text-sm-right">
+
+                <label class="col-sm-2 form-control-label mt-1">部门名称</label>
+                <div class="col-sm-4">
+                    <label>{{dept.deptName}}</label>
+                </div>
+                <label class="col-sm-2 form-control-label mt-1">部门描述</label>
+                <div class="col-sm-4">
+                    <label>{{dept.description}}</label>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-9 offset-sm-2">
+                    <button class="btn btn-info" [routerLink]="'../../edit/'+dept.id" type="button">编辑</button>
+                    <button class="btn btn-inverse ml-1" type="button" (click)="goBack()">返回</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

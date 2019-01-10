@@ -1,0 +1,57 @@
+<div widget class="card border-0 box-shadow">
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+    </div>
+    <div class="card-body widget-body">
+        <form class="form-horizontal ">
+
+
+            <div class="form-group row text-sm-right">
+
+                <label class="col-sm-2 form-control-label mt-1">交易金额</label>
+                <div class="col-sm-4">
+                    <label>{{transactionRecord.recordPrice}}</label>
+                </div>
+            </div>
+
+            <div class="form-group row text-sm-right">
+
+                <label class="col-sm-2 form-control-label mt-1">交易类型</label>
+                <div class="col-sm-4">
+                    <label>{{transactionRecord.recordType}}</label>
+                </div>
+                <label class="col-sm-2 form-control-label mt-1">交易方式</label>
+                <div class="col-sm-4">
+                    <label>{{transactionRecord.recordMode}}</label>
+                </div>
+            </div>
+
+            <div class="form-group row text-sm-right">
+
+                <label class="col-sm-2 form-control-label mt-1">创建时间</label>
+                <div class="col-sm-4">
+                    <label>{{transactionRecord.creatTime}}</label>
+                </div>
+                <label class="col-sm-2 form-control-label mt-1">备注</label>
+                <div class="col-sm-4">
+                    <label>{{transactionRecord.remark}}</label>
+                </div>
+            </div>
+
+            <div class="form-group row text-sm-right">
+
+                <label class="col-sm-2 form-control-label mt-1">流水号</label>
+                <div class="col-sm-4">
+                    <label>{{transactionRecord.no}}</label>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-9 offset-sm-2">
+                    <button class="btn btn-info" [routerLink]="'../../edit/'+transactionRecord.transactionRecordId" type="button">编辑</button>
+                    <button class="btn btn-inverse ml-1" type="button" (click)="goBack()">返回</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

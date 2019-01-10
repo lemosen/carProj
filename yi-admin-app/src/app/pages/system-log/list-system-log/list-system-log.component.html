@@ -1,0 +1,50 @@
+<div widget class="card border-0 box-shadow">
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+    </div>
+    <div class="card-body widget-body">
+        <div class="row form-inline">
+
+            <div class="col-lg-4">
+                <button class="btn btn-primary  mr-1" [routerLink]="'../add'"><i class="fa fa-plus"></i>&nbsp;新增
+                </button>
+                <button class="btn btn-danger  mr-1" (click)="remove()"><i class="fa fa-remove"></i>&nbsp;删除
+                </button>
+                <button class="btn btn-inverse  mr-1" (click)="edit()"><i class="fa fa-edit"></i>&nbsp;编辑
+                </button>
+                <button class="btn btn-success  mr-1" (click)="getDatas()"><i class="fa fa-search"></i>&nbsp;查询
+                </button>
+                <button class="btn btn-warning  mr-1" (click)="view()"><i class="fa fa-book"></i>&nbsp;详情
+                </button>
+                <button class="btn btn-info  mr-1" (click)="clear()"><i class="fa fa-refresh"></i>&nbsp;重置
+                </button>
+            </div>
+        </div>
+
+    </div>
+    <div class="card-body pt-0 widget-body">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+            </tr>
+            </thead>
+            <tbody>
+            <ng-template [ngIf]="anys|isNotEmpty">
+                <tr *ngFor="let systemLog of anys;let i=index" (click)="getSelect(systemLog.systemLogId,i)">
+                    <td><input type="radio" name="select">
+                    </td>
+                </tr>
+
+                <ngb-pagination class="d-flex justify-content-center"
+                                [collectionSize]="pageQuery.responses.totalElements" [(page)]="pageQuery.page"
+                                [maxSize]="pageQuery.pageSize"
+                                [rotate]="true" [boundaryLinks]="true"
+                                (pageChange)="pageChange($event)"></ngb-pagination>
+            </ng-template>
+
+            </tbody>
+        </table>
+
+        <app-no-data-tip [isShow]="anys|isEmpty"></app-no-data-tip>
+    </div>
+</div>

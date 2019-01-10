@@ -1,0 +1,77 @@
+
+
+<div widget class="card border-0 box-shadow">
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+    </div>
+    <div class="card-body widget-body">
+        <form class="form-horizontal "  >
+
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">部门:</label>
+                                <div class="col-sm-4">
+                                    <label>{{user?.dept?.deptName}}</label>
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">用户名:</label>
+                                <div class="col-sm-4">
+                                    <label>{{user.username}}</label>
+                                </div>
+                    </div>
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">密码:</label>
+                                <div class="col-sm-4">
+                                    <label>{{user.password}}</label>
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">姓名:</label>
+                                <div class="col-sm-4">
+                                    <label>{{user.fullName}}</label>
+                                </div>
+                    </div>
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">手机号:</label>
+                                <div class="col-sm-4">
+                                    <label>{{user.phone}}</label>
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">邮箱:</label>
+                                <div class="col-sm-4">
+                                    <label>{{user.email}}</label>
+                                </div>
+                    </div>
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">工号:</label>
+                                <div class="col-sm-4">
+                                    <label>{{user.jobNo}}</label>
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">头像:</label>
+                                <div class="col-sm-4">
+                                    <label>{{user.avatarImg}}</label>
+                                </div>
+                    </div>
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">状态</label>
+                                <div class="col-sm-4">
+                                    <label *ngIf="user.state==0">已启用</label>
+                                    <label *ngIf="user.state==1">已禁用</label>
+                                </div>
+                    </div>
+
+
+            <div class="form-group row">
+                <div class="col-sm-9 offset-sm-2">
+                    <button class="btn btn-info" [routerLink]="'../../edit/'+user.id" type="button">编辑</button>
+                    <button class="btn btn-inverse ml-1" type="button" (click)="goBack()">返回</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

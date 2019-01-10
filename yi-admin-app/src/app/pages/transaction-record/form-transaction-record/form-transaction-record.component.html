@@ -1,0 +1,59 @@
+<div widget class="card border-0 box-shadow">
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+    </div>
+    <div class="card-body widget-body">
+        <form class="form-horizontal " [formGroup]="commonForm">
+            <div class="form-group row text-sm-right">
+                <label class="col-sm-2 form-control-label mt-1">交易金额 <span class="text-danger">*</span></label>
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('recordPrice')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="recordPrice" placeholder="请输入交易金额">
+                    <app-form-error [control]="commonForm.get('recordPrice')" [formErrors]="formErrors.recordPrice"></app-form-error>
+                 </div>
+            </div>
+            <div class="form-group row text-sm-right">
+                <label class="col-sm-2 form-control-label mt-1">交易类型 <span class="text-danger">*</span></label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('recordType')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="recordType" placeholder="请输入交易类型">
+                    <app-form-error [control]="commonForm.get('recordType')" [formErrors]="formErrors.recordType"></app-form-error>
+
+                </div>
+                <label class="col-sm-2 form-control-label mt-1">交易方式 <span class="text-danger">*</span></label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('recordMode')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="recordMode" placeholder="请输入交易方式">
+                    <app-form-error [control]="commonForm.get('recordMode')" [formErrors]="formErrors.recordMode"></app-form-error>
+                </div>
+            </div>
+            <div class="form-group row text-sm-right">
+                <label class="col-sm-2 form-control-label mt-1">创建时间 <span class="text-danger">*</span></label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('creatTime')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="creatTime" placeholder="请输入创建时间">
+                    <app-form-error [control]="commonForm.get('creatTime')" [formErrors]="formErrors.creatTime"></app-form-error>
+                </div>
+                <label class="col-sm-2 form-control-label mt-1">备注 </label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('remark')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="remark" placeholder="请输入备注">
+                </div>
+            </div>
+            <div class="form-group row text-sm-right">
+                <label class="col-sm-2 form-control-label mt-1">流水号 <span class="text-danger">*</span></label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('no')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="no" placeholder="请输入流水号">
+                    <app-form-error [control]="commonForm.get('no')" [formErrors]="formErrors.no"></app-form-error>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-9 offset-sm-2">
+                    <button class="btn btn-info" type="button" (click)="onSubmit()">保存</button>
+                    <button class="btn btn-gray ml-1" type="button" (click)="goBack()">返回</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

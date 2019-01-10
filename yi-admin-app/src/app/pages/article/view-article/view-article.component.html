@@ -1,0 +1,54 @@
+<div widget class="card border-0 box-shadow">
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+    </div>
+    <div class="card-body widget-body">
+        <form class="form-horizontal ">
+
+
+            <div class="form-group row text-sm-right">
+
+                <label class="col-sm-2 form-control-label mt-1">文章标题</label>
+                <div class="col-sm-4">
+                    <label>{{article.title}}</label>
+                </div>
+                <label class="col-sm-2 form-control-label mt-1">文章副标题</label>
+                <div class="col-sm-4">
+                    <label>{{article.subtitle}}</label>
+                </div>
+            </div>
+
+            <div class="form-group row text-sm-right">
+
+                <label class="col-sm-2 form-control-label mt-1">作者</label>
+                <div class="col-sm-4">
+                    <label>{{article.author}}</label>
+                </div>
+                <label class="col-sm-2 form-control-label mt-1">文章内容</label>
+                <div class="col-sm-4">
+                    <label>{{article.content}}</label>
+                </div>
+            </div>
+
+            <div class="form-group row text-sm-right">
+
+                <label class="col-sm-2 form-control-label mt-1">图片</label>
+                <div class="col-sm-4">
+                    <label><img src="{{article?.imgPath}}" width="80%" height="80%"></label>
+                </div>
+                <label class="col-sm-2 form-control-label mt-1">商品链接</label>
+                <div class="col-sm-4">
+                    <label>{{article.url}}</label>
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <div class="col-sm-9 offset-sm-2">
+                    <button class="btn btn-info" [routerLink]="'../../edit/'+article.id" type="button">编辑</button>
+                    <button class="btn btn-inverse ml-1" type="button" (click)="goBack()">返回</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+<div widget class="card border-0 box-shadow">
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+    </div>
+
+    <div class="card-body widget-body">
+        <form class="form-horizontal " [formGroup]="commonForm">
+
+            <div class="form-group row text-sm-right">
+
+                <label class="col-sm-2 form-control-label mt-1">省<span class="text-danger">*</span></label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('province')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="province"
+                           placeholder="请输入省">
+
+                </div>
+                <label class="col-sm-2 form-control-label mt-1">市 <span class="text-danger">*</span></label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('city')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="city" placeholder="请输入市">
+
+                </div>
+            </div>
+            <div class="form-group row text-sm-right">
+                <label class="col-sm-2 form-control-label mt-1">状态 <span class="text-danger">*</span></label>
+
+                <div class="col-sm-4 text-align-left" [ngClass]="{'has-error':commonForm.get('state')|formMark}">
+                    <input type="radio" name="state" value="0" formControlName="state">&nbsp;&nbsp;启用
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="state" value="1" formControlName="state">&nbsp;&nbsp;禁用
+                    <app-form-error [control]="commonForm.get('state')"
+                                    [formErrors]="formErrors.state"></app-form-error>
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <div class="col-sm-9 offset-sm-2">
+                    <button class="btn btn-info" type="button" (click)="onSubmit()">保存</button>
+                    <button class="btn btn-gray ml-1" type="button" (click)="goBack()">返回</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

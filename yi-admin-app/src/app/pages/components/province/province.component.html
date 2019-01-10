@@ -1,0 +1,5 @@
+<!--<app-select (valueChange)="toexamine($event)"  [items]="list" [titleField]="'key'" [idField]="'value'" ></app-select>-->
+<app-select (valueChange)="choosePro($event)" [items]="pro" [placeholder]="getName(selectPro)"></app-select>
+<app-select (valueChange)="chooseCity($event)" [items]="city" [placeholder]="getName(selectCity)"></app-select>
+<app-select (valueChange)="chooseAddress($event)"[items]="address" [placeholder]="getName(selectAddress)"></app-select>
+

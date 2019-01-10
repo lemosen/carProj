@@ -1,0 +1,137 @@
+
+<div widget class="card border-0 box-shadow">
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+    </div>
+
+    <div class="card-body widget-body">
+        <form class="form-horizontal "  [formGroup]="commonForm">
+
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">GUID </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('guid')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="guid" placeholder="请输入GUID">
+
+                                </div>
+                    </div>
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">支付类型（1支付宝2微信） <span class="text-danger">*</span></label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('payType')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="payType" placeholder="请输入支付类型（1支付宝2微信）">
+                                        <app-form-error [control]="commonForm.get('payType')" [formErrors]="formErrors.payType"></app-form-error>
+
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">支付宝分配给开发者的应用ID <span class="text-danger">*</span></label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('appId')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="appId" placeholder="请输入支付宝分配给开发者的应用ID">
+                                        <app-form-error [control]="commonForm.get('appId')" [formErrors]="formErrors.appId"></app-form-error>
+
+                                </div>
+                    </div>
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">接口名称 <span class="text-danger">*</span></label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('method')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="method" placeholder="请输入接口名称">
+                                        <app-form-error [control]="commonForm.get('method')" [formErrors]="formErrors.method"></app-form-error>
+
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">请求使用的编码格式 <span class="text-danger">*</span></label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('charset')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="charset" placeholder="请输入请求使用的编码格式">
+                                        <app-form-error [control]="commonForm.get('charset')" [formErrors]="formErrors.charset"></app-form-error>
+
+                                </div>
+                    </div>
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">商户生成签名字符串所使用的签名算法类型 <span class="text-danger">*</span></label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('signType')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="signType" placeholder="请输入商户生成签名字符串所使用的签名算法类型">
+                                        <app-form-error [control]="commonForm.get('signType')" [formErrors]="formErrors.signType"></app-form-error>
+
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">商户请求参数的签名串 <span class="text-danger">*</span></label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('sign')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="sign" placeholder="请输入商户请求参数的签名串">
+                                        <app-form-error [control]="commonForm.get('sign')" [formErrors]="formErrors.sign"></app-form-error>
+
+                                </div>
+                    </div>
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">调用的接口版本，固定为：1.0 <span class="text-danger">*</span></label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('version')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="version" placeholder="请输入调用的接口版本，固定为：1.0">
+                                        <app-form-error [control]="commonForm.get('version')" [formErrors]="formErrors.version"></app-form-error>
+
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">支付宝服务器主动通知商户服务器里指定的页面http/https路径。建议商户使用https <span class="text-danger">*</span></label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('notifyUrl')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="notifyUrl" placeholder="请输入支付宝服务器主动通知商户服务器里指定的页面http/https路径。建议商户使用https">
+                                        <app-form-error [control]="commonForm.get('notifyUrl')" [formErrors]="formErrors.notifyUrl"></app-form-error>
+
+                                </div>
+                    </div>
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">商户收款账号 <span class="text-danger">*</span></label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('mchId')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="mchId" placeholder="请输入商户收款账号">
+                                        <app-form-error [control]="commonForm.get('mchId')" [formErrors]="formErrors.mchId"></app-form-error>
+
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">交易过程生成签名的密钥 <span class="text-danger">*</span></label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('appKey')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="appKey" placeholder="请输入交易过程生成签名的密钥">
+                                        <app-form-error [control]="commonForm.get('appKey')" [formErrors]="formErrors.appKey"></app-form-error>
+
+                                </div>
+                    </div>
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">APPID对应的接口密码 <span class="text-danger">*</span></label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('appSecret')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="appSecret" placeholder="请输入APPID对应的接口密码">
+                                        <app-form-error [control]="commonForm.get('appSecret')" [formErrors]="formErrors.appSecret"></app-form-error>
+
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">创建时间 </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('createTime')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="createTime" placeholder="请输入创建时间">
+
+                                </div>
+                    </div>
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">删除（0否1是） <span class="text-danger">*</span></label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('deleted')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="deleted" placeholder="请输入删除（0否1是）">
+                                        <app-form-error [control]="commonForm.get('deleted')" [formErrors]="formErrors.deleted"></app-form-error>
+
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">删除时间 </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('delTime')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="delTime" placeholder="请输入删除时间">
+
+                                </div>
+                    </div>
+
+            <div class="form-group row">
+                <div class="col-sm-9 offset-sm-2">
+                    <button class="btn btn-info" type="button" (click)="onSubmit()" >保存</button>
+                    <button class="btn btn-gray ml-1" type="button" (click)="goBack()">返回</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

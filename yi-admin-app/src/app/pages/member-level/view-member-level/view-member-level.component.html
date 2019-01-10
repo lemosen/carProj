@@ -1,0 +1,73 @@
+<div widget class="card border-0 box-shadow">
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+    </div>
+    <div class="card-body widget-body">
+        <form class="form-horizontal ">
+
+
+            <div class="form-group row text-sm-right">
+
+                <label class="col-sm-2 form-control-label mt-1">GUID</label>
+                <div class="col-sm-4">
+                    <label>{{memberLevel.guid}}</label>
+                </div>
+            </div>
+
+            <div class="form-group row text-sm-right">
+
+                <label class="col-sm-2 form-control-label mt-1">等级名称</label>
+                <div class="col-sm-4">
+                    <label>{{memberLevel.name}}</label>
+                </div>
+                <label class="col-sm-2 form-control-label mt-1">会员人数（冗余）</label>
+                <div class="col-sm-4">
+                    <label>{{memberLevel.quantity}}</label>
+                </div>
+            </div>
+
+            <div class="form-group row text-sm-right">
+
+                <label class="col-sm-2 form-control-label mt-1">成长值满足点</label>
+                <div class="col-sm-4">
+                    <label>{{memberLevel.growthValue}}</label>
+                </div>
+                <label class="col-sm-2 form-control-label mt-1">折扣（0.00-100.00）</label>
+                <div class="col-sm-4">
+                    <label>{{memberLevel.discount}}</label>
+                </div>
+            </div>
+
+            <div class="form-group row text-sm-right">
+
+                <label class="col-sm-2 form-control-label mt-1">默认等级（0非默认1默认）</label>
+                <div class="col-sm-4">
+                    <label>{{memberLevel.initial}}</label>
+                </div>
+                <label class="col-sm-2 form-control-label mt-1">注册时间</label>
+                <div class="col-sm-4">
+                    <label>{{memberLevel.createTime}}</label>
+                </div>
+            </div>
+
+            <div class="form-group row text-sm-right">
+
+                <label class="col-sm-2 form-control-label mt-1">删除（0否1是）</label>
+                <div class="col-sm-4">
+                    <label>{{memberLevel.deleted}}</label>
+                </div>
+                <label class="col-sm-2 form-control-label mt-1">删除时间</label>
+                <div class="col-sm-4">
+                    <label>{{memberLevel.delTime}}</label>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-9 offset-sm-2">
+                    <button class="btn btn-info" [routerLink]="'../../edit/'+memberLevel.id" type="button">编辑</button>
+                    <button class="btn btn-inverse ml-1" type="button" (click)="goBack()">返回</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

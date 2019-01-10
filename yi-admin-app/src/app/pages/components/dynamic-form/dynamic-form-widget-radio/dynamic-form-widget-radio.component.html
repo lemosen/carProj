@@ -1,0 +1,8 @@
+<ng-template [ngIf]="control && options">
+    <ng-container *ngFor="let opt of options.initOptionDatas;let i=index;">
+        <input type="radio" name="{{options.groupName}}" [formControl]="control" [value]="opt.filedValue"/>&nbsp;{{opt.filedText}}&nbsp;&nbsp;&nbsp;
+        <ng-template [ngIf]="!opt.assign">
+            <br>
+        </ng-template>
+    </ng-container>
+</ng-template>

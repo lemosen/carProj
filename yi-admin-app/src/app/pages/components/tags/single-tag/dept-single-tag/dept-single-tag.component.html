@@ -1,0 +1,10 @@
+<ng-template [ngIf]="obj|isNotEmpty">
+    <ul class="list-unstyled right_department_ul">
+        <div>
+            <div class="department_div">
+                <span class="delete" *ngIf="showRemove" (click)="removeTag(obj)"></span>
+                <span class="department_txt">{{getText(obj)}}</span>
+            </div>
+        </div>
+    </ul>
+</ng-template>

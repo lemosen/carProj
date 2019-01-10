@@ -1,0 +1,29 @@
+<div class="modal-header bg-info">
+    <h4 class="modal-title pull-left">{{configData.title}}</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+        <em class="fa fa-remove fa-lg"></em>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="col-lg-7 pl0 custom-line-height">
+                <p>当前选择：
+                    <app-tag-item [obj]="chooseDept" [text]="chooseDept?.deptName" (tagRemoved)="removeChoose($event)"></app-tag-item>
+                </p>
+            </div>
+            <div class="col-lg-5 pl0 pr0">
+                <app-search (onSearch)="searchData($event)" [dynamicStyle]="'mb0 mr0'"></app-search>
+            </div>
+        </div>
+    </div>
+
+    <app-dept-breadcrumb-no-child [deptId]="chooseQuery.deptId" (onDeptChange)="onDeptChange($event)"></app-dept-breadcrumb-no-child>
+
+    <app-result-level-items [items]="deptSimples" [fieldName]="'deptName'" (onChooseResult)="onChooseResult($event)"
+                            (onChooseChildLevel)="onChooseChildLevel($event)"></app-result-level-items>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-info" (click)="onAccept()">{{configData.confirmText}}</button>
+    <button type="button" class="btn btn-danger" (click)="bsModalRef.hide()">{{configData.cancelText}}</button>
+</div>

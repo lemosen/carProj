@@ -1,0 +1,83 @@
+
+
+<div widget class="card border-0 box-shadow">
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+    </div>
+    <div class="card-body widget-body">
+        <form class="form-horizontal "  >
+
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">GUID</label>
+                                <div class="col-sm-4">
+                                    <label>{{articleComment.guid}}</label>
+                                </div>
+                    </div>
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">文章（article表ID）</label>
+                                <div class="col-sm-4">
+                                    <label>{{articleComment.articleId}}</label>
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">评论人</label>
+                                <div class="col-sm-4">
+                                    <label>{{articleComment.commentator}}</label>
+                                </div>
+                    </div>
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">评论内容</label>
+                                <div class="col-sm-4">
+                                    <label>{{articleComment.commentContent}}</label>
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">评论时间</label>
+                                <div class="col-sm-4">
+                                    <label>{{articleComment.commentTime}}</label>
+                                </div>
+                    </div>
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">回复内容</label>
+                                <div class="col-sm-4">
+                                    <label>{{articleComment.replyContent}}</label>
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">回复时间</label>
+                                <div class="col-sm-4">
+                                    <label>{{articleComment.replyTime}}</label>
+                                </div>
+                    </div>
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">显示（0不显示1显示）</label>
+                                <div class="col-sm-4">
+                                    <label>{{articleComment.state}}</label>
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">删除（0否1是）</label>
+                                <div class="col-sm-4">
+                                    <label>{{articleComment.deleted}}</label>
+                                </div>
+                    </div>
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">删除时间</label>
+                                <div class="col-sm-4">
+                                    <label>{{articleComment.delTime}}</label>
+                                </div>
+                    </div>
+
+            <div class="form-group row">
+                <div class="col-sm-9 offset-sm-2">
+                    <button class="btn btn-info" [routerLink]="'../../edit/'+articleComment.articleCommentId" type="button">编辑</button>
+                    <button class="btn btn-inverse ml-1" type="button" (click)="goBack()">返回</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

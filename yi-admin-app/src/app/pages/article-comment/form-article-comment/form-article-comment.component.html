@@ -1,0 +1,96 @@
+
+<div widget class="card border-0 box-shadow">
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+    </div>
+
+    <div class="card-body widget-body">
+        <form class="form-horizontal "  [formGroup]="commonForm">
+
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">GUID </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('guid')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="guid" placeholder="请输入GUID">
+
+                                </div>
+                    </div>
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">文章（article表ID） <span class="text-danger">*</span></label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('articleId')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="articleId" placeholder="请输入文章（article表ID）">
+                                        <app-form-error [control]="commonForm.get('articleId')" [formErrors]="formErrors.articleId"></app-form-error>
+
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">评论人 <span class="text-danger">*</span></label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('commentator')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="commentator" placeholder="请输入评论人">
+                                        <app-form-error [control]="commonForm.get('commentator')" [formErrors]="formErrors.commentator"></app-form-error>
+
+                                </div>
+                    </div>
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">评论内容 <span class="text-danger">*</span></label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('commentContent')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="commentContent" placeholder="请输入评论内容">
+                                        <app-form-error [control]="commonForm.get('commentContent')" [formErrors]="formErrors.commentContent"></app-form-error>
+
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">评论时间 </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('commentTime')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="commentTime" placeholder="请输入评论时间">
+
+                                </div>
+                    </div>
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">回复内容 </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('replyContent')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="replyContent" placeholder="请输入回复内容">
+
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">回复时间 </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('replyTime')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="replyTime" placeholder="请输入回复时间">
+
+                                </div>
+                    </div>
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">显示（0不显示1显示） <span class="text-danger">*</span></label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('state')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="state" placeholder="请输入显示（0不显示1显示）">
+                                        <app-form-error [control]="commonForm.get('state')" [formErrors]="formErrors.state"></app-form-error>
+
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">删除（0否1是） <span class="text-danger">*</span></label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('deleted')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="deleted" placeholder="请输入删除（0否1是）">
+                                        <app-form-error [control]="commonForm.get('deleted')" [formErrors]="formErrors.deleted"></app-form-error>
+
+                                </div>
+                    </div>
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">删除时间 </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('delTime')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="delTime" placeholder="请输入删除时间">
+
+                                </div>
+                    </div>
+
+            <div class="form-group row">
+                <div class="col-sm-9 offset-sm-2">
+                    <button class="btn btn-info" type="button" (click)="onSubmit()" >保存</button>
+                    <button class="btn btn-gray ml-1" type="button" (click)="goBack()">返回</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

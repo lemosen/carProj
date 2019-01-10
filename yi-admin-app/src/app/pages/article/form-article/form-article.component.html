@@ -1,0 +1,145 @@
+<div widget class="card border-0 box-shadow">
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+    </div>
+
+    <form class="form-horizontal " [formGroup]="commonForm">
+
+        <div class="large">
+            <div class="head">
+                <span class="size"> 基本信息</span>
+            </div>
+
+            <div class="content">
+                <br>
+                <!-- <button class="btn btn-inverse ml-1" type="button" (click)="goBack()">返回</button>-->
+                <div class="form-group row text-sm-right">
+                </div>
+                <div class="form-group row text-sm-right">
+                    <label class="col-sm-2 form-control-label mt-1">专题标题： <span class="text-danger">*</span></label>
+                    <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('title')|formMark}">
+                        <input class="form-control validation-field" type="text" formControlName="title"
+                               placeholder="请输入名称">
+                        <app-form-error [control]="commonForm.get('title')"
+                                        [formErrors]="formErrors.title"></app-form-error>
+                    </div>
+                </div>
+
+                <div class="form-group row text-sm-right">
+                    <label class="col-sm-2 form-control-label mt-1">专题描述： <span class="text-danger">*</span></label>
+                    <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('subtitle')|formMark}">
+                        <input class="form-control validation-field" type="text" formControlName="subtitle"
+                               placeholder="请输入描述">
+                        <app-form-error [control]="commonForm.get('subtitle')"
+                                        [formErrors]="formErrors.subtitle"></app-form-error>
+                    </div>
+                </div>
+
+                <div class="form-group row text-sm-right">
+
+                    <label class="col-sm-2 form-control-label mt-1">是否推荐：</label>
+                    <div class="col-sm-4 btn-group btn-group-toggle" ngbRadioGroup name="radioBasic"
+                         formControlName="state">
+                        <label ngbButtonLabel class="btn-primary">
+                            <input ngbButton type="radio" [value]="0"> 是
+                        </label>
+                        <label ngbButtonLabel class="btn-primary">
+                            <input ngbButton type="radio" [value]="1"> 否
+                        </label>
+
+                    </div>
+                </div>
+
+               <!-- <div class="form-group row text-sm-right">
+                    <label class="col-sm-2 form-control-label mt-1">作者</label>
+
+                    <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('author')|formMark}">
+                   <span *ngIf="this.commonForm.value.author!=null">
+                        <app-file-uploader #fileUploader [allowedFileType]="['image']"
+                                           (onFileUploaded)="getAuthor($event)" [url]="this.commonForm.value.author">
+                        </app-file-uploader>
+                    </span>
+                    <span *ngIf="this.commonForm.value.author==null">
+                        <app-file-uploader  #fileUploader [allowedFileType]="['image']"
+                                           (onFileUploaded)="getAuthor($event)">
+                        </app-file-uploader>
+                    </span>
+                        <button (click)="fileUploader.fileSelect()" class=" btn btn-info" type="button">上传图片
+                        </button>
+                    </div>
+                </div>
+-->
+                <div class="form-group row text-sm-right">
+                    <label class="col-sm-2 form-control-label mt-1">图片</label>
+
+                    <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('imgPath')|formMark}">
+                   <span *ngIf="this.commonForm.value.imgPath!=null">
+                        <app-file-uploader #fileUploader [allowedFileType]="['image']"
+                                           (onFileUploaded)="getPic($event)" [url]="this.commonForm.value.imgPath">
+                        </app-file-uploader>
+                    </span>
+                        <span *ngIf="this.commonForm.value.imgPath==null">
+                        <app-file-uploader #fileUploader [allowedFileType]="['image']"
+                                           (onFileUploaded)="getPic($event)">
+                        </app-file-uploader>
+                    </span>
+                        <button (click)="fileUploader.fileSelect()" class=" btn btn-info" type="button">上传图片
+                        </button>
+
+                    </div>
+                </div>
+
+
+
+                <br>
+            </div>
+        </div>
+
+        <div class="large">
+            <div class="head">
+                <span class="size"> 专题正文<span class="text-danger">*</span></span>
+            </div>
+            <div class="col-sm-8" style="text-align: left"
+                 [ngClass]="{'has-error':commonForm.get('content')|formMark}">
+                <app-editor #editor [ckeditorContent]="recallContent" (result)="thematicText($event)"></app-editor>
+                <app-form-error [control]="commonForm.get('content')"
+                                [formErrors]="formErrors.content"></app-form-error>
+            </div>
+            <div class="content">
+            </div>
+        </div>
+        <div class="large">
+            <div class="head">
+                <span class="size">添加商品</span>
+            </div>
+            <div class="content">
+                <br>
+                <div class="form-group row text-sm-right">
+                    <label class="col-sm-2 form-control-label mt-1">选择商品：</label>
+                    <div class="col-sm-4 text-align-left"
+                         [ngClass]="{'has-error':commonForm.get('id')|formMark}">
+                        <app-modal-selecet
+                                [showCol]="[{name:'id',value:'ID',isShow:false},{name:'commodityNo',value:'编码',isShow:false},{name:'commodityName',value:'商品名',isShow:true}]"
+                                [select]="commonForm.value.commodities"
+                                [resultName]="selectCommodityName"
+                                [baseService]="commodityService"
+                                [isMulti]="true"
+                                (result)="setParentCategory($event)">
+                        </app-modal-selecet>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-9 offset-sm-2">
+                <br>
+                <button class="btn btn-info" type="button" (click)="onSubmit()">保存</button>
+                <button class="btn btn-gray ml-1" type="button" (click)="goBack()">返回</button>
+                <br>
+                <br>
+            </div>
+        </div>
+    </form>
+
+</div>

@@ -1,0 +1,160 @@
+<div widget class="card border-0 box-shadow">
+    <div class="card-body pt-0 widget-body"><!--background-color: #e4e4e4;-->
+        <label class="col-sm-3 form-control-label mt-1"
+               style="text-align: center;padding: 10px;border: 1px #e4e4e4 solid"
+               [ngStyle]="{'background-color':orderDetails[i].index ==saleOrder.state ? '#e4e4e4' : 'white' }"
+               *ngFor="let orderDetail of orderDetails;let i=index">{{orderDetail.title}}</label>
+    </div>
+</div>
+
+<br>
+
+<div widget class="border-0">
+    <div class="pt-0 widget-body">
+        <button style="padding: 10px 20px;background-color: #d7d7d7"
+                [routerLink]="'../../editPrice/'+saleOrder.id" *ngIf="saleOrder.state==1">修改价格
+        </button>&nbsp;&nbsp;
+        <button style="padding: 10px 20px;background-color: #d7d7d7" *ngIf="saleOrder.state==1" (click)="goUpdateOrderState(saleOrder.id,'5')">关闭交易</button>&nbsp;&nbsp;
+        <button style="padding: 10px 20px;background-color: #d7d7d7" *ngIf="saleOrder.state==2" (click)="goUpdateOrderState(saleOrder.id,'3')">发货</button>&nbsp;&nbsp;
+        <button style="padding: 10px 20px;background-color: #d7d7d7"
+                [routerLink]="'../../editRecevingAddress/'+saleOrder.id" *ngIf="saleOrder.state==2|| saleOrder.state==1 ">修改收货地址
+        </button>
+    </div>
+</div>
+
+<br>
+
+<div widget class="card border-0 box-shadow">
+    <div class="card-body pt-0 widget-body border-show">
+        <div class="back-color-v2 border-show" style="padding: 10px" col-sm-12>买家信息</div>
+        <br>
+        <div class="form-group row text-sm-right">
+
+            <label class="col-sm-2 form-control-label mt-1">会员昵称：</label>
+            <label class="col-sm-4 form-control-label mt-1 text-align-left">{{saleOrder?.member?.nickname}}</label>
+            <label class="col-sm-2 form-control-label mt-1">收货信息：</label>
+            <label class="col-sm-4 form-control-label mt-1 text-align-left"></label>
+        </div>
+        <div class="form-group row text-sm-right">
+
+            <label class="col-sm-2 form-control-label mt-1">会员账号：</label>
+            <label class="col-sm-4 form-control-label mt-1 text-align-left">{{saleOrder?.member?.username}}</label>
+            <label class="col-sm-2 form-control-label mt-1">配送方式：</label>
+            <label class="col-sm-4 form-control-label mt-1 text-align-left">{{saleOrder.deliveryMode}}</label>
+        </div>
+        <div class="form-group row text-sm-right">
+
+            <label class="col-sm-2 form-control-label mt-1">所在小区：</label>
+            <label class="col-sm-4 form-control-label mt-1 text-align-left">{{saleOrder?.member?.address}}</label>
+            <label class="col-sm-2 form-control-label mt-1">物流公司：</label>
+            <label class="col-sm-4 form-control-label mt-1 text-align-left">{{saleOrder.logisticsCompany}}</label>
+        </div>
+        <div class="form-group row text-sm-right">
+
+            <label class="col-sm-2 form-control-label mt-1">买家留言：</label>
+            <label class="col-sm-4 form-control-label mt-1 text-align-left">{{saleOrder.buyerMessage}}</label>
+            <label class="col-sm-2 form-control-label mt-1">快递单号：</label>
+            <label class="col-sm-4 form-control-label mt-1 text-align-left">{{saleOrder.trackingNo}}</label>
+        </div>
+    </div>
+</div>
+
+<br>
+
+<div widget class="card border-0 box-shadow">
+    <div class="card-body pt-0 widget-body border-show">
+        <div class="back-color-v2 border-show" style="padding: 10px" col-sm-12>订单信息</div>
+        <br>
+        <div class="form-group row text-sm-right">
+
+            <label class="col-sm-2 form-control-label mt-1">订单编号：</label>
+            <label class="col-sm-10 form-control-label mt-1 text-align-left">{{saleOrder.orderNo}}</label>
+        </div>
+        <div class="form-group row text-sm-right">
+
+            <label class="col-sm-2 form-control-label mt-1">支付方式：</label>
+            <label class="col-sm-10 form-control-label mt-1 text-align-left">
+                <td *ngIf="saleOrder.payMode==1">支付宝</td>
+                <td *ngIf="saleOrder.payMode==2">微信</td>
+                <td *ngIf="saleOrder.payMode==3">银联</td>
+            </label>
+        </div>
+        <div class="form-group row text-sm-right">
+
+            <label class="col-sm-2 form-control-label mt-1">交易号：</label>
+            <label class="col-sm-10 form-control-label mt-1 text-align-left">{{saleOrder.tradeNo}}</label>
+        </div>
+        <div class="form-group row text-sm-right">
+
+            <label class="col-sm-2 form-control-label mt-1">下单时间：</label>
+            <label class="col-sm-10 form-control-label mt-1 text-align-left">{{saleOrder.createTime}}</label>
+        </div>
+        <div class="form-group row text-sm-right">
+
+            <label class="col-sm-2 form-control-label mt-1">付款时间：</label>
+            <label class="col-sm-10 form-control-label mt-1 text-align-left">{{saleOrder.paymentTime}}</label>
+        </div>
+        <div class="form-group row text-sm-right">
+
+            <label class="col-sm-2 form-control-label mt-1">发货时间：</label>
+            <label class="col-sm-10 form-control-label mt-1 text-align-left">{{saleOrder.deliveryTime}}</label>
+        </div>
+        <div class="form-group row text-sm-right">
+
+            <label class="col-sm-2 form-control-label mt-1">成交时间：</label>
+            <label class="col-sm-10 form-control-label mt-1 text-align-left">{{saleOrder.dealTime}}</label>
+        </div>
+    </div>
+</div>
+
+<br>
+
+<div widget class="card border-0 box-shadow">
+    <div class="card-body pt-0 widget-body border-show">
+        <table class="table table-hover">
+            <tr>
+                <th>商品图片</th>
+                <th>商品名称</th>
+                <th>单价</th>
+                <th>销售属性</th>
+                <th>数量</th>
+                <th>优惠</th>
+                <th>小计</th>
+            </tr>
+            <ng-template [ngIf]="saleOrder|isNotEmpty">
+                <tr *ngFor="let saleOrderItems of saleOrder.saleOrderItems" >
+                    <td>{{saleOrderItems?.commodityImg}}</td>
+                    <td>{{saleOrderItems?.commodityName}}</td>
+                    <td>{{saleOrderItems?.price}}</td>
+                    <td></td>
+                    <td>{{saleOrderItems?.quantity}}</td>
+                    <td>{{saleOrderItems?.discount}}</td>
+                    <td>{{saleOrderItems?.total}}</td>
+                </tr>
+            </ng-template>
+        </table>
+    </div>
+</div>
+
+<br>
+
+<div widget class="card border-0 box-shadow">
+    <div class="card-body pt-0 widget-body border-show">
+        <table class="table table-hover">
+            <tr>
+                <th>商品合计</th>
+                <th>优惠券</th>
+                <th>运费</th>
+                <th>实际支付</th>
+            </tr>
+            <tr>
+                <td>{{saleOrder.orderAmount}}</td>
+                <td>{{saleOrder.discountAmount}}</td>
+                <td>{{saleOrder.freight}}</td>
+                <td>{{saleOrder.payAmount}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<br>
+<br>

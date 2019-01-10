@@ -1,0 +1,317 @@
+<form class="form-horizontal " [formGroup]="commonForm">
+<div widget class="card border-0 box-shadow">
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+    </div>
+    <div class="card-body widget-body">
+
+        <div class="form-group row text-sm-right">
+
+            <label class="col-sm-2 form-control-label mt-1">服务单号</label>
+            <div class="col-sm-10 text-align-left">
+                <label>{{returnOrder.returnNo}}</label>
+            </div>
+        </div>
+
+        <div class="form-group row text-sm-right">
+
+            <label class="col-sm-2 form-control-label mt-1">申请状态</label>
+            <div class="col-sm-10 text-align-left">
+                <label *ngIf="returnOrder.state==1">待处理</label>
+                <label *ngIf="returnOrder.state==2">待收货</label>
+                <label *ngIf="returnOrder.state==3">已完成</label>
+            </div>
+        </div>
+
+        <div class="form-group row text-sm-right">
+            <label class="col-sm-2 form-control-label mt-1">订单编号</label>
+            <div class="col-sm-10 text-align-left">
+                <label>{{returnOrder?.orderNo}}</label>
+            </div>
+        </div>
+
+        <div class="form-group row text-sm-right">
+
+            <label class="col-sm-2 form-control-label mt-1">申请时间</label>
+            <div class="col-sm-4 text-align-left">
+                <label>{{returnOrder?.applyTime}}</label>
+            </div>
+        </div>
+
+        <div class="form-group row text-sm-right">
+            <label class="col-sm-2 form-control-label mt-1">用户账号</label>
+            <div class="col-sm-4 text-align-left">
+                <label>{{returnOrder?.member?.username}}</label>
+            </div>
+        </div>
+
+        <div class="form-group row text-sm-right">
+            <label class="col-sm-2 form-control-label mt-1">联系人</label>
+            <div class="col-sm-4 text-align-left">
+                <label>{{returnOrder.contact}}</label>
+            </div>
+        </div>
+
+        <div class="form-group row text-sm-right">
+            <label class="col-sm-2 form-control-label mt-1">联系电话</label>
+            <div class="col-sm-4 text-align-left">
+                <label>{{returnOrder.contactPhone}}</label>
+            </div>
+        </div>
+
+        <div class="form-group row text-sm-right">
+            <label class="col-sm-2 form-control-label mt-1">退货原因</label>
+            <div class="col-sm-4 text-align-left">
+                <label>{{returnOrder.returnReason}}</label>
+            </div>
+        </div>
+
+        <div class="form-group row text-sm-right">
+            <label class="col-sm-2 form-control-label mt-1">问题描述</label>
+            <div class="col-sm-4 text-align-left">
+                <label>{{returnOrder.problemDescription}}</label>
+            </div>
+        </div>
+
+        <div class="form-group row text-sm-right">
+            <label class="col-sm-2 form-control-label mt-1">凭证照片</label>
+            <div class="col-sm-4 text-align-left">
+                <label>{{returnOrder.voucherPhoto}}</label>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<br>
+
+<div widget class="card border-0 box-shadow">
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+    </div>
+    <div class="card-body widget-body">
+
+        <div class="form-group row text-sm-right">
+
+            <label class="col-sm-2 form-control-label mt-1">订单金额</label>
+            <div class="col-sm-10 text-align-left">
+                <label>{{returnOrder.orderAmount}}</label>
+            </div><!--refund_amount-->
+        </div>
+
+        <div class="form-group row text-sm-right">
+
+            <label class="col-sm-2 form-control-label mt-1">退运费</label>
+            <div class="col-sm-10 text-align-left">
+                <label>{{returnOrder.freight}}</label>
+            </div>
+        </div>
+
+        <div class="form-group row text-sm-right">
+            <label class="col-sm-2 form-control-label mt-1">确认退款金额</label>
+            <div class="col-sm-10 text-align-left">
+                <label>{{returnOrder.orderAmount}}</label>
+            </div>
+        </div>
+
+        <div class="form-group row text-sm-right">
+            <label class="col-sm-2 form-control-label mt-1">收货人姓名</label>
+            <div class="col-sm-10 text-align-left">
+                <label>{{returnOrder.consignee}}</label>
+            </div>
+        </div>
+
+        <div class="form-group row text-sm-right">
+
+            <label class="col-sm-2 form-control-label mt-1">所在区域</label>
+            <div class="col-sm-10 text-align-left">
+                <label>{{addresss[0]+addresss[1]+addresss[2]}}</label>
+            </div>
+        </div>
+
+        <div class="form-group row text-sm-right">
+            <label class="col-sm-2 form-control-label mt-1">详细地址</label>
+            <div class="col-sm-10 text-align-left">
+                <label>{{addresss[0]+addresss[1]+addresss[2]+addresss[3]}}</label>
+            </div>
+        </div>
+
+        <div class="form-group row text-sm-right">
+            <label class="col-sm-2 form-control-label mt-1">联系电话</label>
+            <div class="col-sm-10 text-align-left">
+                <label>{{returnOrder.consigneePhone}}</label>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<br>
+
+<div widget class="card border-0 box-shadow" *ngIf="returnOrder.state==1">
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+    </div>
+    <div class="card-body widget-body" [formGroup]="commonForm">
+        <form class="form-horizontal " formGroupName="returnProcesse">
+
+            <div class="form-group row text-sm-right">
+                <label class="col-sm-2 form-control-label mt-1">处理人员<span
+                        class="text-danger">*</span></label>
+                <div class="col-sm-4 text-align-left"
+                     [ngClass]="{'has-error':commonForm.get('returnProcesse?.user?.fullName')|formMark}">
+                    <app-modal-selecet
+                            [showCol]="[{name:'id',value:'ID',isShow:false},{name:'fullName',value:'姓名',isShow:true}]"
+                            [select]="commonForm.value.returnProcesse?.user"
+                            [resultName]="commonForm.value?.returnProcesse?.user?.fullName"
+                            [baseService]="userService"
+                            (result)="setMemberLevel($event)">
+                    </app-modal-selecet>
+                </div>
+            </div>
+
+            <div class="form-group row text-sm-right">
+                <label class="col-sm-2 form-control-label mt-1">操作备注</label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('returnProcesse.remark')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="remark"
+                           placeholder="请输入操作备注">
+                    <app-form-error [control]="commonForm.get('returnProcesse?.remark')"
+                                    [formErrors]="formErrors.returnProcesse?.remark"></app-form-error>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-9 offset-sm-2">
+                    <button class="btn btn-info" (click)="refusalToConfirm(returnOrder.id,1)" type="button">确认退货
+                    </button>
+                    <button class="btn btn-inverse ml-1" type="button" (click)="refusalToConfirm(returnOrder.id,2)">拒绝退货
+                    </button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<div widget class="card border-0 box-shadow" *ngIf="returnOrder.state==2">
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+    </div>
+    <div class="card-body widget-body" [formGroup]="commonForm">
+        <form class="form-horizontal " formGroupName="returnProcesse">
+
+            <div class="form-group row text-sm-right">
+                <label class="col-sm-2 form-control-label mt-1">处理人员<span
+                        class="text-danger">*</span></label>
+                <div class="col-sm-4 text-align-left"
+                     [ngClass]="{'has-error':commonForm.get('returnProcesse?.user?.fullName')|formMark}">
+                    <app-modal-selecet
+                            [showCol]="[{name:'id',value:'ID',isShow:false},{name:'fullName',value:'姓名',isShow:true}]"
+                            [select]="commonForm.value.returnProcesse?.user"
+                            [resultName]="commonForm.value.returnProcesse?.user?.fullName"
+                            [baseService]="userService"
+                            (result)="setMemberLevel($event)">
+                    </app-modal-selecet>
+                </div>
+            </div>
+
+            <div class="form-group row text-sm-right">
+                <label class="col-sm-2 form-control-label mt-1">操作备注</label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('returnProcesse.remark')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="remark"
+                           placeholder="请输入操作备注">
+                    <app-form-error [control]="commonForm.get('returnProcesse?.remark')"
+                                    [formErrors]="formErrors.returnProcesse?.remark"></app-form-error>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-9 offset-sm-2">
+                    <button class="btn btn-info" (click)="refusalToConfirm(returnOrder.id,3)" type="button">确认收货
+                    </button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<div widget class="card border-0 box-shadow" *ngIf="returnOrder.state==3">
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+    </div>
+    <div class="card-body widget-body" *ngFor="let returnProcesse of returnOrder.returnProcesse">
+
+        <div class="form-group row text-sm-right">
+            <label class="col-sm-2 form-control-label mt-1">处理人员<span
+                    class="text-danger">*</span></label>
+            <div class="col-sm-4">
+                <input class="form-control validation-field" type="text" disabled
+                       value="{{returnProcesse?.user.username}}">
+            </div>
+        </div>
+
+        <div class="form-group row text-sm-right">
+            <label class="col-sm-2 form-control-label mt-1">操作备注</label>
+            <div class="col-sm-4">
+                <input class="form-control validation-field" type="text" disabled
+                       value="{{returnProcesse?.remark}}">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-9 offset-sm-2">
+                <button class="btn btn-inverse ml-1" type="button" disabled>已完成</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+  <div widget class="card border-0 box-shadow" *ngIf="returnOrder.state == 4">
+        <div class="card-header transparent border-0 text-muted">
+            <h5 class="mb-0"></h5>
+        </div>
+        <div class="card-body widget-body" [formGroup]="commonForm">
+            <form class="form-horizontal " formGroupName="returnProcesse">
+                <div class="form-group row text-sm-right">
+                    <label class="col-sm-2 form-control-label mt-1">处理人员<span
+                            class="text-danger">*</span></label>
+                    <div class="col-sm-4 text-align-left"
+                         [ngClass]="{'has-error':commonForm.get('returnProcesse?.user?.fullName')|formMark}">
+                        <app-modal-selecet
+                                [showCol]="[{name:'id',value:'ID',isShow:false},{name:'fullName',value:'姓名',isShow:true}]"
+                                [select]="commonForm.value.returnProcesse?.user"
+                                [resultName]="commonForm.value.returnProcesse?.user?.fullName"
+                                [baseService]="userService"
+                                (result)="setMemberLevel($event)">
+                        </app-modal-selecet>
+                    </div>
+                </div>
+                <div class="form-group row text-sm-right">
+                    <label class="col-sm-2 form-control-label mt-1">操作备注</label>
+
+                    <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('returnProcesse.remark')|formMark}">
+                        <input class="form-control validation-field" type="text" formControlName="remark"
+                               placeholder="请输入操作备注">
+                        <app-form-error [control]="commonForm.get('returnProcesse?.remark')"
+                                        [formErrors]="formErrors.returnProcesse?.remark"></app-form-error>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-9 offset-sm-2">
+                        <button class="btn btn-info" (click)="refusalToConfirm(returnOrder.id,4)" type="button">确认退款
+                        </button>
+                        <button class="btn btn-inverse ml-1" type="button" (click)="refusalToConfirm(returnOrder.id,5)">拒绝退款</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+
+</form>

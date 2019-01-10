@@ -1,0 +1,59 @@
+
+
+<div widget class="card border-0 box-shadow">
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+    </div>
+    <div class="card-body widget-body">
+        <form class="form-horizontal "  >
+
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">GUID</label>
+                                <div class="col-sm-4">
+                                    <label>{{recommendProduct.guid}}</label>
+                                </div>
+                    </div>
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">推荐位（recommend表ID）</label>
+                                <div class="col-sm-4">
+                                    <label>{{recommendProduct.recommendId}}</label>
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">商品（product表ID）</label>
+                                <div class="col-sm-4">
+                                    <label>{{recommendProduct.productId}}</label>
+                                </div>
+                    </div>
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">商品编码（冗余）</label>
+                                <div class="col-sm-4">
+                                    <label>{{recommendProduct.productCode}}</label>
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">商品名称（冗余）</label>
+                                <div class="col-sm-4">
+                                    <label>{{recommendProduct.productName}}</label>
+                                </div>
+                    </div>
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">商品图片（冗余）</label>
+                                <div class="col-sm-4">
+                                    <label>{{recommendProduct.imgPath}}</label>
+                                </div>
+                    </div>
+
+            <div class="form-group row">
+                <div class="col-sm-9 offset-sm-2">
+                    <button class="btn btn-info" [routerLink]="'../../edit/'+recommendProduct.recommendProductId" type="button">编辑</button>
+                    <button class="btn btn-inverse ml-1" type="button" (click)="goBack()">返回</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

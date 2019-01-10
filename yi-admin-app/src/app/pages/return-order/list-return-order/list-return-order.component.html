@@ -1,0 +1,107 @@
+<ul class="return_order">
+    <li class="card"  (click)="onItemClick(i)" *ngFor="let menu of menus;let i=index"
+        [ngStyle]="{'background-color':selectMenu ===i ? 'white' : '#e9ecef' }">{{menu.name}}
+    </li>
+</ul>
+
+<div widget class="card border-0 box-shadow">
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+    </div>
+    <div class="card-body widget-body">
+        <form [formGroup]="searchForm">
+            <div class=" form-inline form-group">
+
+                <div class="col-lg-4 form-group">
+                    <label class="col-lg-4 form-control-label text-lg-right">服务单号</label>
+
+                    <input class="col-lg-6 form-control filter" formControlName="returnNo"
+                           (blur)="pageQuery.addOnlyFilter('returnNo',$event.target.value,'eq')"
+                           placeholder="请输入服务单号" type="text">
+                </div>
+
+                <div class="col-lg-4 form-group">
+                    <label class="col-lg-4 form-control-label text-lg-right">会员账号</label>
+
+                    <input class="col-lg-6 form-control filter" formControlName="username"
+                           (blur)="pageQuery.addOnlyFilter('username',$event.target.value,'eq')"
+                           placeholder="请输入会员账号" type="text">
+
+                </div>
+
+            </div>
+        </form>
+
+        <div class=" form-inline form-group">
+            <div class="col-lg-12">
+                <div class=" pull-right">
+                    <!--<button class="btn btn-primary  mr-1" [routerLink]="'../add'"><i class="fa fa-plus"></i>&nbsp;新增
+                    </button>-->
+                    <button class="btn btn-success  mr-1" (click)="searchData()"><i class="fa fa-search"></i>&nbsp;查询
+                    </button>
+                    <button class="btn btn-info  mr-1" (click)="clearSearch()"><i class="fa fa-refresh"></i>&nbsp;重置
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body pt-0 widget-body">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>服务单号</th>
+                <th>申请时间</th>
+                <th>会员账号</th>
+                <th>退款金额</th>
+                <th>处理时间</th>
+                <th>状态</th>
+            <!--    <th>是否</th>-->
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <ng-template [ngIf]="anys|isNotEmpty">
+                <tr *ngFor="let returnOrder of anys;let i=index" (click)="getSelect(returnOrder.id,i)">
+                    <td style="display: none"><input type="radio" name="select">
+                    </td>
+
+                    <td>{{returnOrder.returnNo}}</td>
+                    <td>{{returnOrder.applyTime}}</td>
+                    <td>{{returnOrder?.member?.username}}</td>
+                    <td>{{returnOrder.orderAmount}}</td>
+
+                    <td>{{returnOrder.handleTime}}</td>
+                  <!--  <td *ngIf="returnOrder?.returnProcesses==null"></td>-->
+<!--                    <td *ngIf="returnOrder.state==1">待处理</td>
+                    <td *ngIf="returnOrder.state==2">待收货</td>
+                    <td *ngIf="returnOrder.state==3">已完成</td>-->
+                  <td>
+                     <span *ngIf="returnOrder?.processType==0"></span>
+                     <span *ngIf="returnOrder?.processType==1">确认退货</span>
+                     <span *ngIf="returnOrder?.processType==2">拒绝退货</span>
+                     <span *ngIf="returnOrder?.processType==3">确认收货</span>
+                     <span *ngIf="returnOrder?.processType==4">确认退款</span>
+                     <span *ngIf="returnOrder?.processType==5">拒绝退款</span>
+                  </td>
+                    <td *ngIf="returnOrder.processs==null"></td>
+                    <td>
+                        <span [routerLink]="'../view/'+returnOrder.id">详情</span>
+                        <!--<span [routerLink]="'../edit/'+returnOrder.id">编辑</span>-->
+                    </td>
+                </tr>
+
+                <ngb-pagination class="d-flex justify-content-center"
+                                [collectionSize]="pageQuery.responses.totalElements" [(page)]="pageQuery.page"
+                                [maxSize]="pageQuery.pageSize"
+                                [rotate]="true" [boundaryLinks]="true"
+                                (pageChange)="pageChange($event)"></ngb-pagination>
+            </ng-template>
+
+            </tbody>
+        </table>
+
+        <app-no-data-tip [isShow]="anys|isEmpty"></app-no-data-tip>
+    </div>
+</div>
+
+

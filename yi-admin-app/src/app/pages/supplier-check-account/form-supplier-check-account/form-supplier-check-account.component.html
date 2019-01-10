@@ -1,0 +1,117 @@
+
+<div widget class="card border-0 box-shadow">
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+    </div>
+
+    <div class="card-body widget-body">
+        <form class="form-horizontal "  [formGroup]="commonForm">
+
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">GUID </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('guid')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="guid" placeholder="请输入GUID">
+
+                                </div>
+                    </div>
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">供应商（supplier表ID） <span class="text-danger">*</span></label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('supplierId')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="supplierId" placeholder="请输入供应商（supplier表ID）">
+                                        <app-form-error [control]="commonForm.get('supplierId')" [formErrors]="formErrors.supplierId"></app-form-error>
+
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">供应商名称 </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('supplierName')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="supplierName" placeholder="请输入供应商名称">
+
+                                </div>
+                    </div>
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">订单（sale_order表ID） <span class="text-danger">*</span></label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('saleOrderId')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="saleOrderId" placeholder="请输入订单（sale_order表ID）">
+                                        <app-form-error [control]="commonForm.get('saleOrderId')" [formErrors]="formErrors.saleOrderId"></app-form-error>
+
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">订单编号 </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('saleOrderNo')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="saleOrderNo" placeholder="请输入订单编号">
+
+                                </div>
+                    </div>
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">下单时间 </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('orderTime')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="orderTime" placeholder="请输入下单时间">
+
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">商品（product表ID） <span class="text-danger">*</span></label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('productId')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="productId" placeholder="请输入商品（product表ID）">
+                                        <app-form-error [control]="commonForm.get('productId')" [formErrors]="formErrors.productId"></app-form-error>
+
+                                </div>
+                    </div>
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">商品编号 </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('productNo')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="productNo" placeholder="请输入商品编号">
+
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">商品名称 </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('productName')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="productName" placeholder="请输入商品名称">
+
+                                </div>
+                    </div>
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">供货价 <span class="text-danger">*</span></label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('supplyPrice')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="supplyPrice" placeholder="请输入供货价">
+                                        <app-form-error [control]="commonForm.get('supplyPrice')" [formErrors]="formErrors.supplyPrice"></app-form-error>
+
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">数量 <span class="text-danger">*</span></label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('quantity')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="quantity" placeholder="请输入数量">
+                                        <app-form-error [control]="commonForm.get('quantity')" [formErrors]="formErrors.quantity"></app-form-error>
+
+                                </div>
+                    </div>
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">应结货款 <span class="text-danger">*</span></label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('settlementAmount')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="settlementAmount" placeholder="请输入应结货款">
+                                        <app-form-error [control]="commonForm.get('settlementAmount')" [formErrors]="formErrors.settlementAmount"></app-form-error>
+
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">结算时间 </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('settlementTime')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="settlementTime" placeholder="请输入结算时间">
+
+                                </div>
+                    </div>
+
+            <div class="form-group row">
+                <div class="col-sm-9 offset-sm-2">
+                    <button class="btn btn-info" type="button" (click)="onSubmit()" >保存</button>
+                    <button class="btn btn-gray ml-1" type="button" (click)="goBack()">返回</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,84 @@
+
+<div widget class="card border-0 box-shadow">
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+    </div>
+
+    <div class="card-body widget-body">
+        <form class="form-horizontal "  [formGroup]="commonForm">
+
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">GUID </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('guid')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="guid" placeholder="请输入GUID">
+
+                                </div>
+                    </div>
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">会员（member表ID） <span class="text-danger">*</span></label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('memberId')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="memberId" placeholder="请输入会员（member表ID）">
+                                        <app-form-error [control]="commonForm.get('memberId')" [formErrors]="formErrors.memberId"></app-form-error>
+
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">成交单数 </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('orderQuantity')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="orderQuantity" placeholder="请输入成交单数">
+
+                                </div>
+                    </div>
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">消费金额 </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('consumeAmount')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="consumeAmount" placeholder="请输入消费金额">
+
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">账户余额 </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('balance')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="balance" placeholder="请输入账户余额">
+
+                                </div>
+                    </div>
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">冻结金额 </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('freezeAmount')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="freezeAmount" placeholder="请输入冻结金额">
+
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">积分 </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('integral')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="integral" placeholder="请输入积分">
+
+                                </div>
+                    </div>
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">剩余积分 </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('residualIntegral')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="residualIntegral" placeholder="请输入剩余积分">
+
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">备注 </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('remark')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="remark" placeholder="请输入备注">
+
+                                </div>
+                    </div>
+
+            <div class="form-group row">
+                <div class="col-sm-9 offset-sm-2">
+                    <button class="btn btn-info" type="button" (click)="onSubmit()" >保存</button>
+                    <button class="btn btn-gray ml-1" type="button" (click)="goBack()">返回</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+<ng-template [ngIf]="obj|isNotEmpty">
+    <ul class="list-unstyled right_person_ul">
+        <div>
+            <div class="person_div">
+                <div class="person_img">
+                    <span class="delete" *ngIf="showRemove" (click)="removeTag(obj)"></span>
+                    <img src="{{obj.avatarImg | avatar}}">
+                </div>
+                <p class="person_name">{{getText(obj)}}</p>
+            </div>
+        </div>
+    </ul>
+</ng-template>

@@ -1,0 +1,63 @@
+
+
+<div widget class="card border-0 box-shadow">
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+    </div>
+    <div class="card-body widget-body">
+        <form class="form-horizontal "  >
+
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">GUID</label>
+                                <div class="col-sm-4">
+                                    <label>{{attributeName.guid}}</label>
+                                </div>
+                    </div>
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">属性组名（attribute_group表ID）</label>
+                                <div class="col-sm-4">
+                                    <label>{{attributeName?.attributeGroup?.groupName}}</label>
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">属性名</label>
+                                <div class="col-sm-4">
+                                    <label>{{attributeName.attrName}}</label>
+                                </div>
+                    </div>
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">状态（0启用1禁用）</label>
+                                <div class="col-sm-4">
+                                    <label>{{attributeName.state}}</label>
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">创建时间</label>
+                                <div class="col-sm-4">
+                                    <label>{{attributeName.createTime}}</label>
+                                </div>
+                    </div>
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">删除（0否1是）</label>
+                                <div class="col-sm-4">
+                                    <label>{{attributeName.deleted}}</label>
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">删除时间</label>
+                                <div class="col-sm-4">
+                                    <label>{{attributeName.delTime}}</label>
+                                </div>
+                    </div>
+
+            <div class="form-group row">
+                <div class="col-sm-9 offset-sm-2">
+                    <button class="btn btn-info" [routerLink]="'../../edit/'+attributeName.attributeNameId" type="button">编辑</button>
+                    <button class="btn btn-inverse ml-1" type="button" (click)="goBack()">返回</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

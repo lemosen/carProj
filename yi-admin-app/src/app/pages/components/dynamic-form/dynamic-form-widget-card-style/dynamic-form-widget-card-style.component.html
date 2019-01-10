@@ -1,0 +1,38 @@
+<ng-template [ngIf]="control && options">
+    <ng-container *ngFor="let fArr of control.controls">
+        <ng-container [formGroup]="fArr">
+
+            <div class="form-inline flex_container pl-lg pr-lg pb-lg">
+                <div class="form-group" style="width: 20% !important;">
+                    <strong><span>{{fArr.get('cardField').value.fieldTitle}}</span></strong>
+                </div>
+
+                <div class="form-group " style="width: 35% !important;">
+                    <span>标题：</span>
+                    <input class="form-control" type="text" [formControl]="fArr.get('styleFieldTitle')" required placeholder="请输入标题"/>
+                    <app-form-error [control]="fArr.get('styleFieldTitle')" [formErrors]="formErrors.styleFieldTitle"></app-form-error>
+                </div>
+
+                <div class="form-group" style="width: 20%!important;">
+                    <span>宽度：</span>
+                    <input class="form-control wd-xs" type="number" [formControl]="fArr.get('width')" required placeholder="请输入宽度"/>
+                    <app-form-error [control]="fArr.get('width')" [formErrors]="formErrors.width"></app-form-error>
+                </div>
+
+                <div class="form-group" style="width: 15% !important;">
+                    <span>排序：</span>
+                    <input class="form-control wd-xxs" type="number" [formControl]="fArr.get('showOrder')" required placeholder="请输入排序"/>
+                    <app-form-error [control]="fArr.get('showOrder')" [formErrors]="formErrors.showOrder"></app-form-error>
+                </div>
+                <div class="form-group" style="width: 10% !important;">
+                    <!--<span>显示：</span>-->
+                    <!--<input type="checkbox" [formControl]="fArr.get('selected')"/>-->
+                    <ui-switch [formControl]="fArr.get('selected')"></ui-switch>
+                </div>
+            </div>
+
+        </ng-container>
+
+    </ng-container>
+
+</ng-template>

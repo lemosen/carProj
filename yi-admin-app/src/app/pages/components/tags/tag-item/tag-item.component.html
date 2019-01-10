@@ -1,0 +1,6 @@
+<ng-container *ngIf="text">
+    <div class="custom-chip">
+        <small class="chip-label">{{text}}</small>
+        <i class="chip-remove" *ngIf="showRemove" (click)="removeTag()">&times;</i></div>
+</ng-container>
+

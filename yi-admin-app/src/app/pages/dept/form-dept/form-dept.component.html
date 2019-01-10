@@ -1,0 +1,59 @@
+<div widget class="card border-0 box-shadow">
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+    </div>
+
+    <div class="card-body widget-body">
+        <form class="form-horizontal " [formGroup]="commonForm">
+
+            <div class="form-group row text-sm-right">
+                <label class="col-sm-2 form-control-label mt-1">上级部门 </label>
+
+                <div class="col-sm-4 text-align-left"
+                     [ngClass]="{'has-error':commonForm.get('parent?.deptName')|formMark}">
+                    <app-modal-selecet
+                            [showCol]="[{name:'deptName',value:'部门名',isShow:true},{name:'id',value:'ID',isShow:false}]"
+                            [select]="commonForm.value.parent"
+                            [resultName]="commonForm.value.parent?.deptName"
+                            [baseService]="deptService"
+                            (result)="setParentDept($event)">
+                    </app-modal-selecet>
+                </div>
+                <label class="col-sm-2 form-control-label mt-1">部门编码 <span class="text-danger">*</span></label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('deptNo')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="deptNo"
+                           placeholder="请输入部门编码">
+                    <app-form-error [control]="commonForm.get('deptNo')"
+                                    [formErrors]="formErrors.deptNo"></app-form-error>
+
+                </div>
+            </div>
+            <div class="form-group row text-sm-right">
+                <label class="col-sm-2 form-control-label mt-1">部门名称 <span class="text-danger">*</span></label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('deptName')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="deptName"
+                           placeholder="请输入部门名称">
+                    <app-form-error [control]="commonForm.get('deptName')"
+                                    [formErrors]="formErrors.deptName"></app-form-error>
+
+                </div>
+                <label class="col-sm-2 form-control-label mt-1">部门描述 </label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('description')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="description"
+                           placeholder="请输入部门描述">
+
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-9 offset-sm-2">
+                    <button class="btn btn-info" type="button" (click)="onSubmit()">保存</button>
+                    <button class="btn btn-gray ml-1" type="button" (click)="goBack()">返回</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

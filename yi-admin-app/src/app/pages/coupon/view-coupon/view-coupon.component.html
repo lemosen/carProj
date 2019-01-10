@@ -1,0 +1,101 @@
+<div widget class="card border-0 box-shadow">
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+    </div>
+    <div class="card-body widget-body">
+        <form class="form-horizontal ">
+
+            <div class="form-group row text-sm-right">
+
+                <label class="col-sm-2 form-control-label mt-1">优惠券编码</label>
+                <div class="col-sm-4">
+                    <label>{{coupon.couponNo}}</label>
+                </div>
+                <label class="col-sm-2 form-control-label mt-1">优惠券名称</label>
+                <div class="col-sm-4">
+                    <label>{{coupon.couponName}}</label>
+                </div>
+            </div>
+
+            <div class="form-group row text-sm-right">
+
+                <label class="col-sm-2 form-control-label mt-1">优惠券类型</label>
+                <div class="col-sm-4">
+                    <label *ngIf="coupon.couponType==1">满减券</label>
+                    <label *ngIf="coupon.couponType==2">买送券</label>
+                </div>
+                <label class="col-sm-2 form-control-label mt-1">面值</label>
+                <div class="col-sm-4">
+                    <label>{{coupon.parValue}}</label>
+                </div>
+            </div>
+
+            <div class="form-group row text-sm-right">
+
+                <label class="col-sm-2 form-control-label mt-1">发放数量</label>
+                <div class="col-sm-4">
+                    <label>{{coupon.quantity}}</label>
+                </div>
+                <label class="col-sm-2 form-control-label mt-1">使用数量</label>
+                <div class="col-sm-4">
+                    <label>{{coupon.useQuantity}}</label>
+                </div>
+            </div>
+
+            <div class="form-group row text-sm-right">
+
+                <label class="col-sm-2 form-control-label mt-1">使用条件</label>
+                <div class="col-sm-4">
+                    <label *ngIf="coupon.useCondition==0">不限制</label>
+                    <label *ngIf="coupon.useCondition>0">满{{coupon.useCondition}}可用</label>
+                </div>
+                <label class="col-sm-2 form-control-label mt-1">领取方式</label>
+                <div class="col-sm-4">
+                    <label *ngIf="coupon.receiveMode==1">手工发放</label>
+                    <label *ngIf="coupon.receiveMode==2">自助领取</label>
+                </div>
+            </div>
+
+            <div class="form-group row text-sm-right">
+
+                <label class="col-sm-2 form-control-label mt-1">会员等级</label>
+                <div class="col-sm-4">
+                    <label>{{coupon?.memberLevel?.name}}</label>
+                </div>
+                <label class="col-sm-2 form-control-label mt-1">每人限领</label>
+                <div class="col-sm-4">
+                    <label>{{coupon.limited}}</label>
+                </div>
+            </div>
+
+            <div class="form-group row text-sm-right">
+
+                <label class="col-sm-2 form-control-label mt-1">开始时间</label>
+                <div class="col-sm-4">
+                    <label>{{coupon.startTime}}</label>
+                </div>
+
+                <label class="col-sm-2 form-control-label mt-1">结束时间</label>
+                <div class="col-sm-4">
+                    <label>{{coupon.endTime}}</label>
+                </div>
+            </div>
+
+            <div class="form-group row text-sm-right">
+
+                <label class="col-sm-2 form-control-label mt-1">有效期类型</label>
+                <div class="col-sm-4">
+                    <label *ngIf="coupon.validType==1">时间段</label>
+                    <label *ngIf="coupon.validType==2">固定天数</label>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-9 offset-sm-2">
+                    <button class="btn btn-info" [routerLink]="'../../edit/'+coupon.id" type="button">编辑</button>
+                    <button class="btn btn-inverse ml-1" type="button" (click)="goBack()">返回</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="modal-header bg-info">
+    <h4 class="modal-title pull-left">{{configData.title}}</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+        <em class="fa fa-remove fa-lg"></em>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-lg-4">
+            <p>已选择员工</p>
+            <app-selected-items [items]="chooseUsers" [fieldName]="'userName'" (onRemoveItemResult)="removeChoose($event)"></app-selected-items>
+        </div>
+        <div class="col-lg-8 pl0">
+            <app-search (onSearch)="searchData($event)" [dynamicStyle]="'mb-md mr0'"></app-search>
+            <app-dept-breadcrumb-show-child (onDeptChange)="onDeptChange($event)"></app-dept-breadcrumb-show-child>
+            <app-result-no-level-items [items]="userSimples" [fieldName]="'userName'" (onChooseResult)="onChooseResult($event)"></app-result-no-level-items>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-info" (click)="onAccept()">{{configData.confirmText}}</button>
+    <button type="button" class="btn btn-danger" (click)="bsModalRef.hide()">{{configData.cancelText}}</button>
+</div>

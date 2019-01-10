@@ -1,0 +1,21 @@
+.span{
+  margin-right: 10px !important;
+  text-decoration: underline;
+  cursor:pointer
+}
+
+.choose_state{
+  height: 30px;
+}
+
+.choose_state li{
+  list-style: none;
+  float: left;
+  padding: 10px;
+  background-color: #e9ecef;
+  cursor: pointer;
+}
+
+.choose_state li:focus{
+  background-color: white;
+}

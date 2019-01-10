@@ -1,0 +1,76 @@
+<div widget class="card border-0 box-shadow">
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+    </div>
+
+    <div class="card-body widget-body">
+        <form class="form-horizontal " [formGroup]="commonForm">
+
+            <div class="form-group row text-sm-right">
+                <label class="col-sm-2 form-control-label mt-1">上级分类 </label>
+
+                <div class="col-sm-4 text-align-left"
+                    [ngClass]="{'has-error':commonForm.get('parent?.categoryName')|formMark}">
+                    <app-tree #tree [isSecond]="false" (result)="setParentCategory($event)"></app-tree>
+
+                </div>
+                <label class="col-sm-2 form-control-label mt-1">分类编码 <span
+                        class="text-danger">*</span></label>
+
+                <div class="col-sm-4"
+                     [ngClass]="{'has-error':commonForm.get('categoryNo')|formMark}">
+                    <input class="form-control validation-field" type="text"
+                           formControlName="categoryNo" placeholder="请输入分类编码">
+
+                </div>
+            </div>
+            <div class="form-group row text-sm-right">
+                <label class="col-sm-2 form-control-label mt-1">分类名称 <span
+                        class="text-danger">*</span></label>
+
+                <div class="col-sm-4"
+                     [ngClass]="{'has-error':commonForm.get('categoryName')|formMark}">
+                    <input class="form-control validation-field" type="text"
+                           formControlName="categoryName" placeholder="请输入分类名称">
+                    <app-form-error [control]="commonForm.get('categoryName')"
+                                    [formErrors]="formErrors.categoryName"></app-form-error>
+
+                </div>
+                <label class="col-sm-2 form-control-label mt-1">图片</label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('imgPath')|formMark}">
+                    <app-file-uploader #fileUploader [allowedFileType]="['image']"
+                                      (onFileUploaded)="getPic($event)">
+                    </app-file-uploader>
+                    <button (click)="fileUploader.fileSelect()" class=" btn btn-info" type="button">上传图片
+                    </button>
+
+                </div>
+            </div>
+            <div class="form-group row text-sm-right">
+                <label class="col-sm-2 form-control-label mt-1">排序 <span
+                        class="text-danger">*</span></label>
+
+                <div class="col-sm-4"
+                     [ngClass]="{'has-error':commonForm.get('sort')|formMark}">
+                    <input class="form-control validation-field" type="text"
+                           formControlName="sort" placeholder="请输入排序">
+                </div>
+
+                <label class="col-sm-2 form-control-label mt-1">备注 </label>
+
+                <div class="col-sm-4"
+                     [ngClass]="{'has-error':commonForm.get('remark')|formMark}">
+                    <input class="form-control validation-field" type="text"
+                           formControlName="remark" placeholder="请输入备注">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-9 offset-sm-2">
+                    <button class="btn btn-info" type="button" (click)="onSubmit()">保存</button>
+                    <button class="btn btn-gray ml-1" type="button" (click)="goBack()">返回</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

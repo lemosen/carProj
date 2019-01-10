@@ -1,0 +1,66 @@
+<div widget class="card border-0 box-shadow">
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+    </div>
+
+    <div class="card-body widget-body">
+        <form class="form-horizontal " [formGroup]="commonForm">
+
+            <div class="form-group row text-sm-right">
+                <label class="col-sm-2 form-control-label mt-1">单据编号 <span class="text-danger">*</span></label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('templateNo')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="templateNo"
+                           placeholder="请输入单据编号">
+                    <app-form-error [control]="commonForm.get('templateNo')"
+                                    [formErrors]="formErrors.templateNo"></app-form-error>
+
+                </div>
+                <label class="col-sm-2 form-control-label mt-1">单据名称 <span class="text-danger">*</span></label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('templateName')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="templateName"
+                           placeholder="请输入单据名称">
+                    <app-form-error [control]="commonForm.get('templateName')"
+                                    [formErrors]="formErrors.templateName"></app-form-error>
+
+                </div>
+            </div>
+            <div class="form-group row text-sm-right">
+                <label class="col-sm-2 form-control-label mt-1">打印宽 </label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('printWidth')|formMark}">
+                    <input class="form-control validation-field" type="number" formControlName="printWidth"
+                           placeholder="请输入打印宽">
+
+                </div>
+                <label class="col-sm-2 form-control-label mt-1">打印高 </label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('printHigh')|formMark}">
+                    <input class="form-control validation-field" type="number" formControlName="printHigh"
+                           placeholder="请输入打印高">
+
+                </div>
+            </div>
+            <div class="form-group row text-sm-right">
+                <label class="col-sm-2 form-control-label mt-1">状态 <span class="text-danger">*</span></label>
+
+                <div class="col-sm-4 text-align-left" [ngClass]="{'has-error':commonForm.get('state')|formMark}">
+                    <input type="radio" name="state" value="0" formControlName="state">&nbsp;&nbsp;启用
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="state" value="1" formControlName="state">&nbsp;&nbsp;禁用
+                    <app-form-error [control]="commonForm.get('state')"
+                                    [formErrors]="formErrors.state"></app-form-error>
+
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-9 offset-sm-2">
+                    <button class="btn btn-info" type="button" (click)="onSubmit()">保存</button>
+                    <button class="btn btn-gray ml-1" type="button" (click)="goBack()">返回</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

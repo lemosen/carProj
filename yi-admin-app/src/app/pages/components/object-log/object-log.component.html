@@ -1,0 +1,25 @@
+<ng-template [ngIf]="showRecordNum">
+    <div class="h55">操作记录({{objectLogs?.length}})</div>
+</ng-template>
+
+<ng-template [ngIf]="objectLogs|isNotEmpty">
+    <div class="panel">
+        <div class="panel-body p0 custom-line-height text-left" style="background-color: #f5f7fa;">
+            <div class="col-lg-2">操作人</div>
+            <div class="col-lg-2">操作项</div>
+            <div class="col-lg-7">内容</div>
+            <div class="col-lg-1">时间</div>
+        </div>
+
+        <div class="panel-body p0">
+            <ng-container *ngFor="let log of objectLogs">
+                <app-object-log-item [record]="log"></app-object-log-item>
+            </ng-container>
+        </div>
+
+        <ngb-pagination class="d-flex justify-content-center" [collectionSize]="pageQuery.responses.totalElements" [(page)]="pageQuery.page" [maxSize]="pageQuery.pageSize"
+                        [rotate]="true" [boundaryLinks]="true" (pageChange)="commentPageChange($event)"></ngb-pagination>
+    </div>
+</ng-template>
+
+<app-no-data-tip [isShow]="objectLogs|isEmpty" [text]="'暂无操作记录'"></app-no-data-tip>

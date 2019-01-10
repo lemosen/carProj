@@ -1,0 +1,84 @@
+<div widget class="card border-0 box-shadow">
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+    </div>
+
+    <div class="card-body widget-body">
+        <form class="form-horizontal " [formGroup]="commonForm">
+
+            <div class="form-group row text-sm-right">
+                <label class="col-sm-2 form-control-label mt-1">标题 <span class="text-danger">*</span></label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('title')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="title"
+                           placeholder="请输入标题">
+                    <app-form-error [control]="commonForm.get('title')"
+                                    [formErrors]="formErrors.title"></app-form-error>
+
+                </div>
+                <label class="col-sm-2 form-control-label mt-1">内容 <span class="text-danger">*</span></label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('content')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="content"
+                           placeholder="请输入内容">
+
+                </div>
+            </div>
+            <div class="form-group row text-sm-right">
+                <label class="col-sm-2 form-control-label mt-1">图片</label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('imgPath')|formMark}">
+                   <span *ngIf="this.commonForm.value.imgPath!=null">
+                        <app-file-uploader #fileUploader [allowedFileType]="['image']"
+                                           (onFileUploaded)="getPic($event)" [url]="this.commonForm.value.imgPath">
+                        </app-file-uploader>
+                    </span>
+                    <span *ngIf="this.commonForm.value.imgPath==null">
+                        <app-file-uploader #fileUploader [allowedFileType]="['image']"
+                                           (onFileUploaded)="getPic($event)">
+                        </app-file-uploader>
+                    </span>
+                    <button (click)="fileUploader.fileSelect()" class=" btn btn-info" type="button">上传图片
+                    </button>
+
+
+                </div>
+
+                <label class="col-sm-2 form-control-label mt-1">链接路径 <span class="text-danger">*</span></label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('url')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="url"
+                           placeholder="请输入链接路径">
+                    <app-form-error [control]="commonForm.get('url')" [formErrors]="formErrors.url"></app-form-error>
+
+                </div>
+            </div>
+            <div class="form-group row text-sm-right">
+                <label class="col-sm-2 form-control-label mt-1">排序 </label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('sort')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="sort" placeholder="请输入排序">
+
+                </div>
+                <label class="col-sm-2 form-control-label mt-1">状态 <span class="text-danger">*</span></label>
+
+                <div class="col-sm-4 text-align-left" [ngClass]="{'has-error':commonForm.get('state')|formMark}">
+                    <input type="radio" value="0" name="state" formControlName="state">&nbsp;&nbsp;启用
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" value="1" name="state" formControlName="state">&nbsp;&nbsp;禁用
+                    <app-form-error [control]="commonForm.get('state')"
+                                    [formErrors]="formErrors.state"></app-form-error>
+
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <div class="col-sm-9 offset-sm-2">
+                    <button class="btn btn-info" type="button" (click)="onSubmit()">保存</button>
+                    <button class="btn btn-gray ml-1" type="button" (click)="goBack()">返回</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

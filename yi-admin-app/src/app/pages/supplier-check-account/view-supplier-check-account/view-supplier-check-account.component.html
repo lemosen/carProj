@@ -1,0 +1,99 @@
+
+
+<div widget class="card border-0 box-shadow">
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+    </div>
+    <div class="card-body widget-body">
+        <form class="form-horizontal "  >
+
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">GUID</label>
+                                <div class="col-sm-4">
+                                    <label>{{supplierCheckAccount.guid}}</label>
+                                </div>
+                    </div>
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">供应商（supplier表ID）</label>
+                                <div class="col-sm-4">
+                                    <label>{{supplierCheckAccount.supplierId}}</label>
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">供应商名称</label>
+                                <div class="col-sm-4">
+                                    <label>{{supplierCheckAccount.supplierName}}</label>
+                                </div>
+                    </div>
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">订单（sale_order表ID）</label>
+                                <div class="col-sm-4">
+                                    <label>{{supplierCheckAccount.saleOrderId}}</label>
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">订单编号</label>
+                                <div class="col-sm-4">
+                                    <label>{{supplierCheckAccount.saleOrderNo}}</label>
+                                </div>
+                    </div>
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">下单时间</label>
+                                <div class="col-sm-4">
+                                    <label>{{supplierCheckAccount.orderTime}}</label>
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">商品（product表ID）</label>
+                                <div class="col-sm-4">
+                                    <label>{{supplierCheckAccount.productId}}</label>
+                                </div>
+                    </div>
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">商品编号</label>
+                                <div class="col-sm-4">
+                                    <label>{{supplierCheckAccount.productNo}}</label>
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">商品名称</label>
+                                <div class="col-sm-4">
+                                    <label>{{supplierCheckAccount.productName}}</label>
+                                </div>
+                    </div>
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">供货价</label>
+                                <div class="col-sm-4">
+                                    <label>{{supplierCheckAccount.supplyPrice}}</label>
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">数量</label>
+                                <div class="col-sm-4">
+                                    <label>{{supplierCheckAccount.quantity}}</label>
+                                </div>
+                    </div>
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">应结货款</label>
+                                <div class="col-sm-4">
+                                    <label>{{supplierCheckAccount.settlementAmount}}</label>
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">结算时间</label>
+                                <div class="col-sm-4">
+                                    <label>{{supplierCheckAccount.settlementTime}}</label>
+                                </div>
+                    </div>
+
+            <div class="form-group row">
+                <div class="col-sm-9 offset-sm-2">
+                    <button class="btn btn-info" [routerLink]="'../../edit/'+supplierCheckAccount.supplierCheckAccountId" type="button">编辑</button>
+                    <button class="btn btn-inverse ml-1" type="button" (click)="goBack()">返回</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

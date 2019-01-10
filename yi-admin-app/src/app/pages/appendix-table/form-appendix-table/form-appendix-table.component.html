@@ -1,0 +1,110 @@
+<div widget class="card border-0 box-shadow">
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+    </div>
+
+    <div class="card-body widget-body">
+        <form class="form-horizontal " [formGroup]="commonForm">
+
+            <div class="form-group row text-sm-right">
+                <label class="col-sm-2 form-control-label mt-1">业务对象类型 </label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('objectType')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="objectType" placeholder="请输入业务对象类型">
+
+                </div>
+            </div>
+            <div class="form-group row text-sm-right">
+                <label class="col-sm-2 form-control-label mt-1">访问路径 </label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('filePath')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="filePath" placeholder="请输入访问路径">
+
+                </div>
+                <label class="col-sm-2 form-control-label mt-1">业务对象id </label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('objectId')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="objectId" placeholder="请输入业务对象id">
+
+                </div>
+            </div>
+            <div class="form-group row text-sm-right">
+                <label class="col-sm-2 form-control-label mt-1">所属业务对象路径 </label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('objectPath')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="objectPath" placeholder="请输入所属业务对象路径">
+
+                </div>
+                <label class="col-sm-2 form-control-label mt-1">附件名称 </label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('fileName')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="fileName" placeholder="请输入附件名称">
+
+                </div>
+            </div>
+            <div class="form-group row text-sm-right">
+                <label class="col-sm-2 form-control-label mt-1">扩展文件名 </label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('fileExt')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="fileExt" placeholder="请输入扩展文件名">
+
+                </div>
+                <label class="col-sm-2 form-control-label mt-1">文件类型 </label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('fileType')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="fileType" placeholder="请输入文件类型">
+
+                </div>
+            </div>
+            <div class="form-group row text-sm-right">
+                <label class="col-sm-2 form-control-label mt-1">文件大小 </label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('fileSize')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="fileSize" placeholder="请输入文件大小">
+
+                </div>
+                <label class="col-sm-2 form-control-label mt-1">文件存储系统标识 </label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('fsGuid')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="fsGuid" placeholder="请输入文件存储系统标识">
+
+                </div>
+            </div>
+            <div class="form-group row text-sm-right">
+                <label class="col-sm-2 form-control-label mt-1">上传时间 </label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('createTime')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="createTime" placeholder="请输入上传时间">
+
+                </div>
+                <label class="col-sm-2 form-control-label mt-1">上传人id </label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('userId')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="userId" placeholder="请输入上传人id">
+
+                </div>
+            </div>
+            <div class="form-group row text-sm-right">
+                <label class="col-sm-2 form-control-label mt-1">长传人 </label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('userName')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="userName" placeholder="请输入长传人">
+
+                </div>
+                <label class="col-sm-2 form-control-label mt-1">描述 </label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('description')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="description" placeholder="请输入描述">
+
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-9 offset-sm-2">
+                    <button class="btn btn-info" type="button" (click)="onSubmit()">保存</button>
+                    <button class="btn btn-gray ml-1" type="button" (click)="goBack()">返回</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

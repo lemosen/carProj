@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col-lg-2">
+        <div class="s-user">
+            <span class="s-hard"><img src="{{record.user.avatarImg | avatar}}"></span>
+            {{record.user.userName}}
+        </div>
+    </div>
+    <div class="col-lg-2 pl0">{{record.objectName}}</div>
+    <div class="col-lg-7 pl0">{{record.logContent}}</div>
+    <div class="col-lg-1 pl0">
+        {{record.createTime | amTimeAgoPipe}}
+    </div>
+</div>

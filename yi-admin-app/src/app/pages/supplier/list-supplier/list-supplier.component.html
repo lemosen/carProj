@@ -1,0 +1,98 @@
+<ul class="choose_state">
+    <li (click)="onItemClick(i)" *ngFor="let menu of menus;let i=index"
+        [ngStyle]="{'background-color':selectMenu ===i ? 'white' : '#e9ecef' }">{{menu.name}}
+    </li>
+</ul>
+<div widget class="card border-0 box-shadow">
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+    </div>
+    <div class="card-body widget-body">
+        <form [formGroup]="searchForm">
+            <div class=" form-inline form-group">
+                <div class="col-lg-4 form-group">
+                    <label class="col-lg-4 form-control-label text-lg-right">供应商名称</label>
+                    <input class="col-lg-6 form-control filter"
+                           formControlName="supplierName"
+                           (blur)="pageQuery.addOnlyFilter('supplierName',$event.target.value,'eq')"
+                           placeholder="请输入供应商名称" type="text">
+                </div>
+                <div class="col-lg-4 form-group">
+                    <label class="col-lg-4 form-control-label text-lg-right">供应商编码</label>
+                    <input class="col-lg-6 form-control filter"
+                           formControlName="supplierNo"
+                           (blur)="pageQuery.addOnlyFilter('supplierNo',$event.target.value,'eq')"
+                           placeholder="请输入供应商编码" type="text">
+                </div>
+            </div>
+        </form>
+
+        <div class=" form-inline form-group">
+            <div class="col-lg-12">
+                <div class=" pull-right">
+                    <button class="btn btn-primary  mr-1" [routerLink]="'../add'">
+                        <i class="fa fa-plus"></i>&nbsp;新增
+                    </button>
+                    <button class="btn btn-success  mr-1" (click)="searchData()">
+                        <i class="fa fa-search"></i>&nbsp;查询
+                    </button>
+                    <button class="btn btn-info  mr-1" (click)="clearSearch()">
+                        <i class="fa fa-refresh"></i>&nbsp;重置
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body pt-0 widget-body">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>供应商名称</th>
+                <th>供应商编号</th>
+                <th>手机号码</th>
+                <th>联系人</th>
+                <th>联系人电话</th>
+                <th>创建时间</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <ng-template [ngIf]="anys|isNotEmpty">
+                <tr *ngFor="let supplier of anys;let i=index"
+                    (click)="getSelect(supplier.id,i)">
+                    <td style="display: none"><input type="radio" name="select">
+                    </td>
+                    <td>{{supplier?.supplierName}}</td>
+                    <td>{{supplier?.supplierNo}}</td>
+                    <td>{{supplier?.phone}}</td>
+                    <td>{{supplier?.contact}}</td>
+                    <td>{{supplier?.contactPhone}}</td>
+                    <td>{{supplier?.createTime}}</td>
+                    <td>
+                        <span [routerLink]="'../salesList/'+supplier.id">销售列表</span>&nbsp;&nbsp;
+                        <span [routerLink]="'../edit/'+supplier.id">资料修改</span>
+                        <br>
+                        <span [routerLink]="'../view/'+supplier.id">查看详情</span>&nbsp;&nbsp;
+                        <span *ngIf="supplier.state==0" (click)="disable(supplier.id)"> <span>冻结账号</span>
+						</span>
+                        <span  *ngIf="supplier.state==1" (click)="enable(supplier.id)" >取消冻结</span>
+                                <br>
+						<span (click)="remove()" *ngIf="supplier.state==1">删除</span>
+                    </td>
+                </tr>
+
+                <ngb-pagination class="d-flex justify-content-center"
+                                [collectionSize]="pageQuery.responses.totalElements"
+                                [(page)]="pageQuery.page" [maxSize]="pageQuery.pageSize"
+                                [rotate]="true" [boundaryLinks]="true"
+                                (pageChange)="pageChange($event)"></ngb-pagination>
+            </ng-template>
+
+            </tbody>
+        </table>
+
+        <app-no-data-tip [isShow]="anys|isEmpty"></app-no-data-tip>
+    </div>
+</div>
+
+

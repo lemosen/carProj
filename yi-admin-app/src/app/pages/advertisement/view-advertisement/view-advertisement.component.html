@@ -1,0 +1,71 @@
+
+
+<div widget class="card border-0 box-shadow">
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+    </div>
+    <div class="card-body widget-body">
+        <form class="form-horizontal "  >
+
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">GUID</label>
+                                <div class="col-sm-4">
+                                    <label>{{advertisement.guid}}</label>
+                                </div>
+                    </div>
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">广告位标题</label>
+                                <div class="col-sm-4">
+                                    <label>{{advertisement.title}}</label>
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">广告位图片路径</label>
+                                <div class="col-sm-4">
+                                    <label>{{advertisement.imgPath}}</label>
+                                </div>
+                    </div>
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">广告位链接</label>
+                                <div class="col-sm-4">
+                                    <label>{{advertisement.url}}</label>
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">状态（0启用1禁用）</label>
+                                <div class="col-sm-4">
+                                    <label>{{advertisement.state}}</label>
+                                </div>
+                    </div>
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">创建时间</label>
+                                <div class="col-sm-4">
+                                    <label>{{advertisement.createTime}}</label>
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">删除（0否1是）</label>
+                                <div class="col-sm-4">
+                                    <label>{{advertisement.deleted}}</label>
+                                </div>
+                    </div>
+
+                    <div class="form-group row text-sm-right">
+
+                                <label class="col-sm-2 form-control-label mt-1">删除时间</label>
+                                <div class="col-sm-4">
+                                    <label>{{advertisement.delTime}}</label>
+                                </div>
+                    </div>
+
+            <div class="form-group row">
+                <div class="col-sm-9 offset-sm-2">
+                    <button class="btn btn-info" [routerLink]="'../../edit/'+advertisement.advertisementId" type="button">编辑</button>
+                    <button class="btn btn-inverse ml-1" type="button" (click)="goBack()">返回</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

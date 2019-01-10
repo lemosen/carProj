@@ -1,0 +1,271 @@
+<div widget class="card border-0 box-shadow">
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+    </div>
+
+    <div class="card-body widget-body">
+        <form class="form-horizontal " [formGroup]="commonForm">
+
+            <div class="form-group row text-sm-right">
+                <label class="col-sm-2 form-control-label mt-1">商品编码 <span
+                        class="text-danger">*</span></label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('commodityNo')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="commodityNo"
+                           placeholder="请输入商品编码">
+
+                </div>
+                <label class="col-sm-2 form-control-label mt-1">商品名称 <span
+                        class="text-danger">*</span></label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('commodityName')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="commodityName"
+                           placeholder="请输入商品名称">
+
+                </div>
+            </div>
+            <div class="form-group row text-sm-right">
+                <label class="col-sm-2 form-control-label mt-1">供应商 <span
+                        class="text-danger">*</span></label>
+
+                <div class="col-sm-4 text-align-left"
+                     [ngClass]="{'has-error':commonForm.get('supplier?.supplierName')|formMark}">
+                    <app-modal-selecet
+                            [showCol]="[{name:'supplierName',value:'供应商名',isShow:true},{name:'id',value:'ID',isShow:false}]"
+                            [select]="commonForm.value.supplier"
+                            [resultName]="commonForm.value.supplier.supplierName"
+                            [baseService]="supplierService"
+                            (result)="setCommoditySupplier($event)">
+
+                    </app-modal-selecet>
+                </div>
+
+                <label class="col-sm-2 form-control-label mt-1">商品简称 <span
+                        class="text-danger">*</span></label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('commodityShortName')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="commodityShortName"
+                           placeholder="请输入商品名称">
+
+                </div>
+            </div>
+            <div class="form-group row text-sm-right">
+
+                <label class="col-sm-2 form-control-label mt-1">是否参与分销 <span
+                        class="text-danger">*</span></label>
+
+                <div class="col-sm-4 text-align-left" [ngClass]="{'has-error':commonForm.get('distribution')|formMark}">
+                    <input type="radio" value="0" name="distribution" formControlName="distribution">&nbsp;&nbsp;参加
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" value="1" name="distribution" formControlName="distribution">&nbsp;&nbsp;不参加
+
+                    <app-form-error [control]="commonForm.get('distribution')"
+                                    [formErrors]="formErrors.distribution"></app-form-error>
+
+                </div>
+
+                <label class="col-sm-2 form-control-label mt-1">图片</label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('imgPath')|formMark}">
+
+                    <span *ngIf="this.commonForm.value.imgPath!=null">
+                        <app-file-uploader #fileUploader [allowedFileType]="['image']"
+                                           (onFileUploaded)="getPic($event)" [url]="this.commonForm.value.imgPath">
+                        </app-file-uploader>
+                    </span>
+                    <span *ngIf="this.commonForm.value.imgPath==null">
+                        <app-file-uploader #fileUploader [allowedFileType]="['image']"
+                                           (onFileUploaded)="getPic($event)">
+                        </app-file-uploader>
+                    </span>
+                    <button (click)="fileUploader.fileSelect()" class=" btn btn-info" type="button">上传图片
+                    </button>
+
+                </div>
+            </div>
+            <div class="form-group row text-sm-right">
+                <label class="col-sm-2 form-control-label mt-1">运费设置 <span
+                        class="text-danger">*</span></label>
+
+                <div class="col-sm-4 text-align-left" [ngClass]="{'has-error':commonForm.get('freightSet')|formMark}">
+                    <input type="radio" value="1" name="freightSet" formControlName="freightSet">&nbsp;&nbsp;统一运费
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" value="2" name="freightSet" formControlName="freightSet">&nbsp;&nbsp;运费模板
+
+                    <app-form-error [control]="commonForm.get('freightSet')"
+                                    [formErrors]="formErrors.freightSet"></app-form-error>
+                </div>
+
+                <label class="col-sm-2 form-control-label mt-1" *ngIf="commonForm.value.freightSet==1">统一运费 <span
+                        class="text-danger">*</span></label>
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('unifiedFreight')|formMark}"
+                     *ngIf="commonForm.value.freightSet==1">
+                    <input class="form-control validation-field" type="text" formControlName="unifiedFreight"
+                           placeholder="请输入统一运费">
+                </div>
+
+                <label class="col-sm-2 form-control-label mt-1" *ngIf="commonForm.value.freightSet==2">运费模板 <span
+                        class="text-danger">*</span></label>
+                <div class="col-sm-4 text-align-left"
+                     [ngClass]="{'has-error':commonForm.get('freightTemplate?.templateName')|formMark}"
+                     *ngIf="commonForm.value.freightSet==2">
+
+                    <app-modal-selecet
+                            [showCol]="[{name:'templateName',value:'模板名',isShow:true},{name:'id',value:'ID',isShow:false}]"
+                            [select]="commonForm.value.freightTemplate"
+                            [resultName]="commonForm.value.freightTemplate.templateName"
+                            [baseService]="freightTemplateService"
+                            (result)="setCommodityFreightTemplate($event)">
+                    </app-modal-selecet>
+                </div>
+            </div>
+            <div class="form-group row text-sm-right">
+
+                <label class="col-sm-2 form-control-label mt-1">佣金比例 <span
+                        class="text-danger">*</span></label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('commissionRate')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="commissionRate"
+                           placeholder="请输入佣金比例（0.00-100.00）%">
+                </div>
+
+                <label class="col-sm-2 form-control-label mt-1">排序 <span
+                        class="text-danger">*</span></label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('sort')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="sort"
+                           placeholder="请输入排序号">
+
+                </div>
+            </div>
+            <div class="form-group row text-sm-right">
+                <label class="col-sm-2 form-control-label mt-1">是否上架 <span
+                        class="text-danger">*</span></label>
+
+                <div class="col-sm-4 text-align-left" [ngClass]="{'has-error':commonForm.get('shelf')|formMark}">
+                    <input type="radio" value="1" name="shelf" formControlName="shelf">&nbsp;&nbsp;立即上架
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" value="2" name="shelf" formControlName="shelf">&nbsp;&nbsp;放入仓库
+
+                    <app-form-error [control]="commonForm.get('shelf')"
+                                    [formErrors]="formErrors.shelf"></app-form-error>
+                </div>
+
+                <label class="col-sm-2 form-control-label mt-1">库存设置 <span
+                        class="text-danger">*</span></label>
+
+                <div class="col-sm-4 text-align-left" [ngClass]="{'has-error':commonForm.get('stockSet')|formMark}">
+                    <input type="radio" value="1" name="stockSet" formControlName="stockSet">&nbsp;&nbsp;下单减库存
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" value="2" name="stockSet" formControlName="stockSet">&nbsp;&nbsp;支付减库存
+
+                    <app-form-error [control]="commonForm.get('stockSet')"
+                                    [formErrors]="formErrors.stockSet"></app-form-error>
+                </div>
+            </div>
+
+            <div class="form-group row text-sm-right">
+                <label class="col-sm-2 form-control-label mt-1">商品分类 </label>
+                <div class="col-sm-4 text-align-left">
+                    <app-tree [data]="commonForm.value.categories" [isCheckBox]="true" (result)="setParentCategory($event)"></app-tree>
+                </div>
+                <label class="col-sm-2 form-control-label mt-1">商品销售地： <span
+                        class="text-danger">*</span></label>
+
+                <div class="col-sm-4 text-align-left">
+                    <app-modal-selecet
+                            [showCol]="[{name:'province',value:'省',isShow:true},{name:'city',value:'市',isShow:true},{name:'id',value:'ID',isShow:false}]"
+                            [select]="commonForm.value.regions"
+                            [resultName]="selectregionsName"
+                            [baseService]="regionService"
+                            [isMulti]="true"
+                            (result)="setCommoditySaleRegion($event)">
+                    </app-modal-selecet>
+                </div>
+            </div>
+
+            <div class="form-group row text-sm-right">
+                <label class="col-sm-2 form-control-label mt-1">商品介绍 </label>
+
+                <div class="col-sm-8" style="text-align: left"
+                     [ngClass]="{'has-error':commonForm.get('description')|formMark}">
+
+                    <app-editor [ckeditorContent]="descriptionContent" #editor
+                                (result)="thematicText($event)"></app-editor>
+                    <app-form-error [control]="commonForm.get('description')"
+                                    [formErrors]="formErrors.description"></app-form-error>
+
+                </div>
+
+            </div>
+            <br>
+            <br>
+            <div formArrayName="attributeGroups">
+                <div class="form-group row text-sm-right" *ngFor="let form of attrArryForm.controls ; let i=index;">
+                    <label class="col-sm-2 form-control-label mt-1">属性组</label>
+                    <div [formGroupName]="i" class="col-sm-4" [ngClass]="{'has-error':form.get('groupName')|formMark}">
+                        <input (click)="unLock(form)" class="form-control validation-field" type="text"
+                               formControlName="groupName" [readonly]="form.value.lock"
+                               placeholder="请输入属性名" (blur)="lock(form)"><!--[disabled]="nameState[i]"-->
+                        <label (click)="deleteName(i)">删除</label>
+                        <br>
+                        <button (click)="addValue(i)" class="col-sm-4 btn btn-info" type="button">添加属性</button>
+                        <div formArrayName="attributes">
+                            <br>
+                            <span *ngFor="let value of attrArryForm.get(i+'.attributes').controls; let j=index;"
+                                  [formGroupName]="j">
+                                        <input class="form-control validation-field" type="text"
+                                               formControlName="attrValue"
+                                               placeholder="请输入属性值" (blur)="lock(value)">
+                                        <label (click)="deleteValue(i,j)">删除</label>
+                                    <br>
+                                </span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row text-sm-right">
+                <button (click)="addName()" class="col-sm-1 btn btn-info" style="margin-left: 7%" type="button">添加属性组
+                </button>
+                <button (click)="addTrue()" class="col-sm-1 btn btn-info" style="margin-left: 7%" type="button">插入表格
+                </button>
+            </div>
+
+            <div class="card-body pt-0 widget-body">
+                <table class="table table-hover" *ngIf="show" formArrayName="products">
+                    <thead>
+                        <tr>
+                            <th *ngFor="let form of attrArryForm.value; let i=index;">{{form.lock?form.groupName:''}}</th>
+                            <th>原价</th>
+                            <th>现价</th>
+                            <th>会员价</th>
+                            <th>库存</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let form of dynamicAttribute; let j=index" [formGroupName]="j">
+                            <td *ngFor="let form1 of form; let i=index;">
+                                {{form1}}
+                            </td>
+                            <td><input type="text" formControlName="originalPrice"></td>
+                            <td><input type="text" formControlName="currentPrice"></td>
+                            <td><input type="text" formControlName="memberPrice"></td>
+                            <td><input type="text" formControlName="stock"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <br>
+            <br>
+
+            <div class="form-group row">
+                <div class="col-sm-9 offset-sm-2">
+                    <button class="btn btn-info" type="button" (click)="onSubmit()">保存</button>
+                    <button class="btn btn-gray ml-1" type="button" (click)="goBack()">返回</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

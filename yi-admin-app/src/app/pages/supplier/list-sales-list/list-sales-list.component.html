@@ -1,0 +1,42 @@
+<div widget class="card border-0 box-shadow">
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+    </div>
+    <div class="card-body widget-body">
+
+        <div class="card-body pt-0 widget-body">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+
+                    <th>商品名称</th>
+                    <!-- <th>供应商名称</th>-->
+                    <th>订单笔数</th>
+                    <th>总销量</th>
+                    <!--  <th>销售额</th>
+                      <th>成本</th>
+                      <th>利润</th>-->
+
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr *ngFor="let sales of salesList;let i=index">
+                    <td>
+                        {{sales?.commodityName}}
+                    </td>
+                    <td>
+                        {{sales?.orderCount}}
+                    </td>
+                    <td>
+                        {{sales?.totalSales}}
+                    </td>
+
+                </tr>
+                </tbody>
+            </table>
+
+            <!--<app-no-data-tip [isShow]="anys|isEmpty"></app-no-data-tip>-->
+        </div>
+    </div>
+</div>

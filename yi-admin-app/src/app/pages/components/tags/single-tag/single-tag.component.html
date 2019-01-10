@@ -1,0 +1,8 @@
+<div class="form-control  right-input ">
+    <ng-template [ngIf]="obj|isEmpty">
+        <div class="pt-sm text-muted">{{placeholder}}</div>
+    </ng-template>
+    <ng-template [ngIf]="obj|isNotEmpty">
+        <app-tag-item [obj]="obj" [text]="getText(obj)" [showRemove]="showRemove" (tagRemoved)="removeTag($event)"></app-tag-item>
+    </ng-template>
+</div>

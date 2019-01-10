@@ -1,0 +1,13 @@
+<div class="modal-header bg-info">
+    <h4 class="modal-title pull-left">{{configData.title}}</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="onClose()">
+        <em class="fa fa-remove fa-lg"></em>
+    </button>
+</div>
+<div class="modal-body text-center">
+    <h5>{{configData.content}}</h5>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-info" (click)="onAccept()">{{configData.confirmText}}</button>
+    <button type="button" class="btn btn-danger" (click)="onClose()">{{configData.cancelText}}</button>
+</div>

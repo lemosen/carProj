@@ -1,0 +1,123 @@
+<div widget class="card border-0 box-shadow">
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+    </div>
+
+    <div class="card-body widget-body">
+        <form class="form-horizontal " [formGroup]="commonForm">
+
+            <div class="form-group row text-sm-right">
+                <label class="col-sm-2 form-control-label mt-1">部门 <span class="text-danger">*</span></label>
+
+                <div class="col-sm-4 text-align-left"
+                     [ngClass]="{'has-error':commonForm.get('dept?.deptName')|formMark}">
+                    <app-modal-selecet
+                                       [showCol]="[{name:'deptName',value:'部门',isShow:true},{name:'id',value:'ID',isShow:false}]"
+                                       [select]="commonForm.value.dept"
+                                       [resultName]="commonForm.value.dept?.deptName"
+                                       [baseService]="deptService"
+                                       (result)="setUserDept($event)">
+                    </app-modal-selecet>
+                </div>
+
+                <label class="col-sm-2 form-control-label mt-1">用户名 <span class="text-danger">*</span></label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('username')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="username"
+                           placeholder="请输入用户名">
+                    <app-form-error [control]="commonForm.get('username')"
+                                    [formErrors]="formErrors.username"></app-form-error>
+
+                </div>
+            </div>
+            <div class="form-group row text-sm-right">
+                <label class="col-sm-2 form-control-label mt-1">密码 <span class="text-danger">*</span></label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('password')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="password"
+                           placeholder="请输入密码">
+                    <app-form-error [control]="commonForm.get('password')"
+                                    [formErrors]="formErrors.password"></app-form-error>
+
+                </div>
+                <label class="col-sm-2 form-control-label mt-1">姓名 <span class="text-danger">*</span></label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('fullName')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="fullName"
+                           placeholder="请输入姓名">
+                    <app-form-error [control]="commonForm.get('fullName')"
+                                    [formErrors]="formErrors.fullName"></app-form-error>
+
+                </div>
+            </div>
+            <div class="form-group row text-sm-right">
+                <label class="col-sm-2 form-control-label mt-1">手机号 <span class="text-danger">*</span></label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('phone')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="phone"
+                           placeholder="请输入手机号">
+                    <app-form-error [control]="commonForm.get('phone')"
+                                    [formErrors]="formErrors.phone"></app-form-error>
+
+                </div>
+                <label class="col-sm-2 form-control-label mt-1">邮箱 <span class="text-danger">*</span></label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('email')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="email"
+                           placeholder="请输入邮箱">
+                    <app-form-error [control]="commonForm.get('email')"
+                                    [formErrors]="formErrors.email"></app-form-error>
+
+                </div>
+            </div>
+            <div class="form-group row text-sm-right">
+                <label class="col-sm-2 form-control-label mt-1">工号 </label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('jobNo')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="jobNo"
+                           placeholder="请输入工号">
+
+                </div>
+
+
+                <label class="col-sm-2 form-control-label mt-1">图片</label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('avatar')|formMark}">
+                    <app-file-uploader #fileUploader  [allowedFileType]="['image']"
+                                       (onFileUploaded)="getPic($event)">
+                    </app-file-uploader>
+                    <button (click)="fileUploader.fileSelect()" class=" btn btn-info" type="button">上传图片
+                    </button>
+                </div>
+
+
+                <!--<label class="col-sm-2 form-control-label mt-1">头像 </label>
+
+                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('avatar')|formMark}">
+                    <input class="form-control validation-field" type="text" formControlName="avatar"
+                           placeholder="请输入头像">
+
+                </div>-->
+            </div>
+            <div class="form-group row text-sm-right">
+                <label class="col-sm-2 form-control-label mt-1">状态<span class="text-danger">*</span></label>
+
+                <div class="col-sm-4 text-align-left" [ngClass]="{'has-error':commonForm.get('state')|formMark}">
+                    <input type="radio" name="state" value="0" formControlName="state">&nbsp;&nbsp;启用
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="state" value="1" formControlName="state">&nbsp;&nbsp;禁用
+                    <app-form-error [control]="commonForm.get('state')"
+                                    [formErrors]="formErrors.state"></app-form-error>
+
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-9 offset-sm-2">
+                    <button class="btn btn-info" type="button" (click)="onSubmit()">保存</button>
+                    <button class="btn btn-gray ml-1" type="button" (click)="goBack()">返回</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<div widget class="card border-0 box-shadow">
+    <div class="card-body pt-0 widget-body">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>小区名称</th>
+                <th>小区提成比列</th>
+                <th>提成总额</th>
+            </tr>
+            </thead>
+            <tbody>
+
+                <tr *ngFor="let commissions of commission;let i=index" >
+                    <td>{{commissions.address}}</td>
+                    <td>{{commissions.proportions}}</td>
+                    <td>{{commissions.commission}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>

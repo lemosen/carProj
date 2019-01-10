@@ -1,0 +1,100 @@
+
+<div widget class="card border-0 box-shadow">
+    <div class="card-header transparent border-0 text-muted">
+        <h5 class="mb-0"></h5>
+    </div>
+
+    <div class="card-body widget-body">
+        <form class="form-horizontal "  [formGroup]="commonForm">
+
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">商品（commodity表ID） </label>
+
+                                <div class="col-sm-4"
+                                     [ngClass]="{'has-error':commonForm.get('commodity?.id')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="commodity?.id" placeholder="请输入商品（commodity表ID）">
+
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">商品名称 </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('commodityName')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="commodityName" placeholder="请输入商品名称">
+
+                                </div>
+                    </div>
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">会员（member表ID） <span class="text-danger">*</span></label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('member?.id')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="member?.id" placeholder="请输入会员（member表ID）">
+                                        <app-form-error [control]="commonForm.get('member?.id')" [formErrors]="formErrors.member?.id"></app-form-error>
+
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">会员昵称 </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('nickname')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="nickname" placeholder="请输入会员昵称">
+
+                                </div>
+                    </div>
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">编号 </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('serialNo')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="serialNo" placeholder="请输入编号">
+
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">评价星级 </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('commentStar')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="commentStar" placeholder="请输入评价星级">
+
+                                </div>
+                    </div>
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">评价内容 </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('commentContent')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="commentContent" placeholder="请输入评价内容">
+
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">回复内容 </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('replyContent')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="replyContent" placeholder="请输入回复内容">
+
+                                </div>
+                    </div>
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">是否显示（0不显示1显示） </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('display')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="display" placeholder="请输入是否显示（0不显示1显示）">
+
+                                </div>
+                                <label class="col-sm-2 form-control-label mt-1">评价时间 </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('commentTime')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="commentTime" placeholder="请输入评价时间">
+
+                                </div>
+                    </div>
+                    <div class="form-group row text-sm-right">
+                                <label class="col-sm-2 form-control-label mt-1">回复时间 </label>
+
+                                <div class="col-sm-4" [ngClass]="{'has-error':commonForm.get('replyTime')|formMark}">
+                                    <input class="form-control validation-field" type="text" formControlName="replyTime" placeholder="请输入回复时间">
+
+                                </div>
+
+                    </div>
+
+            <div class="form-group row">
+                <div class="col-sm-9 offset-sm-2">
+                    <button class="btn btn-info" type="button" (click)="onSubmit()" >保存</button>
+                    <button class="btn btn-gray ml-1" type="button" (click)="goBack()">返回</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

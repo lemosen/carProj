@@ -1,0 +1,13 @@
+<ng-container *ngFor="let att of attachments">
+    <div class="s-enclosure">
+        <a href="#" class="s-closebtn" *ngIf="allowRemove" (click)="removeAttach(att)">x</a>
+        <span class="s-enclosureimg fl"><img src="/assets/images/s-enclosure-jpg.jpg"></span>
+        <div class="s-enclosure-text">
+            <span class="s-tit">{{att.fileName|ellipsisString:15}}</span>
+            <span class="s-size">{{ att.fileSize/1024/1024 | number:'.2' }} MB</span>
+            <a href="#" class="a-view" (click)="downloadFile(att)">预览</a>
+            <a href="#" class="a-down" (click)="viewFile(att)">下载</a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</ng-container>

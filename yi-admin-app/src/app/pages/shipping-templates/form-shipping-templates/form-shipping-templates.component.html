@@ -1,0 +1,53 @@
+<div widget class="card border-0 box-shadow">
+    <div class="card-body pt-0 widget-body border-show">
+        <div class="back-color-v2 border-show" style="padding: 10px" col-sm-12>添加模板</div>
+        <br>
+        <div class="form-group row text-sm-right">
+
+            <label class="col-sm-2 form-control-label mt-1">*模板名称：</label>
+            <input type="text" class="col-sm-2">
+        </div>
+        <div class="form-group row text-sm-right">
+
+            <label class="col-sm-2 form-control-label mt-1">*运费计算方式：</label>
+            <label class="col-sm-1 form-control-label mt-1 text-align-left" style="padding: 0px!important">
+                <input type="radio" name="way">按重量计算
+            </label>&nbsp;&nbsp;
+            <label class="col-sm-1 form-control-label mt-1 text-align-left" style="padding: 0px!important">
+                <input type="radio" name="way">按商品件数计算
+            </label>
+        </div>
+        <div class="form-group row text-sm-right">
+
+            <label class="col-sm-2 form-control-label mt-1">*首重(kg)：</label>
+            <input type="text" class="col-sm-2">
+        </div>
+        <div class="form-group row text-sm-right">
+
+            <label class="col-sm-2 form-control-label mt-1">*首费(元)：</label>
+            <input type="text" class="col-sm-2">
+        </div>
+        <div class="form-group row text-sm-right">
+
+            <label class="col-sm-2 form-control-label mt-1">*续重(kg)：</label>
+            <input type="text" class="col-sm-2">
+        </div>
+        <div class="form-group row text-sm-right">
+
+            <label class="col-sm-2 form-control-label mt-1">*续费(元)：</label>
+            <input type="text" class="col-sm-2">
+        </div>
+        <div class="form-group row text-sm-right">
+
+            <label class="col-sm-2 form-control-label mt-1">*所在小区：</label>
+            <app-select class="col-sm-1" [width]="'100%'"></app-select>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-9 offset-sm-2">
+                <button class="btn btn-info" type="button" (click)="onSubmit()">提交</button>
+                <button class="btn btn-gray ml-1" type="button" (click)="goBack()">返回</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+<ng-template [ngIf]="objs|isNotEmpty">
+    <div class="dd">
+        <ng-container *ngFor="let obj of objs">
+            <div class="s-dpment">
+                <a href="#" class="s-closebtn" *ngIf="showRemove" (click)="removeTag(obj)">x</a>
+                <div class="text">{{getText(obj)}}</div>
+            </div>
+        </ng-container>
+    </div>
+</ng-template>

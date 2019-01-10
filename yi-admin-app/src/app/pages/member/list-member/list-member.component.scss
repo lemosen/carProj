@@ -1,0 +1,25 @@
+.span{
+  margin-right: 10px !important;
+  text-decoration: underline;
+  cursor:pointer
+}
+
+.choose_deleted{
+  height: 30px;
+}
+
+.choose_deleted li{
+  list-style: none;
+  float: left;
+  padding: 10px;
+  background-color: #e9ecef;
+  cursor: pointer;
+}
+
+.choose_deleted li:focus{
+  background-color: white;
+}
+
+.span{
+  text-decoration-line: underline;
+}
