@@ -1,0 +1,16 @@
+{
+  "WAIT_PAY":"待付款",
+  "WAIT_SEND": "待发货",
+  "ALREADY_SEND":"已发货",
+  "IN_RETURN":"退货中",
+  "COMPLETED":"已完成",
+  "CLOSED":"已关闭",
+  "UNPAID":"未付款",
+  "ALIPAY":"支付宝",
+  "WECHAT":"微信",
+  "UNIONPAY":"银联",
+  "true":"是",
+  "false":"否",
+  "ORDINARY_MEMBER":"普通会员",
+  "ADMINISTRATORS":"管理员"
+}
