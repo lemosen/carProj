@@ -22,17 +22,11 @@ export class SearchHeadComponent {
     @Input()
     isHome: boolean = false;
 
-    /*定位城市*/
-    @Input()
-    localCity = "请定位";
 
     @ViewChild('p') p;
 
     constructor(public events: Events, public memberProvider: MemberProvider, public navCtrl: NavController) {
-        this.events.subscribe(LOCAL_CITY, data => {
-            this.localCity = this.memberProvider.getLocationInfo();
-            this.p.nativeElement.innerHTML = this.localCity
-        })
+
     }
 
     goNews() {

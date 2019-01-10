@@ -9,7 +9,6 @@
             <p class="red">¥
                 <span>{{item.commodities[0].currentPrice}}</span>&nbsp;
                 <del class="grey"> ￥{{item.commodities[0].originalPrice}}</del>&nbsp;
-                <span class="backCoupon" *ngIf="item.commodities[0].returnVoucher">返{{item.commodities[0]?.returnVoucher}}元券</span>
             </p>
         </div>
     </ion-col>
@@ -22,7 +21,6 @@
             <p class="common-sub-title gray commodity-3-main-short-name text-wrap">{{item.commodities[1].commodityShortName}}</p>
             <p class="red">¥<span>{{item.commodities[1].currentPrice}}</span>&nbsp;
                 <del class="grey"> ￥{{item.commodities[1].originalPrice}}</del>&nbsp;
-                <span class="backCoupon" *ngIf="item.commodities[1].returnVoucher">返{{item.commodities[1]?.returnVoucher}}元券</span>
             </p>
         </div>
     </ion-col>

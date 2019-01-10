@@ -4,11 +4,8 @@
 
 <ion-content #content no-padding>
 
-    <!--<app-refresh  [interfaceName]="'getHomePageData'" [provider]="bannerProviders" (result)="doRefresh($event)"></app-refresh>-->
     <ion-list class="common-list">
         <banner-slide [banners]="banners"></banner-slide>
-
-        <app-show-buttons-list></app-show-buttons-list>
 
         <app-show-commodities [id]="item.id" [item]="item" *ngFor="let item of commodities | sortPipe "></app-show-commodities>
 

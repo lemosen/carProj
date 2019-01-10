@@ -16,8 +16,8 @@ export class AppConfig {
 
     wechatAppId = 'wx624636d7fc542eb3';
 
-    wechatAutoLogin=true;
-    // wechatAutoLogin=false;
+    // wechatAutoLogin=true;
+    wechatAutoLogin=false;
 
     hostURL: string;
     imgBaseURL: string;
