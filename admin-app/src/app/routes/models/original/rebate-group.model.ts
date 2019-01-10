@@ -39,12 +39,12 @@ export class RebateGroup {
     shareTitle:string;
 
     /**
-       * 商品（product表ID）
+       * 报考（product表ID）
      */
     product:Product;
 
     /**
-       * 活动库存（活动库存为独立库存，成交不会减少商品库存）
+       * 活动库存（活动库存为独立库存，成交不会减少报考库存）
      */
     activityStock:number;
 

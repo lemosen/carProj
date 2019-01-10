@@ -30,15 +30,15 @@ const routes: Routes = [
       //首页
 
 
-      //商品管理
-      { path: 'commodity', loadChildren: 'app/routes/commodityManage/commodity/commodity.module#CommodityModule', data: { breadcrumb: '商品列表', title: '商品列表'} },
-      { path: 'commodity-to-examine', loadChildren: 'app/routes/commodityManage/commodity-to-examine/commodity-to-examine.module#CommodityToExamineModule', data: { breadcrumb: '待审核商品', title: '待审核商品'} },
-      { path: 'comment', loadChildren: 'app/routes/commodityManage/comment/comment.module#CommentModule', data: { breadcrumb: '商品评价', title: '商品评价'} },
-      { path: 'attribute-group', loadChildren: 'app/routes/commodityManage/attribute-group/attribute-group.module#AttributeGroupModule', data: { breadcrumb: '商品属性', title: '商品属性'} },
+      //报考管理
+      { path: 'commodity', loadChildren: 'app/routes/commodityManage/commodity/commodity.module#CommodityModule', data: { breadcrumb: '报考列表', title: '报考列表'} },
+      { path: 'commodity-to-examine', loadChildren: 'app/routes/commodityManage/commodity-to-examine/commodity-to-examine.module#CommodityToExamineModule', data: { breadcrumb: '待审核报考', title: '待审核报考'} },
+      { path: 'comment', loadChildren: 'app/routes/commodityManage/comment/comment.module#CommentModule', data: { breadcrumb: '报考评价', title: '报考评价'} },
+      { path: 'attribute-group', loadChildren: 'app/routes/commodityManage/attribute-group/attribute-group.module#AttributeGroupModule', data: { breadcrumb: '报考属性', title: '报考属性'} },
 
 
-      //商品分类
-      { path: 'category', loadChildren: 'app/routes/categoryManage/category/category.module#CategoryModule', data: { breadcrumb: '商品分类', title: '商品分类'} },
+      //报考分类
+      { path: 'category', loadChildren: 'app/routes/categoryManage/category/category.module#CategoryModule', data: { breadcrumb: '报考分类', title: '报考分类'} },
       { path: 'operate-category', loadChildren: 'app/routes/categoryManage/operate-category/operate-category.module#OperateCategoryModule', data: { breadcrumb: ' 运营分类', title: '分类管理'} },
 
       //分销管理

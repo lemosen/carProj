@@ -14,7 +14,7 @@ export class AttributeGroup {
   guid: string;
 
   /**
-   * 商品分类
+   * 报考分类
    */
   category: Category;
 

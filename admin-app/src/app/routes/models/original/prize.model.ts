@@ -22,7 +22,7 @@ export class Prize {
     name:string;
 
     /**
-       * 奖品类型（1积分，2商品，3优惠券）
+       * 奖品类型（1积分，2报考，3优惠券）
      */
     prizeType:number;
 
@@ -32,7 +32,7 @@ export class Prize {
     integral:number;
 
     /**
-       * 商品（commodity表ID）
+       * 报考（commodity表ID）
      */
     commodityId:number;
 

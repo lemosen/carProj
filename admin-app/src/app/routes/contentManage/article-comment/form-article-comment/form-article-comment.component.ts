@@ -89,7 +89,7 @@ export class FormArticleCommentComponent implements OnInit, OnChanges {
 
 
   /**
-   * 赋值商品图片数组
+   * 赋值报考图片数组
    */
   getCommodityImgPath() {
     if (this.commonForm.value.attachmentVos != null) {
@@ -108,7 +108,7 @@ export class FormArticleCommentComponent implements OnInit, OnChanges {
   }
 
   /**
-   * 商品图片回调
+   * 报考图片回调
    * @param fileList
    */
   changeAttachment(fileList) {
@@ -158,7 +158,7 @@ export class FormArticleCommentComponent implements OnInit, OnChanges {
       state: articleComment.state,
       attachmentVos: articleComment.attachmentVos,
     });
-    //赋值商品图片数组
+    //赋值报考图片数组
     this.getCommodityImgPath();
   }
 

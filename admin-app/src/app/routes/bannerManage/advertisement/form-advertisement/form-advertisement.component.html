@@ -62,12 +62,12 @@
     </nz-form-item>
 
     <nz-form-item *ngIf="this.commonForm.value.linkType==1">
-      <nz-form-label nzXs="3" nzSm="3" nzRequired nzFor="commodity">指定商品</nz-form-label>
+      <nz-form-label nzXs="3" nzSm="3" nzRequired nzFor="commodity">指定报考</nz-form-label>
       <nz-form-control nzXs="8" nzSm="8" nzHasFeedback>
         <app-modal-selecet
           [pageQuery]="commodityPageQuery"
-          [filters]="[{filterName:'commodityName',name:'商品名称',value:''}]"
-          [showCol]="[{name:'id',value:'编码',isShow:false},{name:'commodityName',value:'商品名称',isShow:true}]"
+          [filters]="[{filterName:'commodityName',name:'报考名称',value:''}]"
+          [showCol]="[{name:'id',value:'编码',isShow:false},{name:'commodityName',value:'报考名称',isShow:true}]"
           [select]="commonForm.value.commodity"
           [resultName]="commonForm.value.commodity ? commonForm.value.commodity.commodityName : '请选择'"
           [baseService]="commodityService"

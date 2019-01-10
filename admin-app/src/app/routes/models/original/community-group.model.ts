@@ -40,7 +40,7 @@ export class CommunityGroup {
     shareTitle:string;
 
     /**
-       * 商品（product表ID）
+       * 报考（product表ID）
      */
     product:Product;
 

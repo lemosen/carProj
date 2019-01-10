@@ -7,8 +7,8 @@ import {CommodityService} from '../../services/commodity.service';
 const routes: Routes = [
 
   {path: '', redirectTo: 'list', pathMatch: 'full'},
-  {path: 'list', component: ListCommodityToExamineComponent, data: {breadcrumb: '商品列表',title: '列表'}},
-  {path: 'view/:objId', component: ViewCommodityToExamineComponent, data: {breadcrumb: '详情商品',title: '详情'}},
+  {path: 'list', component: ListCommodityToExamineComponent, data: {breadcrumb: '报考列表',title: '列表'}},
+  {path: 'view/:objId', component: ViewCommodityToExamineComponent, data: {breadcrumb: '详情报考',title: '详情'}},
 ];
 
 @NgModule({

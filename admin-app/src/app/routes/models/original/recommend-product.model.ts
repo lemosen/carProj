@@ -17,22 +17,22 @@ export class RecommendProduct {
     recommendId:number;
 
     /**
-       * 商品（product表ID）
+       * 报考（product表ID）
      */
     productId:number;
 
     /**
-       * 商品编码（冗余）
+       * 报考编码（冗余）
      */
     productCode:string;
 
     /**
-       * 商品名称（冗余）
+       * 报考名称（冗余）
      */
     productName:string;
 
     /**
-       * 商品图片（冗余）
+       * 报考图片（冗余）
      */
     imgPath:string;
 }

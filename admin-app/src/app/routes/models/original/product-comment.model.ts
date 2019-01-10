@@ -12,12 +12,12 @@ export class ProductComment {
     guid:string;
 
     /**
-       * 商品（product表ID）
+       * 报考（product表ID）
      */
     productId:number;
 
     /**
-       * 商品名称
+       * 报考名称
      */
     productName:string;
 

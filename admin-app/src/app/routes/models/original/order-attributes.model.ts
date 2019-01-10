@@ -11,7 +11,7 @@ export class OrderAttributes {
     commodityAttrId: number;
 
     /**
-     * 商品数量
+     * 报考数量
      */
     num: number;
 }

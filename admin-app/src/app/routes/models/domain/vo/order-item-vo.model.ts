@@ -13,7 +13,7 @@ export class OrderItemVo {
      */
     orderId:number;
     /**
-       * 商品（product表ID）
+       * 报考（product表ID）
      */
     productId:number;
     /**
@@ -25,11 +25,11 @@ export class OrderItemVo {
      */
     supplierId:number;
     /**
-       * 商品图片
+       * 报考图片
      */
     commodityImg:string;
     /**
-       * 商品名称
+       * 报考名称
      */
     commodityname:string;
     /**

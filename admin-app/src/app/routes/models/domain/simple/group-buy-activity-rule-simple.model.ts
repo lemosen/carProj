@@ -13,11 +13,11 @@ export class GroupBuyActivityRuleSimple {
      */
     groupBuyActivityId:number;
     /**
-       * 商品ID
+       * 报考ID
      */
     commodityId:number;
     /**
-       * 商品名称
+       * 报考名称
      */
     commodityName:string;
     /**

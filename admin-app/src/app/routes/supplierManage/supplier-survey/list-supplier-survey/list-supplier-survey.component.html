@@ -15,13 +15,13 @@
 <!--applicationForCash:number;-->
 <!--/**供应商数量*/-->
 <!--supplierNumber:number;-->
-<!--/**已上架商品数量*/-->
+<!--/**已上架报考数量*/-->
 <!--shelvesCommodity:number;-->
 <!--/**待结算款*/-->
 <!--pending:number;-->
 <!--/**供应商业绩排行*/-->
 <!--supplierAchievementList:Object[][];-->
-<!--/** 商品销售排行 */-->
+<!--/** 报考销售排行 */-->
 <!--commoditySales:Object[][];-->
 
 <div nz-row [nzGutter]="24" class="pt-lg">
@@ -56,15 +56,15 @@
   </div>
 
   <div nz-col style="width: 20%;float: left">
-    <g2-card [title]="'已上架商品'" total="{{supplierData.shelfCommodityNum}}" contentHeight="46px" [action]="action4"
+    <g2-card [title]="'已上架报考'" total="{{supplierData.shelfCommodityNum}}" contentHeight="46px" [action]="action4"
              [footer]="footer4">
       <ng-template #action4>
-        <nz-tooltip [nzTitle]="'已上架商品'">
+        <nz-tooltip [nzTitle]="'已上架报考'">
           <i nz-tooltip class="anticon anticon-info-circle-o"></i>
         </nz-tooltip>
       </ng-template>
       <ng-template #footer4>
-        <p class="text-truncate mb0">待审核商品
+        <p class="text-truncate mb0">待审核报考
           <span class="ml-sm">{{supplierData.waitAuditNum}}</span>
         </p>
       </ng-template>
@@ -125,14 +125,14 @@
   <div nz-col nzXs="24" nzMd="12">
     <nz-card [nzTitle]="title1" [nzBordered]="false" class="ant-card__body-nopadding">
       <ng-template #title1>
-        商品销售排名<span style="float: right">最近30天</span>
+        报考销售排名<span style="float: right">最近30天</span>
       </ng-template>
       <div nz-row [nzType]="'flex'" [nzAlign]="'middle'" class="py-sm bg-grey-lighter-h point text-center">
         <div nz-col [nzSpan]="7">
-          <strong>商品名</strong>
+          <strong>报考名</strong>
         </div>
         <div nz-col [nzSpan]="7">
-          <strong>商品售卖数</strong>
+          <strong>报考售卖数</strong>
         </div>
         <div nz-col [nzSpan]="6">
           <strong>金额</strong>

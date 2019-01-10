@@ -3,12 +3,12 @@
   <form nz-form [formGroup]="commonForm">
 
     <nz-form-item>
-      <nz-form-label nzXs="3" nzSm="3" nzRequired nzFor="commodity">商品</nz-form-label>
+      <nz-form-label nzXs="3" nzSm="3" nzRequired nzFor="commodity">报考</nz-form-label>
       <nz-form-control nzXs="8" nzSm="8">
         <app-modal-selecet
           [pageQuery]="commodityPageQuery"
-          [filters]="[{filterName:'commodityName',name:'商品名',value:''}]"
-          [showCol]="[{name:'commodityNo',value:'编码',isShow:false},{name:'commodityName',value:'商品名',isShow:true}]"
+          [filters]="[{filterName:'commodityName',name:'报考名',value:''}]"
+          [showCol]="[{name:'commodityNo',value:'编码',isShow:false},{name:'commodityName',value:'报考名',isShow:true}]"
           [select]="commonForm.value.commodity"
           [resultName]="commonForm.value.commodity ? commonForm.value.commodity.commodityName : '请选择'"
           [baseService]="commodityService"

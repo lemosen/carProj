@@ -106,7 +106,7 @@ export class FormCommodityComponent extends FormAttrGroup implements OnInit, OnC
   }
 
   /**
-   * 赋值商品图片数组
+   * 赋值报考图片数组
    */
   getCommodityImgPath() {
     if (this.commonForm.value.attachmentVos != null) {
@@ -125,7 +125,7 @@ export class FormCommodityComponent extends FormAttrGroup implements OnInit, OnC
   }
 
   /**
-   * 商品图片回调
+   * 报考图片回调
    * @param fileList
    */
   changeAttachment(fileList) {
@@ -189,7 +189,7 @@ export class FormCommodityComponent extends FormAttrGroup implements OnInit, OnC
   }
 
   /**
-   * 设置商品分类
+   * 设置报考分类
    * @param choose
    */
   setCommodityCategory(choose) {
@@ -293,10 +293,10 @@ export class FormCommodityComponent extends FormAttrGroup implements OnInit, OnC
       attachmentVos: commodity.attachmentVos,
     });
     this.regionGroup.select(commodity.regions)
-    //赋值商品图片数组
+    //赋值报考图片数组
     this.getCommodityImgPath();
 
-    //选择商品管理分类  运营分类
+    //选择报考管理分类  运营分类
     this.categoryTreeSelect.select(this.commonForm.value.category.id)
     this.operateCategoryTreeSelect.select(this.commonForm.value.operateCategories.map((e) => e.id))
     //设置富文本内容

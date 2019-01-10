@@ -13,21 +13,21 @@ public class WeChatConfig {
 
 	// 微信服务号
 	/** 服务号appid */
-	public static final String SP_APP_ID = "wx624636d7fc542eb3";
+	public static final String SP_APP_ID = "wx4cfd5bff2944b9d4";
 	/** 服务号AppSecret */
-	public static final String SP_APP_SECRET = "5435337998a3b45cd31d0677a933df29";
+	public static final String SP_APP_SECRET = "333a7c8886831885ffa2acc15542c707";
 	/** 服务号-商户号mch_id */
-	public static final String SP_MCH_ID = "1466953202";
+	public static final String SP_MCH_ID = "1310850601";
 	/** 商户号对应的密钥 */
-	public static final String SP_PARTNER_KEY = "jiuziqi412724198512143712yiyiyou";
+	public static final String SP_PARTNER_KEY = "lm1234567890lm1234567890lm257913";
 	/** 微信支付 回调通知url */
-	public static final String SP_TEST_PAY_NOTIFY_URL = "http://test.app.my11mall.com/weChat/payNotifyForSp";
+	public static final String SP_TEST_PAY_NOTIFY_URL = "http://test.bluerice.cn//weChat/payNotifyForSp";
 	/** 微信支付 回调通知url */
-	public static final String SP_PROD_PAY_NOTIFY_URL = "http://app.my11mall.com/weChat/payNotifyForSp";
+	public static final String SP_PROD_PAY_NOTIFY_URL = "http://app.bluerice.cn/weChat/payNotifyForSp";
 	/** 微信退款 回调通知url */
-	public static final String SP_TEST_REFUND_NOTIFY_URL = "http://test.app.my11mall.com/weChat/refundNotifyForSp";
+	public static final String SP_TEST_REFUND_NOTIFY_URL = "http://test.app.bluerice.cn/weChat/refundNotifyForSp";
 	/** 微信退款 回调通知url */
-	public static final String SP_PROD_REFUND_NOTIFY_URL = "http://app.my11mall.com/weChat/refundNotifyForSp";
+	public static final String SP_PROD_REFUND_NOTIFY_URL = "http://app.bluerice.cn/weChat/refundNotifyForSp";
 
 	// 微信小程序
 	/** 小程序appid */
@@ -41,13 +41,13 @@ public class WeChatConfig {
 	/** 小程序 获取session_key */
 	public static final String SESSION_KEY_URL = "https://api.weixin.qq.com/sns/jscode2session";
 	/** 微信支付 回调通知url */
-	public static final String MP_TEST_PAY_NOTIFY_URL = "http://test.app.my11mall.com/weChat/payNotifyForMp";
+	public static final String MP_TEST_PAY_NOTIFY_URL = "http://test.app.bluerice.cn/weChat/payNotifyForMp";
 	/** 微信支付 回调通知url */
-	public static final String MP_PROD_PAY_NOTIFY_URL = "http://app.my11mall.com/weChat/payNotifyForMp";
+	public static final String MP_PROD_PAY_NOTIFY_URL = "http://app.bluerice.cn/weChat/payNotifyForMp";
 	/** 微信退款 回调通知url */
-	public static final String MP_TEST_REFUND_NOTIFY_URL = "http://test.app.my11mall.com/weChat/refundNotifyForMp";
+	public static final String MP_TEST_REFUND_NOTIFY_URL = "http://test.app.bluerice.cn/weChat/refundNotifyForMp";
 	/** 微信退款 回调通知url */
-	public static final String MP_PROD_REFUND_NOTIFY_URL = "http://app.my11mall.com/weChat/refundNotifyForMp";
+	public static final String MP_PROD_REFUND_NOTIFY_URL = "http://app.bluerice.cn/weChat/refundNotifyForMp";
 
 	// APP
 	/** 微信开发平台应用ID 微信开放平台审核通过的应用APPID（请登录open.weixin.qq.com查看，注意与公众号的APPID不同） */
@@ -59,14 +59,14 @@ public class WeChatConfig {
 	/** 商户号对应的密钥 */
 	public static final String APP_PARTNER_KEY = "jiuziqi412724198512143712yiyiyou";
 	/** 微信支付 回调通知url */
-	public static final String APP_TEST_NOTIFY_URL = "http://test.app.my11mall.com/weChat/notifyForApp";
+	public static final String APP_TEST_NOTIFY_URL = "http://test.app.bluerice.cn/weChat/notifyForApp";
 	/** 微信支付 回调通知url */
-	public static final String APP_PROD_NOTIFY_URL = "http://app.my11mall.com/weChat/notifyForApp";
+	public static final String APP_PROD_NOTIFY_URL = "http://app.bluerice.cn/weChat/notifyForApp";
 
 	/** 微信退款 回调通知url */
-	public static final String APP_TEST_REFUND_NOTIFY_URL = "http://test.app.my11mall.com/weChat/refundNotifyForMp";
+	public static final String APP_TEST_REFUND_NOTIFY_URL = "http://test.app.bluerice.cn/weChat/refundNotifyForMp";
 	/** 微信退款 回调通知url */
-	public static final String APP_PROD_REFUND_NOTIFY_URL = "http://app.my11mall.com/weChat/refundNotifyForMp";
+	public static final String APP_PROD_REFUND_NOTIFY_URL = "http://app.bluerice.cn/weChat/refundNotifyForMp";
 
 	/** 服务号或小程序 获取access_token */
 	public static final String TOKEN_URL = "https://api.weixin.qq.com/cgi-bin/token";

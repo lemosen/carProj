@@ -3,7 +3,7 @@
 
 export class CommodityAttributeBo {
     /**
-       * 商品（commodity表ID）
+       * 报考（commodity表ID）
      */
     commodityId:number;
     /**

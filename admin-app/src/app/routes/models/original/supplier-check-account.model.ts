@@ -37,17 +37,17 @@ export class SupplierCheckAccount {
     orderTime:string;
 
     /**
-       * 商品（product表ID）
+       * 报考（product表ID）
      */
     productId:number;
 
     /**
-       * 商品编号
+       * 报考编号
      */
     productNo:string;
 
     /**
-       * 商品名称
+       * 报考名称
      */
     productName:string;
 

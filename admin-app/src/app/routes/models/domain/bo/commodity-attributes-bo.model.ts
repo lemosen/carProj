@@ -24,7 +24,7 @@ export class CommodityAttributesBo {
      */
     vipPrice: number;
     /**
-     * 商品编码
+     * 报考编码
      */
     code: string;
     /**

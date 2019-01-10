@@ -55,7 +55,7 @@ export class StartupService {
     // }
     // mock
     const app: any = {
-      name: `壹壹优选`,
+      name: `蓝米教育`,
       description: `yiyi admin framework`,
     };
     const user: any = {
@@ -108,11 +108,11 @@ export class StartupService {
           //   ]
           // },
           {
-            text: '商品分类',
+            text: '报考分类',
             icon: 'anticon anticon-dot-chart',
             children: [
               {
-                text: '商品分类',
+                text: '报考分类',
                 link: '/dashboard/category',
               },{
                 text: '运营分类',
@@ -131,23 +131,23 @@ export class StartupService {
             ]
           },
           {
-            text: '商品管理',
+            text: '报考管理',
             icon: 'anticon anticon-shop',
             children: [
               {
-                text: '商品列表',
+                text: '报考列表',
                 link: '/dashboard/commodity',
               },
               {
-                text: '商品属性',
+                text: '报考属性',
                 link: '/dashboard/attribute-group',
               },
               {
-                text: '商品审核',
+                text: '报考审核',
                 link: '/dashboard/commodity-to-examine',
               },
               {
-                text: '商品评价',
+                text: '报考评价',
                 link: '/dashboard/comment',
               },
             ],

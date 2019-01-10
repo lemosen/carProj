@@ -8,7 +8,7 @@ export class CommodityCartBo {
      */
     commodityId: number;
     /**
-     * 商品数量
+     * 报考数量
      */
     num: number;
 }

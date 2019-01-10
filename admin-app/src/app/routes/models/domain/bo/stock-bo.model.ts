@@ -11,7 +11,7 @@ export class StockBo {
      */
     guid:string;
     /**
-       * 商品（commodity表ID）
+       * 报考（commodity表ID）
      */
     commodityId:number;
     /**

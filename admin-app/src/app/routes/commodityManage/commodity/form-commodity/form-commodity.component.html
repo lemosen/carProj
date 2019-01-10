@@ -23,7 +23,7 @@
     </nz-form-item>
 
     <nz-form-item>
-      <nz-form-label nzXs="3" nzSm="3" nzRequired nzFor="regions">商品销售地</nz-form-label>
+      <nz-form-label nzXs="3" nzSm="3" nzRequired nzFor="regions">报考销售地</nz-form-label>
       <nz-form-control nzXs="21" nzSm="21" nzHasFeedback>
         <app-region-group #regionGroup [title]="'选择销售地区'" [buttonName]="'选择销售地区'"
                           (result)="setRegions($event)"></app-region-group>
@@ -38,7 +38,7 @@
 
   <nz-form-item>
 
-    <nz-form-label nzXs="3" nzSm="3" nzRequired nzFor="category">商品分类</nz-form-label>
+    <nz-form-label nzXs="3" nzSm="3" nzRequired nzFor="category">报考分类</nz-form-label>
     <nz-form-control nzXs="8" nzSm="8">
       <app-category-tree-select #categoryTreeSelect [isCheck]="false" [showRoot]="false"
                                 (result)="setCommodityCategory($event)">
@@ -73,9 +73,9 @@
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
-      <nz-form-label nzXs="3" nzSm="3" nzFor="commodityNo">商品编码</nz-form-label>
+      <nz-form-label nzXs="3" nzSm="3" nzFor="commodityNo">报考编码</nz-form-label>
       <nz-form-control nzXs="8" nzSm="8" nzHasFeedback>
-        <input nz-input formControlName="commodityNo" id="commodityNo" placeholder="输入商品编码">
+        <input nz-input formControlName="commodityNo" id="commodityNo" placeholder="输入报考编码">
         <nz-form-explain *ngIf="commonForm.get('commodityNo').dirty&&commonForm.get('commodityNo').errors">
           <ng-container *ngFor="let error of formErrors.commodityNo">
             <nz-form-explain *ngIf="commonForm.get('commodityNo').errors[error.name]">{{ error.msg }}</nz-form-explain>
@@ -84,9 +84,9 @@
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
-      <nz-form-label nzXs="3" nzSm="3" nzRequired nzFor="commodityName">商品名称</nz-form-label>
+      <nz-form-label nzXs="3" nzSm="3" nzRequired nzFor="commodityName">报考名称</nz-form-label>
       <nz-form-control nzXs="8" nzSm="8" nzHasFeedback>
-        <input nz-input formControlName="commodityName" placeholder="输入商品名称">
+        <input nz-input formControlName="commodityName" placeholder="输入报考名称">
         <nz-form-explain *ngIf="commonForm.get('commodityName').dirty&&commonForm.get('commodityName').errors">
           <ng-container *ngFor="let error of formErrors.commodityName">
             <nz-form-explain *ngIf="commonForm.get('commodityName').errors[error.name]">{{ error.msg }}
@@ -96,9 +96,9 @@
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
-      <nz-form-label nzXs="3" nzSm="3" nzRequired nzFor="commodityShortName">商品简称</nz-form-label>
+      <nz-form-label nzXs="3" nzSm="3" nzRequired nzFor="commodityShortName">报考简称</nz-form-label>
       <nz-form-control nzXs="8" nzSm="8" nzHasFeedback>
-        <input nz-input formControlName="commodityShortName" id="commodityShortName" placeholder="输入商品简称">
+        <input nz-input formControlName="commodityShortName" id="commodityShortName" placeholder="输入报考简称">
         <nz-form-explain
           *ngIf="commonForm.get('commodityShortName').dirty && commonForm.get('commodityShortName').errors">
           <ng-container *ngFor="let error of formErrors.commodityShortName">
@@ -110,7 +110,7 @@
     </nz-form-item>
     <nz-form-item>
 
-      <nz-form-label nzXs="3" nzSm="3" nzRequired nzFor="imgPath">商品图片</nz-form-label>
+      <nz-form-label nzXs="3" nzSm="3" nzRequired nzFor="imgPath">报考图片</nz-form-label>
       <nz-form-control nzXs="21" nzSm="21" nzHasFeedback>
         <app-dynamic-upload [multi]="true" [fileList]="imgPaths"
                             (onFileListChange)="changeAttachment($event)"></app-dynamic-upload>
@@ -247,10 +247,10 @@
     </nz-form-item>
 
     <nz-form-item>
-      <nz-form-label nzXs="3" nzSm="3" nzFor="volume">商品体积</nz-form-label>
+      <nz-form-label nzXs="3" nzSm="3" nzFor="volume">报考体积</nz-form-label>
       <nz-form-control nzXs="8" nzSm="8">
         <nz-input-number nz-input style="width: 50%;" [nzMin]="0" [nzStep]="1" formControlName="volume" id="volume"
-                         nzPlaceHolder="输入商品体积(m²)"></nz-input-number>&nbsp;&nbsp;m²
+                         nzPlaceHolder="输入报考体积(m²)"></nz-input-number>&nbsp;&nbsp;m²
         <nz-form-explain *ngIf="commonForm.get('volume').dirty && commonForm.get('volume').errors">
           <ng-container *ngFor="let error of formErrors.volume">
             <nz-form-explain *ngIf="commonForm.get('volume').errors[error.name]">{{ error.msg }}</nz-form-explain>
@@ -259,10 +259,10 @@
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
-      <nz-form-label nzXs="3" nzSm="3" nzFor="weight">商品重量</nz-form-label>
+      <nz-form-label nzXs="3" nzSm="3" nzFor="weight">报考重量</nz-form-label>
       <nz-form-control nzXs="8" nzSm="8">
         <nz-input-number nz-input style="width: 50%;" [nzMin]="0" [nzStep]="1" formControlName="weight" id="weight"
-                         nzPlaceHolder="输入商品重量(kg)"></nz-input-number>&nbsp;&nbsp;kg
+                         nzPlaceHolder="输入报考重量(kg)"></nz-input-number>&nbsp;&nbsp;kg
         <nz-form-explain *ngIf="commonForm.get('weight').dirty && commonForm.get('weight').errors">
           <ng-container *ngFor="let error of formErrors.weight">
             <nz-form-explain *ngIf="commonForm.get('weight').errors[error.name]">{{ error.msg }}</nz-form-explain>
@@ -367,7 +367,7 @@
     <nz-divider nzDashed [nzText]="''"></nz-divider>
 
     <nz-form-item>
-      <nz-form-label nzXs="3" nzSm="3" nzFor="description">商品介绍</nz-form-label>
+      <nz-form-label nzXs="3" nzSm="3" nzFor="description">报考介绍</nz-form-label>
       <nz-form-control nzXs="17" nzSm="17" nzMd="17" nzHasFeedback>
         <app-editor (attachmentVos)="setDescAttachmentVos($event)" [ckeditorContent]="''" #editor (result)="setDescription($event)"></app-editor>
         <!--<app-editor></app-editor>-->

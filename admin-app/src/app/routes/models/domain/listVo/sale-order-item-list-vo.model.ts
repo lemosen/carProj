@@ -21,7 +21,7 @@ export class SaleOrderItemListVo {
     saleOrder:SaleOrderListVo;
 
     /**
-       * 商品（product表ID）
+       * 报考（product表ID）
      */
     product:ProductListVo;
 
@@ -36,12 +36,12 @@ export class SaleOrderItemListVo {
     supplier:SupplierListVo;
 
     /**
-       * 商品图片
+       * 报考图片
      */
     commodityImg:string;
 
     /**
-       * 商品名称
+       * 报考名称
      */
     commodityName:string;
 

@@ -24,7 +24,7 @@ export class Product {
   productName: string;
 
   /**
-   * 商品（commodity表ID）
+   * 报考（commodity表ID）
    */
   commodity: Commodity;
 
@@ -89,7 +89,7 @@ export class Product {
   shelf: boolean;
 
   /**
-   * 商品介绍
+   * 报考介绍
    */
   description: string;
 

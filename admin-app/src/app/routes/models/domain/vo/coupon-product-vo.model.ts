@@ -13,15 +13,15 @@ export class CouponProductVo {
      */
     couponId:number;
     /**
-       * 商品（product表ID）
+       * 报考（product表ID）
      */
     productId:number;
     /**
-       * 商品编码
+       * 报考编码
      */
     productNo:string;
     /**
-       * 商品名称
+       * 报考名称
      */
     productName:string;
     /**

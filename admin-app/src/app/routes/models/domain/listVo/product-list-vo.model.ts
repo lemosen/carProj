@@ -23,7 +23,7 @@ export class ProductListVo {
   productName: string;
 
   /**
-   * 商品（commodity表ID）
+   * 报考（commodity表ID）
    */
   commodity: CommodityListVo;
 
@@ -88,7 +88,7 @@ export class ProductListVo {
   shelf: boolean;
 
   /**
-   * 商品介绍
+   * 报考介绍
    */
   description: string;
 
