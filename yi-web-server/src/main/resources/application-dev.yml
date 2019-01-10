@@ -15,11 +15,11 @@ yi:
   host: localhost
   web-port: 8086
   
-  db-host: 47.107.68.47
+  db-host: 119.23.203.18
   db-port: 3306
-  db-name: yi_test
-  db-user: yiyi
-  db-password: yi@123456
+  db-name: br_test
+  db-user: br
+  db-password: br@123456
   
   attachment:
     domain: http://${yi.host}:${yi.web-port}

@@ -7,7 +7,6 @@ import {ObjectUtils} from '@shared/utils/ObjectUtils';
 import {MemberLevelService} from "../../../services/member-level.service";
 import {CommunityService} from "../../../services/community.service";
 import {PageQuery} from "../../../models/page-query.model";
-import {NewsPage} from "../../../../../../../yi-web-app/src/app/pages/news/news";
 
 @Component({
   selector: 'form-member',

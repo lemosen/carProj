@@ -10,14 +10,14 @@ logging:
 
 yi:
   cluster-name: test
-  host: test.app.my11mall.com
+  host: test.app.bluerice.cn
   web-port: 8086
   
-  db-host: 47.107.68.47
+  db-host: 119.23.203.18
   db-port: 3306
-  db-name: yi_test
-  db-user: yiyi
-  db-password: yi@123456
+  db-name: br_test
+  db-user: br
+  db-password: br@123456
   
   attachment:
     #若yi.host为域名 去掉端口

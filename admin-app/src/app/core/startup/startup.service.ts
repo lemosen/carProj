@@ -87,26 +87,26 @@ export class StartupService {
             icon: 'anticon anticon-appstore-o',
             link: '/dashboard/',
           },
-          {
-            text: '地区管理',
-            icon: 'anticon anticon-environment-o',
-            children: [
-              {
-                text: '区域列表',
-                link: '/dashboard/region-group',
-              },
-            ]
-          },
-          {
-            text: '小区管理',
-            icon: 'anticon anticon-home',
-            children: [
-              {
-                text: '小区列表',
-                link: '/dashboard/community',
-              },
-            ]
-          },
+          // {
+          //   text: '地区管理',
+          //   icon: 'anticon anticon-environment-o',
+          //   children: [
+          //     {
+          //       text: '区域列表',
+          //       link: '/dashboard/region-group',
+          //     },
+          //   ]
+          // },
+          // {
+          //   text: '小区管理',
+          //   icon: 'anticon anticon-home',
+          //   children: [
+          //     {
+          //       text: '小区列表',
+          //       link: '/dashboard/community',
+          //     },
+          //   ]
+          // },
           {
             text: '商品分类',
             icon: 'anticon anticon-dot-chart',
@@ -152,16 +152,16 @@ export class StartupService {
               },
             ],
           },
-          {
-            text: '库存管理',
-            icon: 'anticon anticon-database',
-            children: [
-              {
-                text: '库存列表',
-                link: '/dashboard/stock',
-              },
-            ],
-          },
+          // {
+          //   text: '库存管理',
+          //   icon: 'anticon anticon-database',
+          //   children: [
+          //     {
+          //       text: '库存列表',
+          //       link: '/dashboard/stock',
+          //     },
+          //   ],
+          // },
           {
             text: '订单设置',
             icon: 'anticon anticon-pushpin-o',
@@ -206,16 +206,16 @@ export class StartupService {
               },
             ]
           },
-          {
-            text: '快递管理',
-            icon: 'anticon anticon-car',
-            children: [
-              {
-                text: '运费模板设置',
-                link: '/dashboard/freight-template-config',
-              },
-            ]
-          },
+          // {
+          //   text: '快递管理',
+          //   icon: 'anticon anticon-car',
+          //   children: [
+          //     {
+          //       text: '运费模板设置',
+          //       link: '/dashboard/freight-template-config',
+          //     },
+          //   ]
+          // },
           {
             text: '会员管理',
             icon: 'anticon anticon-usergroup-add',
@@ -244,20 +244,20 @@ export class StartupService {
               },
             ]
           },
-          {
-            text: '内容管理',
-            icon: 'anticon anticon-form',
-            children: [
-              {
-                text: '爱生活',
-                link: '/dashboard/article',
-              },
-              {
-                text: '爱生活评论',
-                link: '/dashboard/article-comment',
-              },
-            ]
-          },
+          // {
+          //   text: '内容管理',
+          //   icon: 'anticon anticon-form',
+          //   children: [
+          //     {
+          //       text: '爱生活',
+          //       link: '/dashboard/article',
+          //     },
+          //     {
+          //       text: '爱生活评论',
+          //       link: '/dashboard/article-comment',
+          //     },
+          //   ]
+          // },
           {
             text: '营销管理',
             icon: 'anticon anticon-export',
@@ -292,34 +292,34 @@ export class StartupService {
               },
             ]
           },
-          {
-            text: '团购管理',
-            icon: 'anticon anticon-clock-circle-o',
-            children: [
-              {
-                text: '团购活动',
-                link: '/dashboard/group-buy-activity',
-              },
-            ]
-          },
-          {
-            text: '活动管理',
-            icon: 'anticon anticon-gift',
-            children: [
-              {
-                text: '大转盘',
-                link: '/dashboard/turntable',
-              },
-              {
-                text: '大富翁',
-                link: '/dashboard/millionaire',
-              },
-              {
-                text: '刮刮乐',
-                link: '/dashboard/scraping',
-              },
-            ]
-          },
+          // {
+          //   text: '团购管理',
+          //   icon: 'anticon anticon-clock-circle-o',
+          //   children: [
+          //     {
+          //       text: '团购活动',
+          //       link: '/dashboard/group-buy-activity',
+          //     },
+          //   ]
+          // },
+          // {
+          //   text: '活动管理',
+          //   icon: 'anticon anticon-gift',
+          //   children: [
+          //     {
+          //       text: '大转盘',
+          //       link: '/dashboard/turntable',
+          //     },
+          //     {
+          //       text: '大富翁',
+          //       link: '/dashboard/millionaire',
+          //     },
+          //     {
+          //       text: '刮刮乐',
+          //       link: '/dashboard/scraping',
+          //     },
+          //   ]
+          // },
           // {
           //   text: '拼团管理',
           //   icon: 'anticon anticon-clock-circle-o',
@@ -395,22 +395,22 @@ export class StartupService {
                 text: '交易记录',
                 link: '/dashboard/account-record',
               },
-              {
-                text: '供应商销售统计',
-                link: '/dashboard/supplier-sale-stat',
-              },
-              {
-                text: '供应商提现申请',
-                link: '/dashboard/supplier-withdraw',
-              },
-              {
-                text: '供应商提现记录',
-                link: '/dashboard/supplier-record',
-              },
-              {
-                text: '供应商对账明细',
-                link: '/dashboard/supplier-check-account',
-              },
+              // {
+              //   text: '供应商销售统计',
+              //   link: '/dashboard/supplier-sale-stat',
+              // },
+              // {
+              //   text: '供应商提现申请',
+              //   link: '/dashboard/supplier-withdraw',
+              // },
+              // {
+              //   text: '供应商提现记录',
+              //   link: '/dashboard/supplier-record',
+              // },
+              // {
+              //   text: '供应商对账明细',
+              //   link: '/dashboard/supplier-check-account',
+              // },
             ]
           },
           {
@@ -431,24 +431,24 @@ export class StartupService {
               },
             ]
           },
-          {
-            text: '供应商管理',
-            icon: 'anticon anticon-solution',
-            children: [
-              {
-                text: '供应商列表',
-                link: '/dashboard/supplier',
-              },
-              {
-                text: '供应商概况',
-                link: '/dashboard/supplier-survey',
-              },
-               /*{
-                 text: '快递单模板设置',
-                 link: '/dashboard/express-template',
-               },*/
-            ]
-          },
+          // {
+          //   text: '供应商管理',
+          //   icon: 'anticon anticon-solution',
+          //   children: [
+          //     {
+          //       text: '供应商列表',
+          //       link: '/dashboard/supplier',
+          //     },
+          //     {
+          //       text: '供应商概况',
+          //       link: '/dashboard/supplier-survey',
+          //     },
+          //      /*{
+          //        text: '快递单模板设置',
+          //        link: '/dashboard/express-template',
+          //      },*/
+          //   ]
+          // },
           // {
           //   text: '快捷菜单',
           //   icon: 'anticon anticon-rocket',
