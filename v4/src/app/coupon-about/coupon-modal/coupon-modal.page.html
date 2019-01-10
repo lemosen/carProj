@@ -1,0 +1,18 @@
+
+<div class="head" (click)="goBack()"></div>
+<div class="body">
+  <div class="content">
+    <div class="tip">
+      <span class="grey common-font" *ngIf="type == 'coupon'">优惠券</span>
+      <span class="grey common-font" *ngIf="type == 'storage'">代金券</span>
+    </div>
+    <div class="couponList">
+      <ion-item *ngFor="let item of coupons" lines="none">
+        <ion-label>可省{{item?.parValue}}元</ion-label>
+        <ion-checkbox color="danger" [checked]="item == selectedCoupon" (click)="Selected(item)"></ion-checkbox>
+      </ion-item>
+    </div>
+
+    <div class="cancel" (click)="cancel()">不使用</div>
+  </div>
+</div>

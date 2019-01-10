@@ -1,0 +1,35 @@
+.common-list {
+  margin: 10px !important;
+  padding: 5px !important;
+  .big {
+    font-size: 2rem !important;
+  }
+}
+
+.coupon {
+  background-image: url("../../../assets/app_icon/basic/优惠券底@3x.png");
+  background-size: 100% 100%;
+  position: relative;
+}
+
+.coupon-unuse {
+  background-image: url("../../../assets/app_icon/basic/优惠券底已过期@3x.png");
+  background-size: 100% 100%;
+  position: relative;
+}
+
+.corner {
+  width: 40px;
+  height: 37px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.coupon-type {
+  width: 60px;
+  position: absolute;
+  top: -15px;
+  left: 0;
+}
+

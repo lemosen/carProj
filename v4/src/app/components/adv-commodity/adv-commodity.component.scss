@@ -1,0 +1,39 @@
+@import "../../../global.scss";
+
+.line{
+  width: 50px;
+  border-bottom: 1px solid $divid-color;
+  margin: 0 15px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.text{
+  @extend .grey;
+  @extend .common-notice;
+}
+
+.commodity {
+  padding: 5px;
+  border: 1px solid $space-color;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.common-list {
+  .common-title {
+    line-height: 40px;
+    height: 40px;
+  }
+}
+
+.img {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  img{
+    width: 180px;
+    height: 175px;
+  }
+}

@@ -1,0 +1,8 @@
+@import "../../../../global";
+.backCoupon{
+  background-color: $main-color;
+  padding: 2px 5px;
+  margin-right: 10px;
+  border-radius: 4px;
+  @extend .white
+}

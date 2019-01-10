@@ -1,0 +1,94 @@
+@import "../../global.scss";
+
+ion-segment {
+  margin: auto;
+  width: 80%;
+  --border-color-checked: transparent transparent red;
+  background-color: transparent;
+  ion-segment-button{
+    --border-radius: 0;
+  }
+}
+
+.nickname {
+  min-width: 75px;
+}
+
+.title-name {
+  padding-bottom: 10px;
+  div {
+    width: 100%;
+  }
+}
+
+.detail {
+  .card {
+    box-shadow: none !important;
+  }
+}
+
+.common-list {
+  padding: 0 10px !important;
+}
+
+.detail-script {
+  img {
+    width: 100%;
+  }
+}
+
+ion-footer {
+  img {
+    width: 40px;
+    height: 40px;
+    margin-left: 0.5rem;
+    margin-top: 8px;
+  }
+  ion-toolbar {
+    --padding-top: 0;
+    --padding-bottom: 0;
+    ion-button {
+      float: right;
+      --border-width: 0;
+    }
+    .add-shopping-cart {
+      --background: #f2f2f8;
+      color: #111c78;
+    }
+    .toolbar-container {
+      background-color: white;
+    }
+  }
+}
+
+ion-label {
+  font-size: 13px !important;
+}
+
+.params {
+  ion-item {
+    --padding-top: 5px;
+    --padding-bottom: 5px;
+  }
+}
+
+.sendCoupon{
+  padding: 10px;
+  @extend .common-sub-title;
+  @extend .flex-space-between;
+  .sendCoupon-tip{
+    background-color: $main-color;
+    padding: 2px 5px;
+    margin-right: 10px;
+    border-radius: 4px;
+    @extend .white
+  }
+  .sendCoupon-content{
+    @extend .greys
+  }
+}
+
+.flex-space-between{
+  align-items: flex-end;
+}
+

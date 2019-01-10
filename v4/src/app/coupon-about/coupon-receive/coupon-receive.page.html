@@ -1,0 +1,35 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>领券中心</ion-title>
+        <goback></goback>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+
+        <ion-row class="common-list coupon" *ngFor="let item of tickets">
+            <!--<img [src]=cornerImg[item.couponType] class="corner">-->
+            <ion-col size="5" text-center class="white">
+                <ion-label class="big">
+                    <span class="common-title">￥</span>{{item.parValue}}
+                </ion-label>
+                <ion-label class="common-sub-title" [innerHtml]=getConditionContent(item.useConditionType,item.fullMoney,item.fullQuantity)>
+                </ion-label>
+            </ion-col>
+
+            <ion-col margin-top="0.5rem" size="7">
+                <!--<img [src]=typeImg[item.couponType] class="coupon-type"/>-->
+                <ion-label class="grey" [innerHtml]=getTerm(item.endTime,item.fixedDay)></ion-label>
+
+                <button class="btn" (click)="goCouponReceiveFinish(item)" *ngIf="item.receiveState == 0">点击领取</button>
+                <button class="btn" *ngIf="item.receiveState == 1" disabled>已领取</button>
+            </ion-col>
+        </ion-row>
+    </ion-list>
+
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="正在加载..."></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+</ion-content>

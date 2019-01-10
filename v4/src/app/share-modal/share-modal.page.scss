@@ -1,0 +1,49 @@
+center-modal {
+  text-align: center;
+  .tip {
+    margin-top: 15px;
+  }
+  .third-party {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 10px;
+    div {
+      width: 50px;
+      height: 50px;
+      display: inline-block;
+      margin: 0 10px;
+      padding-top: 60px;
+      font-weight: bold;
+      font-size: 12px;
+    }
+    .weChatMoments{
+      background: url("../../assets/app_icon/customer/朋友圈@3x.png") no-repeat;
+      background-size: 100%;
+    }
+    .weChat {
+      background: url("../../assets/app_icon/customer/分享微信@3x.png") no-repeat;
+      background-size: 100%;
+    }
+    .tencent {
+      background: url("../../assets/app_icon/customer/QQ@3x.png") no-repeat;
+      background-size: 100%;
+    }
+    .weibo {
+      background: url("../../assets/app_icon/customer/新浪@3x.png") no-repeat;
+      background-size: 100%;
+    }
+  }
+}
+
+center-modal ::ng-deep{
+  .head{
+    background:none;
+  }
+  .body {
+     background-color: white;
+     width: 100%;
+     right: 0;
+   }
+}
+
+

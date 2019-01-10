@@ -1,0 +1,6 @@
+@import "../../../global";
+
+p {
+  @extend .greys;
+  @extend .common-font;
+}

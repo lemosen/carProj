@@ -1,0 +1,42 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>领取成功</ion-title>
+        <goback></goback>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="body">
+        <div class="content">
+            <ion-list text-center>
+                <div margin-top>
+                    <img src="../../../assets/app_icon/basic/支付成功.png" height="70" width="70"/>
+                </div>
+
+                <div>
+                    <p class="common-title black">恭喜您，领取成功</p>
+                    <span class="grey common-notice">优惠券已放入您的卡包</span>
+                </div>
+
+                <ion-row class="common-list coupon" *ngIf="item">
+                    <!--<img [src]=cornerImg[item?.couponType] class="corner">-->
+                    <ion-col size="5" text-center class="white">
+                        <ion-label class="big">
+                            <span class="common-title">￥</span>{{item?.parValue}}
+                        </ion-label>
+                        <ion-label class="common-sub-title" [innerHtml]=getConditionContent(item.useConditionType,item.fullMoney,item.fullQuantity)>
+                        </ion-label>
+                    </ion-col>
+
+                    <ion-col margin-top="0.5rem" size="7">
+                        <!--<img [src]=typeImg[item?.couponType] class="coupon-type"/>-->
+                        <ion-label class="grey" text-left [innerHtml]=getTerm(item.endTime,item.fixedDay)></ion-label>
+                    </ion-col>
+                </ion-row>
+            </ion-list>
+            <ion-button expand="full" color="danger" shape="round" (click)="goHome()">立即使用</ion-button>
+        </div>
+
+        <footer-tip [title]="'使用规则'" [tips]="list"></footer-tip>
+    </div>
+</ion-content>

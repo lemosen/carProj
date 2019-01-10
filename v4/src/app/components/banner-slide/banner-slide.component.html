@@ -1,0 +1,7 @@
+<div class="banner-slides">
+    <ion-slides #slides pager *ngIf="banners?.length > 0">
+        <ion-slide *ngFor="let banner of banners" (click)="goUrl(banner)">
+            <img-lazy-load [src]="banner.filePath | thumbnailPipe : 'l'"></img-lazy-load>
+        </ion-slide>
+    </ion-slides>
+</div>

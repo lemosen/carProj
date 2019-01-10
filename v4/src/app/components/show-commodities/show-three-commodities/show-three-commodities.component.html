@@ -1,0 +1,43 @@
+<ion-row *ngIf="item.showMode == 3">
+    <ion-col size="6" style="border-right:1px solid #f8f9fa">
+        <div *ngIf="item.commodities.length>0" class="commodity-3"
+             (click)="goCommodity(item.commodities[0].id,item.id)">
+            <div class="overflow">
+                <img-lazy-load class="commodity-3-main-img" [src]="item.commodities[0].imgPath | thumbnailPipe : 's'"></img-lazy-load>
+            </div>
+            <p class="common-sub-title text-wrap">{{item.commodities[0].commodityName}}</p>
+            <p class="common-sub-title gray commodity-3-main-short-name text-wrap">
+                {{item.commodities[0].commodityShortName}}</p>
+            <p class="red">¥<span>{{item.commodities[0].currentPrice}}</span>&nbsp;
+                <del class="grey"> ￥{{item.commodities[0].originalPrice}}</del>
+            </p>
+        </div>
+    </ion-col>
+    <ion-col size="6">
+        <div *ngIf="item.commodities.length>1" class="commodity-3 top" style="border-bottom: 1px solid #f8f9fa"
+             (click)="goCommodity(item.commodities[1].id,item.id)">
+            <p class="common-sub-title text-wrap">{{item.commodities[1].commodityName}}</p>
+            <div style="width: 100px;float: right">
+                <img-lazy-load class="commodity-3-main-img" [src]="item.commodities[1].imgPath | thumbnailPipe : 's'"></img-lazy-load>
+            </div>
+            <p class="common-sub-title gray text-wrap">{{item.commodities[1].commodityShortName}}</p>
+            <p class="red">¥<span>{{item.commodities[1].currentPrice}}</span>&nbsp;</p>
+            <p>
+                <del class="grey"> ￥{{item.commodities[1].originalPrice}}</del>
+            </p>
+        </div>
+        <div *ngIf="item.commodities.length>2" class="commodity-3 bottom"
+             (click)="goCommodity(item.commodities[2].id,item.id)" style="margin-top: 5px">
+            <p class="common-sub-title text-wrap">{{item.commodities[2].commodityName}}</p>
+            <div style="width: 100px;float: right">
+                <img-lazy-load class="commodity-3-main-img" [src]="item.commodities[2].imgPath | thumbnailPipe : 's'"></img-lazy-load>
+            </div>
+            <p class="common-sub-title gray text-wrap">{{item.commodities[2].commodityShortName}}</p>
+            <p class="red">¥<span>{{item.commodities[2].currentPrice}}</span>&nbsp;
+            </p>
+            <p>
+                <del class="grey"> ￥{{item.commodities[2].originalPrice}}</del>
+            </p>
+        </div>
+    </ion-col>
+</ion-row>

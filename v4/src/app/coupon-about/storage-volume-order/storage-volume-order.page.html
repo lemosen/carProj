@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <img class="left backBtn" src="assets/app_icon/home/back@2x.png" (click)="goWriteOrder()">
+    <ion-title>我的代金券</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content no-padding>
+  <!--<ion-segment [(ngModel)]="pet" *ngIf="check != 'true'">
+    <ion-segment-button value="canuse" (click)="listFilter('canuse')">
+      可用储值卷
+    </ion-segment-button>
+    <ion-segment-button value="unuse" (click)="listFilter('unuse')">
+      不可用储值卷
+    </ion-segment-button>
+  </ion-segment>-->
+
+  <ion-list *ngIf="list.length">
+    <ticket [ticket]="list" color="white" [checkId]="checkedId"></ticket>
+  </ion-list>
+
+  <div class="nolist ver-midd" *ngIf="!list.length">
+    <ion-label class="grey">无相关代金券~</ion-label>
+  </div>
+
+</ion-content>
+
+<ion-footer>
+  <ion-button expand="full" shape="round" color="danger" (click)="goWriteOrder()" >确&nbsp;&nbsp;认</ion-button>
+</ion-footer>

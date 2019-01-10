@@ -1,0 +1,39 @@
+<ion-header>
+    <search-head [isHome]="true"></search-head>
+</ion-header>
+
+<ion-content #content no-padding>
+
+    <!--<app-refresh  [interfaceName]="'getHomePageData'" [provider]="bannerProviders" (result)="doRefresh($event)"></app-refresh>-->
+    <ion-list class="common-list">
+        <banner-slide [banners]="banners"></banner-slide>
+
+        <app-show-buttons-list></app-show-buttons-list>
+
+        <app-show-commodities [id]="item.id" [item]="item" *ngFor="let item of commodities | sortPipe "></app-show-commodities>
+
+    </ion-list>
+
+    <!--下拉加载更多商品-->
+    <ion-list class="infiniteCommodity">
+        <ion-row>
+            <ion-col size="6" class="commodity-item" *ngFor="let item of commodityList" (click)="goCommodity(item.id)">
+                <div style="margin: 5px;background: white">
+                    <div class="commodity-2-main-img">
+                        <img-lazy-load [src]="item.imgPath  | thumbnailPipe : 's'"></img-lazy-load>
+                    </div>
+                    <div class="commodity-name">{{item.commodityName}}</div>
+                    <p class="red">¥
+                        <span class="common-font">{{item.currentPrice}}</span>&nbsp;
+                        <del class="grey"> ￥{{item.originalPrice}}</del>&nbsp;
+                        <span class="backCoupon" *ngIf="item.returnVoucher">返{{item.returnVoucher}}元券</span>
+                    </p>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-list>
+    <app-infinite [interfaceName]="'homeQuery'" [pageQuery]="pageQuery" [provider]="commodityProvider" (result)="doInfinite($event)"></app-infinite>
+
+
+    <app-affix [content]="content"></app-affix>
+</ion-content>

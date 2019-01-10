@@ -1,0 +1,16 @@
+<ion-row *ngIf="item.showMode == 4">
+    <ion-col size="6" *ngFor="let commodity of item.commodities | sortPipe 'sort'">
+        <div class="commodity" (click)="goCommodity(commodity.id,item.id)">
+            <div class="overflow">
+                <img-lazy-load class="adapt-img" [src]="commodity.imgPath | thumbnailPipe : 's'"></img-lazy-load>
+            </div>
+            <p class="common-sub-title text-wrap text-wrap">{{commodity.commodityName}}</p>
+            <span class="common-icon cart shopping"></span>
+            <p class="red">¥
+                <span style="font-size: 16px;">{{commodity.currentPrice}}</span>&nbsp;
+                <del class="grey"> ￥{{commodity.originalPrice}}</del>&nbsp;
+                <span class="backCoupon" *ngIf="commodity.returnVoucher">返{{commodity?.returnVoucher}}元券</span>
+            </p>
+        </div>
+    </ion-col>
+</ion-row>

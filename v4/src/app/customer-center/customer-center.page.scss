@@ -1,0 +1,191 @@
+@import "../../global";
+.card-content-ios {
+  padding-bottom:14px;
+  padding-top: 5px !important;
+}
+
+ion-card-content{
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.customer-center-area {
+  margin-top: 1rem;
+  ion-col {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.my-balance {
+  ion-col {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.customer-head {
+  background-image: url("../../assets/app_icon/customer/05-1banner底框-@2x.png") !important;
+  background-size: cover !important;
+  height: 200px;
+  span {
+    position: absolute;
+    top: 35px;
+    margin-left: 1rem;
+  }
+}
+
+.head-card {
+  ion-card-content {
+    padding-top: 13px;
+  }
+  .line{
+    border: 0.5px solid $divid-color;
+    width: 0.5px;
+    height: 20px;
+    margin-top: 9px;
+  }
+}
+
+p {
+  text-align: center;
+}
+
+.move-top {
+  position: relative;
+  top: -55px;
+}
+
+ion-card-header {
+  border-bottom: 0.5px solid #e5e5e5;
+  padding: 10px !important;
+}
+
+ion-card-content {
+  margin-top: 1rem;
+  p {
+    line-height: 23px;
+  }
+}
+
+.font-left {
+  float: left;
+  margin-left: 6px;
+}
+
+.list-ios {
+  margin-bottom: 0;
+}
+
+.bottom-item {
+  --border-color: #e5e5e5e;
+  ion-item {
+    margin: 10px 0;
+    &:last-of-type {
+      margin-bottom: 0 !important;
+    }
+  }
+  ion-list {
+    background-color: white;
+  }
+}
+
+.bubble{
+  width: 16px;
+  height: 16px;
+  text-align: center;
+  line-height: 17px;
+  position: absolute;
+  right: 26%;
+  top: -4%;
+  background-color: #ff334b;
+  @extend .white;
+  @extend .radius;
+  @extend .common-spec;
+}
+
+.ion-ios-my-custom {
+  content: url("../../assets/app_icon/tab/我的icon-on@2x.png");
+}
+
+.ion-ios-my-custom-outline {
+  content: url("../../assets/app_icon/tab/我的icon-off@2x.png");
+}
+
+.set-icon {
+  background: url('../../assets/app_icon/customer/设置@2x.png');
+  background-size: 100% 100%;
+  float: right;
+  margin-right: 10px !important;
+  width: 20px;
+  height: 20px;
+}
+
+.QR-code {
+  background: url('../../assets/app_icon/customer/二维码@2x.png');
+  background-size: 100% 100%;
+  float: right;
+}
+
+.coupon {
+  background: url('../../assets/app_icon/customer/优惠券icon@2x.png');
+  background-size: 100% 100%;
+}
+
+.team {
+  background: url('../../assets/app_icon/customer/团队icon@2x.png');
+  background-size: 100% 100%;
+}
+
+.gift {
+  background: url('../../assets/app_icon/customer/礼物icon@2x.png');
+  background-size: 100% 100%;
+}
+
+.customer-area {
+  background: url('../../assets/app_icon/customer/小区名称icon@2x.png');
+  background-size: 100% 100%;
+}
+
+.customer-position {
+  background: url('../../assets/app_icon/customer/坐标icon@2x.png');
+  background-size: 100% 100%;
+}
+
+.customer-balance {
+  background: url('../../assets/app_icon/customer/我的余额icon@2x.png');
+  background-size: 100% 100%;
+}
+
+.storage-volume {
+  background: url('../../assets/app_icon/customer/储值券icon@2x.png');
+  background-size: 100% 100%;
+}
+
+.billing-record {
+  background: url('../../assets/app_icon/customer/账单icon@2x.png');
+  background-size: 100% 100%;
+}
+
+.pending-payment {
+  position: relative;
+  background: url('../../assets/app_icon/customer/待付款icon@2x.png');
+  background-size: 100% 100%;
+}
+
+.goods-to-be-received {
+  position: relative;
+  background: url('../../assets/app_icon/customer/待发货icon@2x.png');
+  background-size: 100% 100%;
+}
+
+.to-be-evaluated {
+  position: relative;
+  background: url('../../assets/app_icon/customer/待评价icon@2x.png');
+  background-size: 100% 100%;
+}
+
+.return-and-after-sale {
+  background: url('../../assets/app_icon/customer/售后icon@2x.png');
+  background-size: 100% 100%;
+}

@@ -1,0 +1,43 @@
+@import "../../../global";
+
+
+
+.head {
+  height: 100%;
+  background-color: #000;
+  opacity: 0.4;
+  transform: translateZ(0);
+  z-index: -1;
+}
+
+.body {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  min-height: 250px;
+  .content {
+    background: white;
+    height: 100%;
+    z-index: 9999;
+    min-height: 250px;
+    padding: 10px 0;
+    .tip {
+      margin-left: 14px;
+    }
+    .couponList ion-item ion-label{
+      font-size: 14px!important;
+    }
+    .cancel{
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      padding: 10px 0;
+      border-top: 1px solid $divid-color;
+      text-align: center;
+      @extend .red;
+    }
+  }
+}
+
+
+

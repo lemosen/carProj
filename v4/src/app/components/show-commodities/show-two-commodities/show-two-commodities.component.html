@@ -1,0 +1,29 @@
+<ion-row *ngIf="item&&item.showMode == 2">
+    <ion-col size="6" style="border-right:1px solid #f8f9fa">
+        <div *ngIf="item.commodities.length>0" class="commodity-3" (click)="goCommodity(item.commodities[0].id,item.id)">
+            <div class="overflow">
+                <img-lazy-load class="commodity-3-main-img" [src]="item.commodities[0].imgPath  | thumbnailPipe : 's'"></img-lazy-load>
+            </div>
+            <p class="common-sub-title text-wrap">{{item.commodities[0].commodityName}}</p>
+            <p class="common-sub-title gray commodity-3-main-short-name text-wrap">{{item.commodities[0].commodityShortName}}</p>
+            <p class="red">¥
+                <span>{{item.commodities[0].currentPrice}}</span>&nbsp;
+                <del class="grey"> ￥{{item.commodities[0].originalPrice}}</del>&nbsp;
+                <span class="backCoupon" *ngIf="item.commodities[0].returnVoucher">返{{item.commodities[0]?.returnVoucher}}元券</span>
+            </p>
+        </div>
+    </ion-col>
+    <ion-col size="6">
+        <div *ngIf="item.commodities.length>1" class="commodity-3" (click)="goCommodity(item.commodities[1].id,item.id)">
+            <div class="overflow">
+                <img-lazy-load class="commodity-3-main-img" [src]="item.commodities[1].imgPath  | thumbnailPipe : 's'"></img-lazy-load>
+            </div>
+            <p class="common-sub-title text-wrap">{{item.commodities[1].commodityName}}</p>
+            <p class="common-sub-title gray commodity-3-main-short-name text-wrap">{{item.commodities[1].commodityShortName}}</p>
+            <p class="red">¥<span>{{item.commodities[1].currentPrice}}</span>&nbsp;
+                <del class="grey"> ￥{{item.commodities[1].originalPrice}}</del>&nbsp;
+                <span class="backCoupon" *ngIf="item.commodities[1].returnVoucher">返{{item.commodities[1]?.returnVoucher}}元券</span>
+            </p>
+        </div>
+    </ion-col>
+</ion-row>

@@ -1,0 +1,17 @@
+@import "../../global";
+
+.nolist {
+  background: url("../../assets/app_icon/customer/无记录@2x.png") no-repeat center center;
+  background-size: 50%;
+}
+
+.time {
+  color: $input-color !important;
+}
+
+.main {
+  background-color: #FFFFFF;
+  border-radius: 10px !important;
+  padding-left: 10px !important;
+  margin: 0 auto 1rem !important;
+}

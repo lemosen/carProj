@@ -1,0 +1,73 @@
+<ion-header xmlns="http://www.w3.org/1999/html">
+    <ion-toolbar>
+        <ion-title>购物车</ion-title>
+        <span class="header-right-span" *ngIf="!isEdit && shoppingCartsVos.length != 0" (click)="isEdit=!isEdit">
+            编辑
+        </span>
+        <span class="header-right-span" *ngIf="isEdit && shoppingCartsVos.length != 0" (click)="isEdit=!isEdit;count()">
+            完成
+        </span>
+        <goback></goback>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content no-padding>
+    <ion-list class="common-list min-height" *ngIf="shoppingCartsVos.length != 0">
+        <!--<div class="info-show">
+            <img src="../../assets/app_icon/shop_cart/03-01通知消息@2x.png"/>
+            <p>商品单笔订单金额满88元可免邮费
+            </p>
+            <ion-icon class="icon-forward right" name="ios-arrow-forward"></ion-icon>
+        </div>-->
+
+        <ion-item-group>
+            <ion-row *ngFor="let item of shoppingCartsVos;let i=index">
+                <ion-col size="1" class="ver-midd">
+                    <ion-checkbox [(ngModel)]="item.select" color="danger" (click)="count()"></ion-checkbox>
+                </ion-col>
+                <ion-col size="11">
+                    <commodity-item [commodity]="item.product" [isInvalid]="item.state">
+                        <p class="common-notice">
+                            <span class="red">￥{{item.product.currentPrice}}</span>
+                            <span class="common-normal-add-close">
+                                <span class="common-title" (click)="reduce(i)">-</span>
+                                <span class="common-normal-num">{{item.quantity}}</span>
+                                <span class="common-title" (click)="add(i)">+</span>
+                            </span>
+                        </p>
+                    </commodity-item>
+                </ion-col>
+            </ion-row>
+        </ion-item-group>
+    </ion-list>
+
+    <div class="ver-midd min-height" text-center *ngIf="shoppingCartsVos.length == 0">
+        <div class="no-list"></div>
+        <ion-label class="grey">购物车是空的~</ion-label>
+        <ion-button shape="round" fill="outline" color="danger" (click)="goHome()">去逛逛</ion-button>
+    </div>
+
+    <adv-commodity [list]="advertisingCommodity"></adv-commodity>
+</ion-content>
+
+<ion-footer *ngIf="shoppingCartsVos.length != 0">
+    <ion-toolbar class="customer-toolbar">
+        <ion-row style="height: 100%;width: 100%">
+            <ion-col class="choose-all" size="1" (click)="selectAll()">
+                <ion-checkbox color="danger" [checked]="isSelectAll"></ion-checkbox>
+            </ion-col>
+            <ion-col class="choose-all" size="2">全选</ion-col>
+            <ion-col class="pay-info" size="5">
+                <span *ngIf="!isEdit">￥{{totalPrice}}</span>
+                <!--<p class="red" *ngIf="!isEdit">已优惠￥{{totalDiscount}}</p>-->
+            </ion-col>
+            <ion-col no-padding size="4" class="ver-midd">
+                <ion-button expand="full" color="danger" class="shopping-pay" *ngIf="!isEdit" (click)="goOrderPage()">去结算
+                </ion-button>
+                <ion-button shape="round" fill="outline" size="small" color="danger" class="shopping-delete" *ngIf="isEdit"
+                            (click)="deleteProduct()">删&nbsp;&nbsp;&nbsp;&nbsp;除
+                </ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-toolbar>
+</ion-footer>

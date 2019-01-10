@@ -1,0 +1,123 @@
+<ion-content no-padding>
+    <ion-list>
+        <div class="customer-head">
+            <!--<ion-label class="set-icon QR-code" (click)="goMycode()"></ion-label>-->
+            <!--<ion-label class="set-icon" (click)="goSystemSet()"></ion-label>-->
+            <ion-item style="background: transparent" padding-top="30px">
+                <ion-label align-items-center>
+                    <img width="60" height="60" class="radius" onerror="this.src='../../assets/imgs/null-category.png'"
+                         [src]="member?.avater" (click)="goPersonalCenter()">
+                    <span class="common-title white" (click)="goLogin()">{{member?.nickname || "请登录"}}</span>
+                </ion-label>
+            </ion-item>
+        </div>
+
+        <ion-card class="head-card move-top">
+            <ion-card-content style="padding-bottom: 0">
+                <ion-row>
+                    <ion-col size="4" text-center (click)="goCoupan()">
+                        <ion-label class="common-big-icon-no-float coupon"></ion-label>
+                        <p>优惠券</p>
+                    </ion-col>
+                    <ion-col size="4" text-center (click)="goInvitesCourtesy()">
+                        <span class="line left"></span>
+                        <div style="display: inline-block">
+                            <ion-label class="common-big-icon-no-float gift"></ion-label>
+                            <p>邀请有礼</p>
+                        </div>
+                        <span class="line right"></span>
+                    </ion-col>
+                    <ion-col size="4" text-center (click)="goMyTeam()">
+                        <ion-label class="common-big-icon-no-float team"></ion-label>
+                        <p>我的团队</p>
+                    </ion-col>
+                </ion-row>
+            </ion-card-content>
+        </ion-card>
+
+        <ion-card class="customer-center-area move-top">
+            <ion-card-header>
+                我的小区
+            </ion-card-header>
+            <ion-card-content no-margin>
+                <ion-row>
+                    <ion-col size="6" (click)="goMyCommunity()">
+                        <div class="common-icon customer-area"></div>
+                        <p class="font-left">{{member?.address || "我的小区"}}</p>
+                    </ion-col>
+                    <ion-col size="6" (click)="goLocation()">
+                        <div class="common-icon customer-position"></div>
+                        <p class="font-left">{{localCity || "请定位"}}</p>
+                    </ion-col>
+                </ion-row>
+            </ion-card-content>
+        </ion-card>
+
+        <ion-card class="my-balance move-top">
+            <ion-card-header>我的余额</ion-card-header>
+            <ion-card-content no-margin>
+                <ion-row>
+                    <ion-col size="4" (click)="goMyBalance()">
+                        <div class="common-icon customer-balance"></div>
+                        <p class="font-left">我的余额</p>
+                    </ion-col>
+                    <ion-col size="4" (click)="goStorageVolume()">
+                        <div class="common-icon storage-volume"></div>
+                        <p class="font-left">我的代金券</p>
+                    </ion-col>
+                    <ion-col size="4" (click)="goFineBalance()">
+                        <div class="common-icon billing-record"></div>
+                        <p class="font-left">账单记录</p>
+                    </ion-col>
+                </ion-row>
+            </ion-card-content>
+        </ion-card>
+
+        <ion-card class="move-top">
+            <ion-card-header (click)="goMyOrderPage()">我的订单
+                <ion-icon float-right class="icon-forward" name="ios-arrow-forward"></ion-icon>
+                <ion-note float-right class="grey">所有订单</ion-note>
+            </ion-card-header>
+            <ion-card-content style="padding: 1rem 0;margin: 0">
+                <ion-row>
+                    <ion-col size="3" (click)="goMyOrderPage('unpaid')">
+                        <ion-label class="common-big-icon-no-float pending-payment"></ion-label>
+                        <p>待付款</p>
+                        <span class="bubble" *ngIf="orderNum[0] != 0">{{orderNum[0]}}</span>
+                    </ion-col>
+                    <ion-col size="3" (click)="goMyOrderPage('deliver')">
+                        <ion-label class="common-big-icon-no-float goods-to-be-received"></ion-label>
+                        <p>待收货</p>
+                        <span class="bubble" *ngIf="(orderNum[2]+ orderNum[1])!= 0">{{orderNum[2]+ orderNum[1]}}</span>
+                    </ion-col>
+                    <ion-col size="3" (click)="goMyOrderPage('stayEvaluation')">
+                        <ion-label class="common-big-icon-no-float to-be-evaluated"></ion-label>
+                        <p>待评价</p>
+                        <span class="bubble" *ngIf="orderNum[3] != 0">{{orderNum[3]}}</span>
+                    </ion-col>
+                    <ion-col size="3" (click)="goAfterSales()">
+                        <ion-label class="common-big-icon-no-float return-and-after-sale"></ion-label>
+                        <p>退款与售后</p>
+                    </ion-col>
+                </ion-row>
+            </ion-card-content>
+        </ion-card>
+
+        <ion-card class="move-top bottom-item">
+            <ion-list lines="full">
+                <ion-item (click)="goMyAddress()">
+                    <ion-label>我的地址</ion-label>
+                    <ion-icon class="icon-forward" name="ios-arrow-forward"></ion-icon>
+                </ion-item>
+                <ion-item (click)="goServiceCenter()">
+                    <ion-label>客服与帮助</ion-label>
+                    <ion-icon class="icon-forward" name="ios-arrow-forward"></ion-icon>
+                </ion-item>
+                <!--<ion-item>-->
+                <!--<ion-label>欢迎评分</ion-label>-->
+                <!--<ion-icon class="icon-forward" name="ios-arrow-forward"></ion-icon>-->
+                <!--</ion-item>-->
+            </ion-list>
+        </ion-card>
+    </ion-list>
+</ion-content>

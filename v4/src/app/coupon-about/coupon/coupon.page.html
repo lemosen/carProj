@@ -1,0 +1,43 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>我的优惠券</ion-title>
+        <goback></goback>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content no-padding>
+    <ion-segment [(ngModel)]="pet">
+        <ion-segment-button value="canuse" (click)="listFilter('canuse')">
+            未使用
+        </ion-segment-button>
+        <ion-segment-button value="already" (click)="listFilter('already')">
+            已使用
+        </ion-segment-button>
+        <ion-segment-button value="expired" (click)="listFilter('expired')">
+            已过期
+        </ion-segment-button>
+    </ion-segment>
+
+    <div style="min-height:400px">
+        <ion-list class="min-height" *ngIf="tickets.length != 0">
+            <ticket [ticket]="tickets" [type]="check"></ticket>
+        </ion-list>
+
+        <div class="nolist ver-midd min-height" *ngIf="!tickets?.length && !isLoading">
+            <ion-label class="grey">无相关优惠券~</ion-label>
+        </div>
+
+        <div class="loading" *ngIf="isLoading">
+            <ion-spinner></ion-spinner>
+        </div>
+
+        <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+            <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="正在加载..."></ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+
+    </div>
+
+    <adv-commodity [list]="advertisingCommodity"></adv-commodity>
+
+</ion-content>
+
