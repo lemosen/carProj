@@ -11,7 +11,7 @@ logging:
 yi:
   cluster-name: prod
   host: app.bluerice.cn
-  web-port: 8381
+  web-port: 8081
   
   db-host: 119.23.203.18
   db-port: 3306

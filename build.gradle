@@ -7,8 +7,8 @@ buildscript {
     }
     repositories {
         mavenLocal()
-        maven { url 'http://183.232.157.212:9001/nexus/content/repositories/thirdparty/' }
         jcenter()
+        maven { url 'http://183.232.157.212:9001/nexus/content/repositories/thirdparty/' }
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
@@ -23,7 +23,7 @@ subprojects {
     apply plugin: 'io.spring.dependency-management'
 
     group 'yi'
-    version '1.0-SNAPSHOT'
+    version '1.0'
 
     // JVM 版本号要求
     sourceCompatibility = 1.8
@@ -34,8 +34,8 @@ subprojects {
 
     repositories {
         mavenLocal()
-        maven { url 'http://183.232.157.212:9001/nexus/content/repositories/thirdparty/' }
         jcenter()
+        maven { url 'http://183.232.157.212:9001/nexus/content/repositories/thirdparty/' }
     }
 
 

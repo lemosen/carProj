@@ -15,7 +15,7 @@ dependencies {
 
     compile 'com.yihz:yihz-common:1.0.0'
     
-    //compile project(":yihz:yihz-common")
+//    compile project(":yihz:yihz-common")
 
     compile (
             'org.apache.commons:commons-lang3:3.7',

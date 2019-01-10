@@ -10,8 +10,8 @@ logging:
 
 yi:
   cluster-name: prod
-  host: adminserver.my11mall.com
-  web-port: 8181
+  host: adminserver.bluerice.cn
+  web-port: 8082
   
   db-host: 119.23.203.18
   db-port: 3306

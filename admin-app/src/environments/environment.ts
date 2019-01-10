@@ -4,11 +4,11 @@
 
 export const environment = {
     //SERVER_URL: `http://47.107.68.47:8082`,
-    SERVER_URL: `http://localhost:8084`,
+    // SERVER_URL: `http://localhost:8084`,
     // SERVER_URL: `http://192.168.0.15:8082`,
     // SERVER_URL: `http://192.168.0.188:8082`,
 
-    // SERVER_URL: `http://adminserver.my11mall.com`,
+    SERVER_URL: `http://adminserver.bluerice.cn`,
     // SERVER_URL: `http://localhost:8082`,
     production: false,
     useHash: true,
