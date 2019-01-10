@@ -1,6 +1,0 @@
-<div *ngIf="control && options" class="n-frombox-li">
-    <span class="left-span">{{options.text}}</span>
-    <div class="r-sbox" [ngClass]="{'has-error':control|formMark}">
-        <textarea class="form-control right_textarea" ng-trim="true" rows="5" [formControl]="control" placeholder="请输入{{options.text}}"></textarea>
-    </div>
-</div>

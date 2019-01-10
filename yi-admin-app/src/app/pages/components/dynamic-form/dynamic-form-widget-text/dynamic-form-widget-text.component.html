@@ -1,9 +1,0 @@
-<div *ngIf="control && options" class="n-frombox-li half-li">
-    <span class="left-span">{{options.text}}</span>
-    <div class="r-sbox">
-        <div class="right-input-80" [ngClass]="{'has-error':control|formMark}">
-            <input class="form-control" [formControl]="control" placeholder="请输入{{options.text}}"/>
-        </div>
-    </div>
-</div>
-

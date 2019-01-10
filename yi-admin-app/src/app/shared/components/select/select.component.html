@@ -1,8 +1,0 @@
-<div ngbDropdown [ngStyle]="getButtonStyle()" class="d-inline-block">
-    <button [ngStyle]="getButtonStyle()" [class]="'btn btn-outline-primary dropdown-toggle'+classNames"
-            ngbDropdownToggle>{{title}}
-    </button>
-    <div [ngStyle]="getButtonStyle()" ngbDropdownMenu aria-label="dropdown-basic">
-        <button *ngFor="let item of items;let i=index" class="dropdown-item" (click)="itemClick(item,i)">{{item[titleField]}}</button>
-    </div>
-</div>

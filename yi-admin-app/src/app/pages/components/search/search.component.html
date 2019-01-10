@@ -1,8 +1,0 @@
-<div class="form-group lb_search_input_wap" [ngClass]="dynamicStyle">
-    <ng-template [ngIf]="title"><span class="pr-sm">{{title}}</span></ng-template>
-    <input class="form-control lb_search_input" spellcheck="false" [placeholder]="placeholder || ''" [(ngModel)]="searchValue">
-    <ng-template [ngIf]="showButton">
-      <span class="lb_search_icon" (click)="doSearch()">
-      </span>
-    </ng-template>
-</div>

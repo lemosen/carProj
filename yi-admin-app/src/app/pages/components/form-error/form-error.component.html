@@ -1,5 +1,0 @@
-<ng-template [ngIf]="control?.invalid && (control?.touched || control?.dirty)">
-    <ng-container *ngFor="let error of formErrors">
-        <small class="text-danger" *ngIf="control.errors[error.name]">{{ error.msg }}</small>
-    </ng-container>
-</ng-template>
