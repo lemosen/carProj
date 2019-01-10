@@ -1,0 +1,83 @@
+
+<page-header [title]="'提现记录'">
+    <ng-template #breadcrumb>
+        <nz-breadcrumb>
+            <nz-breadcrumb-item>
+                <a [routerLink]="['/dashboard/supplier-record/list']">供应商管理</a>
+            </nz-breadcrumb-item>
+            <nz-breadcrumb-item>提现记录</nz-breadcrumb-item>
+        </nz-breadcrumb>
+    </ng-template>
+</page-header>
+
+    <nz-card [nzBordered]="false">
+
+
+     <form nz-form [nzLayout]="'inline'" [formGroup]="searchForm" class="search__form">
+        <nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 32  }">
+
+            <nz-col nzMd="6" nzSm="24">
+                <nz-form-item>
+                    <nz-form-label>供应商名称</nz-form-label>
+                    <nz-form-control>
+                        <input nz-input formControlName="supplierName" placeholder="请输入供应商名称">
+                    </nz-form-control>
+                </nz-form-item>
+            </nz-col>
+
+
+            <nz-col nzMd="6" nzSm="24">
+                <nz-form-item>
+                    <nz-form-label>收款人</nz-form-label>
+                    <nz-form-control>
+                        <input nz-input formControlName="payee" placeholder="请输入收款人">
+                    </nz-form-control>
+                </nz-form-item>
+            </nz-col>
+
+            <nz-col [nzSpan]="expandForm ? 24 : 8" [class.text-right]="expandForm">
+                <button nz-button [nzType]="'primary'" (click)="searchData()" [nzLoading]="loading">查询</button>
+                <button nz-button (click)="clearSearch()" class="mx-sm">重置</button>
+
+            </nz-col>
+        </nz-row>
+    </form>
+
+
+
+    <nz-table
+            #ajaxTable
+            [nzShowSizeChanger]="true"
+            [nzFrontPagination]="false"
+            [nzData]="datas"
+            [nzLoading]="loading"
+            [nzTotal]="pageQuery.responses.totalElements"
+            [(nzPageIndex)]="pageQuery.page"
+            [(nzPageSize)]="pageQuery.pageSize"
+            (nzPageIndexChange)="searchData()"
+            (nzPageSizeChange)="searchData(true)">
+
+        <thead (nzSortChange)="sort($event)" nzSingleSort>
+        <tr>
+            <th>供应商名称</th>
+            <th>申请日期</th>
+            <th>提现金额</th>
+            <th>帐号类型</th>
+            <th>帐号/卡号</th>
+            <th>收款人</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let supplierWithdraw of ajaxTable.data">
+            <td>{{supplierWithdraw.supplierName}}</td>
+            <td>{{supplierWithdraw.applyTime}}</td>
+            <td>{{supplierWithdraw.amount}}</td>
+            <td>{{supplierWithdraw.cardType}}</td>
+            <td>{{supplierWithdraw.cardNo}}</td>
+            <td>{{supplierWithdraw.payee}}</td>
+       <!--     <td>{{supplierWithdraw.errorDescription}}</td>-->
+        </tr>
+            </tbody>
+        </nz-table>
+
