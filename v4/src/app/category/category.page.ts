@@ -78,11 +78,11 @@ export class CategoryPage {
         //     id: 0,
         // });
 
-        all.push({
-            categoryName: "全部商品",
-            children: childrenAttr,
-            id: 0,
-        });
+        // all.push({
+        //     categoryName: "全部商品",
+        //     children: childrenAttr,
+        //     id: 0,
+        // });
     }
 
     goUrl(banner) {

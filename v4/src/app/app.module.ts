@@ -22,7 +22,6 @@ import {AccountProvider} from "../services/account-service/account";
 import {AttrModalPageModule} from "./commodity-modal/attr-modal/attr-modal.module";
 import {ServiceModalPageModule} from "./commodity-modal/service-modal/service-modal.module";
 import {ParamsModalPageModule} from "./commodity-modal/params-modal/params-modal.module";
-import {StorageVolumePageModule} from "./coupon-about/storage-volume/storage-volume.module";
 import {CouponOrderPageModule} from "./coupon-about/coupon-order/coupon-order.module";
 import {FileServiceProvider} from "../services/file-service/file-service";
 import {ReturnReasonModalPageModule} from "./after-sales/return-reason-modal/return-reason-modal.module";
@@ -39,7 +38,6 @@ import {WechatService} from "../services/wechat-service/wechat.service";
 import {CommodityResolverService} from "./commodity/commodity-resolver.service";
 import {ShareModalPageModule} from "./share-modal/share-modal.module";
 import {ShareClickModalPageModule} from "./share-modal/share-click-modal/share-click-modal.module";
-import {StorageVolumeOrderPageModule} from "./coupon-about/storage-volume-order/storage-volume-order.module";
 import {DistrictModalPageModule} from "./district-modal/district-modal.module";
 import {CouponModalPageModule} from "./coupon-about/coupon-modal/coupon-modal.module";
 import {AfterSaleService} from "../services/order-service/after-sale.service";
@@ -55,13 +53,11 @@ import {AfterSaleService} from "../services/order-service/after-sale.service";
         AttrModalPageModule,
         ServiceModalPageModule,
         ParamsModalPageModule,
-        StorageVolumePageModule,
         CouponOrderPageModule,
         ReturnReasonModalPageModule,
         ConsigneeModalPageModule,
         ShareModalPageModule,
         ShareClickModalPageModule,
-        StorageVolumeOrderPageModule,
         DistrictModalPageModule,
         CouponModalPageModule,
     ],

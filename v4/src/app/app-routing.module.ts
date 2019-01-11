@@ -14,7 +14,6 @@ const routes: Routes = [
     {path: 'SignInPage', loadChildren: './sign-in/sign-in.module#SignInPageModule'},
     {path: 'NewsPage', loadChildren: './news/news.module#NewsPageModule'},
     {path: 'MyBalancePage', loadChildren: './my-balance/my-balance.module#MyBalancePageModule'},
-    {path: 'StorageVolumePage', loadChildren: './coupon-about/storage-volume/storage-volume.module#StorageVolumePageModule'},
     {path: 'CommListPage', loadChildren: './comm-list/comm-list.module#CommListPageModule'},
 
     {path: 'PersonalCenterPage', loadChildren: './personal-center/personal-center.module#PersonalCenterPageModule'},

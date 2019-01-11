@@ -9,7 +9,7 @@ import {MemberProvider} from "../../services/member-service/member";
 import {REFRESH_SHOPPINGCART, SUCCESS} from "../Constants";
 import {WechatService} from "../../services/wechat-service/wechat.service";
 import {CartService} from "../../services/member-service/cart.service";
-
+const PAYALLINFO=["","待缴费","待缴费","待缴费","缴费成功","预约失败"];
 @Component({
     selector: 'app-order-detail',
     templateUrl: './order-detail.page.html',
@@ -24,6 +24,8 @@ export class OrderDetailPage {
 
     /*物流信息*/
     logistics;
+
+    PayAllInfo:string = PAYALLINFO[0];
 
     // state：
     //      0：在途，即货物处于运输过程中；
@@ -51,31 +53,12 @@ export class OrderDetailPage {
             if (e.result == "SUCCESS") {
                 this.order = e.data;
                 this.transform(this.order);
-                this.getLogistics();
             } else {
                 this.nativeProvider.showToastFormI4(e.message);
             }
         }, err => {
             this.nativeProvider.showToastFormI4(err.message);
         })
-    }
-
-    getLogistics() {
-        if (this.order.expressCompany && this.order.expressNo) {
-            this.orderProvider.getExpressDelivery(this.order.expressCompany, this.order.expressNo).then(e => {
-                // this.orderProvider.getExpressDelivery('yuantong'), '801597894651430271').then(e => {
-                let data: any = e;
-                this.logistics = JSON.parse(data);
-
-                if (this.logistics.state && this.logistics.data[0]) {
-                    this.order.orderFollowMsg = this.orderFollowMsgList[this.logistics.state];
-                    this.order.orderFollowMsgTime = this.logistics.data[0].time;
-                }
-            })
-        } else {
-            this.order.orderFollowMsg = "您的订单已进入库房，准备出库";
-            this.order.orderFollowMsgTime = this.order.paymentTime;
-        }
     }
 
 
@@ -169,6 +152,7 @@ export class OrderDetailPage {
     /*字段转换*/
     private transform(data) {
         data.orderStateMsg = ["", "等待支付", "等待老师联系", "等待老师联系", "报名成功", "交易关闭"][data.orderState];
+        this.PayAllInfo = PAYALLINFO[data.orderState];
         if(data.afterSaleState == 2){
             data.orderStateMsg = "申请售后中";
         }

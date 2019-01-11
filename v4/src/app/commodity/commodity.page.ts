@@ -187,10 +187,9 @@ export class CommodityPage {
         await modal.present();
     }
 
-    async openCouponGrantModal() {
+    async serviceModal() {
         const modal = await this.modalCtrl.create({
                 component: ServiceModalPage,
-                componentProps: {couponGrantConfig: this.commodity.couponGrantConfig}
             }
         );
         await modal.present();

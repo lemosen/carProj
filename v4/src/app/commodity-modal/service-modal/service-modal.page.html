@@ -2,10 +2,12 @@
 <div class="body">
     <div class="content" padding>
         <ion-header>
-            <ion-title>返券优惠</ion-title>
+            <ion-title>服务说明</ion-title>
         </ion-header>
         <p class="greys common-sub-title" *ngFor="let item of list">
-            <span class="sendCoupon-tip">返券</span>&nbsp;{{item}}
+            <span class="question black">●&nbsp;{{item.subtitle}}</span>
+            <br/>
+            {{item.content}}
         </p>
     </div>
 </div>

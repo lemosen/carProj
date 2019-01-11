@@ -4,13 +4,10 @@ import {Injectable} from "@angular/core";
 export class AppConfig {
 
     // baseURL: string = "http://remote:8001";    // 测试环境
-    // baseURL: string = "http://192.168.0.11:8086/";   // 开发环境
-    // baseURL: string = "http://192.168.0.7:8086/";   // 开发环境
-    // baseURL: string = "http://192.168.0.15:8086/";   // 开发环境
-    // baseURL: string = "http://192.168.0.2:8086/";   // 开发环境
     // baseURL: string = "http://192.168.0.62:8081/";   // 开发环境
-    // baseURL: string = "http://test.h5server.bluerice.cn/";      // 开发环境
-    baseURL: string = "http://h5server.bluerice.cn/";      // 开发环境
+    baseURL: string = "http://test.h5server.bluerice.cn/";      // 开发环境
+    // baseURL: string = "http://test.app.my11mall.com/";      // 开发环境
+    // baseURL: string = "http://h5server.bluerice.cn/";      // 开发环境
     // baseURL: string = "/app/";                       // 开发环境
     kuaidi100: string = "https://m.kuaidi100.com/";     // 开发环境
 
