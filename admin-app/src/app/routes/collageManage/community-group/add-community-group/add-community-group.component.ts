@@ -18,7 +18,7 @@ export class AddCommunityGroupComponent implements OnInit {
 
     communityGroup: CommunityGroup;
 
-    constructor(private router:Router,private communityGroupService: CommunityGroupService, public msgSrv: NzMessageService,
+    constructor(private router: Router, private communityGroupService: CommunityGroupService, public msgSrv: NzMessageService,
         private modalService: NzModalService) {
     }
 
@@ -31,7 +31,7 @@ export class AddCommunityGroupComponent implements OnInit {
         }
     }
 
-    confirmSub(formValue){
+    confirmSub(formValue) {
         if (formValue) {
             this.submitting = true;
             const messageId = this.msgSrv.loading("正在提交...").messageId;
@@ -40,12 +40,12 @@ export class AddCommunityGroupComponent implements OnInit {
                     this.msgSrv.success("操作成功");
                     this.router.navigate(['/dashboard/community-group/list']);
                 } else {
-                    this.msgSrv.error('请求失败'+response.message);
+                    this.msgSrv.error('请求失败' + response.message);
                 }
                 this.msgSrv.remove(messageId);
                 this.submitting = false;
             }, error => {
-                this.msgSrv.error('请求错误'+error.message);
+                this.msgSrv.error('请求错误' + error.message);
                 this.msgSrv.remove(messageId);
                 this.submitting = false;
             });
