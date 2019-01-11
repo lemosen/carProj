@@ -2,7 +2,7 @@
 <nz-card [nzBordered]="false">
 
   <form nz-form [formGroup]="commonForm">
-    <nz-form-item>
+    <!-- <nz-form-item>
       <nz-form-label nzXs="3" nzSm="3" nzRequired nzFor="supplier">供应商</nz-form-label>
       <nz-form-control nzXs="8" nzSm="8" nzHasFeedback>
         <app-modal-selecet
@@ -20,9 +20,9 @@
           </ng-container>
         </nz-form-explain>
       </nz-form-control>
-    </nz-form-item>
+    </nz-form-item> -->
 
-    <nz-form-item>
+    <!-- <nz-form-item>
       <nz-form-label nzXs="3" nzSm="3" nzRequired nzFor="regions">报考销售地</nz-form-label>
       <nz-form-control nzXs="21" nzSm="21" nzHasFeedback>
         <app-region-group #regionGroup [title]="'选择销售地区'" [buttonName]="'选择销售地区'"
@@ -33,10 +33,10 @@
           </ng-container>
         </nz-form-explain>
       </nz-form-control>
-    </nz-form-item>
+    </nz-form-item> -->
   </form>
 
-  <nz-form-item>
+  <!-- <nz-form-item>
 
     <nz-form-label nzXs="3" nzSm="3" nzRequired nzFor="category">报考分类</nz-form-label>
     <nz-form-control nzXs="8" nzSm="8">
@@ -50,11 +50,11 @@
       </nz-form-explain>
     </nz-form-control>
 
-  </nz-form-item>
+  </nz-form-item> -->
 
   <nz-form-item>
 
-    <nz-form-label nzXs="3" nzSm="3" nzFor="operateCategories">运营分类</nz-form-label>
+    <nz-form-label nzXs="3" nzSm="3" nzFor="operateCategories">报考分类</nz-form-label>
     <nz-form-control nzXs="8" nzSm="8">
       <app-category-tree-select #operateCategoryTreeSelect [service]="false" [showRoot]="false"
                                 (result)="setCommodityOperateCategory($event)">
@@ -130,14 +130,14 @@
 
       <nz-form-control nzXs="3" nzSm="3"></nz-form-control>
       <nz-form-control nzXs="21" nzSm="21" nzHasFeedback>
-        <nz-form-label>供货价</nz-form-label>
+        <nz-form-label>预约价</nz-form-label>
         <input nz-input name="supplyPrice" style="width:10%">&nbsp;&nbsp;
-        <nz-form-label>原价</nz-form-label>
-        <input nz-input name="originalPrice" style="width:10%">&nbsp;&nbsp;
-        <nz-form-label>现价</nz-form-label>
+        <!-- <nz-form-label>原价</nz-form-label>
+        <input nz-input name="originalPrice" style="width:10%">&nbsp;&nbsp; -->
+        <nz-form-label>报考价</nz-form-label>
         <input nz-input name="currentPrice" style="width:10%">&nbsp;&nbsp;
-        <nz-form-label>库存</nz-form-label>
-        <input nz-input name="stockQuantity" style="width:10%">&nbsp;&nbsp;&nbsp;&nbsp;
+        <!-- <nz-form-label>库存</nz-form-label>
+        <input nz-input name="stockQuantity" style="width:10%">&nbsp;&nbsp;&nbsp;&nbsp; -->
         <button nz-button (click)="bulkInsert()" nzType="primary" type="button">批量插入</button>&nbsp;&nbsp;
         <button nz-button (click)="reset()" nzType="primary" type="button">重置</button>
       </nz-form-control>
@@ -149,11 +149,11 @@
           <thead>
           <tr>
             <th *ngFor="let form of attrGroupsArrayControl.value; let i=index;">{{form.groupName}}</th>
-            <th>货品图片</th>
-            <th>供货价</th>
-            <th>原价</th>
-            <th>现价</th>
-            <th>库存</th>
+            <!-- <th>货品图片</th> -->
+            <th>预约价</th>
+            <!-- <th>原价</th> -->
+            <th>报考价</th>
+            <!-- <th>库存</th> -->
           </tr>
           </thead>
           <tbody>
@@ -161,22 +161,22 @@
             <td *ngFor="let form1 of form; let i=index;">
               {{form1}}
             </td>
-            <td>
+            <!-- <td>
               <app-dynamic-upload
                 [fileList]="commonForm.value.products[j]?.productImgPath ? [{url:commonForm.value.products[j].productImgPath}]:[]"
                 (onFileListChange)="getProductImgPath($event,j)"></app-dynamic-upload>
-            </td>
+            </td> -->
             <td><input nz-input formControlName="supplyPrice"></td>
-            <td><input nz-input formControlName="originalPrice"></td>
+            <!-- <td><input nz-input formControlName="originalPrice"></td> -->
             <td><input nz-input formControlName="currentPrice"></td>
-            <td><input nz-input formControlName="stockQuantity"></td>
+            <!-- <td><input nz-input formControlName="stockQuantity"></td> -->
           </tr>
           </tbody>
         </nz-table>
       </div>
     </nz-form-item>
     <nz-divider nzDashed [nzText]="''"></nz-divider>
-    <nz-form-item>
+    <!-- <nz-form-item>
       <nz-form-label nzXs="3" nzSm="3" nzRequired nzFor="freightSet">运费设置</nz-form-label>
       <nz-form-control nzXs="8" nzSm="8">
         <nz-radio-group formControlName="freightSet" id="freightSet">
@@ -191,9 +191,9 @@
         </nz-form-explain>
       </nz-form-control>
 
-    </nz-form-item>
+    </nz-form-item> -->
 
-    <nz-form-item>
+    <!-- <nz-form-item>
       <nz-form-label *ngIf="commonForm.value.freightSet==1" nzXs="3" nzSm="3" nzRequired
                      nzFor="unifiedFreight">统一运费
       </nz-form-label>
@@ -229,8 +229,8 @@
           </ng-container>
         </nz-form-explain>
       </nz-form-control>
-    </nz-form-item>
-    <nz-form-item>
+    </nz-form-item> -->
+    <!-- <nz-form-item>
       <nz-form-label nzXs="3" nzSm="3" nzRequired nzFor="stockSet">库存设置</nz-form-label>
       <nz-form-control nzXs="8" nzSm="8">
         <nz-radio-group formControlName="stockSet" id="stockSet">
@@ -244,9 +244,9 @@
         </nz-form-explain>
       </nz-form-control>
 
-    </nz-form-item>
+    </nz-form-item> -->
 
-    <nz-form-item>
+    <!-- <nz-form-item>
       <nz-form-label nzXs="3" nzSm="3" nzFor="volume">报考体积</nz-form-label>
       <nz-form-control nzXs="8" nzSm="8">
         <nz-input-number nz-input style="width: 50%;" [nzMin]="0" [nzStep]="1" formControlName="volume" id="volume"
@@ -270,9 +270,9 @@
         </nz-form-explain>
       </nz-form-control>
 
-    </nz-form-item>
+    </nz-form-item> -->
 
-    <nz-form-item>
+    <!-- <nz-form-item>
 
       <nz-form-label nzXs="3" nzSm="3" nzRequired nzFor="shelf">是否上架</nz-form-label>
       <nz-form-control nzXs="8" nzSm="8">
@@ -288,8 +288,8 @@
       </nz-form-control>
 
 
-    </nz-form-item>
-    <nz-divider nzDashed [nzText]="''"></nz-divider>
+    </nz-form-item> -->
+    <!-- <nz-divider nzDashed [nzText]="''"></nz-divider>
     <nz-form-item>
       <nz-form-label nzXs="3" nzSm="3" nzRequired nzFor="integralRate">积分比例</nz-form-label>
       <nz-form-control nzXs="8" nzSm="8" nzHasFeedback>
@@ -306,9 +306,9 @@
           </ng-container>
         </nz-form-explain>
       </nz-form-control>
-    </nz-form-item>
+    </nz-form-item> -->
 
-    <nz-form-item>
+    <!-- <nz-form-item>
 
       <nz-form-label nzXs="3" nzSm="3" nzRequired nzFor="distribution">是否参加分销</nz-form-label>
       <nz-form-control nzXs="8" nzSm="8">
@@ -324,7 +324,7 @@
       </nz-form-control>
 
 
-    </nz-form-item>
+    </nz-form-item> -->
 
     <!--<nz-form-item>
 
@@ -344,7 +344,7 @@
 
     </nz-form-item>-->
 
-    <nz-form-item style="margin-bottom: 0px!important"
+    <!-- <nz-form-item style="margin-bottom: 0px!important"
                   *ngIf="this.commonForm.get('commodityLevelDiscounts')?.controls.length>0">
       <nz-form-label nzXs="3" nzSm="3">设置特定会员折扣</nz-form-label>
       <nz-form-control nzXs="8" nzSm="8">
@@ -364,7 +364,7 @@
         <input nz-input style="width:10%" formControlName="discount" id="discount" placeholder="折扣">
       </nz-form-item>
     </div>
-    <nz-divider nzDashed [nzText]="''"></nz-divider>
+    <nz-divider nzDashed [nzText]="''"></nz-divider> -->
 
     <nz-form-item>
       <nz-form-label nzXs="3" nzSm="3" nzFor="description">报考介绍</nz-form-label>

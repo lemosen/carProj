@@ -270,7 +270,7 @@ export class FormAttrGroup {
             originalPrice: 0,
             currentPrice: 0,
             productImgPath: '',
-            stockQuantity: 0,
+            stockQuantity: 10e7,
             attrNames: e5,
             attributes: addAttributes
           }, attr: e5, dyIndex: i5
@@ -317,9 +317,9 @@ export class FormAttrGroup {
     formArrayAttrValues.controls.forEach(e => {
       e.patchValue({
         supplyPrice: this.supplyPrices[0].value,
-        originalPrice: this.originalPrices[0].value,
+        // originalPrice: this.originalPrices[0].value,
         currentPrice: this.currentPrices[0].value,
-        stockQuantity: this.stockQuantitys[0].value,
+        // stockQuantity: this.stockQuantitys[0].value,
       })
     })
   }
@@ -327,9 +327,9 @@ export class FormAttrGroup {
   reset() {
     this.selectPrice();
     this.supplyPrices[0].value = null;
-    this.originalPrices[0].value = null;
+    // this.originalPrices[0].value = null;
     this.currentPrices[0].value = null;
-    this.stockQuantitys[0].value = null;
+    // this.stockQuantitys[0].value = null;
   }
 
 

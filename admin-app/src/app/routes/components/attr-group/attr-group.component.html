@@ -1,13 +1,13 @@
 <nz-form-item>
-  <nz-form-label nzXs="3" nzSm="3" nzRequired>报考属性</nz-form-label>
+  <nz-form-label nzXs="3" nzSm="3" nzRequired>报考规格</nz-form-label>
   <nz-form-control nzXs="21" nzSm="21">
 
     <label nz-checkbox [(ngModel)]="allChecked" (ngModelChange)="updateAllChecked()" [nzIndeterminate]="indeterminate">
       全选
     </label>
     <nz-checkbox-group [(ngModel)]="_checkOptions" (ngModelChange)="updateSingleChecked()"></nz-checkbox-group>
-    <input style="width: 12%" *ngIf="_canAddAttrG" nz-input [(ngModel)]="_newAttrG" placeholder="输入属性组名称">
-    <button style="margin-left: 10px" (click)="addAttrG()" nz-button type="button">添加属性组</button>
+    <input style="width: 12%" *ngIf="_canAddAttrG" nz-input [(ngModel)]="_newAttrG" placeholder="输入规格组名称">
+    <button style="margin-left: 10px" (click)="addAttrG()" nz-button type="button">添加规格组</button>
     <button style="margin-left: 10px" *ngIf="_canAddAttrG" (click)="sureAddAttrG()" nz-button type="button">确定</button>
     <label style="margin-left: 10px;color: #f5222d">{{_attrGError}}</label>
     <!--<nz-form-label nzXs="3" nzSm="3">{{_attrGError}}</nz-form-label>-->
@@ -21,8 +21,8 @@
       全选
     </label>
     <nz-checkbox-group [(ngModel)]="item.attributes" (ngModelChange)="updateAttrValueSingleChecked(item.checkAll,item.attributes,item.indeterminate,i)"></nz-checkbox-group>
-    <input style="width: 12%" *ngIf="item._canAdd" nz-input [(ngModel)]="item._newAttrV" placeholder="输入属性值名称">
-    <button style="margin-left: 10px" (click)="addAttrV(i)" nz-button type="button">添加属性值</button>
+    <input style="width: 12%" *ngIf="item._canAdd" nz-input [(ngModel)]="item._newAttrV" placeholder="输入规格值名称">
+    <button style="margin-left: 10px" (click)="addAttrV(i)" nz-button type="button">添加规格值</button>
     <button style="margin-left: 10px" *ngIf="item._canAdd" (click)="sureAddAttrV(i)" nz-button type="button">确定</button>
     <label style="margin-left: 10px;color: #f5222d">{{item._attrVError}}</label>
   </nz-form-control>
