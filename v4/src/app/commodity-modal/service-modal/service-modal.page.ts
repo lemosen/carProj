@@ -8,24 +8,19 @@ import {ModalController, NavParams} from "@ionic/angular";
 })
 export class ServiceModalPage implements OnInit {
 
-    data;
-    sendNode=["","下单支付","确认收货","商品评论","三包售后到期"];
-    list=[];
+    list = [{
+        subtitle: "售后退款",
+        content: "自预约成功但未报考成功这个时间段内，实时可选择进行退款售后，但一旦缴纳报考所有费用后，合同及时生效，此时则不支持售后退款"
+    }, {
+        subtitle: "红包使用",
+        content: "在预约支付时勾选红包，此红包在预约时不起作用，但在预约成功后，二期线下缴纳报考费用时可做抵扣，红包金额=抵扣金额。如500元红包，报考需要5000元，此时则可抵扣500元，缴纳时只需缴纳4500元即可"
+    }];
 
     constructor(public navParams: NavParams, public modalCtrl: ModalController) {
-        this.data=this.navParams.data.couponGrantConfig
+
     }
 
     ngOnInit() {
-        if (this.data.grantStrategy == 1) {
-            let content = `在${this.sendNode[this.data.grantNode]}后，一次性返还${this.data.coupon.parValue}元代金券`;
-            this.list.push(content);
-        }else if(this.data.grantStrategy == 2) {
-            this.data.couponGrantSteps.forEach( e => {
-                let content = `在${this.sendNode[e.grantNode]}后，返还${(e.grantRate/100*this.data.coupon.parValue).toFixed(2)}元代金券`;
-                this.list.push(content);
-            });
-        }
     }
 
     goBack() {

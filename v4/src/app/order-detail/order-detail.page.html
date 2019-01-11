@@ -16,23 +16,6 @@
         </ion-row>
     </ion-list>
 
-    <ion-list class="common-list" *ngIf="order?.consigneeAddr">
-        <div class="common-hr"></div>
-        <ion-row>
-            <ion-col size="2" class="ver-midd" text-center>
-                <img src="../../assets/app_icon/customer/地址信息icon@2x.png" width="25" height="30">
-            </ion-col>
-            <ion-col size="10">
-                <ion-item no-padding>
-                    <ion-label>
-                        <p class="black common-sub-title margin-bottom">{{order?.consignee}}&nbsp;&nbsp;&nbsp;{{order?.consigneePhone}}</p>
-                        <p class="black common-sub-title">{{order?.consigneeAddr}}</p>
-                    </ion-label>
-                    <!--<ion-icon class="icon-forward" name="ios-arrow-forward"></ion-icon>-->
-                </ion-item>
-            </ion-col>
-        </ion-row>
-    </ion-list>
     <div class="common-hr"></div>
     <ion-list class="common-list">
         <ion-list-header>商品信息</ion-list-header>
@@ -45,17 +28,44 @@
     <div class="common-hr"></div>
 
     <ion-list class="common-list info">
-        <ion-list-header>订单信息</ion-list-header>
+        <ion-list-header>后续缴费<span class="note-float-right red">{{PayAllInfo}}</span></ion-list-header>
         <ion-row>
-            <ion-col size="3"><p class="greys">商品合计</p></ion-col>
+            <ion-col size="3"><p class="greys">报考学校</p></ion-col>
             <ion-col size="8"><p>￥{{order?.orderAmount}}</p></ion-col>
         </ion-row>
         <ion-row>
-            <ion-col size="3"><p class="greys">红包</p></ion-col>
+            <ion-col size="3"><p class="greys">选取专业</p></ion-col>
+            <ion-col size="8"><p>￥{{order?.orderAmount}}</p></ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="3"><p class="greys">学历类型</p></ion-col>
+            <ion-col size="8"><p>￥{{order?.orderAmount}}</p></ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="3"><p class="greys">学历费用</p></ion-col>
+            <ion-col size="8"><p>￥{{order?.orderAmount}}</p></ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="3"><p class="greys">红包抵扣</p></ion-col>
             <ion-col size="8"><p><span *ngIf="order?.couponAmount">-</span> ￥{{order?.couponAmount || 0}}</p></ion-col>
         </ion-row>
-        <div class="common-hr"></div>
+        <ion-row>
+            <ion-col size="3"><p class="greys">最终缴费</p></ion-col>
+            <ion-col size="8"><p><span *ngIf="order?.couponAmount">-</span> ￥{{order?.couponAmount || 0}}</p></ion-col>
+        </ion-row>
+    </ion-list>
 
+    <ion-list class="common-list info">
+        <ion-list-header>订单信息</ion-list-header>
+        <ion-row>
+            <ion-col size="3"><p class="greys">预约费用</p></ion-col>
+            <ion-col size="8"><p>￥{{order?.orderAmount}}</p></ion-col>
+        </ion-row>
+    </ion-list>
+
+    <div class="common-hr"></div>
+
+    <ion-list class="common-list info">
         <ion-row>
             <ion-col size="3"><p class="greys">订单编号</p></ion-col>
             <ion-col size="8"><p>{{order?.orderNo}}</p></ion-col>
@@ -92,10 +102,10 @@
             <ion-button size="small" shape="round" fill="outline" color="dark" *ngIf="(order?.orderState==4 || order?.orderState==5)"
                         (click)="delOrder(order)">删除订单
             </ion-button>
-            <ion-button size="small" shape="round" fill="outline" color="dark" *ngIf="order?.orderState==4 && order?.afterSaleState==1"
+            <ion-button size="small" shape="round" fill="outline" color="dark" *ngIf="order?.afterSaleState==1"
                         (click)="goApplyReturn(order)">申请售后
             </ion-button>
-            <ion-button size="small" shape="round" fill="outline" color="dark" *ngIf="order?.orderState==4 && (order?.afterSaleState==2 || order?.afterSaleState==3)"
+            <ion-button size="small" shape="round" fill="outline" color="dark" *ngIf="order?.afterSaleState==2 || order?.afterSaleState==3"
                         (click)="goRecordDetailsPage(order)">查看进度
             </ion-button>
             <ion-button size="small" shape="round" fill="outline" color="danger" *ngIf="order?.commentState==1"

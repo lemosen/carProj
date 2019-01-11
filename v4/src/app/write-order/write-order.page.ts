@@ -130,11 +130,6 @@ export class WriteOrderPage {
         }
         this.submitFlag = true;
 
-        if (this.shippingAddressVo == undefined || this.shippingAddressVo == null) {
-            this.nativeProvider.showToastFormI4("请填写地址");
-            return;
-        }
-
         this.ordersDetail.splitOrders.forEach((e, i) => {
             e.coupons = [];
             e.vouchers = [];
