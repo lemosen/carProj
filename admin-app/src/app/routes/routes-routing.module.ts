@@ -58,7 +58,7 @@ const routes: Routes = [
       { path: 'article-comment', loadChildren: 'app/routes/contentManage/article-comment/article-comment.module#ArticleCommentModule', data: { breadcrumb: '爱生活评论', title: '爱生活评论'}},
 
       //拼团管理
-      { path: 'group-buy-activity', loadChildren: 'app/routes/groupBuyManage/group-buy-activity/group-buy-activity.module#GroupBuyActivityModule', data: { breadcrumb: '团购活动', title: '团购活动'} },
+      // { path: 'group-buy-activity', loadChildren: 'app/routes/groupBuyManage/group-buy-activity/group-buy-activity.module#GroupBuyActivityModule', data: { breadcrumb: '团购活动', title: '团购活动'} },
       { path: 'national-group', loadChildren: 'app/routes/collageManage/national-group/national-group.module#NationalGroupModule', data: { breadcrumb: '全国拼团', title: '全国拼团'} },
       { path: 'community-group', loadChildren: 'app/routes/collageManage/community-group/community-group.module#CommunityGroupModule', data: { breadcrumb: '小区拼团', title: '小区拼团'} },
       { path: 'rebate-group', loadChildren: 'app/routes/collageManage/rebate-group/rebate-group.module#RebateGroupModule', data: { breadcrumb: '返现拼团', title: '返现拼团'} },

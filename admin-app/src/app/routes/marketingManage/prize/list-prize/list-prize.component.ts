@@ -26,6 +26,7 @@ export class ListPrizeComponent implements OnInit {
 
     expandForm = false;
 
+
     constructor(public route: ActivatedRoute, public router: Router, private prizeService: PrizeService, public msg: NzMessageService,
         private fb: FormBuilder,private modalService: NzModalService) {
         this.buildForm();
@@ -101,7 +102,7 @@ export class ListPrizeComponent implements OnInit {
         return pageQuery;
     }
 
-  rewardTypes = [
+  prizeTypes = [
     {id: 1, name: "邀请"},
     {id: 2, name: "评论"},
     {id: 3, name: "连续签到"},

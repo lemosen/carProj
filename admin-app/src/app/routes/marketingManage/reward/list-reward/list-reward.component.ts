@@ -100,7 +100,7 @@ export class ListRewardComponent implements OnInit {
     return pageQuery;
   }
 
-  prizeTypes = [
+  rewardTypes = [
     {id: 1, name: "积分"},
     {id: 2, name: "报考"},
     {id: 3, name: "优惠券"},
