@@ -31,22 +31,15 @@ export class TabsPage {
     isHaveCancel: boolean = false;
     member;
 
-    constructor(public memberProvider: MemberProvider,
-                public navCtrl: NavController,
-                public route: ActivatedRoute,
-                public events: Events,
-                public alertController: AlertController,
-                public wechatProvider: WechatService,
-                public nativeProvider: NativeProvider) {
+    constructor(public memberProvider: MemberProvider, public navCtrl: NavController, public route: ActivatedRoute, public events: Events,
+                public alertController: AlertController, public wechatProvider: WechatService, public nativeProvider: NativeProvider) {
         this.memberProvider.initLoginSession();
 
 
     }
 
     ngAfterViewInit() {
-        setTimeout(e => {
-            this.memberProvider.getLocation();
-        }, 2000)
+
     }
 
 
@@ -57,9 +50,6 @@ export class TabsPage {
         this.icons[index] = this.icons[index].replace(this.names[index], this.selects[index]);
         if (index == 0) {
             this.events.publish(REFRESH_HOME);
-        }
-        if (index == 3) {
-            this.events.publish(REFRESH_SHOPPINGCART);
         }
         if (index == 4) {
             this.events.publish(REFRESH_CUSTOMERCENTER);

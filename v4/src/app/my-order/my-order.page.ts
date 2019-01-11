@@ -104,18 +104,6 @@ export class MyOrderPage implements OnInit {
         this.navCtrl.navigateForward(["OrderDetailPage", {orderId: order.id}], false);
     }
 
-    cancelOrder(order) {
-        this.orderProvider.cancelOrder(order.id).then(e => {
-            if (e.result == SUCCESS) {
-                this.nativeProvider.showToastFormI4("取消订单成功", () => {
-                    this.ionViewWillEnter();
-                });
-            } else {
-                this.nativeProvider.showToastFormI4(e.message);
-            }
-        }, err => this.nativeProvider.showToastFormI4(err.message));
-    }
-
     goOrderPay(order) {
         let weChatVo = {
             memberId: MemberProvider.getLoginMember().id,
@@ -147,44 +135,6 @@ export class MyOrderPage implements OnInit {
                 this.nativeProvider.showToastFormI4(e.message);
             }
         }, err => this.nativeProvider.showToastFormI4(err.message));
-    }
-
-    goOrderFollow(order) {
-        this.navCtrl.navigateForward(["OrderFollowPage", {orderId: order.id}]);
-    }
-
-    async confirmReceive(order) {
-        const alert = await this.alertCtrl.create({
-            header: '确认收货？',
-            buttons: [{
-                text: '确认',
-                handler: () => {
-                    this.orderProvider.confirmReceive(order.id).then(e => {
-                        customOnResult(e, () => {
-                            this.nativeProvider.showToastFormI4("已确认收货", () => {
-                                this.state = 'stayEvaluation';
-                                this.ionViewWillEnter();
-                            });
-                        })
-                    }, err => customOnError(err))
-                }
-            }, {
-                text: '取消',
-                role: 'cancel',
-            }]
-        });
-        await alert.present();
-    }
-
-    goEvaluation(order) {
-        this.navCtrl.navigateForward(["EvaluationPage", {orderId: order.id}])
-    }
-
-    goCheckEvaluation(order) {
-        this.navCtrl.navigateForward(["CommodityPage", {
-            segment: "evaluation",
-            id: order.saleOrderItems[0].commodityId
-        }]);
     }
 
     shippngAgain(order) {
@@ -258,10 +208,7 @@ export class MyOrderPage implements OnInit {
     /*字段转换*/
     private transform(data) {
         for (let i = 0; i < data.length; i++) {
-            data[i].orderStateMsg = ["", "等待支付", "等待发货", "等待收货", "交易完成", "交易关闭"][data[i].orderState];
-            if (data[i].orderState == 4 && data[i].commentState == 1 && data[i].afterSaleState == 1) {
-                data[i].orderStateMsg = "待评价";
-            }
+            data[i].orderStateMsg = ["", "等待支付", "等待老师联系", "等待老师联系", "报名成功", "交易关闭"][data[i].orderState];
             if (data[i].afterSaleState == 2) {
                 data[i].orderStateMsg = "申请售后中";
             }

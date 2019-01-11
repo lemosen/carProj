@@ -11,10 +11,10 @@
             待付款
         </ion-segment-button>
         <ion-segment-button value="deliver" (click)="listFilter('deliver')">
-            待收货
+            预约成功
         </ion-segment-button>
         <ion-segment-button value="stayEvaluation" (click)="listFilter('stayEvaluation')">
-            待评价
+            报名成功
         </ion-segment-button>
         <ion-segment-button value="canceled" (click)="listFilter('canceled')">
             已取消
@@ -70,30 +70,9 @@
                     立即付款
                 </ion-button>
             </ion-col>
-            <ion-col size="3" *ngIf="order.orderState==2"></ion-col>
-            <ion-col size="3" *ngIf="order.orderState==2|| order.orderState==3" class="right">
-                <ion-button shape="round" size="small" fill="outline" color="dark" (click)="goOrderFollow(order)">
-                    查看物流
-                </ion-button>
-            </ion-col>
-            <ion-col size="3" *ngIf="order.orderState==3">
-                <ion-button shape="round" size="small" fill="outline" color="dark" (click)="confirmReceive(order)">
-                    确认收货
-                </ion-button>
-            </ion-col>
             <ion-col size="3" *ngIf="order.commentState==1">
                 <ion-button shape="round" size="small" fill="outline" color="dark" (click)="goEvaluation(order)">
-                    评价商品
-                </ion-button>
-            </ion-col>
-            <ion-col size="3" *ngIf="order.commentState==2">
-                <ion-button shape="round" size="small" fill="outline" color="dark" (click)="goCheckEvaluation(order)">
-                    查看评价
-                </ion-button>
-            </ion-col>
-            <ion-col size="3" *ngIf="order.orderState==4">
-                <ion-button shape="round" size="small" fill="outline" outline color="danger" (click)="shippngAgain(order)">
-                    再次购买
+                    发布评价
                 </ion-button>
             </ion-col>
             <ion-col size="3" *ngIf="order.orderState==5">
@@ -103,7 +82,7 @@
             </ion-col>
             <ion-col size="3" *ngIf="order.orderState==5">
                 <ion-button shape="round" size="small" fill="outline" color="danger" (click)="shippngAgain(order)">
-                    重新购买
+                    重新预约
                 </ion-button>
             </ion-col>
         </ion-row>

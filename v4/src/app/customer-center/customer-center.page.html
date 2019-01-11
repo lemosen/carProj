@@ -1,8 +1,75 @@
 <ion-content no-padding>
     <ion-list>
         <div class="customer-head">
-            <!--<ion-label class="set-icon QR-code" (click)="goMycode()"></ion-label>-->
-            <!--<ion-label class="set-icon" (click)="goSystemSet()"></ion-label>-->
+            <!--<div class="set-icon" (click)="goSystemSet()"></div>-->
+            <div class="flex-row" style="justify-content: flex-start; align-items: center ;height: 100%">
+                <img class="member-avater" onerror="this.src='../../assets/imgs/null-category.png'" [src]="member?.avater" (click)="goPersonalCenter()">
+                <span class="common-title white" (click)="goPersonalCenter()">{{member?.nickname || "请登录"}}</span>
+            </div>
+        </div>
+
+        <div class="bg-white">
+            <div class="flex-row" style="justify-content:space-between" (click)="goMyOrderPage()">
+                <div>我的订单</div>
+                <div class="common-sub-title greys flex-center">查看全部订单
+                    <ion-icon float-right class="icon-forward" name="ios-arrow-forward"></ion-icon>
+                </div>
+            </div>
+            <div class="common-hr" style="height:1px!important;background-color:#e5e5e5!important; "></div>
+            <div class="flex-row order-state-btn">
+                <div (click)="goMyOrderPage('unpaid')">
+                    <img src="../../assets/app_icon/customer/待付款icon@2x.png">
+                    <div>待付款</div>
+                    <span class="bubble" *ngIf="orderNum[0] != 0">{{orderNum[0]}}</span>
+                </div>
+                <div (click)="goMyOrderPage('deliver')">
+                    <img src="../../assets/app_icon/customer/待发货icon@2x.png">
+                    <div>预约中</div>
+                    <span class="bubble" *ngIf="orderNum[2] != 0">{{orderNum[2]}}</span>
+                </div>
+                <div (click)="goMyOrderPage('stayEvaluation')">
+                    <img src="../../assets/app_icon/customer/待评价icon@2x.png">
+                    <div>待评价</div>
+                    <span class="bubble" *ngIf="orderNum[3] != 0">{{orderNum[3]}}</span>
+                </div>
+                <div (click)="goAfterSales()">
+                    <img src="../../assets/app_icon/customer/售后icon@2x.png">
+                    <div>售后服务</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="common-hr"></div>
+        <div class="function-btns" style="justify-content:flex-start">
+            <div (click)="goMyTeam()">
+                <img src="../../assets/app_icon/customer/团队icon@2x.png">
+                <div class="common-sub-title greys">我的团队</div>
+            </div>
+            <div (click)="goCoupon()">
+                <img src="../../assets/app_icon/customer/礼物icon@2x.png">
+                <div class="common-sub-title greys">我的红包</div>
+            </div>
+            <div (click)="goFineBalance()">
+                <img src="../../assets/app_icon/customer/账单icon@2x.png">
+                <div class="common-sub-title greys">账单明细</div>
+            </div>
+            <div (click)="goServiceCenter()">
+                <img src="../../assets/app_icon/customer/账单icon@2x.png">
+                <div class="common-sub-title greys">帮助列表</div>
+            </div>
+        </div>
+
+    </ion-list>
+</ion-content>
+
+
+
+
+<!--<ion-content no-padding>
+    <ion-list>
+        <div class="customer-head">
+            &lt;!&ndash;<ion-label class="set-icon QR-code" (click)="goMycode()"></ion-label>&ndash;&gt;
+            &lt;!&ndash;<ion-label class="set-icon" (click)="goSystemSet()"></ion-label>&ndash;&gt;
             <ion-item style="background: transparent" padding-top="30px">
                 <ion-label align-items-center>
                     <img width="60" height="60" class="radius" onerror="this.src='../../assets/imgs/null-category.png'"
@@ -30,24 +97,6 @@
                     <ion-col size="4" text-center (click)="goMyTeam()">
                         <ion-label class="common-big-icon-no-float team"></ion-label>
                         <p>我的团队</p>
-                    </ion-col>
-                </ion-row>
-            </ion-card-content>
-        </ion-card>
-
-        <ion-card class="customer-center-area move-top">
-            <ion-card-header>
-                我的小区
-            </ion-card-header>
-            <ion-card-content no-margin>
-                <ion-row>
-                    <ion-col size="6" (click)="goMyCommunity()">
-                        <div class="common-icon customer-area"></div>
-                        <p class="font-left">{{member?.address || "我的小区"}}</p>
-                    </ion-col>
-                    <ion-col size="6" (click)="goLocation()">
-                        <div class="common-icon customer-position"></div>
-                        <p class="font-left">{{localCity || "请定位"}}</p>
                     </ion-col>
                 </ion-row>
             </ion-card-content>
@@ -103,7 +152,7 @@
             </ion-card-content>
         </ion-card>
 
-        <ion-card class="move-top bottom-item">
+        &lt;!&ndash;<ion-card class="move-top bottom-item">
             <ion-list lines="full">
                 <ion-item (click)="goMyAddress()">
                     <ion-label>我的地址</ion-label>
@@ -113,11 +162,11 @@
                     <ion-label>客服与帮助</ion-label>
                     <ion-icon class="icon-forward" name="ios-arrow-forward"></ion-icon>
                 </ion-item>
-                <!--<ion-item>-->
-                <!--<ion-label>欢迎评分</ion-label>-->
-                <!--<ion-icon class="icon-forward" name="ios-arrow-forward"></ion-icon>-->
-                <!--</ion-item>-->
+                &lt;!&ndash;<ion-item>&ndash;&gt;
+                &lt;!&ndash;<ion-label>欢迎评分</ion-label>&ndash;&gt;
+                &lt;!&ndash;<ion-icon class="icon-forward" name="ios-arrow-forward"></ion-icon>&ndash;&gt;
+                &lt;!&ndash;</ion-item>&ndash;&gt;
             </ion-list>
-        </ion-card>
+        </ion-card>&ndash;&gt;
     </ion-list>
-</ion-content>
+</ion-content>-->

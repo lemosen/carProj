@@ -6,7 +6,6 @@ import {OrderProvider} from "../../services/order-service/order";
 import {ModalController, NavController} from "@ionic/angular";
 import {ActivatedRoute} from "@angular/router";
 import {NativeProvider} from "../../services/native-service/native";
-import {ChooseConsigneePage} from "../choose-consignee/choose-consignee.page";
 import {ConsigneeModalPage} from "../consignee-modal/consignee-modal.page";
 import {Coupon} from "../../domain/original/coupon.model";
 import {CouponModalPage} from "../coupon-about/coupon-modal/coupon-modal.page";
@@ -59,20 +58,7 @@ export class WriteOrderPage {
     }
 
     async goChooseConsignee() {
-        const modalChooseConsignee = await this.modalCtrl.create({
-            component: ChooseConsigneePage,
-            componentProps: {shippingAddress: this.shippingAddressVo},
-        });
-        await modalChooseConsignee.present();
-        await modalChooseConsignee.onDidDismiss().then(data => {
-            if (data.data != undefined && this.shippingAddressVo != data.data) {
-                this.shippingAddressVo = data.data;
-                this.ordersDetail.shippingAddress = data.data;
-                if (!this.orderType) {
-                    this.getOrder('confirmOrder', this.ordersDetail);
-                }
-            }
-        })
+
     }
 
     //使用的优惠券信息

@@ -1,7 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 import {ModalController, NavController} from "@ionic/angular";
 import {ActivatedRoute} from "@angular/router";
-import {GroupShareModalPage} from "../group-national/group-share-modal/group-share-modal.page";
 import {TimeCountComponent} from "../components/time-count/time-count.component";
 import {OrderProvider} from "../../services/order-service/order";
 import {Order} from "../../domain/original/order.model";
@@ -14,7 +13,7 @@ import {NativeProvider} from "../../services/native-service/native";
 })
 export class PaymentFinishPage {
 
-    list = ["壹壹优选不会以订单异常、系统升级为由要求您点击任何网址链接进行退款操作。"];
+    list = ["蓝米教育不会以订单异常、系统升级为由要求您点击任何网址链接进行退款操作。"];
 
     totalAmount;
     back = true;
@@ -62,12 +61,5 @@ export class PaymentFinishPage {
         this.navCtrl.navigateForward(["MyOrderPage", {state: "deliver", goBackPage:"customerCenter"}])
     }
 
-
-    async inviteFriends(){
-        const modal = await this.modalCtrl.create({
-            component: GroupShareModalPage,
-        });
-        await modal.present();
-    }
 
 }

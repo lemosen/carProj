@@ -15,7 +15,7 @@ export class CouponReceiveFinishPage {
     cornerImg = ["", "../../assets/app_icon/customer/角标满@3x.png", "../../assets/app_icon/customer/角标赠@3x.png", "../../assets/app_icon/customer/角标储@3x.png"];
     typeImg = ["", "../../assets/app_icon/customer/满减券标签@3x.png", "../../assets/app_icon/customer/买送券标签@3x.png", "../../assets/app_icon/customer/储值券标签@3x.png"]
 
-    list = ["您可登陆账户并在【我的】>【优惠券】处查看获得的优惠券", "本优惠券不得转让", "优惠券最终解释权归壹壹平台所有"];
+    list = ["您可登陆账户并在【我的】>【优惠券】处查看获得的优惠券", "本优惠券不得转让", "优惠券最终解释权归蓝米教育平台所有"];
 
     constructor(public navCtrl: NavController, public route: ActivatedRoute, public couponProvider: CouponService) {
 

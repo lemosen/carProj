@@ -9,7 +9,6 @@ import {TabsPage} from './tabs.page';
 import {ShoppingCartPageModule} from '../shopping-cart/shopping-cart.module';
 import {CategoryPageModule} from '../category/category.module';
 import {HomePageModule} from '../home/home.module';
-import {LoveLifePageModule} from '../love-life/love-life.module';
 import {CustomerCenterPageModule} from '../customer-center/customer-center.module';
 import {ComponentsModule} from "../components/components.module";
 
@@ -22,7 +21,6 @@ import {ComponentsModule} from "../components/components.module";
         HomePageModule,
         CategoryPageModule,
         ShoppingCartPageModule,
-        LoveLifePageModule,
         ComponentsModule,
         CustomerCenterPageModule
     ],

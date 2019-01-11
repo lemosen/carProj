@@ -69,7 +69,7 @@ export class CustomerCenterPage {
         });
     }
 
-    goCoupan() {
+    goCoupon() {
         this.isLogin().then(e => {
             this.navCtrl.navigateForward("CouponPage")
         });
@@ -87,21 +87,12 @@ export class CustomerCenterPage {
         });
     }
 
-    goLocation() {
-        this.navCtrl.navigateForward("LocationPage")
-    }
-
     goMyBalance() {
         this.isLogin().then(e => {
             this.navCtrl.navigateForward("MyBalancePage")
         });
     }
 
-    goStorageVolume() {
-        this.isLogin().then(e => {
-            this.navCtrl.navigateForward(["StorageVolumePage", {check: "true"}])
-        });
-    }
 
     goFineBalance() {
         this.isLogin().then(e => {
@@ -121,12 +112,6 @@ export class CustomerCenterPage {
         });
     }
 
-    goMyAddress() {
-        this.isLogin().then(e => {
-            this.navCtrl.navigateForward("MyAddressPage");
-        });
-    }
-
     goServiceCenter() {
         this.navCtrl.navigateForward("ServiceCenterPage");
     }
@@ -137,14 +122,6 @@ export class CustomerCenterPage {
         } else {
             this.navCtrl.navigateForward("LoginPage")
         }
-    }
-
-    goMyCommunity() {
-        if (!MemberProvider.isLogin()) {
-            this.nativeProvider.showToastFormI4("请先登录");
-            return;
-        }
-        this.navCtrl.navigateForward("MyCommunityPage");
     }
 
 

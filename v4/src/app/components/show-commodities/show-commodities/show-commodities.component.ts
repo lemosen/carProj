@@ -20,13 +20,12 @@ export class ShowCommoditiesComponent implements OnChanges {
     constructor(public navCtrl: NavController, private componentFactoryResolver: ComponentFactoryResolver) {
     }
 
+
     ngOnChanges(changes: SimpleChanges): void {
         if (changes.item.currentValue) {
             this._showCommoditiesContent.clear();
-            if (changes.item.currentValue.showMode) {
-                const controlComponentFactory = this.componentFactoryResolver.resolveComponentFactory(ShowTwoCommoditiesComponent);
-                this._controlRef = this._showCommoditiesContent.createComponent(controlComponentFactory);
-            }
+            const controlComponentFactory = this.componentFactoryResolver.resolveComponentFactory(ShowTwoCommoditiesComponent);
+            this._controlRef = this._showCommoditiesContent.createComponent(controlComponentFactory);
             this._controlRef.instance.item = this.item;
             this._controlRef.instance.goCommodity = this.goCommodity;
             this._controlRef.instance.goUrl = this.goUrl;
@@ -39,6 +38,7 @@ export class ShowCommoditiesComponent implements OnChanges {
             this.navCtrl.navigateForward("CommListPage")
         }, 100)
     }
+
 
     goCommodity(id, floorId) {
         window.location.href = './#/tabs/(home:home)#' + floorId;

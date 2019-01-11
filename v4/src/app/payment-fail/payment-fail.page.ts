@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {ModalController, NavController} from "@ionic/angular";
-import {GroupShareModalPage} from "../group-national/group-share-modal/group-share-modal.page";
 import {WechatService} from "../../services/wechat-service/wechat.service";
 import {NativeProvider} from "../../services/native-service/native";
 import {MemberProvider} from "../../services/member-service/member";
@@ -12,7 +11,7 @@ import {MemberProvider} from "../../services/member-service/member";
     styleUrls: ['./payment-fail.page.scss'],
 })
 export class PaymentFailPage {
-    list = ["壹壹优选不会以订单异常、系统升级为由要求您点击任何网址链接进行退款操作。"];
+    list = ["蓝米教育不会以订单异常、系统升级为由要求您点击任何网址链接进行退款操作。"];
 
     totalAmount;
     back = true;

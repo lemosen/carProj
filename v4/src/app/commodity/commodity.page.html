@@ -8,7 +8,7 @@
                 图文详情
             </ion-segment-button>
             <ion-segment-button value="evaluation">
-                商品评价
+                学历评价
             </ion-segment-button>
         </ion-segment>
         <goback [isShare]="shareData?.preMemberId != undefined"></goback>
@@ -22,43 +22,9 @@
                 <div text-center>
                     <h5>{{commodity.commodityName}}</h5>
                     <p class="grey">{{commodity.commodityShortName}}</p>
-
-                    <div class="flex-space-between grey common-sub-title">
-                        <div class="flex-col">
-                            <div><del>￥{{commodity.originalPrice}}</del></div>
-                            <div class="common-notice">原价</div>
-                        </div>
-                        <div class="flex-col red" *ngIf="isLogin && vipPrice">
-                            <div class="common-title"><span class="common-sub-title">￥</span>{{selectProduct?.levelPrices || vipPrice}}</div>
-                            <div class="common-notice">vip价</div>
-                        </div>
-                        <div class="flex-col red" *ngIf="!vipPrice || !isLogin">
-                            <div class="common-title"><span class="common-sub-title">￥</span>{{selectProduct?.price||commodity.currentPrice}}</div>
-                            <div class="common-notice">现价</div>
-                        </div>
-                        <div class="flex-col grey" *ngIf="isLogin && vipPrice">
-                            <div><del>￥{{selectProduct?.price||commodity.currentPrice}}</del></div>
-                            <div class="common-notice">现价</div>
-                        </div>
-                        <div class="flex-col grey" *ngIf="!vipPrice || !isLogin">
-                            <div>--</div>
-                            <div class="common-notice">-</div>
-                        </div>
-                    </div>
+                    <p class="common-title red">￥{{selectProduct?.price||commodity.currentPrice}}</p>
                 </div>
             </ion-row>
-
-            <!--买送券-->
-            <div *ngIf="commodity.couponGrantConfig" (click)="openCouponGrantModal()">
-                <div class="line-divid"></div>
-                <div class="sendCoupon">
-                    <div>
-                        <span class="sendCoupon-tip">返券</span>
-                        <span class="sendCoupon-content">购买该商品返还{{commodity.couponGrantConfig.coupon.parValue}}元代金券</span>
-                    </div>
-                    <ion-icon class="icon-forward" name="ios-arrow-forward"></ion-icon>
-                </div>
-            </div>
 
             <div class="common-hr"></div>
             <!--<ion-item (click)="serviceModal()">-->
@@ -69,14 +35,14 @@
             <!--<div class="line-divid"></div>-->
 
             <ion-item (click)="paramsModal()" *ngIf="attrGroups?.length">
-                <ion-label>商品参数</ion-label>
+                <ion-label>服务说明</ion-label>
                 <ion-note>查看</ion-note>
                 <ion-icon class="icon-forward" name="ios-arrow-forward"></ion-icon>
             </ion-item>
             <div class="line-divid" *ngIf="attrGroups?.length"></div>
 
             <ion-item (click)="attrModal()">
-                <ion-label>规格选择</ion-label>
+                <ion-label>学历信息</ion-label>
                 <ion-note *ngIf="!selectProduct && attrGroups?.length != 0">请选择规格</ion-note>
                 <ion-note *ngIf="selectProduct">{{selectProduct?.attrs.join("，")}}</ion-note>
                 <ion-icon class="icon-forward" name="ios-arrow-forward"></ion-icon>
@@ -87,9 +53,6 @@
 
 <ion-footer>
     <ion-toolbar>
-        <img src="../../assets/app_icon/home/购物车-商品icon@2x.png" (click)="goShoppingCart()"/>
-        <ion-button shape="round" color="danger" (click)="goWriteOrder()" *ngIf="!buyType">立即购买</ion-button>
-        <ion-button shape="round" color="danger" (click)="addGift()" *ngIf="buyType=='gift'">立即送礼</ion-button>&nbsp;&nbsp;
-        <ion-button shape="round" color="light" class="add-shopping-cart" (click)="addCart()">加入购物车</ion-button>
+        <div (click)="goWriteOrder()" class="btn-color btn-full" style="text-align: center">立即预约</div>
     </ion-toolbar>
 </ion-footer>

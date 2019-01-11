@@ -7,7 +7,7 @@
         <hr class="common-hr">
         <div style="background-color: white;padding-top: 1rem">
             <div class="head-icon greys" text-center>
-                <img src="../../assets/app_icon/classification/02-04介绍图标@3x.png"/>商品介绍
+                <img src="../../assets/app_icon/classification/02-04介绍图标@3x.png"/>介绍
             </div>
             <div class="common-notice detail-script">
                 <div [innerHTML]="commodity?.description"></div>
@@ -16,7 +16,7 @@
         <hr class="common-hr">
         <div class="commodity-evaluation">
             <div class="head-icon greys" style="margin:0 10px 10px 10px ;padding:10px 0 10px 0; border-bottom: 1px solid #e5e5e5">
-                <span style=" text-align: left">商品评价</span>
+                <span style=" text-align: left">介绍</span>
                 <!--<span class="right red">好评率{{praiseRate()}}%</span>-->
             </div>
             <div>
@@ -28,7 +28,7 @@
                     <ion-row class="common-sub-title">{{item.commentContent}}</ion-row>
                 </div>
                 <ion-button size="small" fill="outline" color="danger" (click)="goEvaluation()">
-                    查看所有评价({{pageQuery?.responses.totalElements}})
+                    查看学历评价({{pageQuery?.responses.totalElements}})
                 </ion-button>
             </div>
         </div>
@@ -37,7 +37,7 @@
     <ion-item-group *ngSwitchCase="'detail'" class="detail">
         <div style="background-color: white;padding-top: 1rem">
             <div class="head-icon greys" text-center>
-                <img src="../../assets/app_icon/classification/02-04介绍图标@3x.png"/>商品介绍
+                <img src="../../assets/app_icon/classification/02-04介绍图标@3x.png"/>学历评价
             </div>
             <div class="common-notice detail-script">
                 <div [innerHTML]="commodity?.description"></div>
@@ -75,10 +75,3 @@
     </ion-item-group>
 
 </ion-list>
-
-
-<!--<ion-footer>-->
-<!--<ion-toolbar>-->
-<!--<ng-content select=".child-footer"></ng-content>-->
-<!--</ion-toolbar>-->
-<!--</ion-footer>-->

@@ -9,12 +9,12 @@ export class AppConfig {
     // baseURL: string = "http://192.168.0.15:8086/";   // 开发环境
     // baseURL: string = "http://192.168.0.2:8086/";   // 开发环境
     // baseURL: string = "http://192.168.0.62:8081/";   // 开发环境
-    // baseURL: string = "http://app.my11mall.com/";      // 开发环境
-    baseURL: string = "http://test.app.my11mall.com/";      // 开发环境
+    // baseURL: string = "http://test.h5server.bluerice.cn/";      // 开发环境
+    baseURL: string = "http://h5server.bluerice.cn/";      // 开发环境
     // baseURL: string = "/app/";                       // 开发环境
     kuaidi100: string = "https://m.kuaidi100.com/";     // 开发环境
 
-    wechatAppId = 'wx624636d7fc542eb3';
+    wechatAppId = 'wx4cfd5bff2944b9d4';
 
     // wechatAutoLogin=true;
     wechatAutoLogin=false;

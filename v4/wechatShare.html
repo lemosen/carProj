@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>壹壹优选</title>
+    <title>蓝米教育</title>
 </head>
 <body>
 <script>
@@ -11,16 +11,14 @@
      * /tabs/HomePage，等首页信息单独处理，传入HomePage，在wechatecode另外判断跳转，需要其它的再添加
      */
 
-
-
     //wechatShare.html?CommodityPage&id=260&preMemberId=115
     var href = window.location.href;
     var urlInfo = href.split('?')[1].replace(/&/g, ";");
 
-    var h5Serve = href.indexOf('test') === -1 ? 'http://h5.my11mall.com/' : 'http://test.h5.my11mall.com/';
+    var h5Serve = href.indexOf('test') === -1 ? 'http://h5server.bluerice.cn/' : 'http://test.h5server.bluerice.cn/';
 
     var config = {
-        appid: 'wx624636d7fc542eb3',
+        appid: 'wx4cfd5bff2944b9d4',
         redirect_uri: h5Serve + 'wechatCode.html;',
         response_type: 'code',
         scope: 'snsapi_userinfo',
@@ -30,7 +28,6 @@
     // alert( config.redirect_uri );
 
     window.location.href = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${config.appid}&redirect_uri=${config.redirect_uri}&response_type=${config.response_type}&scope=${config.scope}&state=${config.state}#wechat_redirect`
-
 
 </script>
 </body>

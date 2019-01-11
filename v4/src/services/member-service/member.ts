@@ -46,6 +46,11 @@ export class MemberProvider extends HttpServiceProvider {
         return this.post('login', memberBo);
     }
 
+    /*短信的登录*/
+    loginBySms(memberBo) {
+        return this.post('loginBySms', memberBo);
+    }
+
     /*是否已经登录*/
     static isLogin(): boolean {
         return MemberProvider.loginMember != null;

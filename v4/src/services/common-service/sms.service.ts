@@ -22,4 +22,9 @@ export class SmsService extends HttpServiceProvider {
         const params = new HttpParams().set('phone', phone);
         return this.get("sendChangePwdCode", params);
     }
+
+    sendLoginCode(phone) {
+        const params = new HttpParams().set('phone', phone);
+        return this.get("sendLoginCode", params);
+    }
 }

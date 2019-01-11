@@ -11,25 +11,7 @@
             <ion-col>
                 <span class="common-font">{{order?.orderStateMsg}}</span>
                 <!--<ion-label *ngIf="order?.orderState==1">剩余时间59分50秒</ion-label>-->
-                <ion-label *ngIf="(order?.orderState==2 || order?.orderState==3)">普通快递</ion-label>
-            </ion-col>
-        </ion-row>
-    </ion-list>
-
-    <ion-list class="common-list" *ngIf="(order?.orderState!=1 && order?.orderState!=5)">
-        <div class="common-hr"></div>
-        <ion-row>
-            <ion-col size="2" class="ver-midd" text-center>
-                <img src="../../assets/app_icon/customer/待发货icon@2x.png" width="25">
-            </ion-col>
-            <ion-col size="10">
-                <ion-item no-padding (click)="goOrderFollow(order)">
-                    <ion-label class="common-sub-title">
-                        <p class="black common-sub-title margin-bottom">{{order?.orderFollowMsg}}</p>
-                        <p class="black common-sub-title">{{order?.orderFollowMsgTime}}</p>
-                    </ion-label>
-                    <ion-icon class="icon-forward" name="ios-arrow-forward"></ion-icon>
-                </ion-item>
+                <!--<ion-label *ngIf="(order?.orderState==2 || order?.orderState==3)">普通快递</ion-label>-->
             </ion-col>
         </ion-row>
     </ion-list>
@@ -69,26 +51,9 @@
             <ion-col size="8"><p>￥{{order?.orderAmount}}</p></ion-col>
         </ion-row>
         <ion-row>
-            <ion-col size="3"><p class="greys">运费</p></ion-col>
-            <ion-col size="8"><p>￥{{order?.freight}}</p></ion-col>
-        </ion-row>
-        <ion-row>
-            <ion-col size="3"><p class="greys">优惠券</p></ion-col>
+            <ion-col size="3"><p class="greys">红包</p></ion-col>
             <ion-col size="8"><p><span *ngIf="order?.couponAmount">-</span> ￥{{order?.couponAmount || 0}}</p></ion-col>
         </ion-row>
-        <ion-row>
-            <ion-col size="3"><p class="greys">代金券</p></ion-col>
-            <ion-col size="8"><p><span *ngIf="order?.voucherAmount">-</span> ￥{{order?.voucherAmount || 0}}</p></ion-col>
-        </ion-row>
-        <!--
-        <ion-row>
-            <ion-col size="3"><p class="greys">优惠金额</p></ion-col>
-            <ion-col size="8"><p><span *ngIf="order?.discountAmount">-</span>￥{{order?.discountAmount}}</p></ion-col>
-        </ion-row>
-        <ion-row>
-            <ion-col size="3"><p class="greys">活动优惠</p></ion-col>
-            <ion-col size="8"><p><span>-</span>￥628.00</p></ion-col>
-        </ion-row>-->
         <div class="common-hr"></div>
 
         <ion-row>
@@ -121,17 +86,8 @@
             <span class="small red">￥<span class="common-font">{{order?.payAmount}}</span></span>
         </div>
         <div text-right float-right>
-            <ion-button size="small" shape="round" fill="outline" color="dark" *ngIf="order?.orderState==1"
-                        (click)="cancelOrder(order)">取消订单
-            </ion-button>
             <ion-button size="small" shape="round" fill="outline" color="danger" *ngIf="order?.orderState==1"
                         (click)="goOrderPay(order)">立即付款
-            </ion-button>
-            <ion-button size="small" shape="round" fill="outline" color="dark" *ngIf="(order?.orderState==2 || order?.orderState==3)" class="right"
-                        (click)="goOrderFollow(order)">查看物流
-            </ion-button>
-            <ion-button size="small" shape="round" fill="outline" color="danger" *ngIf="order?.orderState==3"
-                        (click)="confirmReceive(order)">确认收货
             </ion-button>
             <ion-button size="small" shape="round" fill="outline" color="dark" *ngIf="(order?.orderState==4 || order?.orderState==5)"
                         (click)="delOrder(order)">删除订单

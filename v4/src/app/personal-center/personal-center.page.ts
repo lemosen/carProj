@@ -29,10 +29,6 @@ export class PersonalCenterPage implements OnInit {
         this.navCtrl.navigateForward("PersonalInfoPage")
     }
 
-    goModifyPwd() {
-        this.navCtrl.navigateForward("ChangePwdPage")
-    }
-
     goMemberGrade() {
         this.navCtrl.navigateForward("MemberGradePage")
     }

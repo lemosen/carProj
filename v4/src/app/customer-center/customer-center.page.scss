@@ -1,4 +1,106 @@
 @import "../../global";
+
+.customer-head {
+  background-image: url("../../assets/app_icon/customer/05-1banner底框-@2x.png") !important;
+  background-size: 100% 100% !important;
+  height: 175px;
+  .member-avater{
+    width: 75px;
+    height: 75px;
+    margin: 0 1rem 0 1.5rem;
+    @extend .radius;
+  }
+}
+
+.set-icon {
+  background: url('../../assets/app_icon/customer/设置@2x.png');
+  background-size: 100% 100%;
+  float: right;
+  margin-right: 10px !important;
+  margin-top: 10px !important;
+  width: 25px;
+  height: 25px;
+}
+
+.function-btns {
+  @extend .flex-row;
+  @extend .bg-white;
+  @extend .rigth-border-3th;
+  & > div {
+    justify-content: center;
+    @extend .flex-col-4;
+    @extend .flex-border;
+    & > img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+.order-state-btn > div {
+  position: relative;
+  div {
+    @extend .common-sub-title;
+    @extend .greys;
+  }
+  .bubble {
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    line-height: 17px;
+    position: absolute;
+    top: 5%;
+    right: 10%;
+    background-color: #ff334b;
+    @extend .white;
+    @extend .radius;
+    @extend .common-spec;
+  }
+  & > img{
+    width: 22px;
+    height: 22px;
+  }
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  & > div {
+    padding: 10px;
+    text-align: center;
+  }
+}
+
+.flex-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rigth-border-3th .flex-border:nth-child(3n){
+  border-right: none;
+}
+.rigth-border-3th .flex-border:nth-child(n+7){
+  border-bottom: none;
+}
+
+.flex-col-4 {
+  width: 33.33%;
+}
+
+.flex-border{
+  border-bottom: 0.5px  solid $divid-color;
+  border-right:  0.5px solid $divid-color;
+}
+
+
+
+
+
+/*
+@import "../../global";
 .card-content-ios {
   padding-bottom:14px;
   padding-top: 5px !important;
@@ -188,4 +290,4 @@ ion-card-content {
 .return-and-after-sale {
   background: url('../../assets/app_icon/customer/售后icon@2x.png');
   background-size: 100% 100%;
-}
+}*/

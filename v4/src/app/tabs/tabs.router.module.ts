@@ -4,7 +4,6 @@ import {RouterModule, Routes} from '@angular/router';
 import {TabsPage} from './tabs.page';
 import {HomePage} from '../home/home.page';
 import {ShoppingCartPage} from '../shopping-cart/shopping-cart.page';
-import {LoveLifePage} from '../love-life/love-life.page';
 import {CustomerCenterPage} from '../customer-center/customer-center.page';
 import {CategoryPage} from "../category/category.page";
 
@@ -32,11 +31,6 @@ const routes: Routes = [
                 path: 'shoppingCart',
                 outlet: 'shoppingCart',
                 component: ShoppingCartPage,
-            },
-            {
-                path: 'loveLife',
-                outlet: 'loveLife',
-                component: LoveLifePage
             },
             {
                 path: 'customerCenter',
