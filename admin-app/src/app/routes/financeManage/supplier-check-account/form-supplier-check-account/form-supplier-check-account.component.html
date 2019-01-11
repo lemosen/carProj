@@ -68,9 +68,9 @@
           </ng-container>
         </nz-form-explain>
       </nz-form-control>
-      <nz-form-label nzXs="10" nzSm="3" nzRequired nzFor="productId">商品（product表ID）</nz-form-label>
+      <nz-form-label nzXs="10" nzSm="3" nzRequired nzFor="productId">报考（product表ID）</nz-form-label>
       <nz-form-control nzXs="16" nzSm="8" nzMd="7" nzHasFeedback>
-        <input nz-input formControlName="productId" id="productId" placeholder="输入商品（product表ID）">
+        <input nz-input formControlName="productId" id="productId" placeholder="输入报考（product表ID）">
         <nz-form-explain *ngIf="commonForm.get('productId').dirty&&commonForm.get('productId').errors">
           <ng-container *ngFor="let error of formErrors.productId">
             <nz-form-explain *ngIf="commonForm.get('productId').errors[error.name]">{{ error.msg }}
@@ -80,9 +80,9 @@
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
-      <nz-form-label nzXs="10" nzSm="3" nzRequired nzFor="productNo">商品编号</nz-form-label>
+      <nz-form-label nzXs="10" nzSm="3" nzRequired nzFor="productNo">报考编号</nz-form-label>
       <nz-form-control nzXs="16" nzSm="8" nzMd="7" nzHasFeedback>
-        <input nz-input formControlName="productNo" id="productNo" placeholder="输入商品编号">
+        <input nz-input formControlName="productNo" id="productNo" placeholder="输入报考编号">
         <nz-form-explain *ngIf="commonForm.get('productNo').dirty&&commonForm.get('productNo').errors">
           <ng-container *ngFor="let error of formErrors.productNo">
             <nz-form-explain *ngIf="commonForm.get('productNo').errors[error.name]">{{ error.msg }}
@@ -90,9 +90,9 @@
           </ng-container>
         </nz-form-explain>
       </nz-form-control>
-      <nz-form-label nzXs="10" nzSm="3" nzRequired nzFor="productName">商品名称</nz-form-label>
+      <nz-form-label nzXs="10" nzSm="3" nzRequired nzFor="productName">报考名称</nz-form-label>
       <nz-form-control nzXs="16" nzSm="8" nzMd="7" nzHasFeedback>
-        <input nz-input formControlName="productName" id="productName" placeholder="输入商品名称">
+        <input nz-input formControlName="productName" id="productName" placeholder="输入报考名称">
         <nz-form-explain *ngIf="commonForm.get('productName').dirty&&commonForm.get('productName').errors">
           <ng-container *ngFor="let error of formErrors.productName">
             <nz-form-explain *ngIf="commonForm.get('productName').errors[error.name]">{{ error.msg }}

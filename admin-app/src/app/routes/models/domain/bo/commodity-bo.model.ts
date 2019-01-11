@@ -3,7 +3,7 @@
 
 export class CommodityBo {
     /**
-       * 商品ID
+       * 报考ID
      */
     id:number;
     /**
@@ -11,11 +11,11 @@ export class CommodityBo {
      */
     guid:string;
     /**
-       * 商品编码
+       * 报考编码
      */
     commodityNo:string;
     /**
-       * 商品名称
+       * 报考名称
      */
     commodityName:string;
     /**
@@ -63,7 +63,7 @@ export class CommodityBo {
      */
     shelf:boolean;
     /**
-       * 商品介绍
+       * 报考介绍
      */
     description:string;
     /**

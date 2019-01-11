@@ -15,12 +15,12 @@ export class Comment {
     guid:string;
 
     /**
-       * 商品（commodity表ID）
+       * 报考（commodity表ID）
      */
     commodity:Commodity;
 
     /**
-       * 商品名称
+       * 报考名称
      */
     commodityName:string;
 
@@ -86,7 +86,7 @@ export class Comment {
    */
   attachmentVos: Attachment[];
   /**
-   * 商品评论图片
+   * 报考评论图片
    */
   imgPath:string;
 }

@@ -76,7 +76,7 @@ export class FormAdvertisementComponent implements OnInit, OnChanges {
     commodity: [
       {
         name: 'commodityRequire',
-        msg: '请选择商品'
+        msg: '请选择报考'
       }
     ],
     article: [
@@ -100,7 +100,7 @@ export class FormAdvertisementComponent implements OnInit, OnChanges {
 
   linkTypes = [{
     code: 1,
-    title: "商品",
+    title: "报考",
   }, {
     code: 2,
     title: "文章",

@@ -8,7 +8,7 @@ import {AbstractControl, ValidationErrors} from "@angular/forms";
  const failure = "FAILURE";
 
 /**
- * 自定义商品运费模版校验
+ * 自定义报考运费模版校验
  * @param {AbstractControl} freightSetControl
  * @returns {(control: AbstractControl) => (ValidationErrors | null)}
  */
@@ -22,7 +22,7 @@ export function freightTemplateValidator(freightSetControl: AbstractControl) {
 }
 
 /**
- * 自定义链接商品表单
+ * 自定义链接报考表单
  * @param {AbstractControl} linkTypeControl
  * @returns {(control: AbstractControl) => (ValidationErrors | null)}
  */

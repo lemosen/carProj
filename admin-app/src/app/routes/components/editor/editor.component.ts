@@ -98,8 +98,8 @@ export class EditorComponent {
 
 
   categoryMenus = [
-    {click: true, label: '商品', value: 'COMMODITY'},
-    {click: false, label: '商品评论', value: 'COMMODITY_COMMENT'},
+    {click: true, label: '报考', value: 'COMMODITY'},
+    {click: false, label: '报考评论', value: 'COMMODITY_COMMENT'},
     {click: false, label: '品牌', value: 'BRAND'},
     {click: false, label: '内容管理', value: 'BANNER'},
     // {click:false,label: '部门', value: 'DEPT'},
@@ -110,7 +110,7 @@ export class EditorComponent {
     {click: false, label: '广告位', value: 'ADVERTISEMENT'},
     {click: false, label: '爱生活', value: 'ARTICLE'},
     {click: false, label: '爱生活评论', value: 'ARTICLE_COMMENT'},
-    {click: false, label: '商品详情', value: 'COMMODITY_DETAIL'},
+    {click: false, label: '报考详情', value: 'COMMODITY_DETAIL'},
     {click: false, label: '会员', value: 'MEMBER'},
   ]
 

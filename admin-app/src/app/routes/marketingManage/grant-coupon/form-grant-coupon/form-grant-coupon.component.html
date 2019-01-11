@@ -177,10 +177,10 @@
       </nz-form-item>
 
       <nz-form-item>
-        <nz-form-label nzXs="10" nzSm="3" nzFor="supplier">选择商品</nz-form-label>
+        <nz-form-label nzXs="10" nzSm="3" nzFor="supplier">选择报考</nz-form-label>
         <nz-form-control nzXs="16" nzSm="8" nzMd="7" nzHasFeedback>
           <app-modal-selecet
-            [showCol]="[{name:'commodityNo',value:'编码',isShow:true},{name:'commodityName',value:'商品名',isShow:true}]"
+            [showCol]="[{name:'commodityNo',value:'编码',isShow:true},{name:'commodityName',value:'报考名',isShow:true}]"
             [select]="commonForm.value.commodities"
             [resultName]="selectCommodityName"
             [baseService]="commodityService"

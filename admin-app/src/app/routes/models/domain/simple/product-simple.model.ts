@@ -17,7 +17,7 @@ export class ProductSimple {
      */
     productName:string;
     /**
-       * 商品（commodity表ID）
+       * 报考（commodity表ID）
      */
     commodityId:number;
     /**
@@ -69,7 +69,7 @@ export class ProductSimple {
      */
     shelf:boolean;
     /**
-       * 商品介绍
+       * 报考介绍
      */
     description:string;
     /**

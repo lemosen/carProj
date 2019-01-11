@@ -18,7 +18,7 @@ export class CommodityService extends BaseService {
   }
 
   /**
-   * 商品上下架
+   * 报考上下架
    * @param id
    * @param shelf 下架 shelf=2
    * @returns {Observable<any>}

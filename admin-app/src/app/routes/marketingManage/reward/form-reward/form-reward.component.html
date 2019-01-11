@@ -21,7 +21,7 @@
       <nz-form-label nzXs="3" nzSm="3" nzFor="prizes">选择奖品</nz-form-label>
       <nz-form-control nzXs="21" nzSm="21" nzHasFeedback>
         <app-modal-selecet #modalSelect
-           [filters]="[{filterName:'name',name:'商品名',value:''}]"
+           [filters]="[{filterName:'name',name:'报考名',value:''}]"
            [showCol]="[{name:'code',value:'奖品编码',isShow:true},{name:'name',value:'奖品名称',isShow:true}]"
            [select]="commonForm.value.prizes"
            [resultName]="commonForm.value.prizes ? commonForm.value.prizes.name : '请选择'"

@@ -77,7 +77,7 @@
 
         <nz-form-label nzXs="10" nzSm="3" nzRequired nzFor="activityStock">活动库存</nz-form-label>
         <nz-form-control nzXs="16" nzSm="8" nzMd="7" nzHasFeedback>
-          <input nz-input formControlName="activityStock" id="activityStock" placeholder="输入活动库存(活动库存为独立库存，成交不会减少商品库存)">
+          <input nz-input formControlName="activityStock" id="activityStock" placeholder="输入活动库存(活动库存为独立库存，成交不会减少报考库存)">
           <nz-form-explain *ngIf="commonForm.get('activityStock').dirty&&commonForm.get('activityStock').errors">
             <ng-container *ngFor="let error of formErrors.activityStock">
               <nz-form-explain *ngIf="commonForm.get('activityStock').errors[error.name]">{{ error.msg }}

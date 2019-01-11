@@ -16,14 +16,14 @@ export class SupplierData {
   supplierNum:number;
 
 
-  /**已上架商品数量*/
+  /**已上架报考数量*/
   shelfCommodityNum:number;
 
 
   /**待结算款*/
   waitSettlement:number;
 
-  /**待审核商品*/
+  /**待审核报考*/
   waitAuditNum:number
 
 
@@ -31,7 +31,7 @@ export class SupplierData {
   supplierAchievements:Object[][];
 
 
-  /** 商品销售排行 */
+  /** 报考销售排行 */
   commoditySales:Object[][];
 
 

@@ -30,7 +30,7 @@ export class FormAttrGroup {
   commonForm: FormGroup;
 
 
-  isngOnInit = true;  //判断货品图片是否值行ngOnInit(编辑商品是不执行、添加执行)
+  isngOnInit = true;  //判断货品图片是否值行ngOnInit(编辑报考是不执行、添加执行)
 
   attrGs = []
 

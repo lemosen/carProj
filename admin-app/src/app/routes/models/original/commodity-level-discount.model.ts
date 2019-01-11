@@ -4,7 +4,7 @@ import {MemberLevel} from "./member-level.model";
 export class CommodityLevelDiscount {
 
     /**
-       * 商品等级折扣ID
+       * 报考等级折扣ID
      */
     id:number;
 
@@ -14,7 +14,7 @@ export class CommodityLevelDiscount {
     guid:string;
 
     /**
-       * 商品（commodity表ID）
+       * 报考（commodity表ID）
      */
     commodity:Commodity;
 

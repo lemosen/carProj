@@ -86,14 +86,14 @@
     <nz-form-item>
 
       <nz-form-label nzXs="3" nzSm="3" nzRequired
-                     nzFor="commodities">推荐商品
+                     nzFor="commodities">推荐报考
       </nz-form-label>
       <nz-form-control nzXs="16" nzSm="8" nzMd="21">
         <app-modal-selecet #modalSelect
                            [pageQuery]="commodityPageQuery"
-                           [filters]="[{filterName:'commodityName',name:'商品名',value:''}]"
-                           [showCol]="[{name:'commodityNo',value:'编码',isShow:true},{name:'commodityShortName',value:'商品简称',isShow:true},{name:'currentPrice',value:'现价',isShow:true}]"
-                           [showTable]="[{name:'商品编号',value:'commodityNo'},{name:'商品简称',value:'commodityShortName'},{name:'现价',value:'currentPrice'},{name:'商品图片',value:'imgPath'}]"
+                           [filters]="[{filterName:'commodityName',name:'报考名',value:''}]"
+                           [showCol]="[{name:'commodityNo',value:'编码',isShow:true},{name:'commodityShortName',value:'报考简称',isShow:true},{name:'currentPrice',value:'现价',isShow:true}]"
+                           [showTable]="[{name:'报考编号',value:'commodityNo'},{name:'报考简称',value:'commodityShortName'},{name:'现价',value:'currentPrice'},{name:'报考图片',value:'imgPath'}]"
                            [select]="commonForm.value.commodities"
                            [showMode]="'table'"
                            [resultName]="commonForm.value.commodities ? commonForm.value.commodities.commodityname : '请选择'"

@@ -124,7 +124,7 @@
             <nz-table [nzShowPagination]="false" [nzData]="[{}]">
               <thead nzSingleSort>
               <tr>
-                <th width="22%">商品</th>
+                <th width="22%">报考</th>
                 <th width="28%">货品</th>
                 <th width="14%">拼团价</th>
                 <th width="14%">成团人数</th>
@@ -138,8 +138,8 @@
                 <td width="22%">
                   <app-modal-selecet
                     [pageQuery]="commodityPageQuery"
-                    [filters]="[{filterName:'commodityShortName',name:'商品简称',value:''}]"
-                    [showCol]="[{name:'commodityNo',value:'编码',isShow:true},{name:'commodityShortName',value:'商品简称',isShow:true}]"
+                    [filters]="[{filterName:'commodityShortName',name:'报考简称',value:''}]"
+                    [showCol]="[{name:'commodityNo',value:'编码',isShow:true},{name:'commodityShortName',value:'报考简称',isShow:true}]"
                     [select]="item.value.commodity"
                     [resultName]="item.value.commodity ? item.value.commodity.commodityShortName : '请选择'"
                     [baseService]="commodityService"

@@ -36,7 +36,7 @@ export class Article {
 
 
     /**
-       * 商品链接
+       * 报考链接
      */
     url:string;
 
@@ -77,11 +77,11 @@ export class Article {
     commentQuantity:number;
 
 
-    //商品
+    //报考
     commodities:Commodity[];
 
     /**
-     * 商品图片
+     * 报考图片
      */
     imgPath:string;
 

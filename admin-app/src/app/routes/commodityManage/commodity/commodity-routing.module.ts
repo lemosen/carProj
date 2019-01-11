@@ -15,10 +15,10 @@ import {CouponGrantConfigService} from "../../services/coupon-grant-config.servi
 const routes: Routes = [
 
   {path: '', redirectTo: 'list', pathMatch: 'full'},
-  {path: 'list', component: ListCommodityComponent, data: {breadcrumb: '商品列表',title: '列表'}},
-  {path: 'add', component: AddCommodityComponent, data: {breadcrumb: '新增商品',title: '新增'}},
-  {path: 'edit/:objId', component: EditCommodityComponent, data: {breadcrumb: '编辑商品',title: '编辑'}},
-  {path: 'view/:objId', component: ViewCommodityComponent, data: {breadcrumb: '详情商品',title: '详情'}},
+  {path: 'list', component: ListCommodityComponent, data: {breadcrumb: '报考列表',title: '列表'}},
+  {path: 'add', component: AddCommodityComponent, data: {breadcrumb: '新增报考',title: '新增'}},
+  {path: 'edit/:objId', component: EditCommodityComponent, data: {breadcrumb: '编辑报考',title: '编辑'}},
+  {path: 'view/:objId', component: ViewCommodityComponent, data: {breadcrumb: '详情报考',title: '详情'}},
 ];
 
 @NgModule({

@@ -59,7 +59,7 @@ export class Banner {
     delTime:string;
 
     /**
-     * 轮播图类型（1商品列表，2商品详情，3爱生活文章）
+     * 轮播图类型（1报考列表，2报考详情，3爱生活文章）
      */
     bannerType:number;
 }

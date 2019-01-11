@@ -190,12 +190,12 @@
       </nz-form-item>
 
       <nz-form-item>
-        <nz-form-label nzXs="3" nzSm="3" nzFor="commodities">选择商品</nz-form-label>
+        <nz-form-label nzXs="3" nzSm="3" nzFor="commodities">选择报考</nz-form-label>
         <nz-form-control nzXs="16" nzSm="8" nzMd="21" nzHasFeedback>
           <app-modal-selecet #modalSelectCommodity
-                             [filters]="[{filterName:'commodityName',name:'商品名',value:''}]"
-                             [showCol]="[{name:'commodityNo',value:'编码',isShow:true},{name:'commodityName',value:'商品名',isShow:true}]"
-                             [showTable]="[{name:'商品编号',value:'commodityNo'},{name:'商品名称',value:'commodityName'},{name:'商品图片',value:'imgPath'}]"
+                             [filters]="[{filterName:'commodityName',name:'报考名',value:''}]"
+                             [showCol]="[{name:'commodityNo',value:'编码',isShow:true},{name:'commodityName',value:'报考名',isShow:true}]"
+                             [showTable]="[{name:'报考编号',value:'commodityNo'},{name:'报考名称',value:'commodityName'},{name:'报考图片',value:'imgPath'}]"
                              [select]="commonForm.value.commodities"
                              [showMode]="'table'"
                              [resultName]="commonForm.value.commodities ? commonForm.value.commodities.commodityName : '请选择'"

@@ -9,7 +9,7 @@ import {DA_SERVICE_TOKEN, ITokenService} from '@delon/auth';
   <nz-dropdown nzPlacement="bottomRight">
     <div class="item d-flex align-items-center px-sm" nz-dropdown>
       <nz-avatar [nzSrc]="'./assets/icon.png'" nzSize="small" class="mr-sm"></nz-avatar>
-      壹壹优选
+      蓝米教育
     </div>
     <div nz-menu class="width-sm">
       <div nz-menu-item [nzDisabled]="true"><i class="anticon anticon-user mr-sm"></i>个人中心</div>

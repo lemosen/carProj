@@ -1,10 +1,10 @@
-<page-header [title]="'商品评价列表'">
+<page-header [title]="'报考评价列表'">
   <ng-template #breadcrumb>
     <nz-breadcrumb>
       <nz-breadcrumb-item>
-        <a [routerLink]="['/dashboard/comment/list']">商品管理</a>
+        <a [routerLink]="['/dashboard/comment/list']">报考管理</a>
       </nz-breadcrumb-item>
-      <nz-breadcrumb-item>商品评价</nz-breadcrumb-item>
+      <nz-breadcrumb-item>报考评价</nz-breadcrumb-item>
     </nz-breadcrumb>
   </ng-template>
 </page-header>
@@ -15,9 +15,9 @@
 
       <nz-col nzXs="6" nzSm="6">
         <nz-form-item>
-          <nz-form-label>商品名称</nz-form-label>
+          <nz-form-label>报考名称</nz-form-label>
           <nz-form-control>
-            <input nz-input formControlName="commodityName" placeholder="请输入商品名称">
+            <input nz-input formControlName="commodityName" placeholder="请输入报考名称">
           </nz-form-control>
         </nz-form-item>
       </nz-col>
@@ -57,8 +57,8 @@
 
     <thead (nzSortChange)="sort($event)" nzSingleSort>
     <tr>
-      <th>商品名称</th>
-      <th>商品图片</th>
+      <th>报考名称</th>
+      <th>报考图片</th>
       <th>会员名称</th>
       <th>评价星级</th>
       <!--<th>评价内容</th>-->

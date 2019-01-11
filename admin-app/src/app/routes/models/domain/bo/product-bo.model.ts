@@ -27,7 +27,7 @@ export class ProductBo {
    */
   productShortName: string;
   /**
-   * 商品（commodity表ID）
+   * 报考（commodity表ID）
    */
   commodity: CommodityBo;
   /**
@@ -79,7 +79,7 @@ export class ProductBo {
    */
   shelf: number;
   /**
-   * 商品介绍
+   * 报考介绍
    */
   description: string;
   /**

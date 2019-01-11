@@ -22,7 +22,7 @@
       <nz-form-control nzXs="16" nzSm="8" nzMd="7">
         <nz-radio-group formControlName="prizeType" id="prizeType">
           <label nz-radio [nzValue]="1">积分</label>
-          <label nz-radio [nzValue]="2">商品</label>
+          <label nz-radio [nzValue]="2">报考</label>
           <label nz-radio [nzValue]="3">优惠券</label>
         </nz-radio-group>
       </nz-form-control>
@@ -44,12 +44,12 @@
     </nz-form-item>
     <nz-form-item *ngIf="commonForm.value.prizeType == 2">
 
-      <nz-form-label nzXs="10" nzSm="3" nzFor="commodity">商品</nz-form-label>
+      <nz-form-label nzXs="10" nzSm="3" nzFor="commodity">报考</nz-form-label>
       <nz-form-control nzXs="16" nzSm="8" nzMd="7">
         <app-modal-selecet
           [pageQuery]="commodityPageQuery"
-          [filters]="[{filterName:'commodityName',name:'商品名',value:''}]"
-          [showCol]="[{name:'commodityNo',value:'编码',isShow:false},{name:'commodityName',value:'商品名',isShow:true}]"
+          [filters]="[{filterName:'commodityName',name:'报考名',value:''}]"
+          [showCol]="[{name:'commodityNo',value:'编码',isShow:false},{name:'commodityName',value:'报考名',isShow:true}]"
           [select]="commonForm.value.commodity"
           [resultName]="commonForm.value.commodity ? commonForm.value.commodity.commodityName : '请选择'"
           [baseService]="commodityService"

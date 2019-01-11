@@ -145,12 +145,12 @@ export class FormArticleComponent implements OnInit, OnChanges {
       this.commodityTable.push(e);
     });
     this.modalSelect.dataRetrieval(article.commodities)
-    //赋值商品图片数组
+    //赋值报考图片数组
     this.getCommodityImgPath();
   }
 
   /**
-   * 赋值商品图片数组
+   * 赋值报考图片数组
    */
   getCommodityImgPath() {
     if (this.commonForm.value.attachmentVos != null) {
@@ -169,7 +169,7 @@ export class FormArticleComponent implements OnInit, OnChanges {
   }
 
   /**
-   * 商品图片回调
+   * 报考图片回调
    * @param fileList
    */
   changeAttachment(fileList) {

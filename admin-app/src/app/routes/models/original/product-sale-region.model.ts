@@ -2,7 +2,7 @@
 export class ProductSaleRegion {
 
     /**
-       * 商品（product表ID）
+       * 报考（product表ID）
      */
     productId:number;
 

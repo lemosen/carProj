@@ -17,7 +17,7 @@ export class GroupBuyActivityProduct {
     groupBuyActivityId:number;
 
     /**
-       * 商品编号
+       * 报考编号
      */
     commodityId:number;
 

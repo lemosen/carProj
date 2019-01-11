@@ -23,7 +23,7 @@ import {ExpressService} from "../../services/express.service";
           <nz-form-control nzXs="8" nzSm="8">{{saleOrderView.createTime}}</nz-form-control>
         </nz-form-item>
         <nz-form-item>
-          <nz-form-label nzXs="3" nzSm="3">商品信息</nz-form-label>
+          <nz-form-label nzXs="3" nzSm="3">报考信息</nz-form-label>
           <div *ngFor="let commoditys of saleOrderView.saleOrderItems" style="display: table">
             <div style=" float: left">
               <img class="table-img-customer" [src]="commoditys?.commodity.imgPath">&nbsp;&nbsp;

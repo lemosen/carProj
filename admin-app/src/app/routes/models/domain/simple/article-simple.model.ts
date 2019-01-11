@@ -25,11 +25,11 @@ export class ArticleSimple {
      */
     content:string;
     /**
-       * 商品图片
+       * 报考图片
      */
     imgPath:string;
     /**
-       * 商品链接
+       * 报考链接
      */
     url:string;
     /**

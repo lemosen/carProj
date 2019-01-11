@@ -169,7 +169,7 @@ export class FormBannerComponent implements OnInit, OnChanges {
     }
 
     if(!this.commonForm.value.imgPath){
-      this.msgSrv.warning('请添加商品图片！');
+      this.msgSrv.warning('请添加报考图片！');
       return;
     }
     this.onTransmitFormValue.emit({obj: formValue});

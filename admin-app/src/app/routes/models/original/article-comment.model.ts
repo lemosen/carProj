@@ -34,7 +34,7 @@ export class ArticleComment {
     commentTime:string;
 
     /**
-     * 商品图片
+     * 报考图片
      */
     imgPath:string;
 

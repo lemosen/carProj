@@ -31,7 +31,7 @@ export class Homepage {
   memberNum:number;
 
   /**
-   * 商品数
+   * 报考数
    */
    commodityNum:number;
 
@@ -54,11 +54,11 @@ export class Homepage {
   memberName:number;
 
   /**
-   * 商品销量排行
+   * 报考销量排行
    */
   commoditySales:Object[][];
 
-  //商品售卖数
+  //报考售卖数
   saleNum:number;
 
   //折线图数据数组集合

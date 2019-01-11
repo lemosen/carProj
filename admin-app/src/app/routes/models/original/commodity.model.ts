@@ -11,7 +11,7 @@ import {Product} from "./product.model";
 export class Commodity {
 
   /**
-   * 商品ID
+   * 报考ID
    */
   id: number;
 
@@ -21,17 +21,17 @@ export class Commodity {
   guid: string;
 
   /**
-   * 商品编码
+   * 报考编码
    */
   commodityNo: string;
 
   /**
-   * 商品名称
+   * 报考名称
    */
   commodityName: string;
 
   /**
-   * 商品简称
+   * 报考简称
    */
   commodityShortName: string;
 
@@ -40,7 +40,7 @@ export class Commodity {
    */
   supplier: Supplier;
   /**
-   * 商品销售地址（region表ID）
+   * 报考销售地址（region表ID）
    */
   regions: Region[];
   /**
@@ -104,7 +104,7 @@ export class Commodity {
   shelf: number;
 
   /**
-   * 商品介绍
+   * 报考介绍
    */
   description: string;
 
