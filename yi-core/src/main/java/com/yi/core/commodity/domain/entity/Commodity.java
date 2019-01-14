@@ -229,7 +229,7 @@ public class Commodity implements java.io.Serializable {
 	// columns END
 
 	/**
-	 * 商品运营分类集合
+	 * 商品报考分类集合
 	 */
 	private Set<OperateCategory> operateCategories;
 	/**

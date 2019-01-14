@@ -34,7 +34,7 @@ export class DashboardComponent implements OnInit {
         this.XDate.push(e.date)
         this.orderNum.push(e.dailyAddOrderNum)
         this.memberNum.push(e.dailyAddMemberNum)
-        this.supplierNum.push(e.dailyAddSupplierNum)
+        // this.supplierNum.push(e.dailyAddSupplierNum)
       });
       this.chartOption = {
         title: {
@@ -44,7 +44,7 @@ export class DashboardComponent implements OnInit {
           trigger: 'axis'
         },
         legend: {
-          data: ['订单数', '新增会员数', '新增供应商数']
+          data: ['订单数', '新增会员数']
         },
         toolbox: {
           show: true,
@@ -80,11 +80,7 @@ export class DashboardComponent implements OnInit {
             type: 'line',
             data: this.memberNum
           },
-          {
-            name: '新增供应商数',
-            type: 'line',
-            data: this.supplierNum
-          }
+
         ]
       };
       echarts.init(document.getElementById('echart')

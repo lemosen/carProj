@@ -111,25 +111,26 @@ export class StartupService {
             text: '报考分类',
             icon: 'anticon anticon-dot-chart',
             children: [
+              // {
+              //   text: '报考分类',
+              //   link: '/dashboard/category',
+              // },
               {
                 text: '报考分类',
-                link: '/dashboard/category',
-              },{
-                text: '运营分类',
                 link: '/dashboard/operate-category',
               },
             ],
           },
-          {
-            text: '分销管理',
-            icon: 'anticon anticon-solution',
-            children: [
-              {
-                text: '分销等级',
-                link: '/dashboard/distribution-level',
-              },
-            ]
-          },
+          // {
+          //   text: '分销管理',
+          //   icon: 'anticon anticon-solution',
+          //   children: [
+          //     {
+          //       text: '分销等级',
+          //       link: '/dashboard/distribution-level',
+          //     },
+          //   ]
+          // },
           {
             text: '报考管理',
             icon: 'anticon anticon-shop',
@@ -142,10 +143,10 @@ export class StartupService {
                 text: '报考属性',
                 link: '/dashboard/attribute-group',
               },
-              {
-                text: '报考审核',
-                link: '/dashboard/commodity-to-examine',
-              },
+              // {
+              //   text: '报考审核',
+              //   link: '/dashboard/commodity-to-examine',
+              // },
               {
                 text: '报考评价',
                 link: '/dashboard/comment',
@@ -230,20 +231,20 @@ export class StartupService {
               },
             ]
           },
-          {
-            text: '积分管理',
-            icon: 'anticon anticon-schedule',
-            children: [
-              {
-                text: '积分记录',
-                link: '/dashboard/integral-record',
-              },
-              {
-                text: '积分设置',
-                link: '/dashboard/integral-task',
-              },
-            ]
-          },
+          // {
+          //   text: '积分管理',
+          //   icon: 'anticon anticon-schedule',
+          //   children: [
+          //     {
+          //       text: '积分记录',
+          //       link: '/dashboard/integral-record',
+          //     },
+          //     {
+          //       text: '积分设置',
+          //       link: '/dashboard/integral-task',
+          //     },
+          //   ]
+          // },
           // {
           //   text: '内容管理',
           //   icon: 'anticon anticon-form',
@@ -258,40 +259,40 @@ export class StartupService {
           //     },
           //   ]
           // },
-          {
-            text: '营销管理',
-            icon: 'anticon anticon-export',
-            children: [
-              {
-                text: '优惠券',
-                link: '/dashboard/coupon',
-              },
-              // {
-              //   text: '买送券',
-              //   link: '/dashboard/buy-coupons',
-              // },
-              {
-                text: '代金券',
-                link: '/dashboard/voucher',
-              },
-              {
-                text: '代金券发放',
-                link: '/dashboard/voucher-grant-config',
-              },
-              {
-                text: '代金券发放记录',
-                link: '/dashboard/voucher-grant-record',
-              },
-              {
-                  text: '奖励列表',
-                link: '/dashboard/reward',
-              },
-              {
-                text: '奖品列表',
-                link: '/dashboard/prize',
-              },
-            ]
-          },
+          // {
+          //   text: '营销管理',
+          //   icon: 'anticon anticon-export',
+          //   children: [
+          //     // {
+          //     //   text: '优惠券',
+          //     //   link: '/dashboard/coupon',
+          //     // },
+          //     // {
+          //     //   text: '买送券',
+          //     //   link: '/dashboard/buy-coupons',
+          //     // },
+          //     {
+          //       text: '代金券',
+          //       link: '/dashboard/voucher',
+          //     },
+          //     // {
+          //     //   text: '代金券发放',
+          //     //   link: '/dashboard/voucher-grant-config',
+          //     // },
+          //     // {
+          //     //   text: '代金券发放记录',
+          //     //   link: '/dashboard/voucher-grant-record',
+          //     // },
+          //     {
+          //         text: '奖励列表',
+          //       link: '/dashboard/reward',
+          //     },
+          //     {
+          //       text: '奖品列表',
+          //       link: '/dashboard/prize',
+          //     },
+          //   ]
+          // },
           // {
           //   text: '团购管理',
           //   icon: 'anticon anticon-clock-circle-o',

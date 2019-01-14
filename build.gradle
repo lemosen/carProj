@@ -8,7 +8,7 @@ buildscript {
     repositories {
         mavenLocal()
         jcenter()
-        maven { url 'http://183.232.157.212:9001/nexus/content/repositories/thirdparty/' }
+//        maven { url 'http://183.232.157.212:9001/nexus/content/repositories/thirdparty/' }
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
@@ -35,7 +35,7 @@ subprojects {
     repositories {
         mavenLocal()
         jcenter()
-        maven { url 'http://183.232.157.212:9001/nexus/content/repositories/thirdparty/' }
+//        maven { url 'http://183.232.157.212:9001/nexus/content/repositories/thirdparty/' }
     }
 
 

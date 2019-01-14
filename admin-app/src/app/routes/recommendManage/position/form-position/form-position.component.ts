@@ -64,25 +64,28 @@ export class FormPositionComponent implements OnInit, OnChanges {
   positionTypes = [{
     code: 1,
     title: "首页轮播图",
-  }, {
+  }
+  , {
     code: 2,
     title: "楼层推荐位",
-  }, {
-    code: 3,
-    title: "今日推荐位",
-  }, {
-    code: 4,
-    title: "购物车推荐位",
-  }, {
-    code: 5,
-    title: "邀请有礼推荐位",
-  }, {
-    code: 6,
-    title: "优惠券推荐位",
-  }, {
-    code: 7,
-    title: "双星专区",
-  }]
+  },
+    // {
+  //   code: 3,
+  //   title: "今日推荐位",
+  // }, {
+  //   code: 4,
+  //   title: "购物车推荐位",
+  // }, {
+  //   code: 5,
+  //   title: "邀请有礼推荐位",
+  // }, {
+  //   code: 6,
+  //   title: "优惠券推荐位",
+  // }, {
+  //   code: 7,
+  //   title: "双星专区",
+  // }
+  ]
 
   constructor(private fb: FormBuilder, private location: Location, public msgSrv: NzMessageService) {
     this.buildForm();

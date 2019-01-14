@@ -39,8 +39,8 @@ export class ListSaleOrderComponent implements OnInit {
   menus = [
     {name: "全部订单", value: ""},
     {name: "待付款", value: 1},
-    {name: "待发货", value: 2},
-    {name: "已发货", value: 3},
+    {name: "待预约", value: 2},
+    {name: "已审核", value: 3},
     {name: "已完成", value: 4},
     {name: "已关闭", value: 5},
   ];

@@ -70,7 +70,7 @@ public class NumberGenerateUtils {
 	}
 
 	/**
-	 * 生成 运营分类编码
+	 * 生成 报考分类编码
 	 * 
 	 * @return
 	 */

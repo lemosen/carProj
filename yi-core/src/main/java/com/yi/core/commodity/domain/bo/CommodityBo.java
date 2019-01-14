@@ -185,7 +185,7 @@ public class CommodityBo extends BoDomain implements java.io.Serializable {
 	private Date delTime;
 	// columns END
 	/**
-	 * 商品运营分类集合
+	 * 商品报考分类集合
 	 */
 	private Set<OperateCategoryBo> operateCategories;
 	/**

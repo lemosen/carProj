@@ -39,7 +39,7 @@ const routes: Routes = [
 
       //报考分类
       { path: 'category', loadChildren: 'app/routes/categoryManage/category/category.module#CategoryModule', data: { breadcrumb: '报考分类', title: '报考分类'} },
-      { path: 'operate-category', loadChildren: 'app/routes/categoryManage/operate-category/operate-category.module#OperateCategoryModule', data: { breadcrumb: ' 运营分类', title: '分类管理'} },
+      { path: 'operate-category', loadChildren: 'app/routes/categoryManage/operate-category/operate-category.module#OperateCategoryModule', data: { breadcrumb: ' 报考分类', title: '分类管理'} },
 
       //分销管理
       { path: 'distribution-level', loadChildren: 'app/routes/distributionManage/distribution-level/distribution-level.module#DistributionLevelModule', data: { breadcrumb: '分销等级', title: '分销等级'}},

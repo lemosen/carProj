@@ -37,9 +37,13 @@
     <tr>
       <th>等级名称</th>
       <th>会员人数</th>
-      <th>成长值满足点</th>
+      <th>邀请人数达</th>
+      <th>赠送红包余额</th>
+      <th>一级提成</th>
+      <th>二级提成</th>
+      <!--<th>成长值满足点</th>-->
       <th>级别</th>
-      <th>折扣</th>
+      <!--<th>折扣</th>-->
       <th>默认等级</th>
       <th>操作</th>
     </tr>
@@ -48,9 +52,13 @@
     <tr *ngFor="let data of ajaxTable.data">
       <td>{{data.name}}</td>
       <td>{{data.quantity}}</td>
-      <td>{{data.growthValue}}</td>
+      <td>{{data.countNumber}}</td>
+      <td>{{data.bonusBalance}}</td>
+      <td>{{data.fristRoyalty}}</td>
+      <td>{{data.secondRoyalty}}</td>
+      <!--<td>{{data.growthValue}}</td>-->
       <td>{{data.rank}}</td>
-      <td>{{data.discount}}%</td>
+      <!--<td>{{data.discount}}%</td>-->
       <td *ngIf="data.defaulted==1">是</td>
       <td *ngIf="data.defaulted==0">否</td>
       <td>

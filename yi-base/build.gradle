@@ -12,8 +12,12 @@ dependencies {
     compile(
             fileTree(dir: 'libs', include: '*.jar')
     )
+    repositories {
+        flatDir {  dirs 'libs' }
 
-    compile 'com.yihz:yihz-common:1.0.0'
+    }
+
+//    compile 'com.yihz:yihz-common:1.0.0'
     
 //    compile project(":yihz:yihz-common")
 

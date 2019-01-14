@@ -24,14 +24,14 @@
             </nz-form-item>
           </nz-col>
 
-          <nz-col nzXs="6" nzSm="6">
+          <!-- <nz-col nzXs="6" nzSm="6">
             <nz-form-item>
               <nz-form-label>供应商</nz-form-label>
               <nz-form-control>
                 <input nz-input formControlName="supplierName" placeholder="请输入供应商名称">
               </nz-form-control>
             </nz-form-item>
-          </nz-col>
+          </nz-col> -->
 
           <nz-col [nzSpan]="expandForm ? 24 : 6" [class.text-right]="expandForm">
             <button nz-button [nzType]="'primary'" (click)="searchData()" [nzLoading]="loading">查询</button>
@@ -77,7 +77,7 @@
           <th nzWidth="11%">报考图片</th>
           <th nzWidth="11%">价格</th>
           <th nzWidth="8%">排序号</th>
-          <th nzWidth="10%">供应商名称</th>
+          <!-- <th nzWidth="10%">供应商名称</th> -->
           <th nzWidth="11%" nzShowSort nzSortKey="createTime"><span>创建时间</span></th>
           <th nzWidth="12%">操作</th>
         </tr>
@@ -90,12 +90,12 @@
           <td>{{data?.commodityName}}</td>
           <td><img class="table-img-customer" [src]="data?.imgPath"></td>
           <td>
-            <p>供货价：{{data?.supplyPrice}}</p>
-            <p>原价：{{data?.originalPrice}}</p>
-            <p>现价：{{data?.currentPrice}}</p>
+            <p>预约价：{{data?.supplyPrice}}</p>
+            <!-- <p>原价：{{data?.originalPrice}}</p> -->
+            <p>报考价：{{data?.currentPrice}}</p>
           </td>
           <td>{{data.sort}}</td>
-          <td>{{data?.supplier.supplierName}}</td>
+          <!-- <td>{{data?.supplier.supplierName}}</td> -->
           <td>{{data.createTime}}</td>
           <td>
             <a [routerLink]="'../edit/'+data.id">编辑

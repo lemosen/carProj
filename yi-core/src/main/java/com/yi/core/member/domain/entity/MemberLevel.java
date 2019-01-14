@@ -42,11 +42,10 @@ import com.yihz.common.json.serializer.JsonTimestampSerializer;
 
 /**
  * 会员等级
- * 
+ *
  * @author lemosen
  * @version 1.0
  * @since 1.0
- *
  */
 @Entity
 @DynamicInsert
@@ -54,226 +53,278 @@ import com.yihz.common.json.serializer.JsonTimestampSerializer;
 @Table
 public class MemberLevel implements java.io.Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	// columns START
-	/**
-	 * 会员等级ID
-	 */
-	@Max(9999999999L)
-	private int id;
-	/**
-	 * GUID
-	 */
-	@Length(max = 32)
-	private String guid;
-	/**
-	 * 等级名称
-	 */
-	@NotBlank
-	@Length(max = 32)
-	private String name;
-	/**
-	 * 级别(如1,2,3,4...)
-	 */
-	@NotNull
-	private Integer rank;
-	/**
-	 * 会员人数（冗余）
-	 */
-	@NotNull
-	@Max(9999999999L)
-	private int quantity;
-	/**
-	 * 成长值满足点
-	 */
-	@NotNull
-	@Max(9999999999L)
-	private int growthValue;
-	/**
-	 * 折扣（0.00-100.00）
-	 */
-	@NotNull
-	@Max(99999L)
-	private BigDecimal discount;
-	/**
-	 * 默认等级（0非默认1默认）
-	 */
-	@Deprecated
-	private Integer initial;
-	/**
-	 * 默认等级（0非默认1默认）
-	 */
-	private Integer defaulted;
-	/**
-	 * 创建时间
-	 */
-	private Date createTime;
-	/**
-	 * 删除（0否1是）
-	 */
-	private Integer deleted;
-	/**
-	 * 删除时间
-	 */
-	private Date delTime;
-	// columns END
+    // columns START
+    /**
+     * 会员等级ID
+     */
+    @Max(9999999999L)
+    private int id;
+    /**
+     * GUID
+     */
+    @Length(max = 32)
+    private String guid;
+    /**
+     * 等级名称
+     */
+    @NotBlank
+    @Length(max = 32)
+    private String name;
+    /**
+     * 级别(如1,2,3,4...)
+     */
+    @NotNull
+    private Integer rank;
+    /**
+     * 会员人数（冗余）
+     */
+    @NotNull
+    @Max(9999999999L)
+    private int quantity;
+    /**
+     * 成长值满足点
+     */
+    @NotNull
+    @Max(9999999999L)
+    private int growthValue;
+    /**
+     * 折扣（0.00-100.00）
+     */
+    @NotNull
+    @Max(99999L)
+    private BigDecimal discount;
+    /**
+     * 邀请人数
+     */
+    private Integer countNumber;
+    /**
+     * 赠送红包余额
+     */
+    private BigDecimal bonusBalance;
+    /**
+     * 一级提成
+     */
+    private BigDecimal fristRoyalty;
+    /**
+     * 二级提成
+     */
+    private BigDecimal secondRoyalty;
+    /**
+     * 默认等级（0非默认1默认）
+     */
+    @Deprecated
+    private Integer initial;
+    /**
+     * 默认等级（0非默认1默认）
+     */
+    private Integer defaulted;
+    /**
+     * 创建时间
+     */
+    private Date createTime;
+    /**
+     * 删除（0否1是）
+     */
+    private Integer deleted;
+    /**
+     * 删除时间
+     */
+    private Date delTime;
+    // columns END
 
-	private Set<Member> members = new HashSet<>(0);
+    private Set<Member> members = new HashSet<>(0);
 
-	// private Set<Coupon> coupons = new HashSet(0);
+    // private Set<Coupon> coupons = new HashSet(0);
 
-	/**
-	 * 等级折扣
-	 */
-	private List<CommodityLevelDiscount> commodityLevelDiscounts;
+    /**
+     * 等级折扣
+     */
+    private List<CommodityLevelDiscount> commodityLevelDiscounts;
 
-	public MemberLevel() {
-	}
+    public MemberLevel() {
+    }
 
-	public MemberLevel(int id) {
-		this.id = id;
-	}
+    public MemberLevel(int id) {
+        this.id = id;
+    }
 
-	@Id
-	@GeneratedValue(strategy = IDENTITY)
-	@Column(unique = true, nullable = false, length = 10)
-	public int getId() {
-		return this.id;
-	}
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
+    @Column(unique = true, nullable = false, length = 10)
+    public int getId() {
+        return this.id;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	@Column(unique = false, nullable = true, length = 32)
-	public String getGuid() {
-		return this.guid;
-	}
+    @Column(length = 32)
+    public String getGuid() {
+        return this.guid;
+    }
 
-	public void setGuid(String guid) {
-		this.guid = guid;
-	}
+    public void setGuid(String guid) {
+        this.guid = guid;
+    }
 
-	@Column(unique = false, nullable = false, length = 32)
-	public String getName() {
-		return this.name;
-	}
+    @Column(unique = false, nullable = false, length = 32)
+    public String getName() {
+        return this.name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	@Column(unique = false, nullable = false, length = 10)
-	public int getQuantity() {
-		if (members != null) {
-			this.quantity = members.size();
-		}
-		return this.quantity;
-	}
+    @Column(unique = false, nullable = false, length = 10)
+    public int getQuantity() {
+        if (members != null) {
+            this.quantity = members.size();
+        }
+        return this.quantity;
+    }
 
-	public void setQuantity(int quantity) {
-		if (members != null && quantity < 1) {
-			quantity = members.size();
-		}
-		this.quantity = quantity;
-	}
+    public void setQuantity(int quantity) {
+        if (members != null && quantity < 1) {
+            quantity = members.size();
+        }
+        this.quantity = quantity;
+    }
 
-	@Column(unique = false, nullable = false, length = 10)
-	public int getGrowthValue() {
-		return this.growthValue;
-	}
+    @Column(unique = false, nullable = false, length = 10)
+    public int getGrowthValue() {
+        return this.growthValue;
+    }
 
-	public void setGrowthValue(int growthValue) {
-		this.growthValue = growthValue;
-	}
+    public void setGrowthValue(int growthValue) {
+        this.growthValue = growthValue;
+    }
 
-	@Column(unique = false, nullable = false, length = 5)
-	public BigDecimal getDiscount() {
-		return this.discount;
-	}
+    @Column(unique = false, nullable = false, length = 5)
+    public BigDecimal getDiscount() {
+        return this.discount;
+    }
 
-	public void setDiscount(BigDecimal discount) {
-		this.discount = discount;
-	}
+    public void setDiscount(BigDecimal discount) {
+        this.discount = discount;
+    }
 
-	@Column(unique = false, nullable = true, length = 0)
-	public Integer getInitial() {
-		return this.initial;
-	}
+    @Column(length = 0)
+    public Integer getInitial() {
+        return this.initial;
+    }
 
-	public void setInitial(Integer initial) {
-		this.initial = initial;
-	}
+    public void setInitial(Integer initial) {
+        this.initial = initial;
+    }
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@JsonSerialize(using = JsonTimestampSerializer.class)
-	@Column(unique = false, nullable = true, length = 19)
-	public Date getCreateTime() {
-		return this.createTime;
-	}
+    @Column(length = 11)
+    public Integer getCountNumber() {
+        return countNumber;
+    }
 
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
+    public void setCountNumber(Integer countNumber) {
+        this.countNumber = countNumber;
+    }
 
-	@Column(unique = false, nullable = false, length = 0)
-	public Integer getDeleted() {
-		return this.deleted;
-	}
+    @Column(precision = 10, scale = 2)
+    public BigDecimal getBonusBalance() {
+        return bonusBalance;
+    }
 
-	public void setDeleted(Integer deleted) {
-		this.deleted = deleted;
-	}
+    public void setBonusBalance(BigDecimal bonusBalance) {
+        this.bonusBalance = bonusBalance;
+    }
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@JsonSerialize(using = JsonTimestampSerializer.class)
-	@Column(unique = false, nullable = true, length = 19)
-	public Date getDelTime() {
-		return this.delTime;
-	}
+    @Column(precision = 5, scale = 2)
+    public BigDecimal getFristRoyalty() {
+        return fristRoyalty;
+    }
 
-	public void setDelTime(Date delTime) {
-		this.delTime = delTime;
-	}
+    public void setFristRoyalty(BigDecimal fristRoyalty) {
+        this.fristRoyalty = fristRoyalty;
+    }
 
-	@JsonIgnore
-	@OneToMany(cascade = { CascadeType.MERGE }, fetch = FetchType.LAZY, mappedBy = "memberLevel")
-	public Set<Member> getMembers() {
-		return members;
-	}
+    @Column(precision = 5, scale = 2)
+    public BigDecimal getSecondRoyalty() {
+        return secondRoyalty;
+    }
 
-	public void setMembers(Set<Member> member) {
-		this.members = member;
-	}
+    public void setSecondRoyalty(BigDecimal secondRoyalty) {
+        this.secondRoyalty = secondRoyalty;
+    }
 
-	@Column(unique = false, nullable = false, length = 0)
-	public Integer getRank() {
-		return rank;
-	}
+    @Temporal(TemporalType.TIMESTAMP)
+    @JsonSerialize(using = JsonTimestampSerializer.class)
+    @Column(length = 19)
+    public Date getCreateTime() {
+        return this.createTime;
+    }
 
-	public void setRank(Integer rank) {
-		this.rank = rank;
-	}
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
 
-	@Column(unique = false, nullable = false, length = 0)
-	public Integer getDefaulted() {
-		return defaulted;
-	}
+    @Column(unique = false, nullable = false, length = 0)
+    public Integer getDeleted() {
+        return this.deleted;
+    }
 
-	public void setDefaulted(Integer defaulted) {
-		this.defaulted = defaulted;
-	}
+    public void setDeleted(Integer deleted) {
+        this.deleted = deleted;
+    }
 
-	@ManyToMany(cascade = CascadeType.MERGE)
-	@JoinTable(name = "commodity_level_discount", joinColumns = @JoinColumn(name = "MEMBER_LEVEL_ID"), inverseJoinColumns = @JoinColumn(name = "COMMODITY_ID"))
-	@JsonIgnore
-	public List<CommodityLevelDiscount> getCommodityLevelDiscounts() {
-		return commodityLevelDiscounts;
-	}
+    @Temporal(TemporalType.TIMESTAMP)
+    @JsonSerialize(using = JsonTimestampSerializer.class)
+    @Column(length = 19)
+    public Date getDelTime() {
+        return this.delTime;
+    }
 
-	public void setCommodityLevelDiscounts(List<CommodityLevelDiscount> commodityLevelDiscounts) {
-		this.commodityLevelDiscounts = commodityLevelDiscounts;
-	}
+    public void setDelTime(Date delTime) {
+        this.delTime = delTime;
+    }
+
+    @JsonIgnore
+    @OneToMany(cascade = {CascadeType.MERGE}, fetch = FetchType.LAZY, mappedBy = "memberLevel")
+    public Set<Member> getMembers() {
+        return members;
+    }
+
+    public void setMembers(Set<Member> member) {
+        this.members = member;
+    }
+
+    @Column(unique = false, nullable = false, length = 0)
+    public Integer getRank() {
+        return rank;
+    }
+
+    public void setRank(Integer rank) {
+        this.rank = rank;
+    }
+
+    @Column(unique = false, nullable = false, length = 0)
+    public Integer getDefaulted() {
+        return defaulted;
+    }
+
+    public void setDefaulted(Integer defaulted) {
+        this.defaulted = defaulted;
+    }
+
+    @ManyToMany(cascade = CascadeType.MERGE)
+    @JoinTable(name = "commodity_level_discount", joinColumns = @JoinColumn(name = "MEMBER_LEVEL_ID"), inverseJoinColumns = @JoinColumn(name = "COMMODITY_ID"))
+    @JsonIgnore
+    public List<CommodityLevelDiscount> getCommodityLevelDiscounts() {
+        return commodityLevelDiscounts;
+    }
+
+    public void setCommodityLevelDiscounts(List<CommodityLevelDiscount> commodityLevelDiscounts) {
+        this.commodityLevelDiscounts = commodityLevelDiscounts;
+    }
 
 }

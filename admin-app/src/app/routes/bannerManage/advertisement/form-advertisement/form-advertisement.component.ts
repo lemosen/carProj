@@ -101,10 +101,12 @@ export class FormAdvertisementComponent implements OnInit, OnChanges {
   linkTypes = [{
     code: 1,
     title: "报考",
-  }, {
-    code: 2,
-    title: "文章",
-  }/*, {
+  }
+  // , {
+  //   code: 2,
+  //   title: "文章",
+  // }
+  /*, {
     code: 3,
     title: "活动",
   }, {

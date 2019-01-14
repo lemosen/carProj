@@ -41,7 +41,7 @@ import com.yihz.common.persistence.AttributeReplication;
 import com.yihz.common.persistence.Pagination;
 
 /**
- * 运营分类
+ * 报考分类
  * 
  * @author lemosen
  * @version 1.0
@@ -86,7 +86,7 @@ public class OperateCategoryServiceImpl implements IOperateCategoryService, Init
 		int checkName = operateCategoryDao.countByParentAndCategoryNameAndDeleted(operateCategoryConvert.toEntity(operateCategoryBo.getParent()),
 				operateCategoryBo.getCategoryName().trim(), Deleted.DEL_FALSE);
 		if (checkName > 0) {
-			throw new BusinessException("同级运营分类名称不能重复");
+			throw new BusinessException("同级报考分类名称不能重复");
 		}
 		operateCategoryBo.setCategoryNo(NumberGenerateUtils.generateCategoryNo());
 		operateCategoryBo.setCategoryName(operateCategoryBo.getCategoryName().trim());
@@ -116,7 +116,7 @@ public class OperateCategoryServiceImpl implements IOperateCategoryService, Init
 		int checkName = operateCategoryDao.countByParentAndCategoryNameAndDeletedAndIdNot(operateCategoryConvert.toEntity(operateCategoryBo.getParent()),
 				operateCategoryBo.getCategoryName().trim(), Deleted.DEL_FALSE, operateCategoryBo.getId());
 		if (checkName > 0) {
-			throw new BusinessException("同级运营分类名称不能重复");
+			throw new BusinessException("同级报考分类名称不能重复");
 		}
 		operateCategoryBo.setCategoryName(operateCategoryBo.getCategoryName().trim());
 		OperateCategory dbOperateCategory = operateCategoryDao.getOne(operateCategoryBo.getId());

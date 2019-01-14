@@ -31,7 +31,7 @@ export class FormOperateCategoryComponent implements OnInit, OnChanges {
   @ViewChild('categoryTreeSelect') categoryTreeSelect: CategoryTreeSelectComponent
   isShowPreCategory = true;
 
-  linkTypes = [{code: 1, title: "报考",}, {code: 2, title: "文章",}, {code: 3, title: "活动",}, {code: 4, title: "专区",}]
+  linkTypes = [{code: 1, title: "报考",}]
 
   formErrors = {
     parent: [],

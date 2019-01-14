@@ -98,8 +98,6 @@ export class ListAfterSaleReasonComponent implements OnInit {
 
   types = [
     {id: 1, name: "退款"},
-    {id: 2, name: "退货退款"},
-    {id: 3, name: "换货"},
   ]
 
 }

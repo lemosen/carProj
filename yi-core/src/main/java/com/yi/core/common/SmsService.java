@@ -59,11 +59,11 @@ public class SmsService {
 	/** 阿里云短信发送状态 */
 	private static final String SUCCESS = "OK";
 	/** 阿里云 accessKey */
-	private static final String ACCESS_KEY_ID = "LTAIevctXMoHxG3j";
+	private static final String ACCESS_KEY_ID = "LTAIsRFFQD4m98rF";
 	/** 阿里云 accessSecret */
-	private static final String ACCESS_KEY_SECRET = "BBODv7ugOOZKdXaGSd0rZmthZxXwtp";
+	private static final String ACCESS_KEY_SECRET = "1LCRecYDFjmSWUGg9sZDFLBHMjXFU1";
 	/** 阿里云签名 */
-	private static final String SIGN_NAME = "壹壹优选";
+	private static final String SIGN_NAME = "蓝米信息";
 	/** 地区 */
 	private static final String REGION_ID = "cn-hangzhou";
 	/** 端点名称 */

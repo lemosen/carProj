@@ -8,7 +8,7 @@ sms:
   #阿里云 accessSecret
   access_key_secret: BBODv7ugOOZKdXaGSd0rZmthZxXwtp
   #阿里云签名
-  sign_name: 壹壹优选
+  sign_name: 蓝米教育
   
   #以下为基础配置 无需修改
   #短信API产品名称（短信产品名固定，无需修改）

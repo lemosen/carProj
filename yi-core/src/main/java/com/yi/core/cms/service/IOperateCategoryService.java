@@ -66,14 +66,14 @@ public interface IOperateCategoryService {
 	List<OperateCategoryListVo> getAll();
 
 	/**
-	 * 获取首级及二级 运营分类集合
+	 * 获取首级及二级 报考分类集合
 	 * 
 	 * @return
 	 */
 	List<OperateCategoryListVo> getOperateCategoryListVosForApp();
 
 	/**
-	 * 根据ID 获取运营分类
+	 * 根据ID 获取报考分类
 	 * 
 	 * @param ids
 	 * @return

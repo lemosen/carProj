@@ -28,7 +28,7 @@ import com.yihz.common.persistence.Pagination;
 import com.yihz.common.utils.web.RestUtils;
 
 /**
- * 运营分类
+ * 报考分类
  * 
  * @author lemosen
  * @version 1.0

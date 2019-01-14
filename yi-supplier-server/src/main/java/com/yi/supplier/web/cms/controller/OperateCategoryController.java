@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 
 /**
- * 运营分类
+ * 报考分类
  * 
  * @author lemosen
  * @version 1.0

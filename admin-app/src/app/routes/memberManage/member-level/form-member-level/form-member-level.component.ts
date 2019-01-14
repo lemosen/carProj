@@ -95,10 +95,14 @@ export class FormMemberLevelComponent implements OnInit, OnChanges {
   buildForm(): void {
     this.commonForm = this.fb.group({
       name: [null, Validators.compose([Validators.required, Validators.maxLength(32)])],
-      growthValue: [null, Validators.compose([Validators.required, Validators.maxLength(10)])],
-      discount: [0, Validators.compose([Validators.required, Validators.maxLength(5)])],
+      growthValue: [10e8, Validators.compose([Validators.required, Validators.maxLength(10)])],
+      discount: [100, Validators.compose([Validators.required, Validators.maxLength(5)])],
       defaulted: [0, Validators.compose([Validators.required, Validators.min(0), Validators.max(1)])],
       rank: [1, Validators.compose([Validators.required, Validators.min(1)])],
+      countNumber: [1, Validators.compose([Validators.required, Validators.min(1)])],
+      bonusBalance: [1, Validators.compose([Validators.required, Validators.min(1)])],
+      fristRoyalty: [1, Validators.compose([Validators.required, Validators.min(1)])],
+      secondRoyalty: [1, Validators.compose([Validators.required, Validators.min(1)])],
     });
   }
 
@@ -109,6 +113,10 @@ export class FormMemberLevelComponent implements OnInit, OnChanges {
       discount: memberLevel.discount,
       defaulted: memberLevel.defaulted,
       rank: memberLevel.rank,
+      countNumber:memberLevel.countNumber,
+      bonusBalance:memberLevel.bonusBalance,
+      fristRoyalty:memberLevel.fristRoyalty,
+      secondRoyalty:memberLevel.secondRoyalty,
     });
   }
 

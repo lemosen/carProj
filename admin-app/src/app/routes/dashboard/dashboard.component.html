@@ -41,10 +41,10 @@
   </div>
 
   <div nz-col nzXs="8" nzSm="8">
-    <g2-card [title]="'待发货订单'" total="{{homepage.waitDeliveryNum}}" contentHeight="77px" [action]="action2"
+    <g2-card [title]="'待审核订单'" total="{{homepage.waitDeliveryNum}}" contentHeight="77px" [action]="action2"
              routerLink="/dashboard/sale-order/list" style="cursor: pointer">
       <ng-template #action2>
-        <nz-tooltip [nzTitle]="'待发货订单'">
+        <nz-tooltip [nzTitle]="'待审核订单'">
           <i nz-tooltip class="anticon anticon-info-circle-o"></i>
         </nz-tooltip>
       </ng-template>
@@ -68,7 +68,7 @@
 </div>
 
 <div nz-row [nzGutter]="24" class="pt-lg">
-  <div nz-col nzXs="6" nzSm="6">
+  <div nz-col nzXs="8" nzSm="8">
     <div class="count-back">
       <p class="data">
         <span>{{homepage.memberNum}}</span>
@@ -78,27 +78,27 @@
       </p>
     </div>
   </div>
-  <div nz-col nzXs="6" nzSm="6">
+  <div nz-col nzXs="8" nzSm="8">
     <div class="count-back">
       <p class="data">
         <span>{{homepage.commodityNum}}</span>
       </p>
       <p class="contents">
-        <span>报考数</span>
+        <span>报考科目数</span>
       </p>
     </div>
   </div>
-  <div nz-col nzXs="6" nzSm="6">
-    <div class="count-back">
-      <p class="data">
-        <span>{{homepage.supplierNum}}</span>
-      </p>
-      <p class="contents">
-        <span>供应商</span>
-      </p>
-    </div>
-  </div>
-  <div nz-col nzXs="6" nzSm="6">
+  <!--<div nz-col nzXs="6" nzSm="6">-->
+    <!--<div class="count-back">-->
+      <!--<p class="data">-->
+        <!--<span>{{homepage.supplierNum}}</span>-->
+      <!--</p>-->
+      <!--<p class="contents">-->
+        <!--<span>供应商</span>-->
+      <!--</p>-->
+    <!--</div>-->
+  <!--</div>-->
+  <div nz-col nzXs="8" nzSm="8">
     <div class="count-back">
       <p class="data">
         <span>{{homepage.afterSaleOrderNum}}</span>

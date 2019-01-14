@@ -32,8 +32,6 @@ export class ListCommodityComponent implements OnInit {
 
   menus = [
     {name: "全部报考", value: ""},
-    {name: "已上架", value: 1},
-    {name: "仓库中", value: 2},
   ];
 
   onItemClick(i) {

@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : 壹壹-阿里云
+Source Server         : 蓝米-阿里云
 Source Server Version : 50722
 Source Host           : 47.107.68.47:3306
 Source Database       : yi_test
@@ -1031,11 +1031,11 @@ CREATE TABLE `notice_read` (
 -- ----------------------------
 DROP TABLE IF EXISTS `operate_category`;
 CREATE TABLE `operate_category` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT COMMENT '运营分类ID',
+  `ID` int(11) NOT NULL AUTO_INCREMENT COMMENT '报考分类ID',
   `GUID` varchar(32) DEFAULT NULL COMMENT 'GUID',
-  `PARENT_ID` int(11) DEFAULT NULL COMMENT '上级运营分类ID',
-  `CODE` varchar(16) DEFAULT NULL COMMENT '运营分类编码',
-  `NAME` varchar(32) NOT NULL COMMENT '运营分类名称',
+  `PARENT_ID` int(11) DEFAULT NULL COMMENT '上级报考分类ID',
+  `CODE` varchar(16) DEFAULT NULL COMMENT '报考分类编码',
+  `NAME` varchar(32) NOT NULL COMMENT '报考分类名称',
   `STATE` tinyint(4) NOT NULL DEFAULT '0' COMMENT '状态（0启用1禁用）',
   `IMG_PATH` varchar(255) DEFAULT NULL COMMENT '图片路径',
   `SORT` tinyint(4) DEFAULT NULL COMMENT '排序',
@@ -1047,7 +1047,7 @@ CREATE TABLE `operate_category` (
   UNIQUE KEY `UNIQUE_ID` (`ID`) USING BTREE,
   KEY `fk_parent_id_13` (`PARENT_ID`) USING BTREE,
   CONSTRAINT `fk_parent_id_13` FOREIGN KEY (`PARENT_ID`) REFERENCES `operate_category` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COMMENT='运营分类表';
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COMMENT='报考分类表';
 
 -- ----------------------------
 -- Table structure for order_log
@@ -2053,13 +2053,13 @@ CREATE TABLE `region_group` (
 
 CREATE TABLE `commodity_operate_category` (
   `COMMODITY_ID` int(11) NOT NULL COMMENT '商品（commodity表ID）',
-  `OPERATE_CATEGORY_ID` int(11) NOT NULL COMMENT '运营分类（operate_category表ID）',
+  `OPERATE_CATEGORY_ID` int(11) NOT NULL COMMENT '报考分类（operate_category表ID）',
   PRIMARY KEY (`COMMODITY_ID`,`OPERATE_CATEGORY_ID`) USING BTREE,
   KEY `fk_commodity_id_11` (`COMMODITY_ID`) USING BTREE,
   KEY `fk_operate_category_id_11` (`OPERATE_CATEGORY_ID`) USING BTREE,
   CONSTRAINT `fk_operate_category_id_11` FOREIGN KEY (`OPERATE_CATEGORY_ID`) REFERENCES `operate_category` (`ID`),
   CONSTRAINT `fk_commodity_id_11` FOREIGN KEY (`COMMODITY_ID`) REFERENCES `commodity` (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='商品运营分类表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='商品报考分类表';
 
 
 CREATE TABLE `task_config` (

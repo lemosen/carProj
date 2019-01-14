@@ -49,7 +49,7 @@ public class AlipayConfig {
 
 	/** 描述信息 -商品购买 */
 	public static final String BODY = "商品购买";
-	/** 商品名称 -壹壹优选-订单支付 */
-	public static final String SUBJECT = "壹壹优选-订单支付";
+	/** 商品名称 -蓝米教育-订单支付 */
+	public static final String SUBJECT = "蓝米教育-订单支付";
 
 }

@@ -2,7 +2,7 @@
 export class OperateCategory {
 
     /**
-       * 运营分类ID
+       * 报考分类ID
      */
     id:number;
 
@@ -12,22 +12,22 @@ export class OperateCategory {
     guid:string;
 
     /**
-       * 上级运营分类ID
+       * 上级报考分类ID
      */
     parent:OperateCategory;
 
     /**
-     * 下级级运营分类ID
+     * 下级级报考分类ID
      */
     children:OperateCategory[];
 
     /**
-       * 运营分类编码
+       * 报考分类编码
      */
     categoryNo:string;
 
     /**
-       * 运营分类名称
+       * 报考分类名称
      */
     categoryName:string;
 

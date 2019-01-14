@@ -8,8 +8,8 @@
       <nz-form-control nzXs="8" nzSm="8">
         <nz-radio-group formControlName="afterSaleType" id="afterSaleType">
           <label nz-radio [nzValue]="1">退款</label>
-          <label nz-radio [nzValue]="2">退货退款</label>
-          <label nz-radio [nzValue]="3">换货</label>
+          <!--<label nz-radio [nzValue]="2">退货退款</label>-->
+          <!--<label nz-radio [nzValue]="3">换货</label>-->
         </nz-radio-group>
         <nz-form-explain *ngIf="commonForm.get('afterSaleType').dirty&&commonForm.get('afterSaleType').errors">
           <ng-container *ngFor="let error of formErrors.afterSaleType">

@@ -96,7 +96,57 @@ public class MemberLevelVo extends VoDomain implements java.io.Serializable {
 	 */
 
 	private Date delTime;
+
+	/**
+	 * 邀请人数
+	 */
+	private Integer countNumber;
+	/**
+	 * 赠送红包余额
+	 */
+	private BigDecimal bonusBalance;
+	/**
+	 * 一级提成
+	 */
+	private BigDecimal fristRoyalty;
+	/**
+	 * 二级提成
+	 */
+	private BigDecimal secondRoyalty;
 	// columns END
+
+
+	public Integer getCountNumber() {
+		return countNumber;
+	}
+
+	public void setCountNumber(Integer countNumber) {
+		this.countNumber = countNumber;
+	}
+
+	public BigDecimal getBonusBalance() {
+		return bonusBalance;
+	}
+
+	public void setBonusBalance(BigDecimal bonusBalance) {
+		this.bonusBalance = bonusBalance;
+	}
+
+	public BigDecimal getFristRoyalty() {
+		return fristRoyalty;
+	}
+
+	public void setFristRoyalty(BigDecimal fristRoyalty) {
+		this.fristRoyalty = fristRoyalty;
+	}
+
+	public BigDecimal getSecondRoyalty() {
+		return secondRoyalty;
+	}
+
+	public void setSecondRoyalty(BigDecimal secondRoyalty) {
+		this.secondRoyalty = secondRoyalty;
+	}
 
 	public int getId() {
 		return this.id;

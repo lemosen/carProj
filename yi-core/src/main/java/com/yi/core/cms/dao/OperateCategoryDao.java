@@ -49,7 +49,7 @@ public interface OperateCategoryDao
 			Integer id);
 
 	/**
-	 * 根据父类查询运营分类
+	 * 根据父类查询报考分类
 	 * 
 	 * @param operateCategory
 	 * @param deleted

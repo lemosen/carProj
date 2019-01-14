@@ -20,7 +20,7 @@ import com.yihz.common.convert.domain.BoDomain;
 import com.yihz.common.json.deserializer.JsonTimestampDeserializer;
 
 /**
- * 运营分类
+ * 报考分类
  * 
  * @author lemosen
  * @version 1.0
@@ -33,7 +33,7 @@ public class OperateCategoryBo extends BoDomain implements java.io.Serializable 
 
 	// columns START
 	/**
-	 * 运营分类ID
+	 * 报考分类ID
 	 */
 	@Max(9999999999L)
 	private int id;
@@ -44,21 +44,21 @@ public class OperateCategoryBo extends BoDomain implements java.io.Serializable 
 	private String guid;
 
 	/**
-	 * 上级运营分类ID
+	 * 上级报考分类ID
 	 */
 	private OperateCategoryBo parent;
 
 	/**
-	 * 下级运营分类
+	 * 下级报考分类
 	 */
 	private Set<OperateCategoryBo> children;
 	/**
-	 * 运营分类编码
+	 * 报考分类编码
 	 */
 	@Length(max = 16)
 	private String categoryNo;
 	/**
-	 * 运营分类名称
+	 * 报考分类名称
 	 */
 	@NotBlank
 	@Length(max = 32)

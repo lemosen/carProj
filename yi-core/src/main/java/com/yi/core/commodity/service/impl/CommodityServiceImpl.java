@@ -146,7 +146,7 @@ public class CommodityServiceImpl implements ICommodityService, InitializingBean
 		query.setEntityClazz(Commodity.class);
 		query.setPredicate(((root, criteriaQuery, criteriaBuilder, list, list1) -> {
 			list.add(criteriaBuilder.and(criteriaBuilder.equal(root.get(Commodity_.deleted), Deleted.DEL_FALSE)));
-			// 根据运营分类id查询中间表 过滤商品分类
+			// 根据报考分类id查询中间表 过滤商品分类
 			Object categoryId = query.getParams().get("operateCategories.id");
 			if (categoryId != null) {
 				SetJoin<Commodity, OperateCategory> orgHospReportJoin = root.join(root.getModel().getDeclaredSet("operateCategories", OperateCategory.class), JoinType.LEFT);
@@ -175,7 +175,7 @@ public class CommodityServiceImpl implements ICommodityService, InitializingBean
 		query.setPredicate(((root, criteriaQuery, criteriaBuilder, list, list1) -> {
 			list.add(criteriaBuilder.and(criteriaBuilder.equal(root.get(Commodity_.deleted), Deleted.DEL_FALSE)));
 			list1.add(criteriaBuilder.desc(root.get(Commodity_.createTime)));
-			// 根据运营分类id查询中间表 过滤商品分类
+			// 根据报考分类id查询中间表 过滤商品分类
 			Object categoryId = query.getParams().get("operateCategories.id");
 			if (categoryId != null) {
 				SetJoin<Commodity, OperateCategory> orgHospReportJoin = root.join(root.getModel().getDeclaredSet("operateCategories", OperateCategory.class), JoinType.LEFT);
@@ -223,7 +223,7 @@ public class CommodityServiceImpl implements ICommodityService, InitializingBean
 	public Page<CommodityListVo> queryListVoForApp(Pagination<Commodity> query) {
 		query.setEntityClazz(Commodity.class);
 		query.setPredicate(((root, criteriaQuery, criteriaBuilder, list, list1) -> {
-			// 根据运营分类id查询中间表 过滤商品分类
+			// 根据报考分类id查询中间表 过滤商品分类
 			Object categoryId = query.getParams().get("operateCategories.id");
 			if (categoryId != null) {
 				SetJoin<Commodity, OperateCategory> orgHospReportJoin = root.join(root.getModel().getDeclaredSet("operateCategories", OperateCategory.class), JoinType.LEFT);
@@ -290,12 +290,12 @@ public class CommodityServiceImpl implements ICommodityService, InitializingBean
 	public CommodityVo getVoByIdForApp(int commodityId) {
 		Commodity dbCommodity = this.getById(commodityId);
 		if (dbCommodity != null) {
-			if (dbCommodity.getCouponGrantConfig() != null && ActivityEnum.STATE_DISABLE.getCode().equals(dbCommodity.getCouponGrantConfig().getState())) {
-				dbCommodity.setCouponGrantConfig(null);
-			} else {
-				dbCommodity.getCouponGrantConfig().setCouponGrantSteps(dbCommodity.getCouponGrantConfig().getCouponGrantSteps().stream()
-						.filter(tmp -> tmp.getGrantRate().compareTo(BigDecimal.ZERO) > 0).collect(Collectors.toList()));
-			}
+//			if (dbCommodity.getCouponGrantConfig() != null && ActivityEnum.STATE_DISABLE.getCode().equals(dbCommodity.getCouponGrantConfig().getState())) {
+//				dbCommodity.setCouponGrantConfig(null);
+//			} else {
+//				dbCommodity.getCouponGrantConfig().setCouponGrantSteps(dbCommodity.getCouponGrantConfig().getCouponGrantSteps().stream()
+//						.filter(tmp -> tmp.getGrantRate().compareTo(BigDecimal.ZERO) > 0).collect(Collectors.toList()));
+//			}
 			if (dbCommodity.getProducts() != null) {
 				dbCommodity.setProducts(null);
 				dbCommodity.setProducts(productService.findByCommodity_idAndDeleted(commodityId));
@@ -349,7 +349,7 @@ public class CommodityServiceImpl implements ICommodityService, InitializingBean
 			throw new BusinessException("商品分类不能为空");
 		}
 		if (commodity.getOperateCategories() == null) {
-			throw new BusinessException("运营分类不能为空");
+			throw new BusinessException("报考分类不能为空");
 		}
 		// 运费模板
 		if (CommodityEnum.FREIGHT_SET_TEMPLATE.getCode().equals(commodity.getFreightSet())) {
@@ -451,7 +451,7 @@ public class CommodityServiceImpl implements ICommodityService, InitializingBean
 			throw new BusinessException("商品分类不能为空");
 		}
 		if (commodity.getOperateCategories() == null) {
-			throw new BusinessException("运营分类不能为空");
+			throw new BusinessException("报考分类不能为空");
 		}
 		// 运费模板
 		if (CommodityEnum.FREIGHT_SET_TEMPLATE.getCode().equals(commodity.getFreightSet())) {
@@ -513,7 +513,7 @@ public class CommodityServiceImpl implements ICommodityService, InitializingBean
 			List<Region> tmpRegions = regionService.getRegionsByIds(ids);
 			dbCommodity.setRegions(tmpRegions.stream().collect(Collectors.toSet()));
 		}
-		// 更新运营分类
+		// 更新报考分类
 		if (CollectionUtils.isNotEmpty(commodity.getOperateCategories())) {
 			List<Integer> ids = commodity.getOperateCategories().stream().map(e -> e.getId()).collect(Collectors.toList());
 			List<OperateCategory> tmpOperateCategories = operateCategoryService.getOperateCategoriesByIds(ids);
@@ -628,7 +628,7 @@ public class CommodityServiceImpl implements ICommodityService, InitializingBean
 			// dbCommodity.setAttributeGroups(null);
 			// 删除会员等级折扣中间表数据
 			dbCommodity.setCommodityLevelDiscounts(null);
-			// 删除运营分类中间表数据
+			// 删除报考分类中间表数据
 			dbCommodity.setOperateCategories(null);
 			// 删除销售地区中间表数据
 			dbCommodity.setRegions(null);

@@ -17,7 +17,7 @@
     <nz-form-item *ngIf="isShowPreCategory">
       <nz-form-label nzXs="3" nzSm="3" nzFor="parent">上级分类</nz-form-label>
       <nz-form-control nzXs="8" nzSm="8">
-        <app-category-tree-select #categoryTreeSelect [service]="false" (result)="setParent($event)" [isCheck]="false"
+        <app-category-tree-select  #categoryTreeSelect [service]="false" (result)="setParent($event)" [isCheck]="false"
                                   [showRoot]="false"
                                   [nodeLevel]="1"></app-category-tree-select>
       </nz-form-control>

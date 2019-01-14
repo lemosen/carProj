@@ -128,7 +128,7 @@ public class WeChatConfig {
 	/** package-Sign=WXPay */
 	public static final String PACKAGE = "Sign=WXPay";
 	/** 商品描述 */
-	public static final String BODY = "壹壹优选-订单支付";
+	public static final String BODY = "蓝米教育-订单支付";
 	/** 返回状态码 SUCCESS */
 	public static final String SUCCESS = "SUCCESS";
 	/** 返回SUCCESS信息 */

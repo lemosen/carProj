@@ -21,7 +21,7 @@ INSERT  INTO `resc`(`ID`,`GUID`,`PARENT_ID`,`CODE`,`NAME`,`URL`,`CREATE_TIME`,`D
   
 (6,'',NULL,'','商品分类','categoryManage',NOW(),0,NULL),
 (7,'',6,'','商品分类','category/query',NOW(),0,NULL),
-(8,'',6,'','运营分类','operateCategory/getAll',NOW(),0,NULL),
+(8,'',6,'','报考分类','operateCategory/getAll',NOW(),0,NULL),
   
 (9,'',NULL,'','商品管理','commodityManage',NOW(),0,NULL),
 (10,'',9,'','商品列表','commodity/query',NOW(),0,NULL),

@@ -60,4 +60,8 @@ export class MemberLevel {
        * 删除时间
      */
     delTime:string;
+  countNumber:number;
+  bonusBalance:number;
+  fristRoyalty:number;
+  secondRoyalty:number;
 }

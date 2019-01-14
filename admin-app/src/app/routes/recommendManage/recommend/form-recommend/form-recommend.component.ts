@@ -123,7 +123,7 @@ export class FormRecommendComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.positionPageQuery.addOnlyFilter("positionType", "1", "neq")
-    this.positionPageQuery.addOnlyFilter("state", "0", "neq")
+    this.positionPageQuery.addOnlyFilter("state", "0", "eq")
     this.commodityPageQuery.addFilter("state", 2, "eq");
     this.commodityPageQuery.addFilter("shelf", 1, "eq");
 

@@ -96,7 +96,7 @@ public class PaymentUtils {
 		orderMap.put("nonce_str", generateNonceStr());
 		// 签名类型
 		orderMap.put("sign_type", WeChatConfig.SIGN_TYPE_MD5);
-		// 商品描述 ps:壹壹优选-订单支付
+		// 商品描述 ps:蓝米教育-订单支付
 		orderMap.put("body", WeChatConfig.BODY);
 		// 商品详情
 		// orderMap.put("detail", "");
@@ -154,7 +154,7 @@ public class PaymentUtils {
 		orderMap.put("nonce_str", generateNonceStr());
 		// 签名类型
 		orderMap.put("sign_type", WeChatConfig.SIGN_TYPE_MD5);
-		// 商品描述 ps:壹壹优选-订单支付
+		// 商品描述 ps:蓝米教育-订单支付
 		orderMap.put("body", WeChatConfig.BODY);
 		// 商品详情
 		// orderMap.put("detail", "");

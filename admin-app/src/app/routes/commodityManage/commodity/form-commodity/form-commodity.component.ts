@@ -202,7 +202,7 @@ export class FormCommodityComponent extends FormAttrGroup implements OnInit, OnC
   }
 
   /**
-   * 运营分类回调赋值
+   * 报考分类回调赋值
    * @param choose
    */
   setCommodityOperateCategory(choose) {
@@ -224,7 +224,7 @@ export class FormCommodityComponent extends FormAttrGroup implements OnInit, OnC
   /**
    * 地区回调赋值
    * @param event
-   */
+   */ 
   setRegions(event) {
     this.commonForm.patchValue({
       regions: event
@@ -303,12 +303,12 @@ export class FormCommodityComponent extends FormAttrGroup implements OnInit, OnC
       operateCategories: commodity.operateCategories,
       attachmentVos: commodity.attachmentVos,
     });
-    this.regionGroup.select(commodity.regions)
+    // this.regionGroup.select(commodity.regions)
     //赋值报考图片数组
     this.getCommodityImgPath();
 
-    //选择报考管理分类  运营分类
-    this.categoryTreeSelect.select(this.commonForm.value.category.id)
+    //选择报考管理分类  报考分类
+    // this.categoryTreeSelect.select(this.commonForm.value.category.id)
     this.operateCategoryTreeSelect.select(this.commonForm.value.operateCategories.map((e) => e.id))
     //设置富文本内容
     this.editor.setContent(this.commonForm.value.description);
