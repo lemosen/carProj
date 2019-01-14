@@ -17,7 +17,7 @@ import {FormAttrGroup} from "./form-attr-group";
 import {freightTemplateValidator} from "@shared/custom-validators/custom-validator";
 import {COMMODITY_FORM_ERRORS} from "@shared/common/common-form-error";
 import {FreightTemplateConfigService} from "../../../services/freight-template-config.service";
-
+import {RegionGroupService} from "../../../services/region-group.service";
 @Component({
   selector: 'form-commodity',
   templateUrl: './form-commodity.component.html',
@@ -42,7 +42,7 @@ export class FormCommodityComponent extends FormAttrGroup implements OnInit, OnC
 
   formErrors = COMMODITY_FORM_ERRORS;
 
-  constructor(public commodityService: CommodityService, public freightTemplateConfigService: FreightTemplateConfigService, public supplierService: SupplierService, public regionService: RegionService, public fb: FormBuilder, public location: Location, public msgSrv: NzMessageService, public categoryService: CategoryService, public memberLevelService: MemberLevelService) {
+  constructor(public regionGroupService: RegionGroupService,public commodityService: CommodityService, public freightTemplateConfigService: FreightTemplateConfigService, public supplierService: SupplierService, public regionService: RegionService, public fb: FormBuilder, public location: Location, public msgSrv: NzMessageService, public categoryService: CategoryService, public memberLevelService: MemberLevelService) {
     super(commodityService, fb);
     this.buildForm();
   }
@@ -232,6 +232,7 @@ export class FormCommodityComponent extends FormAttrGroup implements OnInit, OnC
   }
 
   buildForm(): void {
+   
     this.commonForm = this.fb.group({
       commodityNo: [null, Validators.compose([Validators.maxLength(32)])],
       commodityName: [null, Validators.compose([Validators.required, Validators.maxLength(64)])],
@@ -252,7 +253,7 @@ export class FormCommodityComponent extends FormAttrGroup implements OnInit, OnC
       description: [],
       attributeGroups: this.fb.array([]),
       products: this.fb.array([]),
-      regions: [{id:9}, Validators.compose([Validators.required])],
+      regions: [[{id:9}], Validators.compose([Validators.required])],
       category: [{id:409}, Validators.compose([Validators.required])],
       operateCategories: [[]],
       attachmentVos: [[]],
@@ -263,6 +264,16 @@ export class FormCommodityComponent extends FormAttrGroup implements OnInit, OnC
     this.commonForm.get('freightTemplate').setValidators(freightTemplateValidator(this.commonForm.get('freightSet')))
     //初始化折扣表单
     this.initCommodityLevelDiscountsFormArray()
+    this.regionGroupService.getRegionGroups().subscribe(response => {
+      
+      this.commonForm.patchValue({
+        regions:response['data'][0].regions
+      })
+
+    })
+    
+    ;
+    
   }
 
   setBuildFormValue(commodity: Commodity) {
