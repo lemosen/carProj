@@ -52,6 +52,8 @@ const routes: Routes = [
     {path: 'PaymentFailPage', loadChildren: './payment-fail/payment-fail.module#PaymentFailPageModule'},
     {path: 'CouponPage', loadChildren: './coupon-about/coupon/coupon.module#CouponPageModule'},
     {path: 'AgreementPage', loadChildren: './rule-info/agreement/agreement.module#AgreementPageModule'},
+    {path: 'RegisterPage', loadChildren: './register/register.module#RegisterPageModule'},
+    {path: 'ForgetPasswordPage', loadChildren: './forget-password/forget-password.module#ForgetPasswordPageModule'},
 
 
 
