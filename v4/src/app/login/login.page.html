@@ -1,49 +1,4 @@
-<ion-content no-padding id="container">
-    <img class="back-btn" src="../../assets/app_icon/home/back@2x.png" (click)="goBack()">
-    <div class="login-photo"></div>
-    <div style="text-align: center">
-        <div class="flex-center" style="flex-direction: column">
-            <div class="input-item">
-                <label><img src="../../assets/app_icon/customer/手机@2x.png"/></label>
-                <input id="phone" type="number" required placeholder="请输入手机号" [(ngModel)]="params.usertel"
-                >
-            </div>
-            <div class="input-item">
-                <label><img src="../../assets/app_icon/customer/验证码@2x.png"/></label>
-                <input id="code" type="text" required placeholder="请输入验证码" [(ngModel)]="params.vcode"
-                >
-                <label class="common-notice" style="white-space: nowrap"
-                       [ngStyle]="{'color':verifyCode.disable ? 'black' : 'lightgrey'}"
-                       (click)="getCode()">{{verifyCode.verifyCodeTips}}</label>
-            </div>
-        </div>
-
-        <div class="ver-midd" style="width: 80%;margin-top: 5%">
-            <button class="btn-color btn-full" (click)="login()">确认</button>
-            <div class=agreement>
-                <ion-checkbox [(ngModel)]="isAgree" color="warning"></ion-checkbox>
-                <ion-label>已阅读并同意<a (click)="goAgreement()" class="yellow">《用户服务协议》</a></ion-label>
-            </div>
-        </div>
-    </div>
-
-
-    <!--<div class="third-party">-->
-    <!--<div margin-bottom>-->
-    <!--<span class="row-line"></span>-->
-    <!--<span>第三方登录</span>-->
-    <!--<span class="row-line"></span>-->
-    <!--</div>-->
-    <!--<div>-->
-    <!--<img src="../../assets/app_icon/basic_nwk/微信icon@2x.png" width="50" height="50" />-->
-    <!--</div>-->
-    <!--</div>-->
-</ion-content>
-
-
-
-
-<!--<ion-content no-padding>
+<ion-content no-padding>
     <img class="left backBtn" src="../../assets/app_icon/home/back@2x.png" (click)="goBack()">
     <div class="login-photo"></div>
     <base-login [type]="'login'">
@@ -58,9 +13,9 @@
             <ion-col class="center" (click)="weChatLogin()">
                 <img src="../../assets/app_icon/customer/微信@2x.png"/>
             </ion-col>
-            &lt;!&ndash;<ion-col class="center" (click)="qqLogin()">&ndash;&gt;
-                &lt;!&ndash;<img src="../../assets/app_icon/customer/QQ@2x.png"/>&ndash;&gt;
-            &lt;!&ndash;</ion-col>&ndash;&gt;
+            <!--<ion-col class="center" (click)="qqLogin()">-->
+                <!--<img src="../../assets/app_icon/customer/QQ@2x.png"/>-->
+            <!--</ion-col>-->
             <ion-col></ion-col>
         </ion-row>
     </base-login>
@@ -71,4 +26,4 @@
     </div>
 
 
-</ion-content>-->
+</ion-content>

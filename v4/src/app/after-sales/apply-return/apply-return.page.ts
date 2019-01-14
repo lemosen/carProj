@@ -39,7 +39,7 @@ export class ApplyReturnPage implements OnInit {
             attachmentVos: [[]],
             saleOrder: [],
             member: [],
-            afterSaleType: ["", Validators.compose([Validators.required, Validators.minLength(1)])],
+            afterSaleType: ["未收到货", Validators.compose([Validators.required, Validators.minLength(1)])],
             afterSaleReason: ["", Validators.compose([Validators.required, Validators.minLength(1)])],
             problemDesc: ["", Validators.compose([Validators.required, Validators.minLength(1)])],
             contact: ["", Validators.required],

@@ -24,8 +24,18 @@ export class ShowCommoditiesComponent implements OnChanges {
     ngOnChanges(changes: SimpleChanges): void {
         if (changes.item.currentValue) {
             this._showCommoditiesContent.clear();
-            const controlComponentFactory = this.componentFactoryResolver.resolveComponentFactory(ShowTwoCommoditiesComponent);
-            this._controlRef = this._showCommoditiesContent.createComponent(controlComponentFactory);
+            if (changes.item.currentValue.showMode == 2) {
+                const controlComponentFactory = this.componentFactoryResolver.resolveComponentFactory(ShowTwoCommoditiesComponent);
+                this._controlRef = this._showCommoditiesContent.createComponent(controlComponentFactory);
+            }
+            if (changes.item.currentValue.showMode == 3) {
+                const controlComponentFactory = this.componentFactoryResolver.resolveComponentFactory(ShowThreeCommoditiesComponent);
+                this._controlRef = this._showCommoditiesContent.createComponent(controlComponentFactory);
+            }
+            if (changes.item.currentValue.showMode == 4) {
+                const controlComponentFactory = this.componentFactoryResolver.resolveComponentFactory(ShowFourCommoditiesComponent);
+                this._controlRef = this._showCommoditiesContent.createComponent(controlComponentFactory);
+            }
             this._controlRef.instance.item = this.item;
             this._controlRef.instance.goCommodity = this.goCommodity;
             this._controlRef.instance.goUrl = this.goUrl;
