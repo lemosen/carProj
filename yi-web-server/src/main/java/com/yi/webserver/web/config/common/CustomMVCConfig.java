@@ -104,7 +104,7 @@ public class CustomMVCConfig implements WebMvcConfigurer {
 
 		registry.addResourceHandler("/web/**").addResourceLocations("classpath:/static/web/");
 
-		registry.addResourceHandler("/MP_verify_mF8h9CDuwXGuBFpi.txt").addResourceLocations("classpath:/static/MP_verify_mF8h9CDuwXGuBFpi.txt");
+		registry.addResourceHandler("/MP_verify_KImC9K3rN7sukpNJ.txt").addResourceLocations("classpath:/static/MP_verify_KImC9K3rN7sukpNJ.txt");
 	}
 
 }

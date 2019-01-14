@@ -5,8 +5,8 @@ export class AppConfig {
 
     // baseURL: string = "http://remote:8001";    // 测试环境
     // baseURL: string = "http://192.168.0.62:8081/";   // 开发环境
-    // baseURL: string = "http://h5server.bluerice.cn/";      // 开发环境
-    baseURL: string = "http://localhost:8081/";       // 开发环境
+    baseURL: string = "http://h5server.bluerice.cn/";      // 开发环境
+    // baseURL: string = "http://localhost:8081/";       // 开发环境
     // baseURL: string = "http://test.app.my11mall.com/";      // 开发环境
     // baseURL: string = "http://h5server.bluerice.cn/";      // 开发环境
     // baseURL: string = "/app/";                       // 开发环境
@@ -14,8 +14,8 @@ export class AppConfig {
 
     wechatAppId = 'wx4cfd5bff2944b9d4';
 
-    // wechatAutoLogin=true;
-    wechatAutoLogin=false;
+    wechatAutoLogin=true;
+    // wechatAutoLogin=false;
 
     hostURL: string;
     imgBaseURL: string;

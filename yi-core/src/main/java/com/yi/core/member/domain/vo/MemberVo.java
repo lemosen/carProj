@@ -6,6 +6,7 @@
 
 package com.yi.core.member.domain.vo;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -177,6 +178,25 @@ public class MemberVo extends VoDomain implements java.io.Serializable {
 	private AccountSimple account;
 
 	private String parentName;
+
+	private Integer recommendNumber;
+	private BigDecimal bonusBalance;
+
+	public Integer getRecommendNumber() {
+		return recommendNumber;
+	}
+
+	public void setRecommendNumber(Integer recommendNumber) {
+		this.recommendNumber = recommendNumber;
+	}
+
+	public BigDecimal getBonusBalance() {
+		return bonusBalance;
+	}
+
+	public void setBonusBalance(BigDecimal bonusBalance) {
+		this.bonusBalance = bonusBalance;
+	}
 
 	public int getId() {
 		return this.id;

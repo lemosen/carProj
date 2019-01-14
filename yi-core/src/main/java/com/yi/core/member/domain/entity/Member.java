@@ -8,6 +8,7 @@ package com.yi.core.member.domain.entity;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -197,6 +198,9 @@ public class Member implements java.io.Serializable {
 	 * 账号
 	 */
 	private Account account;
+
+	private Integer recommendNumber;
+	private BigDecimal bonusBalance;
 	// columns END
 
 	private List<ShippingAddress> shippingAddresss;
@@ -229,6 +233,22 @@ public class Member implements java.io.Serializable {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+	@Column( length = 11)
+	public Integer getRecommendNumber() {
+		return recommendNumber;
+	}
+
+	public void setRecommendNumber(Integer recommendNumber) {
+		this.recommendNumber = recommendNumber;
+	}
+	@Column( precision = 10,scale = 2)
+	public BigDecimal getBonusBalance() {
+		return bonusBalance;
+	}
+
+	public void setBonusBalance(BigDecimal bonusBalance) {
+		this.bonusBalance = bonusBalance;
 	}
 
 	@Column(unique = false, nullable = true, length = 32)

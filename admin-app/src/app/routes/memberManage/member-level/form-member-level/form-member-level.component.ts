@@ -99,10 +99,10 @@ export class FormMemberLevelComponent implements OnInit, OnChanges {
       discount: [100, Validators.compose([Validators.required, Validators.maxLength(5)])],
       defaulted: [0, Validators.compose([Validators.required, Validators.min(0), Validators.max(1)])],
       rank: [1, Validators.compose([Validators.required, Validators.min(1)])],
-      countNumber: [1, Validators.compose([Validators.required, Validators.min(1)])],
-      bonusBalance: [1, Validators.compose([Validators.required, Validators.min(1)])],
-      fristRoyalty: [1, Validators.compose([Validators.required, Validators.min(1)])],
-      secondRoyalty: [1, Validators.compose([Validators.required, Validators.min(1)])],
+      countNumber: [1, Validators.compose([Validators.required])],
+      bonusBalance: [1, Validators.compose([Validators.required])],
+      fristRoyalty: [1, Validators.compose([Validators.required])],
+      secondRoyalty: [1, Validators.compose([Validators.required])],
     });
   }
 

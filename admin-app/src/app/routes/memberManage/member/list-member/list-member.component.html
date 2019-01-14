@@ -62,6 +62,8 @@
           <th>上级</th>
           <th>会员昵称</th>
           <th>会员等级</th>
+          <th>推荐人数</th>
+          <th>赠送红包余额</th>
           <th>会员类型</th>
           <th>注册时间</th>
           <th nzWidth="10%">状态</th>
@@ -74,6 +76,8 @@
           <td>{{member?.parent?.username}}</td>
           <td>{{member.nickname}}</td>
           <td>{{member?.memberLevel?.name}}</td>
+          <td>{{member?.recommendNumber}}</td>
+          <td>{{member?.bonusBalance}}</td>
           <td *ngIf="member.memberType==0">普通会员</td>
           <td *ngIf="member.memberType==1">管理员</td>
           <td>{{member.createTime}}</td>

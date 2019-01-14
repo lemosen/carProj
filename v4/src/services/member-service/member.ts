@@ -281,7 +281,7 @@ export class MemberProvider extends HttpServiceProvider {
          */
         // let href = window.location.href;
         // alert(href);
-
+        console.log("log");
         if(!this.appConfig.wechatAutoLogin){
             return
         }

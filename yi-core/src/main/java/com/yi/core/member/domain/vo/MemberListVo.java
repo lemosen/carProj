@@ -155,6 +155,26 @@ public class MemberListVo extends ListVoDomain implements java.io.Serializable {
 	 */
 	private Integer promotionNum;
 
+	private Integer recommendNumber;
+	private BigDecimal bonusBalance;
+
+	public Integer getRecommendNumber() {
+		return recommendNumber;
+	}
+
+	public void setRecommendNumber(Integer recommendNumber) {
+		this.recommendNumber = recommendNumber;
+	}
+
+	public BigDecimal getBonusBalance() {
+		return bonusBalance;
+	}
+
+	public void setBonusBalance(BigDecimal bonusBalance) {
+		this.bonusBalance = bonusBalance;
+	}
+
+
 	public int getId() {
 		return this.id;
 	}

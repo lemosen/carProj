@@ -98,8 +98,8 @@ export class WechatService extends HttpServiceProvider {
     getWechatId(content?, contentId?, preMemberId?, extra?) {
         let config = {
             appid: this.appConfig.wechatAppId,
-            redirect_uri: window.location.href.split('#')[0]+'wechatCode.html',
-            // redirect_uri: 'http://test.h5.my11mall.com/'+'wechatCode.html',
+            // redirect_uri: window.location.href.split('#')[0]+'wechatCode.html',
+            redirect_uri: 'http://h5.bluerice.cn/'+'wechatCode.html',
             response_type: 'code',
             scope: 'snsapi_userinfo',
             state: 'STATE'
@@ -107,11 +107,12 @@ export class WechatService extends HttpServiceProvider {
 
         if(arguments){
             for(let i=0;i<arguments.length;i++){
-                config.redirect_uri += ";" + arguments[i];
+                config.redirect_uri += "?" + arguments[i];
             }
         }
 
-        config.redirect_uri+=';debug=0'
+        config.redirect_uri+='&debug=0'
+        // console.log(config);
         window.location.href = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${config.appid}&redirect_uri=${config.redirect_uri}&response_type=${config.response_type}&scope=${config.scope}&state=${config.state}#wechat_redirect`
         //https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx624636d7fc542eb…home)&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect.
         //snsapi_base （不弹出授权页面，直接跳转，只能获取用户openid），snsapi_userinfo （弹出授权页面，可通过openid拿到昵称、性别、所在地。并且， 即使在未关注的情况下，只要用户授权，也能获取其信息 ）
