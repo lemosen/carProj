@@ -153,11 +153,11 @@ public class CouponServiceImpl implements ICouponService, InitializingBean {
 			throw new BusinessException("提交数据不能为空");
 		}
 		coupon.setCouponName(coupon.getCouponName().trim());
-		int checkName = couponDao.countByCouponNameAndCouponTypeAndDeleted(coupon.getCouponName(), coupon.getCouponType(), Deleted.DEL_FALSE);
-		if (checkName > 0) {
-			LOG.error("该券名称已存在，couponName={}", coupon.getCouponName());
-			throw new BusinessException("该券名称已存在");
-		}
+//		int checkName = couponDao.countByCouponNameAndCouponTypeAndDeleted(coupon.getCouponName(), coupon.getCouponType(), Deleted.DEL_FALSE);
+//		if (checkName > 0) {
+//			LOG.error("该券名称已存在，couponName={}", coupon.getCouponName());
+//			throw new BusinessException("该券名称已存在");
+//		}
 		// 有效期类型 -时间段
 		if (ActivityEnum.VALID_TYPE_PERIOD.getCode().equals(coupon.getValidType())) {
 			if (coupon.getStartTime() == null || coupon.getEndTime() == null) {

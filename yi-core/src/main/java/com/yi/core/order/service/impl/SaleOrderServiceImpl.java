@@ -935,16 +935,16 @@ public class SaleOrderServiceImpl implements ISaleOrderService, InitializingBean
 	 */
 	@Override
 	public SaleOrderVo submitOrder(SaleOrderBo orderBo) {
-		if (orderBo == null || CollectionUtils.isEmpty(orderBo.getSplitOrders()) || orderBo.getShippingAddress() == null) {
+		if (orderBo == null || CollectionUtils.isEmpty(orderBo.getSplitOrders()) ) {
 			LOG.error("submitOrder，提交数据为空");
 			throw new BusinessException("提交数据不能为空");
 		}
-		// 收货地址
-		ShippingAddress dbShippingAddress = shippingAddressService.getShippingAddressById(orderBo.getShippingAddress().getId());
-		if (dbShippingAddress == null) {
-			LOG.error("submitOrder，收货地址为空");
-			throw new BusinessException("请选择收货地址");
-		}
+//		// 收货地址
+//		ShippingAddress dbShippingAddress = shippingAddressService.getShippingAddressById(orderBo.getShippingAddress().getId());
+//		if (dbShippingAddress == null) {
+//			LOG.error("submitOrder，收货地址为空");
+//			throw new BusinessException("请选择收货地址");
+//		}
 		// 获取会员信息
 		Member dbMember = memberService.getMemberById(orderBo.getMember().getId());
 		if (dbMember == null) {
@@ -979,12 +979,12 @@ public class SaleOrderServiceImpl implements ISaleOrderService, InitializingBean
 							LOG.error("submitOrder，货品为空");
 							throw new BusinessException("商品数据不能为空");
 						}
-						// 检查是否在销售区域内
-						boolean flag = baseOrderService.checkSaleRegion(dbProduct.getCommodity(), dbShippingAddress);
-						if (!flag) {
-							LOG.error("submitOrder，不在销售地区内");
-							throw new BusinessException(dbProduct.getProductShortName() + " 不在销售范围内，请重新选择");
-						}
+//						// 检查是否在销售区域内
+//						boolean flag = baseOrderService.checkSaleRegion(dbProduct.getCommodity(), dbShippingAddress);
+//						if (!flag) {
+//							LOG.error("submitOrder，不在销售地区内");
+//							throw new BusinessException(dbProduct.getProductShortName() + " 不在销售范围内，请重新选择");
+//						}
 						// 核验库存
 						boolean stockFlag = stockService.checkStock(dbProduct.getId(), tmpItem.getQuantity());
 						if (!stockFlag) {
@@ -1017,11 +1017,11 @@ public class SaleOrderServiceImpl implements ISaleOrderService, InitializingBean
 				tmpOrder.setPayOrderNo(pageOrder.getPayOrderNo());
 				tmpOrder.setOrderType(OrderEnum.ORDER_TYPE_ORDINARY.getCode());
 				tmpOrder.setOrderState(OrderEnum.ORDER_STATE_WAIT_PAY.getCode());
-				// 收货地址
-				tmpOrder.setConsignee(dbShippingAddress.getFullName());
-				tmpOrder.setConsigneePhone(dbShippingAddress.getPhone());
-				tmpOrder.setConsigneeAddr(dbShippingAddress.getProvince() + dbShippingAddress.getCity() + dbShippingAddress.getDistrict() + dbShippingAddress.getAddress());
-				tmpOrder.setDeliveryMode("快递配送");
+//				// 收货地址
+//				tmpOrder.setConsignee(dbShippingAddress.getFullName());
+//				tmpOrder.setConsigneePhone(dbShippingAddress.getPhone());
+//				tmpOrder.setConsigneeAddr(dbShippingAddress.getProvince() + dbShippingAddress.getCity() + dbShippingAddress.getDistrict() + dbShippingAddress.getAddress());
+//				tmpOrder.setDeliveryMode("快递配送");
 				// 运费不参与优惠券计算
 				// +++2-3--核算代金券
 				CouponReceive tmpVoucher = baseOrderService.checkCoupon(tmpOrder, tmpOrder.getVouchers());
@@ -1042,13 +1042,13 @@ public class SaleOrderServiceImpl implements ISaleOrderService, InitializingBean
 				// 代金券金额
 				tmpOrder.setVoucherAmount(Optional.ofNullable(tmpVoucher).map(e -> e.getParValue()).orElse(BigDecimal.ZERO));
 				// +++2-5--核算运费
-				BigDecimal tmpFreightAmount = baseOrderService.calculateFreightByOrder(tmpOrder, dbShippingAddress.getProvince(), dbShippingAddress.getCity());
+//				BigDecimal tmpFreightAmount = baseOrderService.calculateFreightByOrder(tmpOrder, dbShippingAddress.getProvince(), dbShippingAddress.getCity());
 				// 运费
-				tmpOrder.setFreight(tmpFreightAmount);
+				tmpOrder.setFreight(BigDecimal.ZERO);
 				// 订单金额=当前订单金额+运费
-				tmpOrder.setOrderAmount(tmpOrder.getOrderAmount().add(tmpFreightAmount));
+				tmpOrder.setOrderAmount(tmpOrder.getOrderAmount());
 				// 支付金额=当前支付金额+运费
-				tmpOrder.setPayAmount(tmpOrder.getPayAmount().add(tmpFreightAmount));
+				tmpOrder.setPayAmount(tmpOrder.getPayAmount());
 				tmpOrder.setOrderTime(new Date());
 				tmpOrder.setPayInvalidTime(orderSettingService.getInvalidTimeBySetType(tmpOrder.getOrderTime(), OrderEnum.ORDER_SET_TYPE_NORMAL));
 				// +++2.6--计算总单金额数据
@@ -1092,14 +1092,15 @@ public class SaleOrderServiceImpl implements ISaleOrderService, InitializingBean
 			dbSaleOrder.setExchangeInvalidTime(DateUtils.addDays(dbSaleOrder.getReceiptTime(), 15));
 			// 增加订单日志
 			orderLogService.addLogByOrder(dbSaleOrder, OrderEnum.ORDER_LOG_STATE_CONFIRM_RECEIPT, "确认收货");
-			// 计算上级佣金 和 小区管理员提成
-			memberService.calculateCommissionForDistribution(dbSaleOrder, dbSaleOrder.getMember());
-			// 计算会员积分
-			memberService.calculateOrderIntegral(dbSaleOrder, dbSaleOrder.getMember());
-			// 计算供应商账户数据
-			supplierAccountService.updateSupplierAccountByConfirmReceipt(dbSaleOrder);
-			// 分步发放优惠券
-			couponReceiveService.grantVoucherByStep(dbSaleOrder.getMember(), dbSaleOrder, ActivityEnum.GRANT_NODE_RECEIPT);
+			//todo 计算上级佣金
+//			// 计算上级佣金 和 小区管理员提成
+//			memberService.calculateCommissionForDistribution(dbSaleOrder, dbSaleOrder.getMember());
+//			// 计算会员积分
+//			memberService.calculateOrderIntegral(dbSaleOrder, dbSaleOrder.getMember());
+//			// 计算供应商账户数据
+//			supplierAccountService.updateSupplierAccountByConfirmReceipt(dbSaleOrder);
+//			// 分步发放优惠券
+//			couponReceiveService.grantVoucherByStep(dbSaleOrder.getMember(), dbSaleOrder, ActivityEnum.GRANT_NODE_RECEIPT);
 		}
 	}
 
@@ -1174,14 +1175,15 @@ public class SaleOrderServiceImpl implements ISaleOrderService, InitializingBean
 				tmpOrder.setExchangeInvalidTime(DateUtils.addDays(tmpOrder.getReceiptTime(), 15));
 				// 增加订单日志
 				orderLogService.addLogByOrder(tmpOrder, OrderEnum.ORDER_LOG_STATE_CONFIRM_RECEIPT, "超时确认收货");
-				// 计算上级佣金 和 小区管理员提成
-				memberService.calculateCommissionForDistribution(tmpOrder, tmpOrder.getMember());
-				// 计算会员积分
-				memberService.calculateOrderIntegral(tmpOrder, tmpOrder.getMember());
-				// 计算供应商账户数据
-				supplierAccountService.updateSupplierAccountByConfirmReceipt(tmpOrder);
-				// 分步发放优惠券
-				couponReceiveService.grantVoucherByStep(tmpOrder.getMember(), tmpOrder, ActivityEnum.GRANT_NODE_RECEIPT);
+				//todo 计算上级佣金
+//				// 计算上级佣金 和 小区管理员提成
+//				memberService.calculateCommissionForDistribution(tmpOrder, tmpOrder.getMember());
+//				// 计算会员积分
+//				memberService.calculateOrderIntegral(tmpOrder, tmpOrder.getMember());
+//				// 计算供应商账户数据
+//				supplierAccountService.updateSupplierAccountByConfirmReceipt(tmpOrder);
+//				// 分步发放优惠券
+//				couponReceiveService.grantVoucherByStep(tmpOrder.getMember(), tmpOrder, ActivityEnum.GRANT_NODE_RECEIPT);
 			}
 		}
 	}

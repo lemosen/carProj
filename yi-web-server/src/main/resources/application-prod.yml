@@ -10,7 +10,7 @@ logging:
 
 yi:
   cluster-name: prod
-  host: app.bluerice.cn
+  host: h5server.bluerice.cn
   web-port: 8081
   
   db-host: 119.23.203.18

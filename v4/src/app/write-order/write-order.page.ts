@@ -143,7 +143,7 @@ export class WriteOrderPage {
 
         let saleOrderBo = {
             member: {id: MemberProvider.getLoginMember().id},
-            shippingAddress: {id: this.shippingAddressVo.id},
+            // shippingAddress: {id: this.shippingAddressVo.id},
             splitOrders: this.ordersDetail.splitOrders,
             cartVos: this.ordersDetail.cartVos,
             groupType: this.ordersDetail.groupType,

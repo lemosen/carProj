@@ -1,6 +1,6 @@
 <ion-header xmlns="http://www.w3.org/1999/html">
     <ion-toolbar>
-        <ion-title>购物车</ion-title>
+        <ion-title>我的预约</ion-title>
         <span class="header-right-span" *ngIf="!isEdit && shoppingCartsVos.length != 0" (click)="isEdit=!isEdit">
             编辑
         </span>
@@ -43,7 +43,7 @@
 
     <div class="ver-midd min-height" text-center *ngIf="shoppingCartsVos.length == 0">
         <div class="no-list"></div>
-        <ion-label class="grey">购物车是空的~</ion-label>
+        <ion-label class="grey">我的预约是空的~</ion-label>
         <ion-button shape="round" fill="outline" color="danger" (click)="goHome()">去逛逛</ion-button>
     </div>
 

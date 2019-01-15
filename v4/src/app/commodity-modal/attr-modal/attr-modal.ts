@@ -198,7 +198,7 @@ export class AttrModalPage {
                     _this.events.publish(REFRESH_SHOPPINGCART);
                     //如果是点击立即购买打开模态框的情况下
                     if (_this.navParam.data.writeOrder) {
-                        _this.navCtrl.navigateForward("/tabs/(shoppingCart:shoppingCart)")
+                        _this.navCtrl.navigateForward(["ShoppingCartPage"]);
                     } else {
                         _this.goBack();
                     }

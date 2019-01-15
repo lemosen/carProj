@@ -272,11 +272,11 @@ public class CouponReceiveServiceImpl implements ICouponReceiveService, Initiali
 				throw new BusinessException("该优惠券已失效，暂不支持领取");
 			}
 		}
-		// 判断会员等级是否符合标准
-		boolean levelFlag = this.checkMemberLevel(dbMember.getMemberLevel(), dbCoupon.getMemberLevels());
-		if (!levelFlag) {
-			throw new BusinessException("该等级暂不支持领取，请您升级会员等级");
-		}
+//		// 判断会员等级是否符合标准
+//		boolean levelFlag = this.checkMemberLevel(dbMember.getMemberLevel(), dbCoupon.getMemberLevels());
+//		if (!levelFlag) {
+//			throw new BusinessException("该等级暂不支持领取，请您升级会员等级");
+//		}
 		// 检查该会员领取该优惠券的数量 为空的话是不限制领取
 		if (dbCoupon.getLimited() > 0) {
 			int receivedQuantity = couponReceiveDao.countByCoupon_idAndMember_id(couponId, memberId);

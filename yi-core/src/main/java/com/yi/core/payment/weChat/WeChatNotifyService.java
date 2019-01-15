@@ -189,8 +189,8 @@ public class WeChatNotifyService {
 					tmpOrder.setRemark("支付完成");
 					// 更新订单
 					saleOrderService.updateOrder(tmpOrder);
-					// 库存修正+库存记录
-					stockService.useStockByPayOrder(tmpOrder);
+//					// 库存修正+库存记录
+//					stockService.useStockByPayOrder(tmpOrder);
 					// 支付记录
 					payRecordService.addPayRecordByOrderForWeChat(tmpOrder, resultMap);
 					// 订单记录
@@ -206,7 +206,7 @@ public class WeChatNotifyService {
 					// 供应商账户
 					supplierAccountService.updateSupplierAccountByPayOrder(tmpOrder);
 					// 分步发放优惠券
-					couponReceiveService.grantVoucherByStep(tmpOrder.getMember(), tmpOrder, ActivityEnum.GRANT_NODE_ORDER);
+//					couponReceiveService.grantVoucherByStep(tmpOrder.getMember(), tmpOrder, ActivityEnum.GRANT_NODE_ORDER);
 				}
 			}
 		}

@@ -12,7 +12,8 @@
      * version  1.0
      * auth     lemosen
      */
-    //wechatCode.html?CommodityPage&id=260&preMemberId=120;debug=0?code=asd&state=asd
+    //      ?HomePage&code=asd&state=asd
+    //      ?CommodityPage&id=278&preMemberId=97&code=023joyy20gkzhJ1ejcA2098sy20joyy5&state=STATE
     var href = window.location.href;
 
 
@@ -20,10 +21,12 @@
     var h5Serve = webServe.replace('h5server', 'h5');
 
     var urlInfo = getUrlInfo();
-    console.log(href);
-    var code = href.split('?')[1].split('&')[1].replace('code=', '');
+    var code= href.split('&code=')[1].split("&state")[0];
 
     var gotoUrl = '';
+    console.log(href);
+    console.log(urlInfo);
+    console.log(code);
 
     var xhr = new XMLHttpRequest();
     xhr.open('get', webServe + 'weChat/authLoginForSp?code=' + code);
@@ -32,6 +35,8 @@
         if (xhr.readyState === 4 && xhr.status === 200) {
             var parse = JSON.parse(xhr.response);
             if (parse.result === 'SUCCESS') {
+
+                console.log(urlInfo);
                 gotoUrl = h5Serve + '#/' + urlInfo + '?openId=' + parse.data.openid + '&unionId=' + parse.data.unionid;
 
                 //对微信登录做处理，有绑定则登录，没有则注册
@@ -51,14 +56,16 @@
                 alert(code);
                 alert(gotoUrl);
             } else {
-                // console.log(gotoUrl);
-                window.location.href = gotoUrl
+                console.log(gotoUrl);
+                // window.location.href = gotoUrl
             }
         }
     };
 
     function getUrlInfo() {
-        var info = href.split('?')[1].split('&')[0];
+        var info = href.split('?')[1].split('&code')[0];
+        info=info.replace('?',';')
+        info=info.replace(/&/g, ";")
         if (info&&info.indexOf('HomePage') !== -1) {
             return 'tabs/(home:home)';
         } else {

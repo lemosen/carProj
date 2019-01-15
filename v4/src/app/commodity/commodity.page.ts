@@ -128,7 +128,7 @@ export class CommodityPage {
                 this.nativeProvider.showToastFormI4("添加成功!", ()=>{
                     if (writeOrder) {
                         this.events.publish(REFRESH_SHOPPINGCART);
-                        this.navCtrl.navigateForward("/tabs/(shoppingCart:shoppingCart)");
+                        this.navCtrl.navigateForward(["ShoppingCartPage"]);
                     }
                 })
             } else {
@@ -151,7 +151,7 @@ export class CommodityPage {
 
     goShoppingCart() {
         this.events.publish(REFRESH_SHOPPINGCART);
-        this.navCtrl.navigateForward("/tabs/(shoppingCart:shoppingCart)");
+        this.navCtrl.navigateForward(["ShoppingCartPage"]);
     }
 
     async attrModal(writeOrder?: boolean) {

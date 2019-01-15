@@ -21,13 +21,13 @@ public class WeChatConfig {
 	/** 商户号对应的密钥 */
 	public static final String SP_PARTNER_KEY = "lm1234567890lm1234567890lm257913";
 	/** 微信支付 回调通知url */
-	public static final String SP_TEST_PAY_NOTIFY_URL = "http://test.bluerice.cn//weChat/payNotifyForSp";
+	public static final String SP_TEST_PAY_NOTIFY_URL = "http://test.h5server.bluerice.cn//weChat/payNotifyForSp";
 	/** 微信支付 回调通知url */
-	public static final String SP_PROD_PAY_NOTIFY_URL = "http://app.bluerice.cn/weChat/payNotifyForSp";
+	public static final String SP_PROD_PAY_NOTIFY_URL = "http://h5server.bluerice.cn/weChat/payNotifyForSp";
 	/** 微信退款 回调通知url */
-	public static final String SP_TEST_REFUND_NOTIFY_URL = "http://test.app.bluerice.cn/weChat/refundNotifyForSp";
+	public static final String SP_TEST_REFUND_NOTIFY_URL = "http://test.h5server.bluerice.cn/weChat/refundNotifyForSp";
 	/** 微信退款 回调通知url */
-	public static final String SP_PROD_REFUND_NOTIFY_URL = "http://app.bluerice.cn/weChat/refundNotifyForSp";
+	public static final String SP_PROD_REFUND_NOTIFY_URL = "http://h5server.bluerice.cn/weChat/refundNotifyForSp";
 
 	// 微信小程序
 	/** 小程序appid */
