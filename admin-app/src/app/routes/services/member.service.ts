@@ -7,30 +7,33 @@ import {BehaviorSubject} from "rxjs/BehaviorSubject";
 @Injectable()
 export class MemberService extends BaseService {
 
-  onRefreshFileManager:BehaviorSubject<boolean> =new BehaviorSubject<boolean>(null);
+  onRefreshFileManager: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(null);
 
-    constructor(protected http: HttpClient) {
+  constructor(protected http: HttpClient) {
     super(http, "member");
-    }
+  }
 
-    setRefreshFileManager(){
+  setRefreshFileManager() {
     this.onRefreshFileManager.next(true);
-    }
-
-    memberLevel(){
-        return this.getByParams("memberLevel", {});
-    }
-
-    prohibition(memberId){
-      return this.getByParams("prohibition",{memberId:memberId})
-    }
-
-  updataVipYes(memberId){
-    return this.getByParams("updataVipYes",{memberId:memberId})
-  }
-  updataVipNo(memberId){
-    return this.getByParams("updataVipNo",{memberId:memberId})
   }
 
+  memberLevel() {
+    return this.getByParams("memberLevel", {});
+  }
 
+  prohibition(memberId) {
+    return this.getByParams("prohibition", {memberId: memberId})
+  }
+
+  updataVipYes(memberId) {
+    return this.getByParams("updataVipYes", {memberId: memberId})
+  }
+
+  updataVipNo(memberId) {
+    return this.getByParams("updataVipNo", {memberId: memberId})
+  }
+
+  updateBalance(id, balance) {
+    return this.getByParams("updateBalance", {id: id, balance: balance})
+  }
 }

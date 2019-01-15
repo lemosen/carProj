@@ -86,9 +86,13 @@
                        [ngModel]="member.state==0"></nz-switch>
           </td>
           <td>
-            <a [routerLink]="'../edit/'+member.id">编辑
+            <!--<a [routerLink]="'../edit/'+member.id">编辑-->
+              <!--<nz-divider nzType="vertical"></nz-divider>-->
+            <!--</a>-->
+            <nz-reply-comment [updateBalance]="true" [id]="member.id" (ok)="reply()"
+                              [title]="'修改赠送红包余额'" [buttonName]="'修改赠送红包余额'">
               <nz-divider nzType="vertical"></nz-divider>
-            </a>
+            </nz-reply-comment>
             <a [routerLink]="'../view/'+member.id">详情
               <nz-divider *ngIf="member.state==1" nzType="vertical"></nz-divider>
             </a>

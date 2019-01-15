@@ -179,5 +179,8 @@ export class ListMemberComponent implements OnInit {
     return pageQuery;
   }
 
+  reply(){
+    this.getData();
+  }
 
 }

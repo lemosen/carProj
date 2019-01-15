@@ -6,6 +6,7 @@
 
 package com.yi.admin.web.member.controller;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -152,7 +153,6 @@ public class MemberController {
 	@RequestMapping(value = "updataVipYes", method = RequestMethod.GET)
 	public RestResult updataVipYes(@RequestParam("memberId") int memberId) {
 		try {
-
 			return RestUtils.success(memberService.updataVipYes(memberId));
 		} catch (Exception ex) {
 			LOG.error("remove Member failure : id=memberId", ex);
@@ -160,7 +160,19 @@ public class MemberController {
 		}
 	}
 
-
+	/**
+	 * 修改赠送红包余额
+	 */
+	@RequestMapping(value = "updateBalance", method = RequestMethod.GET)
+	public RestResult reply(@RequestParam("id") int memberId, @RequestParam("balance") BigDecimal balance) {
+		try {
+			memberService.updateBalance(memberId, balance);
+			return RestUtils.success(true);
+		} catch (Exception ex) {
+			LOG.error("update Member failure : id=memberId", ex);
+			return RestUtils.error("update Member failure : " + ex.getMessage());
+		}
+	}
 
 
 }

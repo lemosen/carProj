@@ -130,4 +130,8 @@ export class Member {
 
   community:Community;
 
+  recommendNumber: number;
+
+  bonusBalance: number;
+
 }
