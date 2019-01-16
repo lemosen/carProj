@@ -1094,7 +1094,7 @@ public class SaleOrderServiceImpl implements ISaleOrderService, InitializingBean
 			orderLogService.addLogByOrder(dbSaleOrder, OrderEnum.ORDER_LOG_STATE_CONFIRM_RECEIPT, "确认收货");
 			//todo 计算上级佣金
 //			// 计算上级佣金 和 小区管理员提成
-//			memberService.calculateCommissionForDistribution(dbSaleOrder, dbSaleOrder.getMember());
+			memberService.calculateCommissionForDistribution(dbSaleOrder, dbSaleOrder.getMember());
 //			// 计算会员积分
 //			memberService.calculateOrderIntegral(dbSaleOrder, dbSaleOrder.getMember());
 //			// 计算供应商账户数据
@@ -1177,7 +1177,7 @@ public class SaleOrderServiceImpl implements ISaleOrderService, InitializingBean
 				orderLogService.addLogByOrder(tmpOrder, OrderEnum.ORDER_LOG_STATE_CONFIRM_RECEIPT, "超时确认收货");
 				//todo 计算上级佣金
 //				// 计算上级佣金 和 小区管理员提成
-//				memberService.calculateCommissionForDistribution(tmpOrder, tmpOrder.getMember());
+				memberService.calculateCommissionForDistribution(tmpOrder, tmpOrder.getMember());
 //				// 计算会员积分
 //				memberService.calculateOrderIntegral(tmpOrder, tmpOrder.getMember());
 //				// 计算供应商账户数据

@@ -148,8 +148,8 @@ public class CouponServiceImpl implements ICouponService, InitializingBean {
 
 	@Override
 	public Coupon addCoupon(Coupon coupon) {
-		if (coupon == null || (ActivityEnum.COUPON_TYPE_COUPON.getCode().equals(coupon.getCouponType()) && CollectionUtils.isEmpty(coupon.getCommodities()))
-				|| CollectionUtils.isEmpty(coupon.getMemberLevels()) || StringUtils.isAnyBlank(coupon.getCouponName())) {
+		if (coupon == null || (ActivityEnum.COUPON_TYPE_COUPON.getCode().equals(coupon.getCouponType()))
+				||  StringUtils.isAnyBlank(coupon.getCouponName())) {
 			throw new BusinessException("提交数据不能为空");
 		}
 		coupon.setCouponName(coupon.getCouponName().trim());

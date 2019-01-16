@@ -115,6 +115,10 @@ export class CustomerCenterPage {
     goServiceCenter() {
         this.navCtrl.navigateForward("ServiceCenterPage");
     }
+    goCart() {
+        this.navCtrl.navigateForward("ShoppingCartPage");
+    }
+
 
     goLogin() {
         if (MemberProvider.isLogin()) {

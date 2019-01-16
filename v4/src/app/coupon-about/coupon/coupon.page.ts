@@ -43,7 +43,7 @@ export class CouponPage implements OnInit {
     listFilter(type) {
         this.pageQuery.resetRequests();
         this.pageQuery.addFilter('member.id', MemberProvider.getLoginMember().id, 'eq');
-        this.pageQuery.addFilter('couponType', 1, 'eq');
+        this.pageQuery.addFilter('couponType', 2, 'eq');
         this.queryFilter(type);
         this.getData(this.pageQuery);
     }

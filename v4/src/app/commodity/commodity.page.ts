@@ -238,9 +238,10 @@ export class CommodityPage {
         let shareData = {
             title: this.commodity.commodityName,
             desc: this.commodity.commodityShortName,
-            link: encodeURI(window.location.href.split('#')[0] + 'wechatShare.html?CommodityPage&id=' + this.commodity.id + '&preMemberId=' + memberId + '?'),
+            link: encodeURI(window.location.href.split('#')[0] + 'wechatShare.html?CommodityPagelmid=' + this.commodity.id + 'lmpreMemberId=' + memberId ),
             imgUrl: this.commodity.imgPath,
         };
+        console.log(shareData.link);
         this.wechatProvider.share(shareData);
     };
 

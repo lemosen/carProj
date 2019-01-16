@@ -57,7 +57,7 @@
                 alert(gotoUrl);
             } else {
                 console.log(gotoUrl);
-                // window.location.href = gotoUrl
+                window.location.href = gotoUrl
             }
         }
     };
@@ -65,7 +65,7 @@
     function getUrlInfo() {
         var info = href.split('?')[1].split('&code')[0];
         info=info.replace('?',';')
-        info=info.replace(/&/g, ";")
+        info=info.replace(/lm/g, ";")
         if (info&&info.indexOf('HomePage') !== -1) {
             return 'tabs/(home:home)';
         } else {

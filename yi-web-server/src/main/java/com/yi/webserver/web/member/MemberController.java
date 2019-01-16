@@ -272,10 +272,11 @@ public class MemberController {
                 // 普通注册
                 memberVo = memberService.register(memberBo);
             }
-            memberService.sendRedPackets(memberVo.getId(), memberBo.getParent().getId());
+            LOG.info("开始注册");
+            memberService.sendRedPackets(memberVo.getId(), memberBo.getParentId());
             return RestUtils.success(memberVo);
         } catch (Exception e) {
-            LOG.error("register error" + e.getMessage());
+            LOG.error("register error" + e.getStackTrace());
             return RestUtils.error(e.getMessage());
         }
     }
@@ -469,7 +470,7 @@ public class MemberController {
     }
 
     /**
-     * 获取我的优惠券
+     * 获取我的红包
      *
      * @param query
      * @return

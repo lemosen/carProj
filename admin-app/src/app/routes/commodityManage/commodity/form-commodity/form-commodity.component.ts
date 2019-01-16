@@ -271,9 +271,8 @@ export class FormCommodityComponent extends FormAttrGroup implements OnInit, OnC
       })
 
     })
-    
     ;
-    
+    this.setGroupTip({id:409});
   }
 
   setBuildFormValue(commodity: Commodity) {

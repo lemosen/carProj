@@ -17,12 +17,12 @@
         </commodity-item>
 
         <ion-row>
-            <ion-item (click)="goMyCoupon(splitOrder.coupons, i)">
+            <ion-item (click)="goMyStorage(splitOrder.vouchers, i)">
                 <ion-label>红包</ion-label>
                 <ion-note>
-                    <p *ngIf="!splitOrder?.coupons">0张可用</p>
-                    <p *ngIf="splitOrder.coupons && !coupon[i]">{{splitOrder?.coupons?.length}}张可用</p>
-                    <p class="red" *ngIf="splitOrder.coupons && coupon[i]">-{{coupon[i]?.parValue}}</p>
+                    <p *ngIf="!splitOrder?.vouchers">0张可用</p>
+                    <p *ngIf="splitOrder.vouchers && !storage[i]">{{splitOrder?.vouchers?.length}}张可用</p>
+                    <p class="red" *ngIf="splitOrder.vouchers && storage[i]">-{{storage[i]?.parValue}}</p>
                 </ion-note>
                 <ion-icon class="icon-forward" name="ios-arrow-forward"></ion-icon>
             </ion-item>

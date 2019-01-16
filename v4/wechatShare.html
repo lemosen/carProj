@@ -13,18 +13,19 @@
 
     //wechatShare.html?CommodityPage&id=260&preMemberId=115
     var href = window.location.href;
-    var urlInfo = href.split('?')[1].replace(/&/g, ";");
+    var urlInfo = href.split('?')[1];
 
     var h5Serve = href.indexOf('test') === -1 ? 'http://h5.bluerice.cn/' : 'http://test.h5.bluerice.cn/';
 
     var config = {
         appid: 'wx4cfd5bff2944b9d4',
-        redirect_uri: h5Serve + 'wechatCode.html;',
+        redirect_uri: h5Serve + 'wechatCode.html?',
         response_type: 'code',
         scope: 'snsapi_userinfo',
         state: 'STATE'
     };
     config.redirect_uri += urlInfo;
+    // console.log(config.redirect_uri);
     // alert( config.redirect_uri );
 
     window.location.href = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${config.appid}&redirect_uri=${config.redirect_uri}&response_type=${config.response_type}&scope=${config.scope}&state=${config.state}#wechat_redirect`

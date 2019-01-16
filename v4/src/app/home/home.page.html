@@ -6,7 +6,7 @@
 
     <ion-list class="common-list">
         <banner-slide [banners]="banners"></banner-slide>
-
+        <br>
         <app-show-commodities [id]="item.id" [item]="item" *ngFor="let item of commodities | sortPipe "></app-show-commodities>
 
     </ion-list>
