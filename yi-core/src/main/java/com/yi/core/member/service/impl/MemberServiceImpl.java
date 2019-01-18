@@ -1233,7 +1233,7 @@ public class MemberServiceImpl implements IMemberService, InitializingBean {
         //代金券
         coupon.setCouponType(2);
         coupon.setCouponName("邀请注册送红包");
-        coupon.setParValue(parentMember.getBonusBalance());
+        coupon.setParValue(parentMember.getBonusBalance()!=null?parentMember.getBonusBalance():parentMember.getMemberLevel().getBonusBalance());
         //固定天数
         coupon.setValidType(2);
         coupon.setFixedDay(999);

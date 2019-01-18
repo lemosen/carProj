@@ -100,6 +100,52 @@ export class MyOrderPage implements OnInit {
         });
     }
 
+    cancelOrder(order) {
+        this.orderProvider.cancelOrder(order.id).then(e => {
+            if (e.result == SUCCESS) {
+                this.nativeProvider.showToastFormI4("取消订单成功", () => {
+                    this.navCtrl.goBack();
+                });
+            } else {
+                this.nativeProvider.showToastFormI4(e.message);
+            }
+        }, err => {
+            this.nativeProvider.showToastFormI4(err.message);
+        });
+    }
+
+    async confirmReceive(order) {
+        const alert = await this.alertCtrl.create({
+            subHeader: '确认预约？',
+            buttons: [{
+                text: '确认',
+                handler: () => {
+                    this.orderProvider.confirmReceive(order.id).then(e => {
+                        if (e.result == SUCCESS) {
+                            this.nativeProvider.showToastFormI4("已确认预约", () => {
+                            });
+                            this.ionViewWillEnter();
+                        } else {
+                            this.nativeProvider.showToastFormI4(e.message, () => {
+                            });
+                        }
+                    }, err => this.nativeProvider.showToastFormI4(err.message, () => {
+                    }))
+                }
+            }, {
+                text: '取消',
+                role: 'cancel',
+            }]
+        })
+
+        await alert.present();
+    }
+
+
+    goEvaluation(order) {
+        this.navCtrl.navigateForward(["EvaluationPage", {orderId: order.id}])
+    }
+
     goOrderDetail(order) {
         this.navCtrl.navigateForward(["OrderDetailPage", {orderId: order.id}], false);
     }
@@ -125,7 +171,10 @@ export class MyOrderPage implements OnInit {
         this.weChatProvider.readyPay(weChatVo).then(e => {
             if (e.result == "SUCCESS") {
                 this.weChatProvider.pay(e.data, () => {
-                    this.navCtrl.navigateForward(["PaymentFinishPage", {totalAmount: order.payAmount, orderType: orderType}])
+                    this.navCtrl.navigateForward(["PaymentFinishPage", {
+                        totalAmount: order.payAmount,
+                        orderType: orderType
+                    }])
                 }, () => {
                     return
                 }, () => {

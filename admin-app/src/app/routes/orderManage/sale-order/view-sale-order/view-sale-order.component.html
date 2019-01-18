@@ -21,28 +21,28 @@
             <a *ngIf="saleOrder.orderState==1"
                [routerLink]="'../../editPrice/'+saleOrder.id">修改价格</a>
           </nz-form-control>
-          <nz-form-control>
-            <a *ngIf="saleOrder.orderState==1"
-               [routerLink]="'../../editRecevingAddress/'+saleOrder.id">修改收货地址</a>
-          </nz-form-control>
+          <!--<nz-form-control>-->
+            <!--<a *ngIf="saleOrder.orderState==1"-->
+               <!--[routerLink]="'../../editRecevingAddress/'+saleOrder.id">修改收货地址</a>-->
+          <!--</nz-form-control>-->
         </ng-template>
       </nz-step>
-      <nz-step [nzTitle]="'待发货'" [nzDescription]="checkedDesc">
+      <nz-step [nzTitle]="'待审核'" [nzDescription]="checkedDesc">
         <ng-template
           #checkedDesc>
           <nz-form-control>
             <nz-deliver-goods [saleOrderView]="saleOrder" [comment]="true" *ngIf="saleOrder.orderState==2" [id]="saleOrder.id" (ok)="deliver()"
-                              [title]="'发货'" [buttonName]="'发货'" >
+                              [title]="'审核'" [buttonName]="'审核'" >
             </nz-deliver-goods>
           </nz-form-control>
-          <nz-form-control>
-            <a *ngIf="saleOrder.orderState==2"
-               [routerLink]="'../../editRecevingAddress/'+saleOrder.id">修改收货地址</a>
-          </nz-form-control>
+          <!--<nz-form-control>-->
+            <!--<a *ngIf="saleOrder.orderState==2"-->
+               <!--[routerLink]="'../../editRecevingAddress/'+saleOrder.id">修改收货地址</a>-->
+          <!--</nz-form-control>-->
         </ng-template>
       </nz-step>
       <nz-step
-        [nzTitle]="'已发货'">
+        [nzTitle]="'已审核'">
         <ng-template></ng-template>
       </nz-step>
       <nz-step
@@ -59,17 +59,17 @@
     class="mb-lg">
     <desc-list-item term="会员昵称">{{saleOrder?.member?.nickname}}</desc-list-item>
     <desc-list-item term="会员账号">{{saleOrder?.member?.username}}</desc-list-item>
-    <desc-list-item term="收货人信息">{{saleOrder.consignee}} {{saleOrder.consigneePhone}}
-      {{saleOrder.consigneeAddr?.substring(0,6)|districtPipe}}{{saleOrder.consigneeAddr?.substring(6,12)|districtPipe}}{{saleOrder.consigneeAddr?.substring(12,18)|districtPipe}}{{saleOrder.consigneeAddr?.substring(18,30)}}</desc-list-item>
-    <desc-list-item
-      term="配送方式">{{saleOrder.deliveryMode}}
-    </desc-list-item>
-    <desc-list-item
-      term="物流公司">{{this.transformation[saleOrder.expressCompany]}}
-    </desc-list-item>
-    <desc-list-item
-      term="快递单号">{{saleOrder.expressNo}}
-    </desc-list-item>
+    <!--<desc-list-item term="收货人信息">{{saleOrder.consignee}} {{saleOrder.consigneePhone}}-->
+      <!--{{saleOrder.consigneeAddr?.substring(0,6)|districtPipe}}{{saleOrder.consigneeAddr?.substring(6,12)|districtPipe}}{{saleOrder.consigneeAddr?.substring(12,18)|districtPipe}}{{saleOrder.consigneeAddr?.substring(18,30)}}</desc-list-item>-->
+    <!--<desc-list-item-->
+      <!--term="配送方式">{{saleOrder.deliveryMode}}-->
+    <!--</desc-list-item>-->
+    <!--<desc-list-item-->
+      <!--term="物流公司">{{this.transformation[saleOrder.expressCompany]}}-->
+    <!--</desc-list-item>-->
+    <!--<desc-list-item-->
+      <!--term="快递单号">{{saleOrder.expressNo}}-->
+    <!--</desc-list-item>-->
     <desc-list-item
       term="买家留言">{{saleOrder.buyerMessage}}
     </desc-list-item>
@@ -91,7 +91,7 @@
       term="付款时间">{{saleOrder.paymentTime}}
     </desc-list-item>
     <desc-list-item
-      term="发货时间">{{saleOrder.deliveryTime}}
+      term="审核时间">{{saleOrder.deliveryTime}}
     </desc-list-item>
     <desc-list-item
       term="成交时间">{{saleOrder.receiptTime}}
@@ -106,17 +106,17 @@
       <th>报考图片</th>
       <th>报考名称</th>
       <th>单价</th>
-      <th>供应商</th>
+      <!--<th>供应商</th>-->
       <th>数量</th>
-      <th>优惠</th>
+      <th>红包</th>
       <th>小计</th>
     </tr>
 
     <tr *ngFor="let saleOrderItem of saleOrder?.saleOrderItems">
       <td><img class="table-img-customer" [src]="saleOrderItem?.commodity?.imgPath"></td>
-      <td>{{saleOrderItem?.commodityName}}</td>
+      <td>{{saleOrderItem?.commodity.commodityName}}</td>
       <td>{{saleOrderItem?.price}}</td>
-      <td>{{saleOrderItem?.supplier.supplierName}}</td>
+      <!--<td>{{saleOrderItem?.supplier.supplierName}}</td>-->
       <td>{{saleOrderItem?.quantity}}</td>
       <td>{{saleOrderItem?.discount}}</td>
       <td>{{saleOrderItem?.subtotal}}</td>
@@ -131,15 +131,15 @@
   <table class="table table-hover">
     <tr>
       <th>报考合计</th>
-      <th>优惠券</th>
-      <th>储值券</th>
+      <!--<th>优惠券</th>-->
+      <th>红包</th>
       <th>运费</th>
       <th>实际支付</th>
     </tr>
 
     <tr>
       <td>{{saleOrder.orderAmount}}</td>
-      <td>{{saleOrder.couponAmount}}</td>
+      <!--<td>{{saleOrder.couponAmount}}</td>-->
       <td>{{saleOrder.voucherAmount}}</td>
       <td>{{saleOrder.freight}}</td>
       <td>{{saleOrder.payAmount}}</td>
