@@ -186,7 +186,7 @@ export class FormRecommendComponent implements OnInit, OnChanges {
       showTitle: recommend.showTitle,
       linkType: recommend.linkType,
       linkId: recommend.linkId,
-      commodity: [],
+      commodity: null,
     });
     this.modalSelect.dataRetrieval(recommend.commodities);
 
@@ -238,15 +238,17 @@ export class FormRecommendComponent implements OnInit, OnChanges {
   }
 
   setCommodity(event) {
-    this.commonForm.patchValue({
-      linkId: event.id
-    })
-    this.commonForm.patchValue({
-      commodity: {
-        id: event.id,
-        commodityShortName: event.commodityShortName
-      }
-    })
+    if(event.commodityShortName != null && event.length != 0){
+      this.commonForm.patchValue({
+        linkId: event.id
+      })
+      this.commonForm.patchValue({
+        commodity: {
+          id: event.id,
+          commodityShortName: event.commodityShortName
+        }
+      })
+    }
   }
 
   setCommodities(event) {
