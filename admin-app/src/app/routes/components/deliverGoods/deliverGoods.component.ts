@@ -34,19 +34,19 @@ import {ExpressService} from "../../services/express.service";
             </div>
           </div>
         </nz-form-item>
-        <nz-form-item>
-          <nz-form-label nzXs="3" nzSm="3">收货人信息</nz-form-label>
-          <nz-form-control nzXs="15" nzSm="15">
-            {{saleOrderView?.consignee}},{{saleOrderView?.consigneePhone}},
-            {{saleOrderView.consigneeAddr.substring(0,6)|districtPipe}}
-            {{saleOrderView.consigneeAddr.substring(6,12)|districtPipe}}
-            {{saleOrderView.consigneeAddr.substring(12,18)|districtPipe}}
-            {{saleOrderView.consigneeAddr.substring(18,30)}}
-          </nz-form-control>
-          <nz-form-control>
-            <a [routerLink]="'/dashboard/sale-order/editRecevingAddress/'+saleOrderView.id">修改收货地址</a>
-          </nz-form-control>
-        </nz-form-item>
+        <!--<nz-form-item>-->
+          <!--<nz-form-label nzXs="3" nzSm="3">收货人信息</nz-form-label>-->
+          <!--<nz-form-control nzXs="15" nzSm="15">-->
+            <!--{{saleOrderView?.consignee}},{{saleOrderView?.consigneePhone}},-->
+            <!--{{saleOrderView.consigneeAddr.substring(0,6)|districtPipe}}-->
+            <!--{{saleOrderView.consigneeAddr.substring(6,12)|districtPipe}}-->
+            <!--{{saleOrderView.consigneeAddr.substring(12,18)|districtPipe}}-->
+            <!--{{saleOrderView.consigneeAddr.substring(18,30)}}-->
+          <!--</nz-form-control>-->
+          <!--<nz-form-control>-->
+            <!--<a [routerLink]="'/dashboard/sale-order/editRecevingAddress/'+saleOrderView.id">修改收货地址</a>-->
+          <!--</nz-form-control>-->
+        <!--</nz-form-item>-->
       </nz-card>
       <nz-card>
         <nz-col nzMd="24" nzSm="24">
@@ -103,8 +103,8 @@ export class DeliverGoodsComponent {
     }
 
     handleOk(): void {
-        this.expressService.queryLogistics(this.logisticsCompany, this.logisticsNo).subscribe(response => {
-            if (JSON.parse(response).message == "ok") {
+        // this.expressService.queryLogistics(this.logisticsCompany, this.logisticsNo).subscribe(response => {
+        //     if (JSON.parse(response).message == "ok") {
                 this.saleOrderService.goDelivery(this.id, this.logisticsNo, this.logisticsCompany).subscribe(response => {
                     if (response.result == SUCCESS) {
                         this.msg.success("发货成功");
@@ -115,12 +115,12 @@ export class DeliverGoodsComponent {
                 }, error => {
                     this.msg.error('请求错误', error.message);
                 })
-            } else {
-                this.msg.error('请填写有效单号', response.message);
-            }
-        }, error => {
-            this.msg.error('请求错误', error.message);
-        })
+        //     } else {
+        //         this.msg.error('请填写有效单号', response.message);
+        //     }
+        // }, error => {
+        //     this.msg.error('请求错误', error.message);
+        // })
         this.isVisible = false;
     }
 

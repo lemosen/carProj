@@ -70,9 +70,9 @@
                     立即付款
                 </ion-button>
             </ion-col>
-            <ion-col size="3" offset="3" *ngIf="order.orderState==2 ||order.orderState==3">
-                <ion-button shape="round" size="small" fill="outline" color="dark" disabled>
-                    &nbsp;&nbsp;预约中&nbsp;&nbsp;
+            <ion-col col-3 *ngIf="order.orderState==3">
+                <ion-button shape="round" size="small" fill="outline" color="danger" (click)="confirmReceive(order)">
+                    确认预约
                 </ion-button>
             </ion-col>
             <ion-col size="3" offset="3" *ngIf="order.commentState==1">

@@ -1,4 +1,4 @@
-<div text-center margin *ngIf="list?.length != 0"><span class="line"></span><span class="text">更多火热商品~</span><span class="line"></span></div>
+<div text-center margin *ngIf="list?.length != 0"><span class="line"></span><span class="text">更多火热专业~</span><span class="line"></span></div>
 <ion-row *ngFor="let commodityList of list">
     <ion-col size="6" *ngFor="let item of commodityList.commodities | sortPipe ">
         <div class="commodity" (click)="goCommodity(item.id)">

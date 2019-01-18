@@ -34,11 +34,11 @@
             </ion-item>
             <div class="line-divid"></div>
 
-            <ion-item (click)="paramsModal()" *ngIf="attrGroups?.length">
-                <ion-label>服务说明</ion-label>
-                <ion-note>查看</ion-note>
-                <ion-icon class="icon-forward" name="ios-arrow-forward"></ion-icon>
-            </ion-item>
+            <!--<ion-item (click)="paramsModal()" *ngIf="attrGroups?.length">-->
+                <!--<ion-label>服务说明</ion-label>-->
+                <!--<ion-note>查看</ion-note>-->
+                <!--<ion-icon class="icon-forward" name="ios-arrow-forward"></ion-icon>-->
+            <!--</ion-item>-->
             <div class="line-divid" *ngIf="attrGroups?.length"></div>
 
             <ion-item (click)="attrModal()">
@@ -53,6 +53,6 @@
 
 <ion-footer>
     <ion-toolbar>
-        <div (click)="goWriteOrder()" class="btn-color btn-full" style="text-align: center">立即预约</div>
+        <div (click)="goWriteOrder()" class="btn-color btn-full" style="text-align: center">立即预约￥99</div>
     </ion-toolbar>
 </ion-footer>

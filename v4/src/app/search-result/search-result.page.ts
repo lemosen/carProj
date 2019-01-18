@@ -65,7 +65,7 @@ export class SearchResultPage {
 
     private getData(page) {
         this.isSearching = true;
-        this.pageQuery.pushParams("city", this.memberProvider.getGpsLocation());
+        // this.pageQuery.pushParams("city", this.memberProvider.getGpsLocation());
         this.commodityProvider.query(page.requests).then(data => {
             this.transform(data);
             this.list = data.content;

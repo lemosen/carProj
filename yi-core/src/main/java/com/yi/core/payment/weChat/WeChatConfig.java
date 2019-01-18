@@ -9,7 +9,7 @@ package com.yi.core.payment.weChat;
 public class WeChatConfig {
 
 	/** 运行环境 */
-	public static final Boolean PROD_ENV = Boolean.FALSE;
+	public static final Boolean PROD_ENV = Boolean.TRUE;
 
 	// 微信服务号
 	/** 服务号appid */

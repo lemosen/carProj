@@ -357,24 +357,24 @@ public class AfterSaleOrderServiceImpl implements IAfterSaleOrderService, Initia
 		if (OrderEnum.ORDER_STATE_WAIT_PAY.getCode().equals(dbSaleOrder.getOrderState()) || OrderEnum.ORDER_STATE_ALREADY_CLOSE.getCode().equals(dbSaleOrder.getOrderState())) {
 			throw new BusinessException("该订单未付款或已关闭，暂不支持售后服务");
 		}
-		// 退款
-		if (OrderEnum.AFTER_SALE_TYPE_REFUND.getCode().equals(afterSaleOrderBo.getAfterSaleType())) {
-			if (OrderEnum.ORDER_STATE_ALREADY_FINISH.getCode().equals(dbSaleOrder.getOrderState())) {
-				throw new BusinessException("该订单已收货，请选择正确的售后服务");
-			}
-		}
-		// 退货退款
-		if (OrderEnum.AFTER_SALE_TYPE_RETURN.getCode().equals(afterSaleOrderBo.getAfterSaleType())) {
-			if (!OrderEnum.ORDER_STATE_ALREADY_FINISH.getCode().equals(dbSaleOrder.getOrderState())) {
-				throw new BusinessException("该订单未收货，请选择正确的售后服务");
-			}
-			// 根据申请类型 查看是否查过三包时效
-			Date now = new Date();
-			// 查看是否超过售后时间
-			if (now.after(Optional.ofNullable(dbSaleOrder.getReturnInvalidTime()).orElse(now))) {
-				throw new BusinessException("该订单已超过三包时效期限");
-			}
-		}
+//		// 退款
+//		if (OrderEnum.AFTER_SALE_TYPE_REFUND.getCode().equals(afterSaleOrderBo.getAfterSaleType())) {
+//			if (OrderEnum.ORDER_STATE_ALREADY_FINISH.getCode().equals(dbSaleOrder.getOrderState())) {
+//				throw new BusinessException("该订单已收货，请选择正确的售后服务");
+//			}
+//		}
+//		// 退货退款
+//		if (OrderEnum.AFTER_SALE_TYPE_RETURN.getCode().equals(afterSaleOrderBo.getAfterSaleType())) {
+//			if (!OrderEnum.ORDER_STATE_ALREADY_FINISH.getCode().equals(dbSaleOrder.getOrderState())) {
+//				throw new BusinessException("该订单未收货，请选择正确的售后服务");
+//			}
+//			// 根据申请类型 查看是否查过三包时效
+//			Date now = new Date();
+//			// 查看是否超过售后时间
+//			if (now.after(Optional.ofNullable(dbSaleOrder.getReturnInvalidTime()).orElse(now))) {
+//				throw new BusinessException("该订单已超过三包时效期限");
+//			}
+//		}
 		// 封装售后单数据
 		AfterSaleOrder afterSaleOrder = afterSaleOrderConvert.toEntity(afterSaleOrderBo);
 		// 退款金额
