@@ -84,13 +84,44 @@
     </nz-form-item>
 
     <nz-form-item>
+      <nz-form-label nzXs="3" nzSm="3" nzFor="linkType">图片链接类型</nz-form-label>
+      <nz-form-control nzXs="8" nzSm="8">
+        <nz-radio-group formControlName="linkType" id="linkType">
+          <label nz-radio [nzValue]="1">报考</label>
+        </nz-radio-group>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item [ngStyle]="{'visibility':commonForm.value.linkType==1?'visible':'hidden'}">
+      <nz-form-label nzXs="3" nzSm="3" nzRequired nzFor="commodity">链接指定报考</nz-form-label>
+      <nz-form-control nzXs="8" nzSm="8" nzHasFeedback>
+        <app-modal-selecet #commodityModalSelect
+          [pageQuery]="commodityPageQuery"
+          [filters]="[{filterName:'commodityShortName',name:'报考简称',value:''}]"
+          [showCol]="[{name:'commodityNo',value:'编码',isShow:false},{name:'commodityShortName',value:'报考简称',isShow:true}]"
+          [select]="commonForm.value.commodity"
+          [resultName]="commonForm.value.commodity ? commonForm.value.commodity.commodityShortName : '请选择'"
+          [baseService]="commodityService"
+          (result)="setCommodity($event)">
+        </app-modal-selecet>
+        <nz-form-explain class="has-error"
+                         *ngIf="commonForm.get('commodity').dirty&&commonForm.get('commodity').errors">
+          <ng-container *ngFor="let error of formErrors.commodity">
+            <nz-form-explain *ngIf="commonForm.get('commodity').errors[error.name]">{{ error.msg }}
+            </nz-form-explain>
+          </ng-container>
+        </nz-form-explain>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
 
       <nz-form-label nzXs="3" nzSm="3" nzRequired
                      nzFor="commodities">推荐报考
       </nz-form-label>
       <nz-form-control nzXs="16" nzSm="8" nzMd="21">
         <app-modal-selecet #modalSelect
-                           [pageQuery]="commodityPageQuery"
+                           [pageQuery]="commoditiesPageQuery"
                            [filters]="[{filterName:'commodityName',name:'报考名',value:''}]"
                            [showCol]="[{name:'commodityNo',value:'编码',isShow:true},{name:'commodityShortName',value:'报考简称',isShow:true},{name:'currentPrice',value:'现价',isShow:true}]"
                            [showTable]="[{name:'报考编号',value:'commodityNo'},{name:'报考简称',value:'commodityShortName'},{name:'现价',value:'currentPrice'},{name:'报考图片',value:'imgPath'}]"
@@ -99,7 +130,7 @@
                            [resultName]="commonForm.value.commodities ? commonForm.value.commodities.commodityname : '请选择'"
                            [isMulti]="true"
                            [baseService]="commodityService"
-                           (result)="setCommodity($event)">
+                           (result)="setCommodities($event)">
         </app-modal-selecet>
         <nz-form-explain class="has-error" *ngIf="commonForm.get('commodities').dirty&&commonForm.get('commodities').errors">
           <ng-container *ngFor="let error of formErrors.commodities">

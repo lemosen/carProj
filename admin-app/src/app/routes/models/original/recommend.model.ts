@@ -80,5 +80,9 @@ export class Recommend {
    */
   showTitle: number;
 
+  linkType: number;
 
+  linkId: number;
+
+  commodity: Commodity
 }

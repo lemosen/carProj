@@ -8,6 +8,8 @@ import {CommodityService} from "../../../services/commodity.service";
 import {PageQuery} from "../../../models/page-query.model";
 import {PositionService} from "../../../services/position.service";
 import {ModalSelecetComponent} from "../../../components/modal-selecet/modal-selecet.component";
+import {SUCCESS} from "../../../models/constants.model";
+import {commodityValidator} from "@shared/custom-validators/custom-validator";
 
 @Component({
   selector: 'form-recommend',
@@ -26,7 +28,9 @@ export class FormRecommendComponent implements OnInit, OnChanges {
   @Output() onTransmitFormValue: EventEmitter<{ obj: any }> = new EventEmitter(null);
 
   @ViewChild('modalSelect') modalSelect: ModalSelecetComponent;
+  @ViewChild('commodityModalSelect') commodityModalSelect: ModalSelecetComponent;
   commodityPageQuery: PageQuery = new PageQuery();
+  commoditiesPageQuery: PageQuery = new PageQuery();
   positionPageQuery: PageQuery = new PageQuery();
 
   formErrors = {
@@ -109,6 +113,14 @@ export class FormRecommendComponent implements OnInit, OnChanges {
         msg: '不可为空',
       },
     ],
+    linkType: [],
+    linkId: [],
+    commodity: [
+      {
+        name: 'commodityRequire',
+        msg: '请选择商品'
+      }
+    ],
   };
 
   constructor(private fb: FormBuilder, private location: Location, public msgSrv: NzMessageService, public commodityService: CommodityService, public msg: NzMessageService, public positionService: PositionService) {
@@ -126,7 +138,8 @@ export class FormRecommendComponent implements OnInit, OnChanges {
     this.positionPageQuery.addOnlyFilter("state", "0", "eq")
     this.commodityPageQuery.addFilter("state", 2, "eq");
     this.commodityPageQuery.addFilter("shelf", 1, "eq");
-
+    this.commoditiesPageQuery.addFilter("state", 2, "eq");
+    this.commoditiesPageQuery.addFilter("shelf", 1, "eq");
   }
 
   getPic(event) {
@@ -146,8 +159,13 @@ export class FormRecommendComponent implements OnInit, OnChanges {
       state: [0, Validators.compose([Validators.required, Validators.min(0), Validators.max(1)])],
       commodities: [null, Validators.compose([Validators.required])],
       showBanner: [0, Validators.compose([Validators.required, Validators.min(0), Validators.max(1)])],
-      showTitle: [0, Validators.compose([Validators.required, Validators.min(0), Validators.max(1)])]
+      showTitle: [0, Validators.compose([Validators.required, Validators.min(0), Validators.max(1)])],
+      linkType: [1],
+      linkId: [],
+      commodity: [null],
     });
+    //自定义图片链接表单
+    this.commonForm.get('commodity').setValidators(commodityValidator(this.commonForm.get('linkType')))
   }
 
 
@@ -165,10 +183,32 @@ export class FormRecommendComponent implements OnInit, OnChanges {
       showMode: recommend.showMode,
       state: recommend.state,
       showBanner: recommend.showBanner,
-      showTitle: recommend.showTitle
+      showTitle: recommend.showTitle,
+      linkType: recommend.linkType,
+      linkId: recommend.linkId,
+      commodity: [],
     });
     this.modalSelect.dataRetrieval(recommend.commodities);
 
+    if (this.recommend != null) {
+      if (this.recommend.linkType == 1) {
+        this.commodityService.getVoById(this.recommend.linkId).subscribe(response => {
+          if (response.result == SUCCESS) {
+            this.commonForm.patchValue({
+              commodity: {
+                id: response.data.id,
+                commodityShortName: response.data.commodityShortName
+              },
+            })
+            this.commodityModalSelect.dataRetrieval(this.commonForm.value.commodity);
+          } else {
+            this.msgSrv.error('请求失败', response.message);
+          }
+        }, error => {
+          this.msgSrv.error('请求错误', error.message);
+        });
+      }
+    }
   }
 
   submitCheck(): any {
@@ -198,6 +238,18 @@ export class FormRecommendComponent implements OnInit, OnChanges {
   }
 
   setCommodity(event) {
+    this.commonForm.patchValue({
+      linkId: event.id
+    })
+    this.commonForm.patchValue({
+      commodity: {
+        id: event.id,
+        commodityShortName: event.commodityShortName
+      }
+    })
+  }
+
+  setCommodities(event) {
     this.commonForm.patchValue({
       commodities: event.map(e => {
         return {id: e.id, commodityShortName: e.commodityShortName, commodityNo: e.commodityNo, imgPath: e.imgPath}
