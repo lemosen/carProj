@@ -1258,7 +1258,7 @@ public class MemberServiceImpl implements IMemberService, InitializingBean {
     @Override
     public boolean updateMemberLevel(int parentId) {
         Member member = memberDao.getOne(parentId);
-        List<MemberLevel> orderByRankDesc = memberLevelDao.findAllByOrderByRankAsc();
+        List<MemberLevel> orderByRankDesc = memberLevelDao.findByDeletedByOrderByRankAsc(0);
 
         orderByRankDesc.forEach(e -> {
             if (e.getRank() > member.getMemberLevel().getRank() && e.getCountNumber() <= member.getRecommendNumber()) {
