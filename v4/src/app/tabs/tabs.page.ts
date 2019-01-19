@@ -38,11 +38,6 @@ export class TabsPage {
 
     }
 
-    ngAfterViewInit() {
-
-    }
-
-
     selectTab(index) {
         this.icons.forEach((e, i) => {
             this.icons[i] = this.icons[i].replace(this.selects[i], this.names[i])

@@ -91,5 +91,5 @@ public interface MemberLevelDao extends JpaRepository<MemberLevel, Integer>, Jpa
 	 */
 	List<MemberLevel> findByGrowthValueLessThanEqualOrDefaultedAndDeletedOrderByGrowthValueDesc(Integer integral, Integer defaulted, Integer deleted);
 
-	List<MemberLevel> findByDeletedByOrderByRankAsc(Integer deleted);
+	List<MemberLevel> findByDeletedOrderByRankAsc(Integer deleted);
 }

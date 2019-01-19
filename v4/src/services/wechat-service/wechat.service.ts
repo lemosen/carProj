@@ -48,6 +48,11 @@ export class WechatService extends HttpServiceProvider {
 
     }
 
+    cashWithdrawalForMp(money, memberId) {
+        const params = new HttpParams().set("money", money).set("memberId", memberId);
+        return this.get("cashWithdrawalForSp", params);
+    }
+
     /**
      * 微信公众号分享
      * @param shareData

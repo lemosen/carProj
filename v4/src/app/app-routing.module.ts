@@ -54,6 +54,7 @@ const routes: Routes = [
     {path: 'AgreementPage', loadChildren: './rule-info/agreement/agreement.module#AgreementPageModule'},
     {path: 'RegisterPage', loadChildren: './register/register.module#RegisterPageModule'},
     {path: 'ForgetPasswordPage', loadChildren: './forget-password/forget-password.module#ForgetPasswordPageModule'},
+    {path: 'WithdrawCashPage', loadChildren: './withdraw-cash/withdraw-cash.module#WithdrawCashPageModule'},
 
 
 

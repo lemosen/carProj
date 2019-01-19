@@ -1,7 +1,7 @@
 #生产环境配置
 
 logging:
-  path: /logs/prod
+  path: /Users/lemosen/logs/prod
   config: classpath:logback-spring.xml
   level:
     com.yi: INFO

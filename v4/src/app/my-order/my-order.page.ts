@@ -192,7 +192,7 @@ export class MyOrderPage implements OnInit {
                 if (e.result == "SUCCESS") {
                     if (i + 1 == order.saleOrderItems.length) {
                         this.events.publish(REFRESH_SHOPPINGCART);
-                        this.navCtrl.navigateForward("/tabs/(shoppingCart:shoppingCart)")
+                        this.navCtrl.navigateForward("ShoppingCartPage")
                     }
                 } else {
                     this.nativeProvider.showToastFormI4(e.message);

@@ -20,6 +20,12 @@ export class CustomerCenterPage {
         this.events.subscribe(REFRESH_CUSTOMERCENTER, () => this.ionViewWillEnter())
     }
 
+    goWithdraw(){
+        this.isLogin().then(e => {
+            this.navCtrl.navigateForward("WithdrawCashPage");
+        });
+
+    }
     ionViewWillEnter() {
         this.orderNum = [0,0,0,0];
         this.localCity = this.memberProvider.getLocationInfo();

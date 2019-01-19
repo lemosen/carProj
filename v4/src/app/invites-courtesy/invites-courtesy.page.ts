@@ -97,7 +97,7 @@ export class InvitesCourtesyPage implements OnInit {
         let shareData = {
             title: '邀请有礼',
             desc: '加入我们的团队,登峰造极',
-            link: encodeURI(window.location.href.split('#')[0] + 'wechatShare.html?RegisterPage&preMemberId=' + this.member.id + '?'),
+            link: encodeURI(window.location.href.split('#')[0] + 'wechatShare.html?RegisterPagelmpreMemberId=' + this.member.id ),
             imgUrl: window.location.href.split('#')[0] + 'assets/imgs/服务中心logo.png',
         };
         this.wechatProvider.share(shareData);

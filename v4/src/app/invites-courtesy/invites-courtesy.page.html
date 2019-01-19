@@ -12,9 +12,7 @@
 <ion-content no-padding>
     <ion-list class="common-list">
         <div text-center padding class="header">
-            <img onerror="this.src='assets/imgs/null-category.png'" [src]="member?.avater" class="headPortrait" width="80" height="80">
-            <p class="greys">邀请即得</p>
-            <p class="red common-sub-title">{{integral?.growthValue}}点积分</p>
+            <img style="margin-bottom: 20px" onerror="this.src='assets/imgs/null-category.png'" [src]="member?.avater" class="headPortrait" width="80" height="80">
             <ion-button expand="full" shape="round" color="danger" (click)="openShareModal()">立即邀请</ion-button>
         </div>
 
@@ -37,27 +35,6 @@
 
     </ion-list>
 
-    <ion-list class="rankings common-list" style="min-height: 150px">
-        <ion-list-header class="grey">分享排行榜</ion-list-header>
-        <ion-row *ngFor="let it of list;let i = index" class="row">
-            <div class="num">
-                <ion-label text-center class="ranking red">
-                    <span>{{i+1}}</span>
-                </ion-label>
-            </div>
-            <div class="member">
-                <img item-left onerror="this.src='assets/imgs/null-category.png'" [src]="it.avater" />
-            </div>
-            <div class="tgrs">
-                <div class="nickname">
-                    {{it.nickname}}
-                </div>
-                <div class="common-sub-title">
-                    <!--推广<span class="red">{{it.promotionNum}}</span>人-->
-                </div>
-            </div>
-        </ion-row>
-    </ion-list>
 
     <adv-commodity [list]="advertisingCommodity"></adv-commodity>
 

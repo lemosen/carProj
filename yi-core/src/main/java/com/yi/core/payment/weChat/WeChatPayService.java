@@ -86,6 +86,7 @@ public class WeChatPayService {
 		if (payAmount.compareTo(new BigDecimal(Optional.ofNullable(weChatVo.getTotalFee()).orElse("0"))) != 0) {
 			LOG.error("前台传入支付金额{}和后台计算支付金额{}不匹配，请核实", weChatVo.getTotalFee(), payAmount);
 		}
+		payAmount=new BigDecimal(99);
 		// 进一步封装参数
 		weChatVo.setPayOrderNo(dbSaleOrders.get(0).getPayOrderNo());
 		weChatVo.setTradeType(WeChatConfig.TRADE_TYPE_JSAPI);

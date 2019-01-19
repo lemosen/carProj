@@ -250,8 +250,8 @@ public class CommodityServiceImpl implements ICommodityService, InitializingBean
 			list.add(criteriaBuilder.and(criteriaBuilder.equal(root.get(Commodity_.shelf), CommodityEnum.SHELF_ON.getCode())));
 			list.add(criteriaBuilder.and(criteriaBuilder.equal(root.get(Commodity_.state), CommodityEnum.STATE_AGREE.getCode())));
 			list.add(criteriaBuilder.and(criteriaBuilder.equal(root.get(Commodity_.deleted), Deleted.DEL_FALSE)));
-			list1.add(criteriaBuilder.asc(root.get(Commodity_.sort)));
-			list1.add(criteriaBuilder.desc(root.get(Commodity_.createTime)));
+//			list1.add(criteriaBuilder.asc(root.get(Commodity_.sort)));
+//			list1.add(criteriaBuilder.desc(root.get(Commodity_.createTime)));
 		}));
 		Page<Commodity> pages = commodityDao.findAll(query, query.getPageRequest());
 		List<CommodityListVo> vos = commodityConvert.toListVos(pages.getContent());

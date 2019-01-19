@@ -30,7 +30,8 @@ export class PersonalCenterPage implements OnInit {
     }
 
     goMemberGrade() {
-        this.navCtrl.navigateForward("MemberGradePage")
+        // this.navCtrl.navigateForward("GrowthValuePage");
+        // this.navCtrl.navigateForward("MemberGradePage")
     }
 
     goAccountsSecurity() {

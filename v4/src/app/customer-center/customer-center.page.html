@@ -1,11 +1,14 @@
 <ion-content no-padding>
     <ion-list>
-        <div class="customer-head">
+        <div class="customer-head" style="height: 100%;padding: 40px 0 10px 0">
             <!--<div class="set-icon" (click)="goSystemSet()"></div>-->
-            <div class="flex-row" style="justify-content: flex-start; align-items: center ;height: 100%">
+            <div class="flex-row" style="justify-content: flex-start; align-items: center ;">
                 <img class="member-avater" onerror="this.src='../../assets/imgs/null-category.png'" [src]="member?.avater" (click)="goPersonalCenter()">
                 <span class="common-title white" (click)="goPersonalCenter()">{{member?.nickname || "请登录"}}</span>
+
             </div>
+            <div class="flex-row" style=" color: white;justify-content: space-between;padding: 0 10px;   margin-top: 30px;">可提现佣金：{{member?.account?.balance}}元 <span (click)="goWithdraw()" style="padding: 2px 6px;background-color: white;color: #e51765;float: right;border-radius: 20px;">提现</span></div>
+
         </div>
 
         <div class="bg-white">
@@ -41,6 +44,10 @@
 
         <div class="common-hr"></div>
         <div class="function-btns" style="justify-content:flex-start">
+            <div (click)="goInvitesCourtesy()">
+                <img src="../../assets/app_icon/customer/邀请有礼icon@2x.png">
+                <div class="common-sub-title greys">邀请有礼</div>
+            </div>
             <div (click)="goMyTeam()">
                 <img src="../../assets/app_icon/customer/团队icon@2x.png">
                 <div class="common-sub-title greys">我的团队</div>
