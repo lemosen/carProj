@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      我的学员
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div padding>
+    <ion-segment [(ngModel)]="pet">
+      <ion-segment-button value="q">
+        报名
+      </ion-segment-button>
+      <ion-segment-button value="w">
+        科目一
+      </ion-segment-button>
+      <ion-segment-button value="e">
+        科目二
+      </ion-segment-button>
+      <ion-segment-button value="r">
+        科目三
+      </ion-segment-button>
+      <ion-segment-button value="t">
+        科目四
+      </ion-segment-button>
+      <ion-segment-button value="y">
+        领证
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  <ion-list>
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1547631970422&di=5d6c7847832fed9a625cdc3578479cd2&imgtype=0&src=http%3A%2F%2Flife.southmoney.com%2Ftuwen%2FUploadFiles_6871%2F201808%2F20180808151217516.jpg">
+      </ion-avatar>
+      <h2>学员1</h2>
+      <h3>13670000000</h3>
+      <p>成绩100<span style="float: right">2018-12-10</span></p>
+    </ion-item>
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1547631970422&di=5d6c7847832fed9a625cdc3578479cd2&imgtype=0&src=http%3A%2F%2Flife.southmoney.com%2Ftuwen%2FUploadFiles_6871%2F201808%2F20180808151217516.jpg">
+      </ion-avatar>
+      <h2>学员2</h2>
+      <h3>13670000000</h3>
+      <p>成绩100<span style="float: right">2018-12-10</span></p>
+    </ion-item>
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1547631970422&di=5d6c7847832fed9a625cdc3578479cd2&imgtype=0&src=http%3A%2F%2Flife.southmoney.com%2Ftuwen%2FUploadFiles_6871%2F201808%2F20180808151217516.jpg">
+      </ion-avatar>
+      <h2>学员3</h2>
+      <h3>13670000000</h3>
+      <p>成绩100<span style="float: right">2018-12-10</span></p>
+    </ion-item>
+  </ion-list>
+  <div class="flex-row flex-center" style="    width: 100%;
+    position: fixed;
+    text-align: center;
+    flex-wrap: wrap;
+    bottom: 0;">
+    <button ion-button>添加学员</button>
+    <button ion-button>邀请学员</button>
+  </div>
+</ion-content>
